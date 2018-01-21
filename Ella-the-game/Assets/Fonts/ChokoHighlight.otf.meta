@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 13744a31016b87849aaeacef6888e60b
+timeCreated: 1515850271
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Choko Highlight
+  fontNames:
+  - Choko Highlight
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 10bf911b85d14c142bf69f5bb3c38b9e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

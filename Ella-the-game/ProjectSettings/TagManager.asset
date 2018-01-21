@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Fire
+  - MainCanvas
+  - LevelGlobalGO
+  - WaitPanel
+  - scoreText
+  - EndMenu
+  - EventSystem
+  - PlatformGenerationPos
+  - ObstaclesGenerationPos
+  - PrizesGenerationPos
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Ground
+  - Player
+  - ignoredObstacles
+  - Enemies
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2676620279
+    locked: 0
+  - name: Obstacles
+    uniqueID: 2259496735
+    locked: 0
+  - name: Player
+    uniqueID: 4270580605
+    locked: 0
+  - name: ForeGround
+    uniqueID: 1698111241
+    locked: 0

@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: e8cca37be284c664193364ba2790c342
+timeCreated: 1515850272
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Choko Outline
+  fontNames:
+  - Choko Outline
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 5dafc8a4b0f247d47ae60c446f6ea513, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
