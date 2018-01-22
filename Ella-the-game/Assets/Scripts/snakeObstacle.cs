@@ -4,12 +4,27 @@ using UnityEngine;
 
 public class snakeObstacle : MonoBehaviour {
     private Animator snakeAnimator;
-    [SerializeField]
+
     private int healthEffect ;
     GameObject rayCastPoint;
     private bool affectedPlayer;
+    private int difficulty;
     // Use this for initialization
     void Start () {
+        //Difficulty Settup
+        difficulty = PlayerPrefs.GetInt("difficulty");
+        if (difficulty == 0)
+        {
+            healthEffect = -5;
+        }
+        else if (difficulty == 1)
+        {
+            healthEffect = -20;
+        }
+        else if (difficulty == 2)
+        {
+            healthEffect = -100;
+        }
         snakeAnimator = GetComponentInParent<Animator>();
         rayCastPoint = this.transform.Find("Bones/Body/Neck_1/Neck_2/Head/rayCastPoint").gameObject;
        

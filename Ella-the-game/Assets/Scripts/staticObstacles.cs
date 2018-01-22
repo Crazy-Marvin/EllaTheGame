@@ -3,12 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class staticObstacles : MonoBehaviour {
-    [SerializeField]
+
     private int healthEffect;
+    private int difficulty;
     // Use this for initialization
     void Start () {
-		
-	}
+        //Difficulty Settup
+        difficulty = PlayerPrefs.GetInt("difficulty");
+        if (difficulty==0)
+        {
+            healthEffect = -5;
+        }else if (difficulty == 1)
+        {
+            healthEffect = -20;
+        }
+        else if (difficulty == 2)
+        {
+            healthEffect = -100;
+        }
+
+    }
 	
 	// Update is called once per frame
 	void Update () {

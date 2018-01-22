@@ -1,14 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour {
     GameObject waitPanel;
+    [SerializeField]
+    private Button puppyBtn, adultBtn, seniorBtn;
+    private int difficulty;
     // Use this for initialization
     void Start () {
         waitPanel = GameObject.FindGameObjectWithTag("WaitPanel");
         waitPanel.SetActive(false);
+        //Difficulty Settup
+        difficulty = PlayerPrefs.GetInt("difficulty");
+        Debug.Log(difficulty);
+        if (difficulty == 0)
+        {
+            puppyBtn.GetComponent<Image>().color = new Color32(103, 0, 0, 255);
+        }
+        else if (difficulty == 1)
+        {
+            adultBtn.GetComponent<Image>().color = new Color32(103, 0, 0, 255);
+        }
+        else
+        {
+            seniorBtn.GetComponent<Image>().color = new Color32(103, 0, 0, 255);
+        }
     }
 	
 	// Update is called once per frame
@@ -34,5 +53,31 @@ public class MainMenuManager : MonoBehaviour {
     public void exitGame()
     {
         Application.Quit();
+    }
+    public void setDifficulty(GameObject Btn)
+    {
+ 
+       
+        if (Btn.tag == "puppyDiff")
+        {
+            PlayerPrefs.SetInt("difficulty", 0);
+            puppyBtn.GetComponent<Image>().color = new Color32(103, 0, 0, 255);
+            adultBtn.GetComponent<Image>().color = new Color32(24, 24, 24, 255);
+            seniorBtn.GetComponent<Image>().color = new Color32(24, 24, 24, 255);
+        }
+        else if (Btn.tag == "adultDiff")
+        {
+            PlayerPrefs.SetInt("difficulty", 1);
+            puppyBtn.GetComponent<Image>().color = new Color32(24, 24, 24, 255);
+            adultBtn.GetComponent<Image>().color = new Color32(103, 0, 0, 255);
+            seniorBtn.GetComponent<Image>().color = new Color32(24, 24, 24, 255);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("difficulty", 2);
+            puppyBtn.GetComponent<Image>().color = new Color32(24, 24, 24, 255);
+            adultBtn.GetComponent<Image>().color = new Color32(24, 24, 24, 255);
+            seniorBtn.GetComponent<Image>().color = new Color32(103, 0, 0, 255);
+        }
     }
 }

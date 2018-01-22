@@ -7,11 +7,29 @@ public class snowmanObstacle : MonoBehaviour {
     private Rigidbody2D RB;
     [SerializeField]
     private float movemmentSpeed;
-    [SerializeField]
+
     private int healthEffect;
+    private int difficulty;
     // Use this for initialization
     void Start () {
+        //Difficulty Settup
+        difficulty = PlayerPrefs.GetInt("difficulty");
+        Debug.Log(difficulty);
+        if (difficulty == 0)
+        {
+            healthEffect = -5;
+        }
+        else if (difficulty == 1)
+        {
+            healthEffect = -20;
+        }
+        else if (difficulty == 2)
+        {
+            healthEffect = -100;
+        }
+        
         RB = GetComponent<Rigidbody2D>();
+
     }
 	
 	// Update is called once per frame
