@@ -237,7 +237,14 @@ PlayerSettings:
     banner: {fileID: 0}
   androidGamepadSupportLevel: 0
   resolutionDialogBanner: {fileID: 0}
-  m_BuildTargetIcons: []
+  m_BuildTargetIcons:
+  - m_BuildTarget: 
+    m_Icons:
+    - serializedVersion: 2
+      m_Icon: {fileID: 2800000, guid: 25424e40e4bcdb14eb9a83436f3e24eb, type: 3}
+      m_Width: 128
+      m_Height: 128
+      m_Kind: 0
   m_BuildTargetBatching: []
   m_BuildTargetGraphicsAPIs: []
   m_BuildTargetVRSettings: []
@@ -307,17 +314,17 @@ PlayerSettings:
   switchPublisherNames_9: 
   switchPublisherNames_10: 
   switchPublisherNames_11: 
-  switchIcons_0: {fileID: 0}
-  switchIcons_1: {fileID: 0}
-  switchIcons_2: {fileID: 0}
-  switchIcons_3: {fileID: 0}
-  switchIcons_4: {fileID: 0}
-  switchIcons_5: {fileID: 0}
-  switchIcons_6: {fileID: 0}
-  switchIcons_7: {fileID: 0}
-  switchIcons_8: {fileID: 0}
-  switchIcons_9: {fileID: 0}
-  switchIcons_10: {fileID: 0}
+  switchIcons_0: {fileID: 2800000, guid: 25424e40e4bcdb14eb9a83436f3e24eb, type: 3}
+  switchIcons_1: {fileID: 2800000, guid: 25424e40e4bcdb14eb9a83436f3e24eb, type: 3}
+  switchIcons_2: {fileID: 2800000, guid: 25424e40e4bcdb14eb9a83436f3e24eb, type: 3}
+  switchIcons_3: {fileID: 2800000, guid: 25424e40e4bcdb14eb9a83436f3e24eb, type: 3}
+  switchIcons_4: {fileID: 2800000, guid: 25424e40e4bcdb14eb9a83436f3e24eb, type: 3}
+  switchIcons_5: {fileID: 2800000, guid: 25424e40e4bcdb14eb9a83436f3e24eb, type: 3}
+  switchIcons_6: {fileID: 2800000, guid: 25424e40e4bcdb14eb9a83436f3e24eb, type: 3}
+  switchIcons_7: {fileID: 2800000, guid: 25424e40e4bcdb14eb9a83436f3e24eb, type: 3}
+  switchIcons_8: {fileID: 2800000, guid: 25424e40e4bcdb14eb9a83436f3e24eb, type: 3}
+  switchIcons_9: {fileID: 2800000, guid: 25424e40e4bcdb14eb9a83436f3e24eb, type: 3}
+  switchIcons_10: {fileID: 2800000, guid: 25424e40e4bcdb14eb9a83436f3e24eb, type: 3}
   switchIcons_11: {fileID: 0}
   switchSmallIcons_0: {fileID: 0}
   switchSmallIcons_1: {fileID: 0}
