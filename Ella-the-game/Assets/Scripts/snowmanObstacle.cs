@@ -8,13 +8,12 @@ public class snowmanObstacle : MonoBehaviour {
     [SerializeField]
     private float movemmentSpeed;
 
-    private int healthEffect;
+    private int healthEffect = -5;
     private int difficulty;
     // Use this for initialization
     void Start () {
         //Difficulty Settup
         difficulty = PlayerPrefs.GetInt("difficulty");
-        Debug.Log(difficulty);
         if (difficulty == 0)
         {
             healthEffect = -5;

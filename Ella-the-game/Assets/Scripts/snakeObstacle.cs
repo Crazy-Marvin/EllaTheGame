@@ -5,7 +5,7 @@ using UnityEngine;
 public class snakeObstacle : MonoBehaviour {
     private Animator snakeAnimator;
 
-    private int healthEffect ;
+    private int healthEffect = -5;
     GameObject rayCastPoint;
     private bool affectedPlayer;
     private int difficulty;

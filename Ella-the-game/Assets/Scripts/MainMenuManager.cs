@@ -15,7 +15,7 @@ public class MainMenuManager : MonoBehaviour {
         waitPanel.SetActive(false);
         //Difficulty Settup
         difficulty = PlayerPrefs.GetInt("difficulty");
-        Debug.Log(difficulty);
+        Debug.Log("DDDDDDDDiffffff= "+difficulty);
         if (difficulty == 0)
         {
             puppyBtn.GetComponent<Image>().color = new Color32(103, 0, 0, 255);

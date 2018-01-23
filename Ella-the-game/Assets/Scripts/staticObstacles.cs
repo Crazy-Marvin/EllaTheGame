@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class staticObstacles : MonoBehaviour {
 
-    private int healthEffect;
+    private int healthEffect=-5;
     private int difficulty;
     // Use this for initialization
     void Start () {

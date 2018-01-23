@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/MainMenu.unity
+- path: Assets/Snow_level.unity
   isLoaded: 1
   isActive: 1

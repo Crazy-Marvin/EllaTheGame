@@ -1,4 +1,4 @@
-OSXStandalone
+Android
 922f4b75263bf49dfee3e84766453c47 Assembly-CSharp.dll:.ObstaclesGenerator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 970a95104359198fe1a98ef48655de8c UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
@@ -14,7 +14,7 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 af723155c251fcfa0e66530a75f3ea4c UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
 f54a46b2e320b3b1abfcbc1d66c2a22d Assembly-CSharp.dll:Anima2D.SpriteMeshAnimation
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.AppEvents
-0161dce38bbd87632e62a71193fcf168 Assembly-CSharp.dll:.snowmanObstacle
+3f49582fe3eec79ee9c9b85156fbca33 Assembly-CSharp.dll:.snowmanObstacle
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.AccessTokenMenu
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
@@ -94,7 +94,7 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 6af7378a45ad6da4992a71ef50ddc2eb UnityEngine.Timeline.dll:UnityEngine.Timeline.GroupTrack
 6af7378a45ad6da4992a71ef50ddc2eb UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 af723155c251fcfa0e66530a75f3ea4c UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
-bb053653a835aa87c36e991d9a62b0b9 Assembly-CSharp.dll:.staticObstacles
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.staticObstacles
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 60b2bb652410a5867a5ab9a01cd38461 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
@@ -110,7 +110,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 73843688b51256aed059f049c540bca8 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.MainMenuManager
+bc551f6570c7f59eec86bbcc01b088ff Assembly-CSharp.dll:.MainMenuManager
 dc07d7ad69b399a46e92c483bf1c04ca UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
@@ -120,7 +120,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.AppLinks
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.DialogShare
 eced8c8958fc8778d1b8604e9122d164 Assembly-CSharp.dll:Anima2D.IkLimb2D
-bb053653a835aa87c36e991d9a62b0b9 Assembly-CSharp.dll:.snakeObstacle
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.snakeObstacle
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.GraphRequest
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.LogView
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.ConsoleBase

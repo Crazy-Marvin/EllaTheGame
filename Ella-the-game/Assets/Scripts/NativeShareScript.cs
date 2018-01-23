@@ -13,7 +13,7 @@ public class NativeShareScript : MonoBehaviour
     {
         if (!isProcessing)
         {
-            CanvasShareObj.SetActive(true);
+           // CanvasShareObj.SetActive(true);
             StartCoroutine(ShareScreenshot());
         }
     }
@@ -51,7 +51,7 @@ public class NativeShareScript : MonoBehaviour
         }
 
         yield return new WaitUntil(() => isFocus);
-        CanvasShareObj.SetActive(false);
+        //CanvasShareObj.SetActive(false);
         isProcessing = false;
     }
 
