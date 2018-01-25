@@ -1,4 +1,4 @@
-Android
+WebGL
 922f4b75263bf49dfee3e84766453c47 Assembly-CSharp.dll:.ObstaclesGenerator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 970a95104359198fe1a98ef48655de8c UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack

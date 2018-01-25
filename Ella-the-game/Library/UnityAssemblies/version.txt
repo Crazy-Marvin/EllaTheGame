@@ -1,5 +1,5 @@
 2017.2.0f3:3.1.0.0
-Android
+WebGL
 A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEditor.dll
 A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll
 A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll
@@ -71,6 +71,7 @@ A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/UnityExtensions/Unity/
 A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll
 A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
 A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll
 A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll

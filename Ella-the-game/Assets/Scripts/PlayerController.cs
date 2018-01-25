@@ -125,12 +125,12 @@ public class PlayerController : MonoBehaviour {
     private bool jumping()
     {
         bool isJumping=false;
-#if UNITY_STANDALONE || UNITY_WEBPLAYER
+
         if(Input.GetKeyDown(KeyCode.Space)){
             isJumping = true;
             Debug.Log("Unity editor");
         }
-#else
+
         if (Input.touchCount > 0 && eventSystem.currentSelectedGameObject == null)
         {
                 Touch myTouch = Input.touches[0];
@@ -139,7 +139,6 @@ public class PlayerController : MonoBehaviour {
                     isJumping = true;
                 }
         }
-#endif
         return isJumping;
 
     }
