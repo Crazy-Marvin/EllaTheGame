@@ -5,7 +5,7 @@
 [![Build Status Mobile](https://www.bitrise.io/app/ff4291ef82a9aa0f/status.svg?token=BPHko7oZ426o6PJNZtKV8A&branch=master)](https://www.bitrise.io/app/ff4291ef82a9aa0f)
 [![License](https://img.shields.io/github/license/Crazy-Marvin/EllaTheGame.svg)](LICENSE.txt)
 [![Last commit](https://img.shields.io/github/last-commit/Crazy-Marvin/EllaTheGame.svg)](https://github.com/Crazy-Marvin/EllaTheGame/)
-[![Releases](https://img.shields.io/github/downloads/Crazy-Marvin/EllaTheGame/total.svg)](https://github.com/Crazy-Marvin/EllaTheGemae/releases)
+[![Releases](https://img.shields.io/github/downloads/Crazy-Marvin/EllaTheGame/total.svg)](https://github.com/Crazy-Marvin/EllaTheGame/releases)
 [![codecov](https://codecov.io/gh/Crazy-Marvin/EllaTheGame/branch/master/graph/badge.svg)](https://codecov.io/gh/Crazy-Marvin/EllaTheGame)
 
 # Building for ANDROID
