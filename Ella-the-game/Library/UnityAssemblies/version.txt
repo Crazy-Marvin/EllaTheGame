@@ -1,5 +1,5 @@
 2017.2.0f3:3.1.0.0
-Android
+iOS
 A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEditor.dll
 A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll
 A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll
