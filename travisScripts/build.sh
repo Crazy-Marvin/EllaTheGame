@@ -39,7 +39,7 @@ rc1=$?
 echo "Build logs (Windows)"
 cat $(pwd)/unity.log
 
-echo "Attempting build of ${Ella-the-game} for OSX"
+echo "Attempting build of ${Ella-the-game} for the OSX"
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
 	-batchmode \
 	-nographics \
