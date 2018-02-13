@@ -3,9 +3,9 @@ osx_image: xcode9.2
 rvm:
 - 2.2
 before_install:
-- chmod a+x ./Scripts/install.sh
-- chmod a+x ./Scripts/build.sh
+- chmod a+x ./travisScripts/install.sh
+- chmod a+x ./travisScripts/build.sh
 install:
-- ./Scripts/install.sh
+- ./travisScripts/install.sh
 script:
-- ./Scripts/build.sh
+- ./travisScripts/build.sh
