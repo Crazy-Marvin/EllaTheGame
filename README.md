@@ -14,6 +14,40 @@ Ella - The Game is an open source endless runner for Android, Linux, Windows, ma
 
 Ella, the smart and adorable dog, is lost and is doing whatever it takes to find the way out. In this free jumping and running dog game, Ella is running automatically and as the screen is moving forward you need to jump over the obstacles and collect as many coins and gifts as you can. So, you’ve got two objectives in this side-scrolling adventure game: avoid hitting obstacles and hurdles and collect coins.
 
+<p align="left">
+<a href="https://play.google.com/store/apps/details?id=rocks.poopjournal.Ella">
+    <img alt="Get it on Google Play"
+        height="80"
+        src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" />
+</a>  
+ <a href="https://f-droid.org/packages/rocks.poopjournal.Ella/">
+    <img alt="Get it on F-Droid"
+        height="80"
+        src="https://f-droid.org/badge/get-it-on.png" />
+        </a>
+  <a href="https://github.com/Crazy-Marvin/EllaTheGame/releases/>
+    <img alt="Get it on Linux"
+        height="80"
+        src="https://cloud.githubusercontent.com/assets/22402568/18798626/ae2ed1fa-81d3-11e6-8407-324a62a5f77f.png" />
+        </a>
+  <a href="https://github.com/Crazy-Marvin/EllaTheGame/releases/>
+    <img alt="Get it on Windows"
+        height="80"
+        src="https://cloud.githubusercontent.com/assets/22402568/18798626/ae2ed1fa-81d3-11e6-8407-324a62a5f77f.png" />
+        </a>
+  <a href="https://github.com/Crazy-Marvin/EllaTheGame/releases/>
+    <img alt="Get it on macOS"
+        height="80"
+        src="https://cloud.githubusercontent.com/assets/22402568/18798626/ae2ed1fa-81d3-11e6-8407-324a62a5f77f.png" />
+        </a>
+   <a href="https://poopjournal.rocks/EllaTheGame/play/">
+    <img alt="Get it on WebGL"
+        height="80"
+        src="https://cloud.githubusercontent.com/assets/22402568/18798626/ae2ed1fa-81d3-11e6-8407-324a62a5f77f.png" />
+        </a>   
+        </p>
+
+
 # Building for ANDROID
 
 ## Setting up the Android SDK Tools
