@@ -25,6 +25,12 @@ Ella, the smart and adorable dog, is lost and is doing whatever it takes to find
         height="80"
         src="https://f-droid.org/badge/get-it-on.png" />
         </a>
+   <a href="https://poopjournal.rocks/EllaTheGame/play/">
+    <img alt="Get it on WebGL"
+        height="80"
+        src="https://cloud.githubusercontent.com/assets/22402568/18798626/ae2ed1fa-81d3-11e6-8407-324a62a5f77f.png" />
+        </a>      
+    <br>
   <a href="https://github.com/Crazy-Marvin/EllaTheGame/releases/>
     <img alt="Get it on Linux"
         height="80"
@@ -39,12 +45,7 @@ Ella, the smart and adorable dog, is lost and is doing whatever it takes to find
     <img alt="Get it on macOS"
         height="80"
         src="https://cloud.githubusercontent.com/assets/22402568/18798626/ae2ed1fa-81d3-11e6-8407-324a62a5f77f.png" />
-        </a>
-   <a href="https://poopjournal.rocks/EllaTheGame/play/">
-    <img alt="Get it on WebGL"
-        height="80"
-        src="https://cloud.githubusercontent.com/assets/22402568/18798626/ae2ed1fa-81d3-11e6-8407-324a62a5f77f.png" />
-        </a>   
+        </a> 
         </p>
 
 
