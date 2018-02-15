@@ -1,5 +1,7 @@
 # Ella - The Game
 
+Ella - The Game is an open source endless runner for Android, Linux, Windows, macOS & WebGL. It is not planned to support other [platforms](https://unity3d.com/unity/features/multiplatform).
+
 [![Build Status](https://travis-ci.org/Crazy-Marvin/EllaTheGame.svg?branch=master)](https://travis-ci.org/Crazy-Marvin/EllaTheGame)
 [![Build Status Windows](https://ci.appveyor.com/api/projects/status/qqhmlau1cvom1d4c?svg=true)](https://ci.appveyor.com/project/CrazyMarvin/ellathegame)
 [![Build Status Mobile](https://www.bitrise.io/app/ff4291ef82a9aa0f/status.svg?token=BPHko7oZ426o6PJNZtKV8A&branch=master)](https://www.bitrise.io/app/ff4291ef82a9aa0f)
@@ -7,6 +9,10 @@
 [![Last commit](https://img.shields.io/github/last-commit/Crazy-Marvin/EllaTheGame.svg)](https://github.com/Crazy-Marvin/EllaTheGame/)
 [![Releases](https://img.shields.io/github/downloads/Crazy-Marvin/EllaTheGame/total.svg)](https://github.com/Crazy-Marvin/EllaTheGame/releases)
 [![codecov](https://codecov.io/gh/Crazy-Marvin/EllaTheGame/branch/master/graph/badge.svg)](https://codecov.io/gh/Crazy-Marvin/EllaTheGame)
+
+# About
+
+Ella, the smart and adorable dog, is lost and is doing whatever it takes to find the way out. In this free jumping and running dog game, Ella is running automatically and as the screen is moving forward you need to jump over the obstacles and collect as many coins and gifts as you can. So, you’ve got two objectives in this side-scrolling adventure game: avoid hitting obstacles and hurdles and collect coins.
 
 # Building for ANDROID
 
@@ -34,11 +40,12 @@ NEXT WE NEED TO INSTALL THE ANDROID SDK TOOLS
  - Now comeback open the Build Settings from the top menu (File > Build Settings), and click on Build.
  for detailed tutorial about building to ANDROID visit this link https://unity3d.com/learn/tutorials/topics/mobile-touch/building-your-unity-game-android-device-testing
  
- # Building for IOS
+ # Building for iOS
  
- Building for IOS is a long process, but Unity created a good Guide for building for IOS.
- - First, you should have a Mac and Xcode installed. If you don't have a mac install it on a Virtual Machine or rent an online server and install Xcode. Once you did that follow this Unity tutorial.
+ Building for iOS is a long process, but Unity created a good Guide for building for iOS.
+ - First, you should have a Mac and Xcode installed. If you don't have a Mac install it on a Virtual Machine or rent an online server and install Xcode. Once you did that follow this Unity tutorial.
  https://unity3d.com/learn/tutorials/topics/mobile-touch/building-your-unity-game-ios-device-testing
+
  
   # Building for WINDOWS
   
