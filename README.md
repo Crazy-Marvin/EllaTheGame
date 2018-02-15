@@ -1,6 +1,6 @@
 # Ella - The Game
 
-Ella - The Game is an open source endless runner for Android, Linux, Windows, macOS & WebGL. It is not planned to support other [platforms](https://unity3d.com/unity/features/multiplatform).
+Ella - The Game is an open source endless runner for Android, Linux, Windows, macOS & WebGL.
 
 [![Build Status](https://travis-ci.org/Crazy-Marvin/EllaTheGame.svg?branch=master)](https://travis-ci.org/Crazy-Marvin/EllaTheGame)
 [![Build Status Windows](https://ci.appveyor.com/api/projects/status/qqhmlau1cvom1d4c?svg=true)](https://ci.appveyor.com/project/CrazyMarvin/ellathegame)
@@ -46,7 +46,10 @@ Ella, the smart and adorable dog, is lost and is doing whatever it takes to find
         src="https://cloud.githubusercontent.com/assets/22402568/18798626/ae2ed1fa-81d3-11e6-8407-324a62a5f77f.png" />
         </a> 
         
+# Installation
 
+You can get the [builds on GitHub](https://github.com/Crazy-Marvin/EllaTheGame/releases/) or build it yourself.
+It is not planned to support other [platforms](https://unity3d.com/unity/features/multiplatform) than Android, Linux, Windows, macOS & WebGL from my side, but Unity offers the possibility to build the game for many other platforms too.
 
 # Building for ANDROID
 
@@ -106,5 +109,12 @@ NEXT WE NEED TO INSTALL THE ANDROID SDK TOOLS
 - In Platforms Make sure to select Webgl and click switch platform
 - Click Build.
   
+  # Contribute
+  
+  Contributions are always welcome! Please read the [contribution guidelines](https://github.com/Crazy-Marvin/EllaTheGame/blob/master/CONTRIBUTING.md) first.
+  
+  # License
+  
+  [MIT](https://www.tldrlegal.com/l/mit) © Crazy Marvin
  
  
