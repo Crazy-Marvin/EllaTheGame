@@ -1,6 +1,6 @@
 # Ella - The Game
 
-Ella - The Game is an open source endless runner for Android, Linux, Windows, macOS & WebGL.
+> Ella - The Game is an open source endless runner for Android, Linux, Windows, macOS & WebGL.
 
 [![Build Status](https://travis-ci.org/Crazy-Marvin/EllaTheGame.svg?branch=master)](https://travis-ci.org/Crazy-Marvin/EllaTheGame)
 [![Build Status Windows](https://ci.appveyor.com/api/projects/status/qqhmlau1cvom1d4c?svg=true)](https://ci.appveyor.com/project/CrazyMarvin/ellathegame)
