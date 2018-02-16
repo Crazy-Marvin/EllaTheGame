@@ -34,6 +34,7 @@ It is not planned to support other [platforms](https://unity3d.com/unity/feature
         height="80"
         src="https://cloud.githubusercontent.com/assets/22402568/18798626/ae2ed1fa-81d3-11e6-8407-324a62a5f77f.png" />
         </a>  
+        <br>
  <a href="https://github.com/Crazy-Marvin/EllaTheGame/releases/">
     <img alt="Get it on Linux"
         height="80"
