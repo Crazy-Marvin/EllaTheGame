@@ -1,0 +1,81 @@
+2017.2.0f3:3.1.0.0
+StandaloneWindows64
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEditor.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AccessibilityModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.PhysicsModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.VehiclesModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ClothModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AnimationModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.TextRenderingModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UIModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainPhysicsModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.IMGUIModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestAudioModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestTextureModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestWWWModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterInputModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterRendererModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UNETModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.DirectorModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityAnalyticsModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.CrashReportingModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.PerformanceReportingModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityConnectModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.WebModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ARModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.VRModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UIElementsModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.StyleSheetsModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AudioModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.GameCenterModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.GridModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ImageConversionModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.InputModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.JSONSerializeModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ParticlesLegacyModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.Physics2DModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ScreenCaptureModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteMaskModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.TilemapModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.VideoModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll
+C:/Users/king/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll
+C:/Users/king/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Common.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/UnityExtensions/Unity/Timeline/Editor/UnityEditor.Timeline.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/UnityExtensions/Unity/UIAutomation/Editor/UnityEditor.UIAutomation.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/Editor/UnityEditor.GoogleAudioSpatializer.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/Editor/UnityEditor.SpatialTracking.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll
+A:/WINDOWS stufs/Programation abdelilah/Unity/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll
+C:/Users/king/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@1.0.7/Editor/UnityEditor.Advertisements.dll
+C:/Users/king/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/Editor/UnityEditor.Analytics.dll
+C:/Users/king/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/Editor/UnityEditor.Purchasing.dll
