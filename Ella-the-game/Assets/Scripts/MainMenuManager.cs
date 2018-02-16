@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour {
-    GameObject waitPanel;
+    public GameObject waitPanel;
     [SerializeField]
     private Button puppyBtn, adultBtn, seniorBtn;
     private int difficulty;
