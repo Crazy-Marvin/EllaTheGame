@@ -16,38 +16,57 @@ Ella, the smart and adorable dog, is lost and is doing whatever it takes to find
         
 # Installation
 
-You can get the [builds on GitHub](https://github.com/Crazy-Marvin/EllaTheGame/releases/) or build it yourself.
-It is not planned to support other [platforms](https://unity3d.com/unity/features/multiplatform) than Android, Linux, Windows, macOS & WebGL from my side, but Unity offers the possibility to build the game for many other platforms too.
+You can get the Android, Linux, Windows, macOS & WebGL [builds on GitHub](https://github.com/Crazy-Marvin/EllaTheGame/releases/), click on the badges below or build it yourself. Experimental builds are available for [UWP](https://youtu.be/f20saEKeSpE) ([Windows](https://www.microsoft.com/windows) 10 Desktop/Mobile & [Xbox](https://www.xbox.com/)) and [Apple](https://www.apple.com/) iOS.
+It is not planned to support other [platforms](https://unity3d.com/unity/features/multiplatform) than Android, Linux, Windows, macOS & WebGL from my side, but Unity offers the possibility to build the game for many other platforms too and there might be one or another experimental build.
 
 <a href="https://play.google.com/store/apps/details?id=rocks.poopjournal.Ella">
     <img alt="Get it on Google Play"
         height="80"
         src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" />
-</a>  
- <a href="https://f-droid.org/packages/rocks.poopjournal.Ella/">
+        </a>  
+<a href="https://f-droid.org/packages/rocks.poopjournal.Ella/">
     <img alt="Get it on F-Droid"
         height="80"
         src="https://f-droid.org/badge/get-it-on.png" />
         </a>
-   <a href="https://poopjournal.rocks/EllaTheGame/play/">
+<a href="https://poopjournal.rocks/EllaTheGame/play/">
     <img alt="Get it on WebGL"
         height="80"
         src="https://cloud.githubusercontent.com/assets/22402568/18798626/ae2ed1fa-81d3-11e6-8407-324a62a5f77f.png" />
         </a>  
-  <a href="https://github.com/Crazy-Marvin/EllaTheGame/releases/>
+ <a href="https://github.com/Crazy-Marvin/EllaTheGame/releases/">
     <img alt="Get it on Linux"
         height="80"
         src="https://cloud.githubusercontent.com/assets/22402568/18798626/ae2ed1fa-81d3-11e6-8407-324a62a5f77f.png" />
         </a>
-  <a href="https://github.com/Crazy-Marvin/EllaTheGame/releases/>
+  <a href="https://github.com/Crazy-Marvin/EllaTheGame/releases/">
     <img alt="Get it on Windows"
         height="80"
         src="https://cloud.githubusercontent.com/assets/22402568/18798626/ae2ed1fa-81d3-11e6-8407-324a62a5f77f.png" />
         </a>
-  <a href="https://github.com/Crazy-Marvin/EllaTheGame/releases/>
+  <a href="https://github.com/Crazy-Marvin/EllaTheGame/releases/">
     <img alt="Get it on macOS"
         height="80"
         src="https://cloud.githubusercontent.com/assets/22402568/18798626/ae2ed1fa-81d3-11e6-8407-324a62a5f77f.png" />
+        </a> 
+     
+     
+_Experimental:_
+
+<a href="https://github.com/Crazy-Marvin/EllaTheGame/releases/">
+    <img alt="Get it on iOS"
+        height="60"
+        src="https://cloud.githubusercontent.com/assets/22402568/18798626/ae2ed1fa-81d3-11e6-8407-324a62a5f77f.png" />
+        </a>
+<a href="https://github.com/Crazy-Marvin/EllaTheGame/releases/">
+    <img alt="Get it on iOS"
+        height="60"
+        src="https://user-images.githubusercontent.com/35012204/36331338-b3e4d8d8-136d-11e8-9449-c54558838c77.png" />
+        </a> 
+<a href="https://github.com/Crazy-Marvin/EllaTheGame/releases/">
+    <img alt="Get it on macOS"
+        height="60"
+        src="https://user-images.githubusercontent.com/35012204/36331409-07995350-136e-11e8-950b-68a888c2354b.png" />
         </a> 
 
 # Building
