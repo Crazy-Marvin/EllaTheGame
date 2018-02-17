@@ -13,6 +13,8 @@
 # About
 
 Ella, the smart and adorable dog, is lost and is doing whatever it takes to find the way out. In this free jumping and running dog game, Ella is running automatically and as the screen is moving forward you need to jump over the obstacles and collect as many coins and gifts as you can. So, you’ve got two objectives in this side-scrolling adventure game: avoid hitting obstacles and hurdles and collect coins.
+
+![Ella - The Game GIF](https://media.giphy.com/media/3oeNXAHQjYmLSvdzUU/giphy.gif))
         
 # Installation
 
