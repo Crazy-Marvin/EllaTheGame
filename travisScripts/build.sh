@@ -10,28 +10,29 @@
 
 ## Make the builds
 # Recall from install.sh that a separate module was needed for Windows build support
-echo "Attempting build of ${Ella-the-game} for Windows"
+echo "Attempting build of $EllaTheGame for Windows"
+echo $(pwd)
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
 	-batchmode \
 	-nographics \
 	-silent-crashes \
 	-logFile $(pwd)/unity.log \
-	-projectPath "$(pwd)/${Ella-the-game}" \
-	-buildWindowsPlayer "$(pwd)/Build/windows/${Ella-the-game}.exe" \
+	-projectPath "$(pwd)" \
+	-buildWindowsPlayer "$(pwd)/Build/windows/$EllaTheGame.exe" \
 	-quit
 
 rc1=$?
 echo "Build logs (Windows)"
 cat $(pwd)/unity.log
 
-echo "Attempting build of ${Ella-the-game} for the OSX"
+echo "Attempting build of $EllaTheGame for the OSX"
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
 	-batchmode \
 	-nographics \
 	-silent-crashes \
 	-logFile $(pwd)/unity.log \
-	-projectPath "$(pwd)/${Ella-the-game}" \
-	-buildOSXUniversalPlayer "$(pwd)/Build/osx/${Ella-the-game}.app" \
+	-projectPath "$(pwd)" \
+	-buildOSXUniversalPlayer "$(pwd)/Build/osx/$EllaTheGame.app" \
 	-quit
 
 rc2=$?
