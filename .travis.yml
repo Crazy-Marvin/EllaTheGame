@@ -7,5 +7,5 @@ before_install:
 - chmod a+x ./travisScripts/build.sh
 install:
 - ./travisScripts/install.sh
-script: travis_wait mvn script
+script: travis_wait
 - ./travisScripts/build.sh
