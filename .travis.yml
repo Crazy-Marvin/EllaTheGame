@@ -7,5 +7,6 @@ before_install:
 - chmod a+x ./travisScripts/build.sh
 install:
 - ./travisScripts/install.sh
-script: travis_wait
+script:
+- "travis_wait 30 sleep 1800 &"
 - ./travisScripts/build.sh
