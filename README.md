@@ -57,7 +57,7 @@ It is not planned to support other [platforms](https://unity3d.com/unity/feature
 _Experimental:_
 
 <a href="https://github.com/Crazy-Marvin/EllaTheGame/releases/">
-    <img alt="Get it on iOS"
+    <img alt="Get it Xbox"
         height="60"
         src="https://cloud.githubusercontent.com/assets/22402568/18798626/ae2ed1fa-81d3-11e6-8407-324a62a5f77f.png" />
         </a>
@@ -66,11 +66,7 @@ _Experimental:_
         height="60"
         src="https://user-images.githubusercontent.com/35012204/36331338-b3e4d8d8-136d-11e8-9449-c54558838c77.png" />
         </a> 
-<a href="https://github.com/Crazy-Marvin/EllaTheGame/releases/">
-    <img alt="Get it on macOS"
-        height="60"
-        src="https://user-images.githubusercontent.com/35012204/36331409-07995350-136e-11e8-950b-68a888c2354b.png" />
-        </a> 
+
 
 # Building
 
