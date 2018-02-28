@@ -66,6 +66,11 @@ _Experimental:_
         height="60"
         src="https://user-images.githubusercontent.com/35012204/36331338-b3e4d8d8-136d-11e8-9449-c54558838c77.png" />
         </a> 
+<a href="https://github.com/Crazy-Marvin/EllaTheGame/releases/">
+    <img alt="Get it on macOS"
+        height="80"
+        src="https://user-images.githubusercontent.com/15004217/36810048-fa97faf2-1cc9-11e8-88b4-adf66d6e2cc6.png" />
+        </a> 
 
 
 # Building
