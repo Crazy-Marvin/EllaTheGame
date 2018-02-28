@@ -24,7 +24,7 @@ It is not planned to support other [platforms](https://unity3d.com/unity/feature
 <a href="https://play.google.com/store/apps/details?id=rocks.poopjournal.Ella">
     <img alt="Get it on Google Play"
         height="80"
-        src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" />
+        src="https://user-images.githubusercontent.com/15004217/36810046-fa306856-1cc9-11e8-808e-6eb8a81783c7.png" />
         </a>  
 <a href="https://f-droid.org/packages/rocks.poopjournal.Ella/">
     <img alt="Get it on F-Droid"
@@ -34,23 +34,23 @@ It is not planned to support other [platforms](https://unity3d.com/unity/feature
 <a href="https://poopjournal.rocks/EllaTheGame/play/">
     <img alt="Get it on WebGL"
         height="80"
-        src="https://cloud.githubusercontent.com/assets/22402568/18798626/ae2ed1fa-81d3-11e6-8407-324a62a5f77f.png" />
+        src="https://user-images.githubusercontent.com/15004217/36810049-fac5dc74-1cc9-11e8-81e5-a2565ffd1d83.png" />
         </a>  
         <br>
  <a href="https://github.com/Crazy-Marvin/EllaTheGame/releases/">
     <img alt="Get it on Linux"
         height="80"
-        src="https://cloud.githubusercontent.com/assets/22402568/18798626/ae2ed1fa-81d3-11e6-8407-324a62a5f77f.png" />
+        src="https://user-images.githubusercontent.com/15004217/36810047-fa774906-1cc9-11e8-94da-ec2db1c37813.png" />
         </a>
   <a href="https://github.com/Crazy-Marvin/EllaTheGame/releases/">
     <img alt="Get it on Windows"
         height="80"
-        src="https://cloud.githubusercontent.com/assets/22402568/18798626/ae2ed1fa-81d3-11e6-8407-324a62a5f77f.png" />
+        src="https://user-images.githubusercontent.com/15004217/36810050-faf040c2-1cc9-11e8-8ace-b32a036cab81.png" />
         </a>
   <a href="https://github.com/Crazy-Marvin/EllaTheGame/releases/">
     <img alt="Get it on macOS"
         height="80"
-        src="https://cloud.githubusercontent.com/assets/22402568/18798626/ae2ed1fa-81d3-11e6-8407-324a62a5f77f.png" />
+        src="https://user-images.githubusercontent.com/15004217/36810048-fa97faf2-1cc9-11e8-88b4-adf66d6e2cc6.png" />
         </a> 
      
      
