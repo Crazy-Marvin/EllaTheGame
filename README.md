@@ -29,7 +29,7 @@ It is not planned to support other [platforms](https://unity3d.com/unity/feature
 <a href="https://f-droid.org/packages/rocks.poopjournal.Ella/">
     <img alt="Get it on F-Droid"
         height="80"
-        src="https://f-droid.org/badge/get-it-on.png" />
+        src="https://user-images.githubusercontent.com/15004217/36919296-19b8524e-1e5d-11e8-8962-48463b1cec8a.png" />
         </a>
 <a href="https://poopjournal.rocks/EllaTheGame/play/">
     <img alt="Get it on WebGL"
@@ -50,7 +50,7 @@ It is not planned to support other [platforms](https://unity3d.com/unity/feature
   <a href="https://github.com/Crazy-Marvin/EllaTheGame/releases/">
     <img alt="Get it on macOS"
         height="80"
-        src="https://user-images.githubusercontent.com/15004217/36810048-fa97faf2-1cc9-11e8-88b4-adf66d6e2cc6.png" />
+        src="https://user-images.githubusercontent.com/15004217/36919363-43e3acee-1e5d-11e8-8378-5a313c27320a.png" />
         </a> 
      
      
@@ -64,7 +64,7 @@ _Experimental:_
 <a href="https://github.com/Crazy-Marvin/EllaTheGame/releases/">
     <img alt="Get it on iOS"
         height="60"
-        src="https://user-images.githubusercontent.com/35012204/36331338-b3e4d8d8-136d-11e8-9449-c54558838c77.png" />
+        src="https://user-images.githubusercontent.com/15004217/36919325-304905bc-1e5d-11e8-9a11-fd61610049e3.png" />
         </a> 
 <a href="https://github.com/Crazy-Marvin/EllaTheGame/releases/">
     <img alt="Get it on macOS"
