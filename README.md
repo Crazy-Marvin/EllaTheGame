@@ -58,12 +58,12 @@ _Experimental:_
 
 <a href="https://github.com/Crazy-Marvin/EllaTheGame/releases/">
     <img alt="Get it Xbox"
-        height="60"
+        height="80"
         src="https://cloud.githubusercontent.com/assets/22402568/18798626/ae2ed1fa-81d3-11e6-8407-324a62a5f77f.png" />
         </a>
 <a href="https://github.com/Crazy-Marvin/EllaTheGame/releases/">
     <img alt="Get it on iOS"
-        height="60"
+        height="80"
         src="https://user-images.githubusercontent.com/15004217/36919325-304905bc-1e5d-11e8-9a11-fd61610049e3.png" />
         </a> 
 <a href="https://github.com/Crazy-Marvin/EllaTheGame/releases/">
