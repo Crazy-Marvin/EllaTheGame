@@ -8,5 +8,4 @@ before_install:
 install:
 - ./travisScripts/install.sh
 script:
-- "travis_wait 70 sleep 1800 &"
-- ./travisScripts/build.sh
+- travis_wait 70 ./travisScripts/build.sh
