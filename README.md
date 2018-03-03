@@ -61,7 +61,7 @@ __Those experimental builds are done and uploaded by a third party.__
 <a href="https://github.com/Crazy-Marvin/EllaTheGame/releases/">
     <img alt="Get it Xbox"
         height="80"
-        src="https://cloud.githubusercontent.com/assets/22402568/18798626/ae2ed1fa-81d3-11e6-8407-324a62a5f77f.png" />
+        src="https://user-images.githubusercontent.com/15004217/36939531-43710c04-1f32-11e8-8ef3-a77743570306.png" />
         </a>
 <a href="https://github.com/Crazy-Marvin/EllaTheGame/releases/">
     <img alt="Get it on iOS"
