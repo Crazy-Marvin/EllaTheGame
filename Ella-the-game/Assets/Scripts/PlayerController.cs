@@ -128,7 +128,6 @@ public class PlayerController : MonoBehaviour {
 
         if(Input.GetKeyDown(KeyCode.Space)){
             isJumping = true;
-            Debug.Log("Unity editor");
         }
 
         if (Input.touchCount > 0 && eventSystem.currentSelectedGameObject == null)
