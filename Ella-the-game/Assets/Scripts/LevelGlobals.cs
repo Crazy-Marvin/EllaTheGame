@@ -60,7 +60,6 @@ public class LevelGlobals : MonoBehaviour {
     }
     IEnumerator loadAsyncScene(string sceneName)
     {
-        Debug.Log(sceneName);
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
         while (asyncLoad.progress < 0.9f)
         {

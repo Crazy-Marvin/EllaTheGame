@@ -4,7 +4,6 @@ using System.IO;
 
 public class NativeShareScript : MonoBehaviour
 {
-    public GameObject CanvasShareObj;
 
     private bool isProcessing = false;
     private bool isFocus = false;
@@ -13,7 +12,6 @@ public class NativeShareScript : MonoBehaviour
     {
         if (!isProcessing)
         {
-           // CanvasShareObj.SetActive(true);
             StartCoroutine(ShareScreenshot());
         }
     }
@@ -51,7 +49,6 @@ public class NativeShareScript : MonoBehaviour
         }
 
         yield return new WaitUntil(() => isFocus);
-        //CanvasShareObj.SetActive(false);
         isProcessing = false;
     }
 

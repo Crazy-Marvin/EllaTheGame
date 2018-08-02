@@ -11,12 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Snow_level.unity
     guid: 4babbd5fd9d80ce47a5d8662f712afe0
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Forest_level.unity
     guid: 7d42d86316660a448bd3e6e41d8a5e1e
@@ -25,4 +19,5 @@ EditorBuildSettings:
     guid: 1998b8fb36d473f46acd8d8d0849fbaf
   - enabled: 1
     path: Assets/Desert_level.unity
-    guid: afcdd4cd936a8614b9a5e0b943330fb2
+    guid: 1324070f5bcdc244cbae6479ba8cee79
+  m_configObjects: {}

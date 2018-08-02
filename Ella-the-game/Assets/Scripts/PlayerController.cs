@@ -58,10 +58,6 @@ public class PlayerController : MonoBehaviour {
                     }
                 }
             }
-            else
-            {
-                //In the animator set BOOL for dead animation and set the DEAD ANIMATION and then set the BOOL from here
-            }
 
        
 	}

@@ -28,8 +28,6 @@ public class PrizesGenerator : MonoBehaviour
         Vector3 position = new Vector3(generationPoint.transform.position.x, generationPoint.transform.position.y, 0);
         Instantiate(prizes[indexOfSpawnedPrize], position, generationPoint.transform.rotation);
 
-        Debug.Log(generationPoint.transform.position);
-
         if (indexOfSpawnedPrize >= prizes.Length - 1)
         {
 
