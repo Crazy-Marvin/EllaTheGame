@@ -4,7 +4,7 @@
 
 [![Travis](https://img.shields.io/travis/Crazy-Marvin/EllaTheGame.svg?style=flat-square)](https://travis-ci.org/Crazy-Marvin/EllaTheGame)
 [![Build Status Windows](https://ci.appveyor.com/api/projects/status/qqhmlau1cvom1d4c?svg=true)](https://ci.appveyor.com/project/CrazyMarvin/ellathegame)
-[![Build Status Mobile](https://www.bitrise.io/app/ff4291ef82a9aa0f/status.svg?token=BPHko7oZ426o6PJNZtKV8A&branch=master)](https://www.bitrise.io/app/ff4291ef82a9aa0f)
+[![Build Status Mobile](https://app.bitrise.io/app/ff4291ef82a9aa0f/status.svg?token=BPHko7oZ426o6PJNZtKV8A&branch=master)](https://app.bitrise.io/app/ff4291ef82a9aa0f)
 [![License](https://img.shields.io/github/license/Crazy-Marvin/EllaTheGame.svg?style=flat-square)](LICENSE.txt)
 [![Last commit](https://img.shields.io/github/last-commit/Crazy-Marvin/EllaTheGame.svg?style=flat-square)](https://github.com/Crazy-Marvin/EllaTheGame/)
 [![Releases](https://img.shields.io/github/downloads/Crazy-Marvin/EllaTheGame/total.svg?style=flat-square)](https://github.com/Crazy-Marvin/EllaTheGame/releases)
