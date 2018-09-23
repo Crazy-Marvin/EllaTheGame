@@ -17,8 +17,6 @@ public class PlayerController : MonoBehaviour {
     private int score = 0;
     private const int maxHealth = 100;
     private bool isPlayerDeath = false;
-    [SerializeField]
-    private Canvas MainCanvas;
     private LevelGlobals levelGlobals;
     private AudioSource audioSource;
     EventSystem eventSystem;
@@ -37,7 +35,8 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        if (GameManager.Instance.gameState == GameManager.GameState.GameRunning)
+        {
             if (movementSpeed < maxMovementSpeed)
             {
                 movementSpeed += speedIncreaseAmount;
@@ -58,7 +57,7 @@ public class PlayerController : MonoBehaviour {
                     }
                 }
             }
-
+        }
        
 	}
     public void stopJumping()
@@ -67,28 +66,26 @@ public class PlayerController : MonoBehaviour {
     }
     public void changeHealth(int value)
     {
-        health += value;
-        MainCanvas.GetComponent<inGameUI>().setHealthAmount(health);
-        if (health > maxHealth)
+        if (GameManager.Instance.gameState == GameManager.GameState.GameRunning)
         {
-            health = maxHealth;
-        }else if (health <= 0)
-        {
-            isPlayerDeath = true;
-            playeranimator.SetBool("isDeath", true);
-            levelGlobals.saveScore();
-            playerRB.velocity = new Vector2(30, playerRB.velocity.y);
-            MainCanvas.GetComponent<inGameUI>().showEndMenu();
-            MainCanvas.GetComponent<AudioSource>().clip = MainCanvas.GetComponent<inGameUI>().failedClip;
-            //MainCanvas.GetComponent<AudioSource>().volume = 0.5f;
-            MainCanvas.GetComponent<AudioSource>().loop = false;
-            MainCanvas.GetComponent<AudioSource>().Play();
+            health += value;
+            inGameUI.Instance.setHealthAmount(health);
+            if (health > maxHealth)
+            {
+                health = maxHealth;
+            }
+            else if (health <= 0)
+            {
+                isPlayerDeath = true;
+                GameManager.Instance.ExecuteGameOverEvent();
+                playeranimator.SetBool("isDeath", true);
+                playerRB.velocity = new Vector2(30, playerRB.velocity.y);
+            }
+            playeranimator.SetBool("Damaged", true);
+            movementSpeed = 0.1f;
+            audioSource.clip = audioClips[0]; // 0 for the Dog in pain Sound
+            audioSource.Play();
         }
-        playeranimator.SetBool("Damaged", true);
-        movementSpeed = 0.1f;
-        audioSource.clip = audioClips[0]; // 0 for the Dog in pain Sound
-        audioSource.Play();
-
 
     }
     public void stopDeadAnimation()
@@ -111,8 +108,8 @@ public class PlayerController : MonoBehaviour {
     public void changeScore(int value)
     {
         score += value;
-        MainCanvas.GetComponent<inGameUI>().setScoreAmount(score);
-        levelGlobals.setScore(score);
+        inGameUI.Instance.setScoreAmount(score);
+        GameManager.Instance.SetMatchScore(score);
     }
     private void increaseSpeed()
     {

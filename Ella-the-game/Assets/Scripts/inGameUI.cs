@@ -1,9 +1,26 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class inGameUI : MonoBehaviour {
+
+    #region Singleton
+    private static inGameUI _instance;
+    public static inGameUI Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                GameObject go = new GameObject("inGameUI");
+                go.AddComponent<inGameUI>();
+            }
+            return _instance;
+        }
+    }
+    #endregion
 
     private float healthAmount=1;
     private int scoreAmount=0;
@@ -16,8 +33,18 @@ public class inGameUI : MonoBehaviour {
     public Sprite unMuteSprite, muteSprite;
     private GameObject endMenu;
     public AudioClip failedClip;
+
+    void Awake()
+    {
+        _instance = this;
+       
+    }
     // Use this for initialization
     void Start () {
+        GameManager.GameOverEvent += GameOverEventExecuted;
+        GameManager.GamePauseEvent += GamePauseEventExecuted;
+        GameManager.GameResumeEvent += GameResumeEventExecuted;
+
         inGameMenu = transform.Find("inGameMenu").gameObject.transform;
         if(inGameMenu.gameObject.activeSelf)
             inGameMenu.gameObject.SetActive(false);
@@ -26,9 +53,9 @@ public class inGameUI : MonoBehaviour {
         endMenu.SetActive(false);
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
         handleBars();
     }
     private void handleBars()
@@ -48,9 +75,7 @@ public class inGameUI : MonoBehaviour {
     }
     public void toggleInGameMenu()
     {
-        Debug.Log("hhh");
-        inGameMenu.gameObject.SetActive(!inGameMenu.gameObject.activeSelf);
-        levelGlobals.toggleGamePaused();
+        
 
 
     }
@@ -71,5 +96,26 @@ public class inGameUI : MonoBehaviour {
     {
         endMenu.SetActive(true);
         GameObject.FindGameObjectWithTag("scoreText").GetComponent<Text>().text = scoreAmount.ToString();
+    }
+    public void GameOverEventExecuted()
+    {
+        showEndMenu();
+        this.gameObject.GetComponent<AudioSource>().clip = failedClip;
+        this.gameObject.GetComponent<AudioSource>().loop = false;
+        this.gameObject.GetComponent<AudioSource>().Play();
+    }
+    private void GamePauseEventExecuted()
+    {
+        inGameMenu.gameObject.SetActive(true);
+    }
+    private void GameResumeEventExecuted()
+    {
+        inGameMenu.gameObject.SetActive(false);
+    }
+    private void OnDestroy()
+    {
+        GameManager.GameOverEvent -= GameOverEventExecuted;
+        GameManager.GamePauseEvent -= GamePauseEventExecuted;
+        GameManager.GameResumeEvent -= GameResumeEventExecuted;
     }
 }

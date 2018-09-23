@@ -25,19 +25,22 @@ public class PrizesGenerator : MonoBehaviour
     }
     private void spawnObstacles()
     {
-        Vector3 position = new Vector3(generationPoint.transform.position.x, generationPoint.transform.position.y, 0);
-        Instantiate(prizes[indexOfSpawnedPrize], position, generationPoint.transform.rotation);
-
-        if (indexOfSpawnedPrize >= prizes.Length - 1)
+        if (GameManager.Instance.gameState == GameManager.GameState.GameRunning)
         {
+            Vector3 position = new Vector3(generationPoint.transform.position.x, generationPoint.transform.position.y, 0);
+            Instantiate(prizes[indexOfSpawnedPrize], position, generationPoint.transform.rotation);
 
-            indexOfSpawnedPrize = 0;
-        }
-        else
-        {
-            indexOfSpawnedPrize++;
-        }
+            if (indexOfSpawnedPrize >= prizes.Length - 1)
+            {
 
+                indexOfSpawnedPrize = 0;
+            }
+            else
+            {
+                indexOfSpawnedPrize++;
+            }
+
+        }
     }
 }
 

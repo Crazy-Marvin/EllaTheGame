@@ -21,10 +21,13 @@ public class PlatformGenerator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (transform.position.x < generationPoint.position.x)
+        if (GameManager.Instance.gameState == GameManager.GameState.GameRunning)
         {
-            transform.position = new Vector3(transform.position.x + platformWidth, transform.position.y, transform.position.z);
-            Instantiate(thePlatform, transform.position, transform.rotation);
+            if (transform.position.x < generationPoint.position.x)
+            {
+                transform.position = new Vector3(transform.position.x + platformWidth, transform.position.y, transform.position.z);
+                Instantiate(thePlatform, transform.position, transform.rotation);
+            }
         }
 	}
 }

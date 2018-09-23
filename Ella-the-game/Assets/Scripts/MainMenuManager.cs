@@ -11,6 +11,7 @@ public class MainMenuManager : MonoBehaviour {
     private int difficulty;
     // Use this for initialization
     void Start () {
+        GameManager.Instance.gameState = GameManager.GameState.MainMenu;
         waitPanel = GameObject.FindGameObjectWithTag("WaitPanel");
         waitPanel.SetActive(false);
         //Difficulty Settup
@@ -39,6 +40,7 @@ public class MainMenuManager : MonoBehaviour {
     }
     public void loadScene(string sceneName)
     {
+        Time.timeScale = 1;
         //waitPanel.SetActive(true);
         StartCoroutine("loadAsyncScene", sceneName);
         //SceneManager.LoadScene(sceneName, LoadSceneMode.Single);

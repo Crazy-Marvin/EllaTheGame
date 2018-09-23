@@ -22,17 +22,20 @@ public class ObstaclesGenerator : MonoBehaviour {
     }
     private void spawnObstacles()
     {
-        Vector3 position = new Vector3(generationPoint.transform.position.x, generationPoint.transform.position.y, 0);
-        Instantiate(obstacles[indexOfSpawnedObstacle],position,generationPoint.transform.rotation);
-        if (indexOfSpawnedObstacle>= obstacles.Length-1)
+        if (GameManager.Instance.gameState == GameManager.GameState.GameRunning)
         {
-            
-            indexOfSpawnedObstacle = 0;
+            Vector3 position = new Vector3(generationPoint.transform.position.x, generationPoint.transform.position.y, 0);
+            Instantiate(obstacles[indexOfSpawnedObstacle], position, generationPoint.transform.rotation);
+            if (indexOfSpawnedObstacle >= obstacles.Length - 1)
+            {
+
+                indexOfSpawnedObstacle = 0;
+            }
+            else
+            {
+                indexOfSpawnedObstacle++;
+            }
+
         }
-        else
-        {
-            indexOfSpawnedObstacle++;
-        }
-       
     }
 }

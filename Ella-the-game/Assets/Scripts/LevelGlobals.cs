@@ -4,61 +4,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelGlobals : MonoBehaviour {
-    private int gameSpeed;
-    private int score;
-	// Use this for initialization
+
 	void Start () {
-        gameSpeed = 1;
+        GameManager.Instance.ExecuteGameStartEvent();
     }
 	
-	// Update is called once per frame
 	void Update () {
-  
-          Time.timeScale = gameSpeed;
         
 	}
-    public void setScore(int score)
-    {
-        this.score = score;
-
-    }
-    public int getScore()
-    {
-        return this.score;
-    }
-    public void toggleGamePaused()
-    {
-        if (gameSpeed == 1)
-        {
-            gameSpeed = 0;
-        }
-        else
-        {
-            gameSpeed = 1;
-        }
-    }
-    public bool isGamePaused()
-    {
-        if (gameSpeed == 1)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-        
-    }
-    public void exitGame()
-    {
-        Application.Quit();
-    }
-    public void loadMainMenu()
-    {
-
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
-    }
-    IEnumerator loadAsyncScene(string sceneName)
+    /// <summary>
+    /// ////////////////////////Scene Management
+    /// </summary>
+    IEnumerator LoadAsyncScene(string sceneName)
     {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
         while (asyncLoad.progress < 0.9f)
@@ -66,15 +23,28 @@ public class LevelGlobals : MonoBehaviour {
             yield return null;
         }
     }
-    public void replay()
+    public void ReplayGame()
     {
-        StartCoroutine("loadAsyncScene", SceneManager.GetActiveScene().name);
-    }
-    public void saveScore()
-    {
-        var tmpScore = PlayerPrefs.GetInt("playerGlobalScore");
-        tmpScore += this.score;
-        PlayerPrefs.SetInt("playerGlobalScore", tmpScore);
+        StartCoroutine("LoadAsyncScene", SceneManager.GetActiveScene().name);
     }
 
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
+    public void ExecutePauseEvent()
+    {
+        GameManager.Instance.ExecuteGamePauseEvent();
+    }
+
+    public void ExecuteResumeEvent()
+    {
+        GameManager.Instance.ExecuteGameResumeEvent();
+    }
 }
