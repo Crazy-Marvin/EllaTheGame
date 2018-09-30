@@ -69,6 +69,8 @@
      <Compile Include="Assets\Anima2D\Scripts\SpriteMesh.cs" />
      <Compile Include="Assets\Anima2D\Scripts\SpriteMeshAnimation.cs" />
      <Compile Include="Assets\Anima2D\Scripts\SpriteMeshInstance.cs" />
+     <Compile Include="Assets\Assets.cs" />
+     <Compile Include="Assets\AssetsGenerator.cs" />
      <Compile Include="Assets\FacebookSDK\Examples\Scripts\ConsoleBase.cs" />
      <Compile Include="Assets\FacebookSDK\Examples\Scripts\LogView.cs" />
      <Compile Include="Assets\FacebookSDK\Examples\Scripts\MenuBase.cs" />
@@ -98,6 +100,8 @@
      <Compile Include="Assets\Scripts\snakeObstacle.cs" />
      <Compile Include="Assets\Scripts\snowmanObstacle.cs" />
      <Compile Include="Assets\Scripts\staticObstacles.cs" />
+     <Compile Include="Assets\ScrollingBackground.cs" />
+     <Compile Include="Assets\StickyBackground.cs" />
      <None Include="Assets\Anima2D\Version.txt" />
      <None Include="Assets\Anima2D\Licenses.txt" />
      <None Include="Assets\FacebookSDK\link.xml" />
@@ -354,6 +358,10 @@
  <Reference Include="Boo.Lang">
  <HintPath>A:/WINDOWS stufs/Programation abdelilah/Unity2018.2.0f2/Editor/Data/MonoBleedingEdge/lib/mono/unity/Boo.Lang.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{1DD297AA-70A6-8C7F-D5AD-C7BDDA983DB7}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

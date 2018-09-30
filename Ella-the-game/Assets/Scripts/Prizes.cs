@@ -10,6 +10,7 @@ public class Prizes : MonoBehaviour {
     // Use this for initialization
     void Start () {
         prizeAudio = GetComponent<AudioSource>();
+        Invoke("DestroyIfNotUsed", 30f);
     }
 	
 	// Update is called once per frame
@@ -31,7 +32,24 @@ public class Prizes : MonoBehaviour {
 
             GetComponent<SpriteRenderer>().enabled = false;
             prizeAudio.Play();
-            Destroy(gameObject, (float)1);
+            Destroy(this.transform.parent.gameObject, (float)1);
         }
+    }
+    private void DestroyIfNotUsed()
+    {
+        bool isSomeThingVisible = false;
+        foreach(SpriteRenderer sp in transform.parent.GetComponentsInChildren<SpriteRenderer>())
+        {
+            if (sp.isVisible)
+            {
+                isSomeThingVisible = true;
+                break;
+            }   
+        }
+        if (!isSomeThingVisible)
+        {
+            Destroy(this.transform.parent.gameObject, 0.001f);
+        }
+           
     }
 }

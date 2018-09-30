@@ -11,11 +11,11 @@ public class PlatformGenerator : MonoBehaviour {
 	void Start () {
         foreach (BoxCollider2D BC2D in thePlatform.GetComponents<BoxCollider2D>())
         {
-            if (BC2D.isTrigger)
-            {
+           /* if (BC2D.isTrigger)
+            {*/
                 platformWidth = BC2D.size.x;
                 break;
-            } 
+            //} 
         }
 	}
 	

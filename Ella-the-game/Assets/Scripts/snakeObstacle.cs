@@ -29,6 +29,7 @@ public class snakeObstacle : MonoBehaviour {
         rayCastPoint = this.transform.Find("Bones/Body/Neck_1/Neck_2/Head/rayCastPoint").gameObject;
        
         affectedPlayer = false;
+        Invoke("DestroyIfNotUsed", 30f);
     }
 	
 	// Update is called once per frame
@@ -64,10 +65,9 @@ public class snakeObstacle : MonoBehaviour {
                 if (hitFront.collider.gameObject.tag == "Player")
                 {
                     hitFront.collider.gameObject.GetComponent<PlayerController>().changeHealth(healthEffect);
-                    
+
                     affectedPlayer = true;
-                    Debug.Log("damaged");
-                    Destroy(gameObject, (float)1);
+                    Destroy(this.gameObject, (float)1);
                 }
 
             }
@@ -79,16 +79,30 @@ public class snakeObstacle : MonoBehaviour {
 
                     affectedPlayer = true;
                     Debug.Log("damaged");
-                    Destroy(gameObject, (float)1);
+                    Destroy(this.gameObject, (float)1);
                 }
 
             }
 
 
+        }   
+    }
+    private void DestroyIfNotUsed()
+    {
+        bool isSomeThingVisible = false;
+        foreach (SpriteRenderer sp in gameObject.GetComponentsInChildren<SpriteRenderer>())
+        {
+            if (sp.isVisible)
+            {
+                isSomeThingVisible = true;
+                break;
+            }
         }
-      
-        
-        
+        if (!isSomeThingVisible)
+        {
+            Destroy(gameObject, 0.001f);
+        }
+
     }
 
 }

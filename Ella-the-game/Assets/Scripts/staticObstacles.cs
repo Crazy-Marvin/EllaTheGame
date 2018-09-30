@@ -21,7 +21,7 @@ public class staticObstacles : MonoBehaviour {
         {
             healthEffect = -100;
         }
-
+        Invoke("DestroyIfNotUsed", 30f);
     }
 	
 	// Update is called once per frame
@@ -35,7 +35,24 @@ public class staticObstacles : MonoBehaviour {
             //1st line = changing player score &&& 2nd line adding current object to a layer that is ignored by player collision
             collision.gameObject.transform.GetComponent<PlayerController>().changeHealth(healthEffect);
             gameObject.layer = LayerMask.NameToLayer("ignoredObstacles");
-            Destroy(gameObject, (float)2);
+            Destroy(this.transform.parent.gameObject, 2);
         }
+    }
+    private void DestroyIfNotUsed()
+    {
+        bool isSomeThingVisible = false;
+        foreach (SpriteRenderer sp in transform.parent.GetComponentsInChildren<SpriteRenderer>())
+        {
+            if (sp.isVisible)
+            {
+                isSomeThingVisible = true;
+                break;
+            }
+        }
+        if (!isSomeThingVisible)
+        {
+            Destroy(this.transform.parent.gameObject, 0.001f);
+        }
+
     }
 }
