@@ -73,12 +73,6 @@ public class inGameUI : MonoBehaviour {
         scoreAmount = value;
        
     }
-    public void toggleInGameMenu()
-    {
-        
-
-
-    }
     public void muteGame(GameObject Btn)
     {
         if (AudioListener.volume == 0)

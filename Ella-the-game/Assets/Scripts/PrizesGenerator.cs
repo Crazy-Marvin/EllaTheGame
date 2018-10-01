@@ -17,12 +17,6 @@ public class PrizesGenerator : MonoBehaviour
         InvokeRepeating("spawnObstacles", 10.0f, (float)timeBetweenObstaclesSpawn);
         indexOfSpawnedPrize = 0;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     private void spawnObstacles()
     {
         if (GameManager.Instance.gameState == GameManager.GameState.GameRunning)

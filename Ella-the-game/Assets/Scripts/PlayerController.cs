@@ -4,6 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 public class PlayerController : MonoBehaviour {
+    enum PlayerState
+    {
+        Running,
+        Damaged,
+        Jumping,
+        Dead
+    }
+    private PlayerState playerState;
     [SerializeField]
     public float  jumpForce, maxMovementSpeed=7.5f, speedIncreaseAmount = 0.1f;
     private float movementSpeed = 0;
@@ -22,6 +30,7 @@ public class PlayerController : MonoBehaviour {
     EventSystem eventSystem;
     public AudioClip[] audioClips;
     
+    
     // private
     // Use this for initialization
     void Start () {
@@ -31,6 +40,7 @@ public class PlayerController : MonoBehaviour {
         eventSystem = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<EventSystem>();
         levelGlobals = GameObject.FindGameObjectWithTag("LevelGlobalGO").GetComponent<LevelGlobals>();
         audioSource = GetComponent<AudioSource>();
+        playerState = PlayerState.Running;
     }
 	
 	// Update is called once per frame
@@ -42,14 +52,15 @@ public class PlayerController : MonoBehaviour {
                 movementSpeed += speedIncreaseAmount;
             }
             playeranimator.SetFloat("Speed", movementSpeed);
-            if (!isPlayerDeath)
+            if (playerState != PlayerState.Dead)
             {
                 grounded = Physics2D.IsTouchingLayers(playerCollider, groundLayer);
                 playerRB.velocity = new Vector2(movementSpeed, playerRB.velocity.y);
                 if (jumping())
                 {
-                    if (grounded)
+                    if (grounded && playerState == PlayerState.Running)
                     {
+                        playerState = PlayerState.Jumping;
                         audioSource.clip = audioClips[1]; // 1 for Jumping Sound
                         audioSource.Play();
                         playerRB.velocity = new Vector2(playerRB.velocity.y, jumpForce);
@@ -62,6 +73,7 @@ public class PlayerController : MonoBehaviour {
 	}
     public void stopJumping()
     {
+        playerState = PlayerState.Running;
         playeranimator.SetBool("Jumping", false);
     }
     public void changeHealth(int value)
@@ -70,13 +82,14 @@ public class PlayerController : MonoBehaviour {
         {
             health += value;
             inGameUI.Instance.setHealthAmount(health);
+            playerState = PlayerState.Damaged;
             if (health > maxHealth)
             {
                 health = maxHealth;
             }
             else if (health <= 0)
             {
-                isPlayerDeath = true;
+                playerState = PlayerState.Dead;
                 GameManager.Instance.ExecuteGameOverEvent();
                 playeranimator.SetBool("isDeath", true);
                 playerRB.velocity = new Vector2(30, playerRB.velocity.y);
@@ -102,6 +115,7 @@ public class PlayerController : MonoBehaviour {
         }
         else
         {
+            playerState = PlayerState.Running;
             playeranimator.SetBool("Damaged", false);
         }
     }
@@ -110,10 +124,6 @@ public class PlayerController : MonoBehaviour {
         score += value;
         inGameUI.Instance.setScoreAmount(score);
         GameManager.Instance.SetMatchScore(score);
-    }
-    private void increaseSpeed()
-    {
-
     }
     private bool jumping()
     {
@@ -132,6 +142,5 @@ public class PlayerController : MonoBehaviour {
                 }
         }
         return isJumping;
-
     }
 }

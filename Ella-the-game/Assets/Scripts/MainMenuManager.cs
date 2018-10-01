@@ -32,18 +32,12 @@ public class MainMenuManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-       /* if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartCoroutine("loadAsyncScene", "Beach_level");
-        }*/
         
     }
     public void loadScene(string sceneName)
     {
         Time.timeScale = 1;
-        //waitPanel.SetActive(true);
         StartCoroutine("loadAsyncScene", sceneName);
-        //SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
     IEnumerator loadAsyncScene(string sceneName)
     {
