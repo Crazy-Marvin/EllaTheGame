@@ -3,7 +3,7 @@
 > Ella - The Game is an open source endless runner for Android, Linux, Windows, macOS & WebGL.
 
 [![Travis](https://img.shields.io/travis/Crazy-Marvin/EllaTheGame.svg?style=flat-square)](https://travis-ci.org/Crazy-Marvin/EllaTheGame)
-[![Build Status](https://dev.azure.com/Crazy-Marvin/CrazyMarvin/_apis/build/status/Crazy-Marvin.EllaTheGame?branchName=master)](https://dev.azure.com/Crazy-Marvin/CrazyMarvin/_build/latest?definitionId=1?branchName=master)
+![Azure Pipelines](https://img.shields.io/azure-devops/build/Crazy-Marvin/4bc2392e-76d1-4d7a-9249-c8bdc7cd3747/1.svg?style=flat-square)
 [![License](https://img.shields.io/github/license/Crazy-Marvin/EllaTheGame.svg?style=flat-square)](LICENSE.txt)
 [![Last commit](https://img.shields.io/github/last-commit/Crazy-Marvin/EllaTheGame.svg?style=flat-square)](https://github.com/Crazy-Marvin/EllaTheGame/)
 [![Releases](https://img.shields.io/github/downloads/Crazy-Marvin/EllaTheGame/total.svg?style=flat-square)](https://github.com/Crazy-Marvin/EllaTheGame/releases)
