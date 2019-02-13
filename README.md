@@ -4,6 +4,7 @@
 
 [![Travis](https://img.shields.io/travis/Crazy-Marvin/EllaTheGame.svg?style=flat-square)](https://travis-ci.org/Crazy-Marvin/EllaTheGame)
 [![License](https://img.shields.io/github/license/Crazy-Marvin/EllaTheGame.svg?style=flat-square)](LICENSE.txt)
+![Uptime](https://img.shields.io/uptimerobot/ratio/m779308644-29ef42d166c8d53375c7faf3.svg?style=flat-square)
 [![Last commit](https://img.shields.io/github/last-commit/Crazy-Marvin/EllaTheGame.svg?style=flat-square)](https://github.com/Crazy-Marvin/EllaTheGame/)
 [![Releases](https://img.shields.io/github/downloads/Crazy-Marvin/EllaTheGame/total.svg?style=flat-square)](https://github.com/Crazy-Marvin/EllaTheGame/releases)
 
