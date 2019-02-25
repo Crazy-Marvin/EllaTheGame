@@ -33,18 +33,7 @@ public class LevelGlobals : MonoBehaviour {
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
-    public void ExitGame()
-    {
-        Application.Quit();
-    }
+    
 
-    public void ExecutePauseEvent()
-    {
-        GameManager.Instance.ExecuteGamePauseEvent();
-    }
 
-    public void ExecuteResumeEvent()
-    {
-        GameManager.Instance.ExecuteGameResumeEvent();
-    }
 }

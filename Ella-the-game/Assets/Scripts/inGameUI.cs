@@ -112,4 +112,26 @@ public class inGameUI : MonoBehaviour {
         GameManager.GamePauseEvent -= GamePauseEventExecuted;
         GameManager.GameResumeEvent -= GameResumeEventExecuted;
     }
+
+    public void ExecutePauseEvent()
+    {
+        GameManager.Instance.ExecuteGamePauseEvent();
+    }
+    public void ExecuteResumeEvent()
+    {
+        GameManager.Instance.ExecuteGameResumeEvent();
+    }
+    public void ReplayGame()
+    {
+        GameObject.FindGameObjectWithTag("LevelGlobalGO").GetComponent<LevelGlobals>().ReplayGame();
+    }
+    public void LoadMainMenu()
+    {
+        GameObject.FindGameObjectWithTag("LevelGlobalGO").GetComponent<LevelGlobals>().LoadMainMenu();
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }

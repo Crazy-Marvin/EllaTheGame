@@ -8,14 +8,16 @@ public class AssetsGenerator : MonoBehaviour {
     public GameObject[] items;
     public GameObject[] itemsSpawnPositions;
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         GameManager.GameStartEvent += GameStartEventExecuted;  
     }
 
     private void GameStartEventExecuted()
     {
+        Debug.Log("whataaaaa");
         if (items != null)
         {
+            Debug.Log("not null");
             for (int i = 0; i < items.Length; i++)
             {
                 StartCoroutine(SpawnItems(i));
@@ -31,11 +33,12 @@ public class AssetsGenerator : MonoBehaviour {
         while (GameManager.Instance.gameState == GameManager.GameState.GameRunning)
         {
             yield return new WaitForSeconds(itemsSpawningTimer[index]);
+            Debug.Log("hhhhhhh");
             Instantiate(items[index], itemsSpawnPositions[index].transform.position, itemsSpawnPositions[index].transform.rotation);
         }
     }
     void OnDestroy()
     {
-        GameManager.GameStartEvent += GameStartEventExecuted;
+        GameManager.GameStartEvent -= GameStartEventExecuted;
     }
 }
