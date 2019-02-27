@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class MainMenuManager : MonoBehaviour {
-    public GameObject waitPanel;
+    public GameObject waitPanel, goBtn;
     [SerializeField]
     private Button puppyBtn, adultBtn, seniorBtn;
     private int difficulty;
+    public VideoPlayer videoPlayer;
+    public VideoClip defaultClip;
+    string selectedLevel = "";
     // Use this for initialization
     void Start () {
         GameManager.Instance.gameState = GameManager.GameState.MainMenu;
@@ -34,10 +38,10 @@ public class MainMenuManager : MonoBehaviour {
 	void Update () {
         
     }
-    public void loadScene(string sceneName)
+    public void loadScene()
     {
         Time.timeScale = 1;
-        StartCoroutine("loadAsyncScene", sceneName);
+        StartCoroutine("loadAsyncScene", selectedLevel);
     }
     IEnumerator loadAsyncScene(string sceneName)
     {
@@ -78,5 +82,15 @@ public class MainMenuManager : MonoBehaviour {
             adultBtn.GetComponent<Image>().color = new Color32(24, 24, 24, 255);
             seniorBtn.GetComponent<Image>().color = new Color32(103, 0, 0, 255);
         }
+    }
+    public void SelectLevel(string sceneName)
+    {
+        selectedLevel = sceneName;
+        goBtn.SetActive(true);
+        
+    }
+    public void PlayDemoVideo(VideoClip clip)
+    {
+        videoPlayer.clip = clip;
     }
 }
