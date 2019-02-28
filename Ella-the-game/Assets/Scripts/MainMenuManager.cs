@@ -33,15 +33,10 @@ public class MainMenuManager : MonoBehaviour {
             seniorBtn.GetComponent<Image>().color = new Color32(103, 0, 0, 255);
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-        
-    }
-    public void loadScene()
+    public void loadScene(string sceneName)
     {
         Time.timeScale = 1;
-        StartCoroutine("loadAsyncScene", selectedLevel);
+        StartCoroutine("loadAsyncScene", sceneName);
     }
     IEnumerator loadAsyncScene(string sceneName)
     {
