@@ -14,7 +14,6 @@ public class AssetsGenerator : MonoBehaviour {
 
     private void GameStartEventExecuted()
     {
-        Debug.Log("whataaaaa");
         if (items != null)
         {
             for (int i = 0; i < items.Length; i++)

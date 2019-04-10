@@ -12,7 +12,6 @@ public class ScrollingBackground : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //Vector2 offset = new Vector2(Time.time * speed,0);
         Vector3 shift = Camera.main.transform.position - lastCameraPosition;
         lastCameraPosition = Camera.main.transform.position;
 

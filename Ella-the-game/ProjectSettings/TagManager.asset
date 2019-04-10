@@ -17,6 +17,10 @@ TagManager:
   - puppyDiff
   - adultDiff
   - seniorDiff
+  - Obstacle
+  - Prize
+  - Item
+  - SpriteBG
   layers:
   - Default
   - TransparentFX
