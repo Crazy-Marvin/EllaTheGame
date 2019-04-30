@@ -855,7 +855,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1672627570}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 6.599995, y: -2.0399997, z: 13.4}
+  m_LocalPosition: {x: 6.599995, y: -2.14, z: 13.4}
   m_LocalScale: {x: 1.2990383, y: 0.5408112, z: 0.07517538}
   m_Children: []
   m_Father: {fileID: 208977025}
@@ -1083,10 +1083,6 @@ PrefabInstance:
     - target: {fileID: 1398175577860090, guid: 1a99ccec2d1f2cf41aad434bfcdcd2b9, type: 3}
       propertyPath: m_Name
       value: inGameMenuCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 1398175577860090, guid: 1a99ccec2d1f2cf41aad434bfcdcd2b9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224635185527434042, guid: 1a99ccec2d1f2cf41aad434bfcdcd2b9,
         type: 3}
