@@ -2,11 +2,12 @@
 
 > Ella - The Game is an open source endless runner for Android, Linux, Windows, macOS & WebGL.
 
-[![Travis](https://img.shields.io/travis/Crazy-Marvin/EllaTheGame.svg?style=flat-square)](https://travis-ci.org/Crazy-Marvin/EllaTheGame)
-[![License](https://img.shields.io/github/license/Crazy-Marvin/EllaTheGame.svg?style=flat-square)](LICENSE.txt)
-![Uptime](https://img.shields.io/uptimerobot/ratio/m779308644-29ef42d166c8d53375c7faf3.svg?style=flat-square)
-[![Last commit](https://img.shields.io/github/last-commit/Crazy-Marvin/EllaTheGame.svg?style=flat-square)](https://github.com/Crazy-Marvin/EllaTheGame/)
-[![Releases](https://img.shields.io/github/downloads/Crazy-Marvin/EllaTheGame/total.svg?style=flat-square)](https://github.com/Crazy-Marvin/EllaTheGame/releases)
+[![Travis](https://img.shields.io/travis/Crazy-Marvin/EllaTheGame.svg)](https://travis-ci.org/Crazy-Marvin/EllaTheGame)
+[![License](https://img.shields.io/github/license/Crazy-Marvin/EllaTheGame.svg)](LICENSE.txt)
+![Uptime](https://img.shields.io/uptimerobot/ratio/m779308644-29ef42d166c8d53375c7faf3.svg)
+[![Last commit](https://img.shields.io/github/last-commit/Crazy-Marvin/EllaTheGame.svg)](https://github.com/Crazy-Marvin/EllaTheGame/)
+[![GitHub All Releases](https://img.shields.io/github/downloads/Crazy-Marvin/EllaTheGame/total?color=brightgreen)](https://github.com/Crazy-Marvin/EllaTheGame/releases)
+[![Crowdin](https://badges.crowdin.net/ella-the-game/localized.svg?style=flat-square)](https://crowdin.com/project/ella-the-game)
 
 # About
 
