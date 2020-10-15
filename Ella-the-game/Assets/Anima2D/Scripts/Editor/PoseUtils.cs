@@ -63,6 +63,7 @@ namespace Anima2D
 					boneTransform.localPosition = element.FindPropertyRelative("localPosition").vector3Value;
 					boneTransform.localRotation = element.FindPropertyRelative("localRotation").quaternionValue;
 					boneTransform.localScale = element.FindPropertyRelative("localScale").vector3Value;
+					BoneUtils.FixLocalEulerHint(boneTransform);
 				}
 			}
 
@@ -79,6 +80,7 @@ namespace Anima2D
 					if(ik.orientChild && ik.target.child)
 					{
 						ik.transform.rotation = ik.target.child.transform.rotation;
+						BoneUtils.FixLocalEulerHint(ik.transform);
 					}
 				}
 			}

@@ -1,4 +1,38 @@
 VERSION LOG
+v1.1.8 2019-07-09
+- Fixed upgrade assets regression.
+
+v1.1.7 2019-05-23
+- Fixed "offset + size <= bufferLen" Error
+- Compatible with 2019.2
+
+v1.1.6.3 2019-02-27
+- Fixed Bone gizmos on inactive GameObjects regression
+- Removed "Editor Default Resources/Anima2D" directory. Content moved to Anima2D/Scripts/Editor/Resources
+
+v1.1.6.2 2019-01-09
+- Fix prefab isolation mode
+
+v1.1.6.1 2018-12-07
+- Fix regression on IK.
+
+v1.1.6 2018-11-21
+- Compatible with 2018.3
+- Removed deprecated code related to legacy releases.
+- Fix warnings in 2018.3.
+- Fix 2018.3 prefab reimport loop bug by removing prefab post-processing that set the sharedMesh for preview purposes.
+- Fix zoom in SpriteMeshEditorWindow.
+- Fix OnionSkin nullrefs.
+- Fix OnionSkin increasing object count.
+
+v1.1.5 2018-08-11
+- Using same auto-weights from 2d animation package.
+- Auto-weights for linux.
+- Fixed TRex sample assets to work with 2018.3
+- Fixed loading pose into an animation could make your bones to loop.
+- Fixed IK orient child could make loops.
+- Fixed textures in rect mesh mode would not work.
+
 v1.1.4 2017-10-22
 - Compatible with 2017.2
 - No more original textures in the build when using SpriteAtlases.

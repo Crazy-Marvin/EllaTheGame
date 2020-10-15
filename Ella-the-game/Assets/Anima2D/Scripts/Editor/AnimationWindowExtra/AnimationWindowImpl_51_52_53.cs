@@ -183,7 +183,9 @@ namespace Anima2D
 			}
 		}
 
-		public float FrameToTime(int frame)
+        public EditorWindow animationWindow => throw new NotImplementedException();
+
+        public float FrameToTime(int frame)
 		{
 			if(state != null && m_FrameToTimeMethod != null)
 			{
