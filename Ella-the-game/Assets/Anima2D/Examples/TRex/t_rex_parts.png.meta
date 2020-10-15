@@ -1,0 +1,212 @@
+fileFormatVersion: 2
+guid: 726d2784a87b044f182b7487b3b8ebb8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: t_rex_body
+  - first:
+      213: 21300002
+    second: t_rex_leg
+  - first:
+      213: 21300004
+    second: t_rex_head
+  - first:
+      213: 21300006
+    second: t_rex_jaw_open_back
+  - first:
+      213: 21300008
+    second: t_rex_jaw_open
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 16
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: t_rex_body
+      rect:
+        serializedVersion: 2
+        x: 19.518566
+        y: 704.9008
+        width: 786.41473
+        height: 319.09918
+      alignment: 9
+      pivot: {x: 0.5103738, y: 0.22812499}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02305410000000000800000000000000
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t_rex_leg
+      rect:
+        serializedVersion: 2
+        x: 13.741495
+        y: 376.2162
+        width: 146.6198
+        height: 307.31165
+      alignment: 9
+      pivot: {x: 0.46087265, y: 0.75859475}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22305410000000000800000000000000
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t_rex_head
+      rect:
+        serializedVersion: 2
+        x: 238.13739
+        y: 546.58777
+        width: 179.91223
+        height: 120.64136
+      alignment: 9
+      pivot: {x: 0.123487204, y: 0.3012029}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42305410000000000800000000000000
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t_rex_jaw_open_back
+      rect:
+        serializedVersion: 2
+        x: 681.18085
+        y: 515.5811
+        width: 116.167725
+        height: 120.407166
+      alignment: 9
+      pivot: {x: 0.5228305, y: 0.50609076}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62305410000000000800000000000000
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t_rex_jaw_open
+      rect:
+        serializedVersion: 2
+        x: 466.24255
+        y: 458.70618
+        width: 189.06268
+        height: 208.96472
+      alignment: 9
+      pivot: {x: 0.49476063, y: 0.49506232}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82305410000000000800000000000000
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: trex
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 97018622002239
+  assetBundleName: 
+  assetBundleVariant: 

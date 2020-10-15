@@ -21,10 +21,13 @@ namespace Anima2D
 			bool flag = Event.current == null || 
 						(Event.current != null && Event.current.type != EventType.ExecuteCommand);
 
+			var rootGameOject = AnimationWindowExtra.rootGameObject;
+
 			if(flag &&
+			   rootGameOject &&
 			   deleted == AnimationUtility.CurveModifiedType.CurveModified &&
 			   binding.type == typeof(Transform) &&
-			   binding.propertyName.Contains("localEulerAnglesRaw"))
+			   binding.propertyName.Contains("localEulerAnglesRaw")) 
 			{
 				Transform transform = AnimationWindowExtra.rootGameObject.transform.Find(binding.path);
 				Vector3 eulerAngles = BoneUtils.GetLocalEulerAngles(transform);

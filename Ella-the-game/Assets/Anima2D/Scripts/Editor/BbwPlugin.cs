@@ -10,28 +10,23 @@ namespace Anima2D
 	public class BbwPlugin
 	{
 		[DllImport ("Anima2D")]
-		private static extern int Bbw([In,Out] IntPtr vertices, int vertexCount, int originalVertexCount,
-		                               [In,Out] IntPtr indices, int indexCount,
-		                               [In,Out] IntPtr edges, int edgesCount,
-		                               [In,Out] IntPtr controlPoints, int controlPointsCount,
-		                               [In,Out] IntPtr boneEdges, int boneEdgesCount,
-		                               [In,Out] IntPtr weights
-		);
+		private static extern int Bbw(int iterations,
+            [In, Out] IntPtr vertices, int vertexCount, int originalVertexCount,
+            [In, Out] IntPtr indices, int indexCount,
+            [In, Out] IntPtr controlPoints, int controlPointsCount,
+            [In, Out] IntPtr boneEdges, int boneEdgesCount,
+            [In, Out] IntPtr pinIndices, int pinIndexCount,
+            [In, Out] IntPtr weights
+            );
 
-		[DllImport ("Anima2D")]
-		private static extern void SaveData([In,Out] IntPtr vertices, int vertexCount, 
-			                              [In,Out] IntPtr indices, int indexCount,
-			                              [In,Out] IntPtr edges, int edgesCount,
-			                              [In,Out] IntPtr controlPoints, int controlPointsCount,
-			                              [In,Out] IntPtr boneEdges, int boneEdgesCount);
-
-		public static void CalculateBbw(Vector2[] vertices, IndexedEdge[] edges, Vector2[] controlPoints, IndexedEdge[] controlPointEdges, out float[,] weights)
+		public static UnityEngine.BoneWeight[] CalculateBbw(Vector2[] vertices, IndexedEdge[] edges, Vector2[] controlPoints, IndexedEdge[] controlPointEdges, int[] pins)
 		{
 			Vector2[] sampledEdges = SampleEdges(controlPoints,controlPointEdges,10);
 
 			List<Vector2> verticesAndSamplesList = new List<Vector2>(vertices.Length + sampledEdges.Length);
 
 			verticesAndSamplesList.AddRange(vertices);
+			verticesAndSamplesList.AddRange(controlPoints);
 			verticesAndSamplesList.AddRange(sampledEdges);
 
 			List<IndexedEdge> edgesList = new List<IndexedEdge>(edges);
@@ -43,45 +38,36 @@ namespace Anima2D
 			Vector2[] verticesAndSamples = verticesAndSamplesList.ToArray();
 			int[] indices = indicesList.ToArray();
 
-			weights = new float[controlPointEdges.Length,vertices.Length];
+			UnityEngine.BoneWeight[] weights = new UnityEngine.BoneWeight[vertices.Length];
 
 			GCHandle verticesHandle = GCHandle.Alloc(verticesAndSamples, GCHandleType.Pinned);
 			GCHandle indicesHandle = GCHandle.Alloc(indices, GCHandleType.Pinned);
-			GCHandle edgesHandle = GCHandle.Alloc(edges, GCHandleType.Pinned);
 			GCHandle controlPointsHandle = GCHandle.Alloc(controlPoints, GCHandleType.Pinned);
 			GCHandle boneEdgesHandle = GCHandle.Alloc(controlPointEdges, GCHandleType.Pinned);
+			GCHandle pinsHandle = GCHandle.Alloc(pins, GCHandleType.Pinned);
 			GCHandle weightsHandle = GCHandle.Alloc(weights, GCHandleType.Pinned);
 
-			/*
-			SaveData(verticesHandle.AddrOfPinnedObject(), vertices.Length,
-	                 indicesHandle.AddrOfPinnedObject(), indices.Length,
-	                 edgesHandle.AddrOfPinnedObject(),edges.Length,
-	                 controlPointsHandle.AddrOfPinnedObject(), controlPoints.Length,
-			         boneEdgesHandle.AddrOfPinnedObject(), controlPointEdges.Length);
-			 */
-
-			Bbw(verticesHandle.AddrOfPinnedObject(), verticesAndSamples.Length, vertices.Length,
+			Bbw(-1,
+				verticesHandle.AddrOfPinnedObject(), verticesAndSamples.Length, vertices.Length,
 			    indicesHandle.AddrOfPinnedObject(), indices.Length,
-			    edgesHandle.AddrOfPinnedObject(), edges.Length,
 			    controlPointsHandle.AddrOfPinnedObject(), controlPoints.Length,
 			    boneEdgesHandle.AddrOfPinnedObject(), controlPointEdges.Length,
+				pinsHandle.AddrOfPinnedObject(), pins.Length,
 			    weightsHandle.AddrOfPinnedObject());
 
 			verticesHandle.Free();
 			indicesHandle.Free();
-			edgesHandle.Free();
 			controlPointsHandle.Free();
 			boneEdgesHandle.Free();
+			pinsHandle.Free();
 			weightsHandle.Free();
+
+			return weights;
 		}
 
 		static Vector2[] SampleEdges(Vector2[] controlPoints, IndexedEdge[] controlPointEdges, int samplesPerEdge)
 		{
-			int totalCount = controlPoints.Length + samplesPerEdge * controlPointEdges.Length;
-				
-			List<Vector2> sampledVertices = new List<Vector2>(totalCount);
-
-			sampledVertices.AddRange(controlPoints);
+			List<Vector2> sampledVertices = new List<Vector2>();
 
 			for(int i = 0; i < controlPointEdges.Length; i++)
 			{

@@ -19,6 +19,7 @@ namespace Anima2D
 
 		PropertyInfo m_StateProperty = null;
 
+		MethodInfo m_GetAllAnimationWindows = null;
 		MethodInfo m_PreviewFrameMethod = null;
 		MethodInfo m_GetAutoRecordModeMethod = null;
 		MethodInfo m_SetAutoRecordModeMethod = null;
@@ -28,6 +29,7 @@ namespace Anima2D
 
 		public void InitializeReflection()
 		{
+			m_GetAllAnimationWindows = m_AnimationWindowType.GetMethod("GetAllAnimationWindows", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
 			m_StateProperty = m_AnimationWindowType.GetProperty("state", BindingFlags.Instance | BindingFlags.Public);
 			m_FrameField = m_AnimationWindowStateType.GetField("m_Frame", BindingFlags.Instance | BindingFlags.Public);
 			m_PreviewFrameMethod = m_AnimationWindowType.GetMethod("PreviewFrame",BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
@@ -42,11 +44,30 @@ namespace Anima2D
 			m_GetTimeSecondsMethod = m_AnimationWindowStateType.GetMethod("GetTimeSeconds",BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
 		}
 
+		public EditorWindow animationWindow
+		{
+			get {
+				if(m_GetAllAnimationWindows != null)
+				{
+					var list = m_GetAllAnimationWindows.Invoke(null, null);
+					int numElements = (int)list.GetType().GetProperty("Count").GetValue(list, null);  
+ 
+					if(numElements > 0)
+					{
+						object[] index = { 0 };  
+                        return list.GetType().GetProperty("Item").GetValue(list, index) as EditorWindow;  
+					}
+				}
+
+				return null;
+			}
+		}
+
 		object state {
 			get {
-				if(AnimationWindowExtra.animationWindow != null && m_StateProperty != null)
+				if(animationWindow != null && m_StateProperty != null)
 				{
-					return m_StateProperty.GetValue(AnimationWindowExtra.animationWindow,null);
+					return m_StateProperty.GetValue(animationWindow,null);
 				}
 
 				return null;
@@ -67,26 +88,26 @@ namespace Anima2D
 				if(m_PreviewFrameMethod != null)
 				{
 					object[] parameters = { value };
-					m_PreviewFrameMethod.Invoke(AnimationWindowExtra.animationWindow, parameters);
+					m_PreviewFrameMethod.Invoke(animationWindow, parameters);
 				}
 			}
 		}
 		
 		public bool recording {
 			get {
-				if(AnimationWindowExtra.animationWindow && m_GetAutoRecordModeMethod != null)
+				if(animationWindow && m_GetAutoRecordModeMethod != null)
 				{
-					return (bool)m_GetAutoRecordModeMethod.Invoke(AnimationWindowExtra.animationWindow, null);
+					return (bool)m_GetAutoRecordModeMethod.Invoke(animationWindow, null);
 				}
 				
 				return false;
 			}
 			
 			set {
-				if(AnimationWindowExtra.animationWindow && m_SetAutoRecordModeMethod != null)
+				if(animationWindow && m_SetAutoRecordModeMethod != null)
 				{
 					object[] parameters = { value };
-					m_SetAutoRecordModeMethod.Invoke(AnimationWindowExtra.animationWindow, parameters);
+					m_SetAutoRecordModeMethod.Invoke(animationWindow, parameters);
 				}
 			}
 		}
@@ -171,16 +192,6 @@ namespace Anima2D
 				return (float) m_TimeToFrameMethod.Invoke(state,parameters);
 			}
 			return 0f;
-		}
-		
-		public void CreateDefaultCurve(EditorCurveBinding binding)
-		{
-			Debug.Log("Anima2D: CreateDefaultCurve method not needed in 5.0");
-		}
-		
-		public void AddKey(EditorCurveBinding binding, float time)
-		{
-			Debug.Log("Anima2D: AddKey method not needed in 5.0");
 		}
 	}
 }

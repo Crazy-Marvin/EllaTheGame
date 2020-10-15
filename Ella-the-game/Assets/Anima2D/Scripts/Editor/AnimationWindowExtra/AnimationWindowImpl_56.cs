@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace Anima2D
 {
-	public class AnimationWindowImpl_56 : AnimationWindowImpl_55
+	public class AnimationWindowImpl_56 : AnimationWindowImpl_51_52_53_54_55
 	{
 		PropertyInfo m_CurrentFrameProperty = null;
 		MethodInfo m_StartRecording = null;

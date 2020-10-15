@@ -9,52 +9,27 @@ namespace Anima2D
 	[InitializeOnLoad]
 	public class AnimationWindowExtra
 	{
-		static Type m_AnimationWindowType = typeof(EditorWindow).Assembly.GetType("UnityEditor.AnimationWindow");
-
-		static EditorWindow m_AnimationWindow = null;
-		public static EditorWindow animationWindow {
-			get	{
-				if( m_AnimationWindow == null )
-				{
-					m_AnimationWindow = FindWindowOpen( m_AnimationWindowType );
-				}
-				return m_AnimationWindow;
-			}
-		}
-
-		static EditorWindow FindWindowOpen(Type windowType)
-		{
-			UnityEngine.Object[] objs = Resources.FindObjectsOfTypeAll( windowType );
-
-			foreach( UnityEngine.Object o in objs )
-			{
-				if( o.GetType() == windowType )
-				{
-					return (EditorWindow)o;
-				}
-			}
-
-			return null;
-		}
-
 		static IAnimationWindowImpl s_Impl;
 
 		static AnimationWindowExtra()
 		{
 #if UNITY_5_0
 			s_Impl = new AnimationWindowImpl_50();
-#elif UNITY_5_1 || UNITY_5_2 || UNITY_5_3
-			s_Impl = new AnimationWindowImpl_51_52_53();
-#elif UNITY_5_4
-			s_Impl = new AnimationWindowImpl_54();
-#elif UNITY_5_5
-			s_Impl = new AnimationWindowImpl_55();
+#elif UNITY_5_1 || UNITY_5_2 || UNITY_5_3 || UNITY_5_4 || UNITY_5_5
+			s_Impl = new AnimationWindowImpl_51_52_53_54_55();
 #elif UNITY_5_6
 			s_Impl = new AnimationWindowImpl_56();
 #elif UNITY_2017_1_OR_NEWER
 			s_Impl = new AnimationWindowImpl_2017_1();
 #endif
 			s_Impl.InitializeReflection();
+		}
+
+		public static EditorWindow animationWindow
+		{
+			get {
+				return s_Impl.animationWindow;
+			}
 		}
 
 		public static int frame {
@@ -99,16 +74,6 @@ namespace Anima2D
 		public static float TimeToFrame(float time)
 		{
 			return s_Impl.TimeToFrame(time);
-		}
-
-		public static void CreateDefaultCurve(EditorCurveBinding binding)
-		{
-			s_Impl.CreateDefaultCurve(binding);	
-		}
-
-		public static void AddKey(EditorCurveBinding binding, float time)
-		{
-			s_Impl.AddKey(binding,time);
 		}
 	}
 }

@@ -1,11 +1,11 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ella-the-game", "Assembly-CSharp.csproj", "{DA945549-8BF6-6A49-B723-9FD711CF70F7}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 16
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{DA945549-8BF6-6A49-B723-9FD711CF70F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ella-the-game", "Assembly-CSharp-firstpass.csproj", "{1DD297AA-70A6-8C7F-D5AD-C7BDDA983DB7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{1DD297AA-70A6-8C7F-D5AD-C7BDDA983DB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ella-the-game", "Assembly-CSharp-Editor.csproj", "{0189B0B0-46D1-05E3-4501-2E0F6F60E9D5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{0189B0B0-46D1-05E3-4501-2E0F6F60E9D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
