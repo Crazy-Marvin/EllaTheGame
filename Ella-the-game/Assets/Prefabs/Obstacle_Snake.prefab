@@ -50,7 +50,6 @@ MonoBehaviour:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_SortingLayerID: -2035470561
   m_SortingOrder: 0
-  m_Bones: []
   m_BoneTransforms:
   - {fileID: 4308841769844594}
   - {fileID: 4504331588453192}
@@ -315,7 +314,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Length: 0.5599996
-  m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4349027062472096}
   m_AttachedIK: {fileID: 0}
 --- !u!60 &60145531970430584
@@ -431,7 +429,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Length: 0.34
-  m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 0}
   m_AttachedIK: {fileID: 0}
 --- !u!60 &60225162412446788
@@ -516,7 +513,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Color: {r: 0.99264705, g: 0, b: 0, a: 1}
   m_Length: 0.9999851
-  m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 0}
   m_AttachedIK: {fileID: 0}
 --- !u!60 &60922651466526088
@@ -654,7 +650,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99091f75dac5d4ede961d37f71798fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Target: {fileID: 0}
   m_Record: 0
   m_TargetTransform: {fileID: 4349027062472096}
   m_NumBones: 2
@@ -663,16 +658,13 @@ MonoBehaviour:
   m_OrientChild: 1
   flip: 0
   m_Solver:
-    m_RootBone: {fileID: 0}
     m_RootBoneTransform: {fileID: 4504331588453192}
     m_SolverPoses:
-    - m_Bone: {fileID: 0}
-      m_BoneTransform: {fileID: 4504331588453192}
+    - m_BoneTransform: {fileID: 4504331588453192}
       solverPosition: {x: 0, y: 0, z: 0}
       solverRotation: {x: 0, y: 0, z: -0.767103, w: 0.64152396}
       defaultLocalRotation: {x: 0, y: 0, z: -0.74729586, w: 0.66449153}
-    - m_Bone: {fileID: 0}
-      m_BoneTransform: {fileID: 4349027062472096}
+    - m_BoneTransform: {fileID: 4349027062472096}
       solverPosition: {x: 0, y: 0, z: 0}
       solverRotation: {x: 0, y: 0, z: 0.49363986, w: 0.8696664}
       defaultLocalRotation: {x: 0, y: 0, z: 0.02296445, w: 0.9997363}
@@ -727,7 +719,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Length: 0.5600091
-  m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4777053670057362}
   m_AttachedIK: {fileID: 0}
 --- !u!60 &60146873654445368
