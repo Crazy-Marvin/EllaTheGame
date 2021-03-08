@@ -6,6 +6,8 @@
 [Bb]uild
 /[Bb]uilds/
 /[Ll]ibrary/
+/Ella-the-game/Library/
+/Ella-the-game/Builds/
 sysinfo.txt
 *.stackdump
 /Assets/AssetStoreTools*

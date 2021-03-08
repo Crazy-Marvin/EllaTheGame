@@ -82,7 +82,8 @@ public class GameManager : MonoBehaviour {
     /// </summary>
     public void ExecuteGameStartEvent()
     {
-        GameStartEvent();
+        if(GameStartEvent != null)
+            GameStartEvent();
     }
     public void ExecuteGameOverEvent()
     {

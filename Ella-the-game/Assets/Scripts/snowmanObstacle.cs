@@ -10,6 +10,8 @@ public class snowmanObstacle : MonoBehaviour {
 
     private int healthEffect = -5;
     private int difficulty;
+    public bool rotating;
+    public float rotationSpeed=5;
     // Use this for initialization
     void Start () {
         //Difficulty Settup
@@ -31,9 +33,14 @@ public class snowmanObstacle : MonoBehaviour {
 
     }
 	
-	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         RB.velocity = new Vector2(movemmentSpeed, RB.velocity.y);
+        if (rotating)
+        {
+            RB.MoveRotation(RB.rotation + rotationSpeed);
+            //RB.rotation += rotationSpeed;
+            Debug.Log(RB.rotation);
+        }
     }
     
     private void OnCollisionEnter2D(Collision2D collision)
