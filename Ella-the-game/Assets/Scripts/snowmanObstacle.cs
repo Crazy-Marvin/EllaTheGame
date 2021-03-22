@@ -39,7 +39,7 @@ public class snowmanObstacle : MonoBehaviour {
         {
             RB.MoveRotation(RB.rotation + rotationSpeed);
             //RB.rotation += rotationSpeed;
-            Debug.Log(RB.rotation);
+            //Debug.Log(RB.rotation);
         }
     }
     
