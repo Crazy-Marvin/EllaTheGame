@@ -92,6 +92,7 @@
     <Compile Include="Assets\RandomObjsActivator.cs" />
     <Compile Include="Assets\Scripts\BoxerObstacle.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\CowboyObstacle.cs" />
     <Compile Include="Assets\Scripts\DoorsAsset.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\ItemsDestroyer.cs" />
@@ -117,7 +118,6 @@
     <Compile Include="Assets\ScrollingBackground.cs" />
     <Compile Include="Assets\StickyBackground.cs" />
     <None Include="Assets\Anima2D\Readme.txt" />
-    <None Include="Assets\codeandweb.com\Readme.txt" />
     <None Include="Assets\Anima2D\Examples\Shaders\VertexLitOneDirectional.shader" />
     <None Include="Assets\Anima2D\Examples\Shaders\VisibleOutsideMask.shader" />
     <None Include="Assets\Anima2D\Examples\Shaders\VisibleInsideMask.shader" />

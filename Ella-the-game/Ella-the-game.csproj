@@ -697,6 +697,7 @@
     <Compile Include="Assets\RandomObjsActivator.cs" />
     <Compile Include="Assets\Scripts\BoxerObstacle.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\CowboyObstacle.cs" />
     <Compile Include="Assets\Scripts\DoorsAsset.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\ItemsDestroyer.cs" />
@@ -732,8 +733,6 @@
     <None Include="Assets\Anima2D\Version.txt" />
     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
     <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
-    <None Include="Assets\codeandweb.com\Editor\SettingsTexturePackerImporter.txt" />
-    <None Include="Assets\codeandweb.com\Readme.txt" />
     <None Include="Packages\com.unity.2d.sprite\Editor\UI\SpriteEditor\PolygonChangeShapeWindow.uxml" />
     <None Include="Packages\com.unity.2d.sprite\Editor\UI\SpriteEditor\SpriteEditor.uss" />
     <None Include="Packages\com.unity.2d.sprite\Editor\UI\SpriteEditor\SpriteFrameModuleInspector.uxml" />

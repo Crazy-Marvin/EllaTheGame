@@ -204,7 +204,6 @@
     <Compile Include="Assets\Anima2D\Scripts\Editor\WeightEditor.cs" />
     <Compile Include="Assets\Anima2D\Scripts\Editor\WindowEditorTool.cs" />
     <Compile Include="Assets\Editor\NewEditModeTest.cs" />
-    <None Include="Assets\codeandweb.com\Editor\SettingsTexturePackerImporter.txt" />
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
