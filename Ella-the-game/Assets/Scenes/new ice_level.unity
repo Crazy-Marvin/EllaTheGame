@@ -944,7 +944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacles:
   - {fileID: 1172875517174940, guid: ce322bbcc73c02347a115c8f3933a58c, type: 3}
-  - {fileID: 1618643297273992, guid: 441a1a4fdf160654e89d3532a354b15e, type: 3}
+  - {fileID: 4993597641576814629, guid: 4e63ede01f79ef047ab2d6f795e39434, type: 3}
   - {fileID: 1670617958223832, guid: a83f3a4d2499d1040acdd277d03ad419, type: 3}
   - {fileID: 1381348484573682, guid: 108dab923743dec4b901132cc827a4a5, type: 3}
   - {fileID: 1281652325128820, guid: 7e9aba683c2579a4fbcce7dfeaafc2c3, type: 3}

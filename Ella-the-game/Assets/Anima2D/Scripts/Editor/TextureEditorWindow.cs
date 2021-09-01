@@ -43,7 +43,7 @@ namespace Anima2D
 					if(!mShowBonesImage)
 					{
 						mShowBonesImage = Resources.Load<Texture2D>("showBonesIcon");
-						mShowBonesImage.hideFlags = HideFlags.DontSave;
+						//mShowBonesImage.hideFlags = HideFlags.DontSave;
 					}
 					
 					return mShowBonesImage;
