@@ -204,6 +204,12 @@
     <Compile Include="Assets\Anima2D\Scripts\Editor\WeightEditor.cs" />
     <Compile Include="Assets\Anima2D\Scripts\Editor\WindowEditorTool.cs" />
     <Compile Include="Assets\Editor\NewEditModeTest.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX Easy Editor\Editor\CFXEasyEditor.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Editor\CFX_InspectorHelpEditor.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Editor\CFX_SpawnSystemEditor.cs" />
+    <Compile Include="Assets\JMO Assets\Shape FX\Editor\ShFX_EffectHandler_Editor.cs" />
+    <Compile Include="Assets\JMO Assets\Shape FX\Editor\ShFX_EffectLight_Editor.cs" />
+    <Compile Include="Assets\JMO Assets\Shape FX\Editor\ShFX_Variants_Editor.cs" />
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
@@ -212,6 +218,9 @@
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Animation.Runtime">
+      <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Editor">
       <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
@@ -228,6 +237,12 @@
     <Reference Include="Unity.Timeline">
       <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Animation.Triangle.Runtime">
+      <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="PsdPlugin">
+      <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
       <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
@@ -240,42 +255,6 @@
     <Reference Include="Unity.Rider.Editor">
       <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.SpatialTracking">
-      <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.SpatialTracking">
-      <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.XR.LegacyInputHelpers">
-      <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-      <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.multiplayer-hlapi.Runtime">
-      <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Animation.Runtime">
-      <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Animation.Triangle.Runtime">
-      <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="PsdPlugin">
-      <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Mathematics">
       <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
     </Reference>
@@ -285,20 +264,47 @@
     <Reference Include="Unity.InternalAPIEngineBridge.001">
       <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.2D.Common.Runtime">
       <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Tilemap.Editor">
+      <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Editor">
       <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.SpatialTracking">
+      <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpatialTracking">
+      <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Mathematics.Editor">
       <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Common.Editor">
       <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Analytics.DataPrivacy">
+      <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.XR.LegacyInputHelpers">
+      <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.InternalAPIEditorBridge.001">
       <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.multiplayer-hlapi.Runtime">
+      <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/2019.3.7f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -515,6 +521,9 @@
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
       <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/PackageCache/com.unity.purchasing@2.0.6/Editor/UnityEditor.Purchasing.dll</HintPath>
+    </Reference>
+    <Reference Include="JMOAssets">
+      <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Assets/JMO Assets/Editor/JMOAssets.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>

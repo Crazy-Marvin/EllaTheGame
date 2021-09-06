@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html itemscope itemtype="http://schema.org/Product" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="description" content="Frequently Asked Questions about the JMO Unity Assets.">
+		
+		<title>JMO Assets - ShapeFX  - Documentation</title>
+		<link rel="stylesheet" type="text/css" href="Documentation Data/ShapeFX_Documentation.css" />
+	</head>
+	<body>
+	<div class="main">
+	
+		<div class="otherassets">Other JMO assets for Unity:</div>
+		<table class="amenu bottom" cellspacing="0" cellpadding="0" border="0">
+		  <tr>
+			<td><a href="http://www.jeanmoreno.com/cartoonfx/">Cartoon FX 1</a></td>
+			<td><a href="http://www.jeanmoreno.com/cartoonfx2/">Cartoon FX 2</a></td>
+			<td><a href="http://www.jeanmoreno.com/cartoonfx3/">Cartoon FX 3</a></td>
+			<td><a href="http://www.jeanmoreno.com/cartoonfx4/">Cartoon FX 4</a></td>
+			<td><a href="http://www.jeanmoreno.com/warfx/">War FX</a></td>
+			<td><a href="http://www.jeanmoreno.com/toonycolorspro/">Toony Colors Pro 2</a></td>
+			<td style="border-right:none;"><a href="http://www.jeanmoreno.com/matcap/">MatCap Shaders <span class="free">(Free)</span></a></td>
+		  </tr>
+		</table>
+		
+<!-- ################################################################################################################################ -->
+		<!-- HEADER -->
+		<div id="top" class="title">
+		<h1>ShapeFX</h1>
+		<h2>Documentation</h2>
+		</div>
+		<div class="footer">v1.0 - 21 june 2016<br />© 2016 - <a href="http://www.jeanmoreno.com/" target="_blank">Jean Moreno (JMO)</a></div>
+		
+		<div class="toplink"><a href="#top">back to top</a></div>
+		
+		<!-- THANKS! -->
+		<div class="box"><p>Thank you for your interest in <strong>ShapeFX</strong>!<br />This document will help you get started with the package, and explain its features in-depth.</p></div>
+		
+		<!-- INDEX -->
+		<div class="index">
+		<div class="line" style="border-bottom:solid 4px #E0E0E0;">&nbsp;</div>
+			<ul>
+				<li><a href="#about">About</a></li>
+				<li><a href="#getting_started">Getting Started</a></li>
+				<li><a href="#variants_editor">Variants Editor</a></li>
+				<li><a href="#variants_editor_example">Variants Editor Example</a></li>
+				<li><a href="#scripts">Scripts</a>
+				<ul>
+					<li><a href="#effect_light">Light Effect (ShFX_EffectLight)</a></li>
+					<li><a href="#effect_handler">Effect Handler (ShFX_EffectHandler)</a></li>
+					<li><a href="#soft_particle_modifier">Soft Particle Modifier (ShFX_SoftParticleFactorModifier)</a></li>
+				</ul>
+				</li>
+				<li><a href="#help">Further Help</a>
+			</ul>
+		<div class="line" style="border-bottom:solid 4px #E0E0E0;">&nbsp;</div>
+		</div>
+		
+<!-- ################################################################################################################################ -->
+	<div id="about" class="header">About</div>
+	<div class="box">
+		<p><strong>ShapeFX</strong> is a set of VFX (visual effects) that have a very distinctive visual style, helping you give a <strong>stylized look</strong> to your Unity game or application.<br /></p>
+		<p>All effects are composed of:</p>
+		<ul>
+		<li>one or multiple <strong>particle systems</strong>, using Unity's built-in system (code-named Shuriken)</li>
+		<li>(optional) a <strong>light</strong> linked to the effect</li>
+		<li>(optional) a <strong>handler script</strong> to help manage various things for the effect (autodestruction, camera shake, sound effect)</li>
+		<li>an <strong>in-inspector editor</strong> to easily change the visuals of the effects in a few clicks</li>
+		</ul>
+		<p>They all use <strong>simple shapes</strong>, yet achieve complex visuals and animation.
+		<br />As such, they are recommended for:</p>
+		<ul>
+		<li>low-poly styled games</li>
+		<li>voxel and Minecraft-like games</li>
+		<li>placeholders</li>
+		<li>prototypes</li>
+		</ul>
+	</div>
+		
+<!-- ################################################################################################################################ -->
+	<div id="getting_started" class="header">Getting Started</div>
+	<div class="box">
+		<p>You can find all effects in the following folder by default: <strong><b>JMO Assets/Shape FX/Prefabs/...</b></strong>
+		<br />
+		They are thematically organized in sub-folders: environmental, explosions, hits, liquids, etc.</p>
+		<p>Drag and drop a prefab into your scene to quickly preview an effect. You can then change its appearance and behaviour using the <strong>ShapeFX Variants</strong> editor in the Inspector.
+		<br />
+		See below for an in-depth explanation of the <a href="#variants_editor">ShapeFX Variants editor</a>.
+		<br />
+		<br />
+		You can also just go and try to tweak all settings directly within Unity: everything was made to be as intuitive as possible.
+		</p>
+		<br />
+		<p>There are also two <b>demo scenes</b> included that can help you preview the effects:</p>
+		<ul>
+		<li><strong><span style="font-size:14px; font-family:Monospace;">JMO Assets/Shape FX/Demo/</span><b>ShapeFX Demo</b></strong>: an example of how the effects look in different environments
+		<li><strong><span style="font-size:14px; font-family:Monospace;">JMO Assets/Shape FX/Demo/</span><b>ShapeFX Atlas</b></strong>: an exhaustive list of all included effects in Shape FX, along with their names
+		</ul>
+	</div>
+		
+	<div class="header" id="variants_editor">ShapeFX Variants Editor</div>
+	<div class="box" style="text-align: left; padding-top: 12px; padding-bottom: 12px;">
+		<p>The <strong>ShapeFX Variants editor</strong> is embedded into each effect. It allows you to easily modify the <strong>appearance</strong> and <strong>behaviour</strong> of the effects without having to dig into the many properties of the Particle Systems.</p>
+		<p>While the ShapeFX Variants editor is a Component (so that it can be accessible in the Inspector), it will be empty and not cause any overhead in your builds.</p>
+		
+		<div class="warning"><table><td><div class="icon icon_warning"></div></td><td><div>
+		You can only edit an effect when it is an <b>instance</b> in the Scene view, to prevent data loss from Prefabs directly.
+		<br />
+		Once you are happy with the changes, you can either:
+		<ul>
+		<li>save the effect into a new Prefab (<b>recommended</b>)</li>
+		<li>overwrite the original Prefab</li>
+		</ul>
+		Be <b>very careful</b> if you overwrite the original prefabs, for example you may lose your changes when you update the package from the Asset Store.
+		</div></td></table></div>
+		
+		<p>The editor is divided into tabs that you can expand:</p>
+		<h5>EDIT PROPERTIES</h5>
+		<p>This tab allows you to modify various properties of the effect.</p>
+		<div class="img ShFX_Help_EditProperties">&nbsp;</div>
+		<div class="category">
+		<p><strong>Use Mobile Atlas:</strong> use a single texture for all Particle Systems of the effect. This can be useful to reduce drawcalls when you use multiple different effects at the same time: you will only have one material per blend mode.</p>
+		<p><strong>Use Density:</strong> control the Particle System's emission rate according to the Transform scale. Typically used for environmental effects, this ensures that the particle density stays the same when you resize the effect's box.</p>
+		<p><strong>Effect Speed:</strong> change the Particle Systems' playback speed. Shortcut access to the <a href="http://docs.unity3d.com/ScriptReference/ParticleSystem-playbackSpeed.html" title="http://docs.unity3d.com/ScriptReference/ParticleSystem-playbackSpeed.html" target="_blank">ParticleSystem.playbackSpeed<span class="icon icon_ext1"></span></a> property that is not exposed in the Particle System inspector.<br />It will also adjust the effect light's playback speed setting, if any is attached.</p>
+		<p><strong>Effect Size:</strong> change the scale of the effect easily. Once you are satisfied with the changes, you need to <strong>Apply</strong> the changes for them to take effect, else you can <strong>Revert</strong> them. Mostly useful before Unity 5.3 that introduced better Particle System scaling.</p>
+		</div>
+		
+		<br />
+		
+		<h5>EDIT SHAPES</h5>
+		<p>This tab allows you to change the visuals of the effect.<br />
+		You will see a list of all Particle Systems composing the effect, with popups allowing you to change their appearance:</p>
+		<div class="img ShFX_Help_EditShapes">&nbsp;</div>
+		<div class="category">
+		<p><strong>Shape:</strong> defines the shape used by the individual particles, for example square, circle, triangle, etc.</p>
+		<p><strong>Style:</strong> defines the visual style for the selected shape, for example crisp, blur, etc.</p>
+		<p><strong>Blend Mode:</strong> defines blending mode used, for example additive, alpha blended, multiplicative, etc.</p>
+		<p><strong>SP:</strong> enable/disable <a href="http://docs.unity3d.com/Manual/class-QualitySettings.html" target="_blank">Soft Particles<span class="icon icon_ext1"></span></a> for this effect (they still need to be enabled in the Quality Settings)</p>
+		<p><strong>EDIT ALL:</strong> allows you to change a category for all Particle Systems of the effect. Useful if you want to stick to square shapes for a Minecraft-like game, for example!</p>
+		<p><strong>Randomize:</strong> will randomly change the shape, style and blend mode for all Particle Systems, depending on which are toggled.</p>
+		</div>
+		
+		<br />
+		<h5>EDIT COLORS</h5>
+		<p>This tab allows you to change the colors of the effect.<br />
+		Change any of the values, and the effect will play automatically to preview the changes.<br />
+		Once you are happy with them, you can <strong>Apply</strong> the changes, else you can <strong>Revert</strong> them.</p>
+		<div class="img ShFX_Help_EditColors">&nbsp;</div>
+		<div class="category">
+		<p><strong>Hue:</strong> will change the hue. Note that this doesn't have any effect if the saturation is 0 (i.e. grayscale colors).</p>
+		<p><strong>Saturation:</strong> will change the colors' saturation. By default grayscale colors are excluded from this, unless you toggle the <strong>"Force Saturation"</strong> option.</p>
+		<p><strong>Value:</strong> will change the colors' value, making them brighter or darker.</p>
+		<p><strong>Invert Colors:</strong> will direclty invert the colors value. You don't have to hit Apply for this change to take effect (if you don't like it, just invert the colors again).</p>
+		<p><strong>Restart Particle System on change:</strong> will replay the effect from start when you make a change. It's better to leave this disabled for looped effects.</p>
+		</div>
+		
+		<br />
+		<h5 id="edit_light">EDIT LIGHT</h5>
+		<p>This tab only appears if there is a <strong>light</strong> linked to the effect, using the <a href="#effect_light">ShFX_EffectLight</a> component.<br />
+		It allows you to edit that light without having to go into the light GameObject itself.</p>
+		<div class="img ShFX_Help_EditLight">&nbsp;</div>
+		<div class="category">
+		<p><strong>Enable Light Effect:</strong> enable/disable the Light GameObject, keeping it in the hierarchy.</p>
+		<p><strong>Peak Intensity:</strong> the max intensity that the light will have during its lifetime (i.e. the intensity when the <i>Intensity Curve</i> value is 1).</p>
+		<p><strong>Loop:</strong> repeat the light animation indefinitely, useful for looped Particle Systems.</p>
+		<p><strong>Fade In:</strong> duration for the light's intensity to fade in, in seconds (if the effect is looped).</p>
+		<p><strong>Fade Out:</strong> duration for the light's intensity to fade out, in seconds (if the effect is looped).</p>
+		<div class="warning"><table><td><div class="icon icon_warning"></div></td><td><div>
+		For looped effects it is recommended to directly call <b>ShFX_EffectLight.StopLightEffect()</b> from your scripts instead of relying on the auto-detection from the Particle System: this will ensure that the light intensity decreases while the last particles are still alive (instead of starting the fading out once there are no particles left).
+		</div></td></table></div>
+		<p><strong>Delay:</strong> delay before the light animation starts, in seconds.</p>
+		<p><strong>Duration:</strong> duration of the light animation, in seconds.</p>
+		<p><strong>Intensity Curve:</strong> variations of the light's intensity over its duration.</p>
+		<p><strong>Color from Particle System:</strong> will get the light's color from the main Particle System of the effect.</p>
+		<p><strong>Use Color Gradient:</strong> use a gradient to animate the color of the light over its duration.</p>
+		<p><strong>Color:</strong> shortcut to modify the light's color.</p>
+		<p><strong>Range:</strong> shortcut to modify the light's range.</p>
+		</div>
+	</div>
+	
+	<div id="variants_editor_example" class="header">Variants Editor Usage Example</div>
+	<div class="box">
+		<p>Here is a step-by-step example that will:<p>
+		<ul>
+		<li>double the size of an effect</li>
+		<li>change its visual appearance</li>
+		<li>change its color</li>
+		<li>change its attached light behavior</li>
+		</ul>
+		<p><h3 style="display:inline;">1.</h3> Create an instance of the effect <strong>ShFX_Hit 1</strong> in your scene</p>
+		<div class="img ShFX_Help_Tuto1">&nbsp;</div>
+		<p><h3 style="display:inline;">2.</h3> In the <strong>EDIT PROPERTIES</strong> tab, set the <strong>Effect Size</strong> to <strong>2</strong>, and hit <strong>Apply</strong><br />This will double the size of the effect.</p>
+		<div class="img ShFX_Help_Tuto2">&nbsp;</div>
+		<p><h3 style="display:inline;">3.</h3> In the <strong>EDIT SHAPES</strong> tab, on the <strong>EDIT ALL</strong> line:
+		<ul>
+		<li>click on the <strong>Shape</strong> drop-down and select <strong>Circle</strong></li>
+		<li>click on the <strong>Style</strong> drop-down and select <strong>Blur</strong></li>
+		<li>click on the <strong>Blend Mode</strong> drop-down and select <strong>Additive</strong></li>
+		</ul>
+		This will change the visual appearance of the effect in just a few clicks!</p>
+		<div class="img ShFX_Help_Tuto3">&nbsp;</div>
+		<p><h3 style="display:inline;">4.</h3> In the <strong>EDIT COLORS</strong> tab, adjust the values according to the screenshot below, making sure that <strong>Force Saturation</strong> is toggled (since the effect was initially white).<br />Then hit <strong>Apply</strong>.<br />This will change the effect's color.</p>
+		<div class="img ShFX_Help_Tuto4">&nbsp;</div>
+		<p><h3 style="display:inline;">5.</h3> In the <strong>EDIT LIGHT</strong> tab, adjust the values according to the screenshot below.
+		<div class="img ShFX_Help_Tuto5">&nbsp;</div>
+		<div class="helpbox"><table><td><div class="icon icon_info"></div></td><td><div>
+		Note that the <b>Range</b> value should already be bold, indicating that its value is different from the source Prefab: this is because we doubled the size of the effect previously, which automatically handled the light's range as well!
+		</div></td></table></div>
+		This will change how the attached light behave: it will have nice cyan to blue color instead of relying on the Particle System's color only.</p>
+		
+		<p><h3 style="display:inline;">6.</h3> You now have a very different effect from the original, which you got in just a few clicks!<br />
+		You can save that new effect as <strong>new Prefab</strong>!</p>
+		<div class="warning"><table><td><div class="icon icon_warning"></div></td><td><div>
+		Overwriting the original Prefab is <b>not recommended</b> because:<ul>
+		<li>you would lose the original effect</li>
+		<li>you could overwrite your own version if you update the package later</li>
+		</ul>
+		</div></td></table></div>
+	</div>
+	
+	<div id="scripts" class="header">Scripts</div>
+	<div class="box">
+		<h4 id="effect_light">Light Effect (ShFX_EffectLight)</h4>
+		<div>
+			The <strong>ShFX_EffectLight</strong> script handles animating point lights attached to effects.<br />
+			You can either edit its properties from the <a href="#variants_editor">Variants Editor</a> directly (recommended), or in the light's Inspector.<br />
+			<br />
+			Please refer to the <a href="#edit_light">EDIT LIGHT</a> section of the <strong>Variants Editor</strong> for a description of its properties.
+			<div class="warning"><table><td><div class="icon icon_warning"></div></td><td><div>
+			The light effect is previewed in the Editor when the Particle System is played.<br />
+			However, due to how it handles playing in the Editor, it might not play properly at times when previewing the Particle System.<br />
+			You can try to preview the effect again, making sure to have stopped it first, and it should work again.<br />
+			In any case, this won't interfere with how it plays at runtime.
+			</div></td></table></div>
+		</div>
+		
+		<h4 id="effect_handler">Effect Handler (ShFX_EffectHandler)</h4>
+		<div>
+			The <strong>ShFX_EffectHandler</strong> script handles additional effects when playing a Particle System, namely:
+			<ul>
+				<li>the effect's <strong>auto-destruction</strong> or <strong>auto-deactivation</strong> when it has finished playing</li>
+				<li>playing a <strong>sound effect</strong> when the Particle System is played</li>
+				<li>performing a <strong>camera shake</strong> when the Particle System is played</li>
+			</ul>
+			<strong>ShFX_EffectHandler</strong> is mostly useful for <strong>one-shot effects</strong>: it is advised to use your own script(s) when dealing with looped effects such as rain or snow.
+			
+			<div class="helpbox"><table><td><div class="icon icon_info"></div></td><td><div>
+			You can completely disable Camera Shakes with the static flag <b>ShFX_EffectHandler.DisableCameraShake</b>
+			</div></td></table></div>
+			<div class="warning"><table><td><div class="icon icon_warning"></div></td><td><div>
+			The <b>Camera Shake</b> system is made so that the original position/movement of the camera is preserved.<br />
+			It should "just work" in most cases.<br />
+			<br />
+			The camera position is moved during the <a href="https://docs.unity3d.com/ScriptReference/Camera-onPreRender.html" target="_blank">Camera.onPreRender <span class="icon icon_ext1"></span></a> event, and restored during the <a href="https://docs.unity3d.com/ScriptReference/Camera-onPostRender.html" target="_blank">Camera.onPostRender <span class="icon icon_ext1"></span></a> event.<br />
+			Be careful if you are also altering the camera position during these events!
+			</div></td></table></div>
+			<br />
+			<h5>PROPERTIES</h5>
+			<div class="category">
+			<p><strong>End Action:</strong> define what to do when the Particle System has finished playing.
+			<ul>
+				<li><strong>Do Nothing:</strong> ignore the end action</li>
+				<li><strong>Destroy Game Object:</strong> will call <b>Object.Destroy</b> on the GameObject containing the effect</li>
+				<li><strong>Deactivate Game Object:</strong> will call <b>gameObject.setActive(false)</b> on the GameObject containing the effect</li>
+			</ul>
+			</p>
+			<div class="line">&nbsp;</div>
+			<p><strong>Sound Effect:</strong> an <b>AudioClip</b> to play along with the effect (ignored if nothing is defined)</p>
+			<div class="line">&nbsp;</div>
+			<p><strong>Shake Camera:</strong> enable/disable Camera Shaking when the effect is played</p>
+			<p><strong>Camera To Shake:</strong> which Camera to shake (<b>Camera.main</b> will be used if nothing is defined)</p>
+			<p><strong>Shake Angle:</strong> defines in which direction to shake the camera in degrees (e.g. 90° will create a vertical shake, whereas 0° or 180° will create an horizontal shake)</p>
+			<p><strong>Random Shake Angle:</strong> randomizes the shaking angle at each shake</p>
+			<p><strong>Shake Duration:</strong> how long should the camera shake last</p>
+			<p><strong>Shake Delay:</strong> delay before shaking the camera</p>
+			<p><strong>Shake Repeat:</strong> how many times should the shake be repeated</p>
+			<p><strong>Shake Step:</strong> how long to wait before the camera is effectively moved during a shake (0 = every frame)</p>
+			<p><strong>Shake Strength:</strong> maximum position offset for the camera to be from its original position</p>
+			<p><strong>Use Falloff:</strong> enable/disable distance falloff settings to decrease the shake strength as the camera moves away from the effect</p>
+			<p><strong>Falloff Min:</strong> distance between the camera and the effect at which the shake strength starts decreasing</p>
+			<p><strong>Falloff Max:</strong> distance between the camera and the effect over which the shake effect is ignored</p>
+			</div>
+			
+			<p></p>
+		</div>
+		
+		<h4 id="soft_particle_modifier">Soft Particle Modifier (ShFX_SoftParticleFactorModifier)</h4>
+		<div>
+		The <strong>ShFX_SoftParticleFactorModifier</strong> script will override the Particle System's material Soft Particle Factor value.<br />
+		It avoids the need to create a lot of different materials with their own value by using <a href="https://docs.unity3d.com/ScriptReference/MaterialPropertyBlock.html" target="_blank">Material Property Blocks <span class="icon icon_ext1"></span></a>.<br />
+		<br />
+		Simply change the <strong>Soft Particle Factor</strong> value to the desired value.
+		<div class="warning"><table><td><div class="icon icon_warning"></div></td><td><div>
+		Unlike the other scripts that work on the whole Effect and are attached to the parent GameObject, <b>ShFX_SoftParticleFactorModifier</b> works per ParticleSystem
+		</div></td></table></div>
+		</div>
+	</div>
+	
+	<div class="header" id="help">Further Help</div>
+	<div class="box" style="text-align: left; padding-top: 12px; padding-bottom: 12px;">
+		You can take a look at the <a href="http://www.jeanmoreno.com/faq/" target="_blank">FAQ page</a> for specific issues.<br />
+		If you still have questions, bug reports or suggestions please contact me by email: <a href='mailto&#58;jea&#110;&#46;mor&#101;no&#46;p%7&#53;%&#54;2%6C&#105;c+%&#55;5%&#54;E&#37;69&#37;7&#52;y&#64;%&#54;7mail%2E&#37;&#54;3&#111;&#109;'>jean&#46;&#109;oreno&#46;pu&#98;lic+&#117;&#110;i&#116;&#121;&#64;gmai&#108;&#46;com</a>
+	</div>
+		
+		<br />
+		<br />
+		<br />
+		
+		<!-- OTHER ASSETS -->
+		<div class="otherassets">Other JMO assets for Unity:</div>
+		<table class="amenu bottom" cellspacing="0" cellpadding="0" border="0">
+		  <tr>
+			<td><a href="http://www.jeanmoreno.com/cartoonfx/">Cartoon FX 1</a></td>
+			<td><a href="http://www.jeanmoreno.com/cartoonfx2/">Cartoon FX 2</a></td>
+			<td><a href="http://www.jeanmoreno.com/cartoonfx3/">Cartoon FX 3</a></td>
+			<td><a href="http://www.jeanmoreno.com/cartoonfx4/">Cartoon FX 4</a></td>
+			<td><a href="http://www.jeanmoreno.com/warfx/">War FX</a></td>
+			<td><a href="http://www.jeanmoreno.com/toonycolorspro/">Toony Colors Pro 2</a></td>
+			<td style="border-right:none;"><a href="http://www.jeanmoreno.com/matcap/">MatCap Shaders <span class="free">(Free)</span></a></td>
+		  </tr>
+		</table>
+		<!-- FOOTER -->
+		<div class="footer">© 2016 - <a href="http://www.jeanmoreno.com/" target="_blank">Jean Moreno (JMO)</a></div>
+	</div>
+	</body>
+</html>

@@ -12,6 +12,7 @@ public class snowmanObstacle : MonoBehaviour {
     private int difficulty;
     public bool rotating;
     public float rotationSpeed=5;
+    public GameObject colliderObj;
     // Use this for initialization
     void Start () {
         //Difficulty Settup
@@ -50,8 +51,8 @@ public class snowmanObstacle : MonoBehaviour {
             //1st line = changing player score &&& 2nd line adding current object to a layer that is ignored by player collision
             collision.gameObject.transform.GetComponent<PlayerController>().changeHealth(healthEffect);
             gameObject.layer = LayerMask.NameToLayer("ignoredObstacles");
-            if(GameObject.Find("char_01") != null)
-                GameObject.Find("char_01").layer = LayerMask.NameToLayer("ignoredObstacles");
+            if(colliderObj != null)
+                colliderObj.layer = LayerMask.NameToLayer("ignoredObstacles");
             /*for (int i=0;i<transform.childCount; i++)
             {
                 transform.GetChild(i).gameObject.layer = LayerMask.NameToLayer("ignoredObstacles");
