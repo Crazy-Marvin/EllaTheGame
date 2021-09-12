@@ -528,7 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3d76fa8dcfab1a458e7e4118795f7c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generationPoint: {fileID: 0}
+  generationPoint: {fileID: 1185621409}
   thePlatform: {fileID: 1786491330066362, guid: cc16532ef7cb3be4ebb2dce4bb4b4134,
     type: 3}
 --- !u!1 &253032989

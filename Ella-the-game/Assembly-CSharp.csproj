@@ -127,6 +127,7 @@
     <Compile Include="Assets\Scripts\Dragon.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\ItemsDestroyer.cs" />
+    <Compile Include="Assets\Scripts\LanguageSelection.cs" />
     <Compile Include="Assets\Scripts\LevelGlobals.cs" />
     <Compile Include="Assets\Scripts\MainMenuManager.cs" />
     <Compile Include="Assets\Scripts\NativeShareScript.cs" />
@@ -141,6 +142,11 @@
     <Compile Include="Assets\Scripts\PrizesGenerator.cs" />
     <Compile Include="Assets\Scripts\ScrollingTrigger.cs" />
     <Compile Include="Assets\Scripts\Share.cs" />
+    <Compile Include="Assets\Scripts\SimpleJSON.cs" />
+    <Compile Include="Assets\Scripts\SimpleJSONBinary.cs" />
+    <Compile Include="Assets\Scripts\SimpleJSONUnity.cs" />
+    <Compile Include="Assets\Scripts\TranslationAgent.cs" />
+    <Compile Include="Assets\Scripts\TranslationReader.cs" />
     <Compile Include="Assets\Scripts\inGameUI.cs" />
     <Compile Include="Assets\Scripts\progressCircle.cs" />
     <Compile Include="Assets\Scripts\snakeObstacle.cs" />

@@ -507,6 +507,9 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="JMOAssets">
+      <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Assets/JMO Assets/Editor/JMOAssets.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.Advertisements">
       <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>
@@ -521,9 +524,6 @@
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
       <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/PackageCache/com.unity.purchasing@2.0.6/Editor/UnityEditor.Purchasing.dll</HintPath>
-    </Reference>
-    <Reference Include="JMOAssets">
-      <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Assets/JMO Assets/Editor/JMOAssets.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>D:/Prototypes/EllaTheGame-Marvin/EllaTheGame/Ella-the-game/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
