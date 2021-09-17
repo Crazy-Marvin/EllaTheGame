@@ -41,7 +41,7 @@ public class TranslationReader : MonoBehaviour
     {
         WWWForm form = new WWWForm();
 	//using (UnityWebRequest www = UnityWebRequest.Get("https://jsonkeeper.com/b/REFD"))
-        using (UnityWebRequest www = UnityWebRequest.Get("https://reguig-abdelilah.github.io/JsonServer/jsonFile.json"))
+        using (UnityWebRequest www = UnityWebRequest.Get("https://crazy-marvin.github.io/EllaTheGame/jsonFile.json"))
         {
             //www.SetRequestHeader("Access-Control-Allow-Origin", "*");
             yield return www.SendWebRequest();
