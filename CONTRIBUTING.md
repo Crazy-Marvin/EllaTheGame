@@ -23,7 +23,8 @@ Translations are represented by a Json Key-Value combination
 As you can see in Example A & B, we used "English" instead of "en", and both of them are ok.
 ## Note
 You should keep the same order of the translations
- **Example**
+
+**Example**
 ["English","Choose a Level","Difficulty","Puppy","Adult","Senior","Exit","Score","Share It","Replay","Main Menu","Resume"].
 --------------------------------
 ["Français","Choisir un niveau","Difficulté","Chiot","Adulte","Senior","Sortir","Score","Partager","Replay","Menu principal"," Reprendre"].
