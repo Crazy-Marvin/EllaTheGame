@@ -40,8 +40,8 @@ public class TranslationReader : MonoBehaviour
     IEnumerator GetTranslations()
     {
         WWWForm form = new WWWForm();
-
-        using (UnityWebRequest www = UnityWebRequest.Get("https://jsonkeeper.com/b/REFD"))
+	//using (UnityWebRequest www = UnityWebRequest.Get("https://jsonkeeper.com/b/REFD"))
+        using (UnityWebRequest www = UnityWebRequest.Get("https://reguig-abdelilah.github.io/JsonServer/jsonFile.json"))
         {
             //www.SetRequestHeader("Access-Control-Allow-Origin", "*");
             yield return www.SendWebRequest();
