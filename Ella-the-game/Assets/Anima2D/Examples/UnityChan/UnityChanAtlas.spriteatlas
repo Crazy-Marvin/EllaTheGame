@@ -40,11 +40,13 @@ SpriteAtlas:
       allowAlphaSplitting: 0
       enableRotation: 1
       enableTightPacking: 1
+    secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
     - {fileID: 2800000, guid: dd105a39e474c4706aba36b8be4febd9, type: 3}
-    totalSpriteSurfaceArea: 1233802
     bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300052, guid: dd105a39e474c4706aba36b8be4febd9, type: 3}
@@ -100,5 +102,6 @@ SpriteAtlas:
   - hair_4
   - sleeve_1_back
   - dress
+  m_RenderDataMap: {}
   m_Tag: UnityChanAtlas
   m_IsVariant: 0

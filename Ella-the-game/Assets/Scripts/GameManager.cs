@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
     #region Singleton
     private static GameManager _instance;
     public static GameManager Instance
@@ -48,19 +49,21 @@ public class GameManager : MonoBehaviour {
         Application.targetFrameRate = 60;
     }
 
-    void Start () {
+    void Start()
+    {
         GameOverEvent += GameOverEventExecuted;
         GamePauseEvent += GamePauseEventExecuted;
         GameResumeEvent += GameResumeEventExecuted;
         GameStartEvent += GameStartEventExecuted;
     }
 
-    void Update () {
-		if(gameState == GameState.GamePaused)
+    void Update()
+    {
+        if (gameState == GameState.GamePaused)
         {
-           // Time.timeScale = 0;
+            // Time.timeScale = 0;
         }
-	}
+    }
     /// <summary>
     /// ////////////Score Management
     /// </summary>
@@ -82,7 +85,7 @@ public class GameManager : MonoBehaviour {
     /// </summary>
     public void ExecuteGameStartEvent()
     {
-        if(GameStartEvent != null)
+        if (GameStartEvent != null)
             GameStartEvent();
     }
     public void ExecuteGameOverEvent()
@@ -102,6 +105,7 @@ public class GameManager : MonoBehaviour {
     /// </summary>
     private void GameOverEventExecuted()
     {
+        YodoAdsManager.instance.ShowInterstitial();
         gameState = GameState.GameOver;
         SaveScore();
     }

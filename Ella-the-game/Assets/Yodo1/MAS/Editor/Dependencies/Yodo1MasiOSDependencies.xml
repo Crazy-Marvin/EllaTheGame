@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dependencies>
+  <iosPods>
+    <sources>
+      <source>https://github.com/Yodo1Games/MAS-Spec.git</source>
+      <source>https://github.com/Yodo1Games/Yodo1Spec.git</source>
+    </sources>
+    <iosPod name="Yodo1MasFull" version="4.3.2" minTargetSdk="10.0" />
+  </iosPods>
+</dependencies>

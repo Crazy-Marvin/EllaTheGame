@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<versions>
+	<unity env="Release" version="4.3.2" suffix="" />
+	<ios env="Release" version="4.3.2" suffix="" />
+	<android env="Release" version="4.3.2" suffix="" />
+</versions>
