@@ -134,7 +134,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 13
+  bundleVersion: 14
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -772,7 +772,7 @@ PlayerSettings:
   cloudProjectId: 33fa1fc4-985b-44a9-99f1-66c951c04062
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Ella
+  projectName: Ella - The Game
   organizationId: marvin-poopjournal-rocks
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0

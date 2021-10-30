@@ -74,6 +74,7 @@
      <Compile Include="Assets\Scripts\TranslationReader.cs" />
      <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RandomDir.cs" />
      <Compile Include="Assets\Yodo1\MAS\Scripts\Yodo1U3dBannerAlign.cs" />
+     <Compile Include="Assets\Purchaser.cs" />
      <Compile Include="Assets\Anima2D\Scripts\SpriteMeshAnimation.cs" />
      <Compile Include="Assets\Assets.cs" />
      <Compile Include="Assets\Scripts\LanguageSelection.cs" />
@@ -146,7 +147,6 @@
      <Compile Include="Assets\Yodo1\MAS\Scripts\Entity\Yodo1AdPlatformSettings_Android.cs" />
      <Compile Include="Assets\MoonRock.cs" />
      <Compile Include="Assets\Scripts\PrizesDestroyer.cs" />
-     <Compile Include="Assets\Purchaser.cs" />
      <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX3 Multiply Color.shader" />
      <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX4 Particle AlphaBlend+Add.shader" />
      <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX2 Particle Alpha Blend Add.shader" />
@@ -865,6 +865,15 @@
     </Reference>
     <Reference Include="Unity.2D.Common.Editor">
         <HintPath>C:\Users\Marvin\Documents\GitHub\EllaTheGame\Ella-the-game\Library\ScriptAssemblies\Unity.2D.Common.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Monetization">
+        <HintPath>C:\Users\Marvin\Documents\GitHub\EllaTheGame\Ella-the-game\Library\ScriptAssemblies\UnityEngine.Monetization.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Advertisements">
+        <HintPath>C:\Users\Marvin\Documents\GitHub\EllaTheGame\Ella-the-game\Library\ScriptAssemblies\UnityEngine.Advertisements.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Advertisements.Editor">
+        <HintPath>C:\Users\Marvin\Documents\GitHub\EllaTheGame\Ella-the-game\Library\ScriptAssemblies\UnityEngine.Advertisements.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
