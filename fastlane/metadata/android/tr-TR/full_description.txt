@@ -9,7 +9,6 @@ Durumsal farkındalık gösterin, bu sayede onu ayarlayarak bilinen ve bilinmeye
     • Paraları toplayın veya kaçının
     • Zaman öldürün veya zamanın kendisini öldürün
     • Kasten bağımlılık yapan oyundan kaçının
-    • Reklam veya oyun içi satın alma yok
     • Kötü niyet içermeyen ücretsiz oyun
 
 Daha fazla özellik:
