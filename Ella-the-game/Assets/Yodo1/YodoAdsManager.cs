@@ -23,8 +23,8 @@ public class YodoAdsManager : MonoBehaviour
     {
         Yodo1AdBuildConfig config = new Yodo1AdBuildConfig().enableUserPrivacyDialog(true); // this line take care of COPPA
         Yodo1U3dMas.SetAdBuildConfig(config);
-        Yodo1U3dMas.InitializeSdk();
         setDelegate();
+        Yodo1U3dMas.InitializeSdk();
 
         ShowBanner();
 
@@ -92,20 +92,32 @@ public class YodoAdsManager : MonoBehaviour
     public void ShowInterstitial()
     {
 
-        if (Yodo1U3dMas.IsInterstitialAdLoaded())
+        // if (Yodo1U3dMas.IsInterstitialAdLoaded())
+        if (PlayerPrefs.GetInt("NoAds") != 1)
+        {
             Yodo1U3dMas.ShowInterstitialAd();
+        }
+        else
+        {
+
+        }
     }
 
     public void ShowRewarded()
     {
 
-        if (Yodo1U3dMas.IsRewardedAdLoaded())
-            Yodo1U3dMas.ShowRewardedAd();
+        // if (PlayerPrefs.GetInt("NoAds") != 1)
+        // {
+        Yodo1U3dMas.ShowRewardedAd();
+        // }
     }
 
     public void ShowBanner()
     {
-        Yodo1U3dMas.ShowBannerAd(Yodo1U3dBannerAlign.BannerTop | Yodo1U3dBannerAlign.BannerLeft);
+        if (PlayerPrefs.GetInt("NoAds") != 1)
+        {
+            Yodo1U3dMas.ShowBannerAd(Yodo1U3dBannerAlign.BannerTop | Yodo1U3dBannerAlign.BannerLeft);
+        }
     }
 
     public void HideBanner()
