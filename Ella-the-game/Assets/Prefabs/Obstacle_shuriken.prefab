@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4997037776877514661}
   m_Layer: 11
-  m_Name: 'Shuriken '
+  m_Name: Obstacle_shuriken
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,6 +80,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -151,6 +152,7 @@ MonoBehaviour:
   movemmentSpeed: -5.5
   rotating: 1
   rotationSpeed: 6
+  colliderObj: {fileID: 0}
 --- !u!58 &5009985969300620807
 CircleCollider2D:
   m_ObjectHideFlags: 0

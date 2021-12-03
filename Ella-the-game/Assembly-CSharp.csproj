@@ -164,6 +164,7 @@
     <Compile Include="Assets\Yodo1\MAS\Scripts\Entity\Yodo1AdPlatformSettings_Android.cs" />
     <Compile Include="Assets\MoonRock.cs" />
     <Compile Include="Assets\Scripts\PrizesDestroyer.cs" />
+    <Compile Include="Assets\Scripts\ParallaxEffect.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX3 Multiply Color.shader" />

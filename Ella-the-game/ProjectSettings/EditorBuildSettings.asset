@@ -40,7 +40,7 @@ EditorBuildSettings:
     guid: cf06540238a392e4f895580679b4759d
   - enabled: 1
     path: Assets/Scenes/new Forest_level.unity
-    guid: 1a0014190aab3324484d4501d35228f3
+    guid: 1537c4cc4a38b0c4db60c2274a0d3aea
   - enabled: 1
     path: Assets/Scenes/new Desert_level.unity
     guid: dcd4ed3a1bbed2848a37551344f65531

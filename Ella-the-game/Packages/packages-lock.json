@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.unity.2d.animation": {
-      "version": "5.0.8",
+      "version": "5.0.9",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -24,12 +24,12 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.2d.psdimporter": {
-      "version": "4.1.1",
+      "version": "4.1.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.2d.common": "4.0.3",
-        "com.unity.2d.animation": "5.0.8",
+        "com.unity.2d.animation": "5.0.9",
         "com.unity.2d.sprite": "1.0.0"
       },
       "url": "https://packages.unity.com"

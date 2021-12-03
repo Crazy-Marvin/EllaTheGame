@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     public delegate void NotifyOnGameResume();
     public static event NotifyOnGameOver GameResumeEvent;
 
-    public GameState gameState { get; set; }
+    public GameState gameState;
     public int matchScore { get; private set; }
 
 

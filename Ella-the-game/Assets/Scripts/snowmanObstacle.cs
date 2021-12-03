@@ -13,6 +13,7 @@ public class snowmanObstacle : MonoBehaviour {
     public bool rotating;
     public float rotationSpeed=5;
     public GameObject colliderObj;
+    bool used;
     // Use this for initialization
     void Start () {
         //Difficulty Settup
@@ -46,9 +47,19 @@ public class snowmanObstacle : MonoBehaviour {
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (used) return;
         if (collision.gameObject.transform.tag == "Player")
         {
             //1st line = changing player score &&& 2nd line adding current object to a layer that is ignored by player collision
+            used = true;
+            foreach (Collider2D cld in GetComponentsInChildren<Collider2D>())
+            {
+                cld.isTrigger = true;
+            }
+            foreach (Rigidbody2D cld in GetComponentsInChildren<Rigidbody2D>())
+            {
+                cld.gravityScale = 0;
+            }
             collision.gameObject.transform.GetComponent<PlayerController>().changeHealth(healthEffect);
             gameObject.layer = LayerMask.NameToLayer("ignoredObstacles");
             if(colliderObj != null)
