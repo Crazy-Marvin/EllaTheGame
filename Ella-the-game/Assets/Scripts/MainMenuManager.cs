@@ -48,6 +48,10 @@ public class MainMenuManager : MonoBehaviour {
         }
         asyncLoad.allowSceneActivation = true;
     }
+    public void ShowLeaderBoard()
+    {
+        PlayGames.Instance.ShowLeaderboard();
+    }
     public void exitGame()
     {
         Application.Quit();

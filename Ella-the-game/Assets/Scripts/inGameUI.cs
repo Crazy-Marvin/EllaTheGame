@@ -90,6 +90,7 @@ public class inGameUI : MonoBehaviour {
     {
         endMenu.SetActive(true);
         GameObject.FindGameObjectWithTag("scoreText").GetComponent<Text>().text = scoreAmount.ToString();
+        PlayGames.Instance.AddScoreToLeaderboard(scoreAmount);
     }
     public void GameOverEventExecuted()
     {
@@ -127,6 +128,7 @@ public class inGameUI : MonoBehaviour {
     }
     public void LoadMainMenu()
     {
+        PlayGames.Instance.AddScoreToLeaderboard(scoreAmount);
         GameObject.FindGameObjectWithTag("LevelGlobalGO").GetComponent<LevelGlobals>().LoadMainMenu();
     }
 

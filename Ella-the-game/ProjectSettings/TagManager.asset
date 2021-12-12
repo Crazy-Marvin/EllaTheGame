@@ -21,6 +21,7 @@ TagManager:
   - Prize
   - Item
   - SpriteBG
+  - LeaderBoardBtn
   layers:
   - Default
   - TransparentFX
