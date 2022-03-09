@@ -5,17 +5,17 @@ Obstacles and hurdles are either a further clue, or something created by the sid
 Advancement in really only possible by collecting coins.
 Show situational awareness, whereby tuning it out is a mental leap into known and unknown.
 
-    • Avoid or seek obstacles and hurdles
-    • Collect or avoid coins
-    • Kill time or kill time itself
-    • Avoid the purpously addictive gameplay
-    • Gratis game without sinister intent
+    •  seek obstacles and hurdles
+    • Collect coins
+    • kill time itself
+    • Avoid addictive gameplay
+
 
 More points:
     • Friendly design and usable interface
     • Fun for all ages, for the ages
     • Libre software / Open Source
-    • Good pling-plong music and effects
+    • Good music and effects
     • Play with one button
 
 Translators and other contributors are warmly welcomed to help us make
