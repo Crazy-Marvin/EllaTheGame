@@ -1,5 +1,4 @@
-Ella, akıllı ve sevimli köpek,
-bir orman macerasında kayboldu ve çıkış yolunu bulmak için ne gerekiyorsa yapıyor.
+Ella, akıllı ve sevimli köpek, bir orman macerasında kayboldu ve çıkış yolunu bulmak için ne gerekiyorsa yapıyor.
 Şüpheli bir şekilde, yalnızca bir yönde sonsuz kaçış paradoksunu eğlendirmek için tehlikeye atılmış gibi görünüyor.
 Engeller ve çitler ya başka bir ipucu ya da dünyanın yana kayan doğasının yarattığı bir şeydir.
 İlerleme gerçekten yalnızca para toplayarak mümkündür.
@@ -9,7 +8,8 @@ Durumsal farkındalık gösterin, bu sayede onu ayarlayarak bilinen ve bilinmeye
     • Paraları toplayın
     • Zamanın kendisini öldürün
     • Bağımlılık yapan oyundan kaçının
-
+    • Reklam veya oyun içi satın alma yok
+    • Kötü niyet içermeyen ücretsiz oyun
 
 Daha fazla özellik:
     • Kullanıcı dostu tasarım ve kullanılabilir arayüz
@@ -18,8 +18,11 @@ Daha fazla özellik:
     • İyi müzik ve efektler
     • Tek tuşla oynayın
 
-Çevirmenler ve diğer katkıda bulunanlar, bu koşan ve zıplayan köpek oyununu daha yerelleştirilmiş
-diller ve yeni özelliklerle daha da iyi hale getirmemize yardımcı olmak için memnuniyetle karşılanmaktadır.
+Çevirmenler ve diğer katkıda bulunanlar, bu koşan ve zıplayan köpek oyununu daha yerelleştirilmiş diller ve yeni özelliklerle daha da iyi hale getirmemize yardımcı olmak için memnuniyetle karşılanmaktadır.
 
 Ella Orman Maceresında'yı bugün ücretsiz indirin ve arkadaşlarınıza söyleyin.
 Lütfen hataları, soruları, özellik isteklerini veya diğer önerileri bize bildirin.
+
+Web sayfası: <a href="https://crazymarvin.com/ella/">https://crazymarvin.com/ella/</a>
+Çeviriler: <a href="https://hosted.weblate.org/engage/ella-the-game/">https://hosted.weblate.org/engage/ella-the-game//</a> 
+Kaynak kodları: <a href="https://github.com/Crazy-Marvin/EllaTheGame/">https://github.com/Crazy-Marvin/EllaTheGame/</a>
