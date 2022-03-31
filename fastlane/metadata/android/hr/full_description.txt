@@ -5,21 +5,25 @@ Smetnje i prepreke predstavljaju ili daljnji trag ili nešto što je stvorila pr
 Napredak je stvarno moguć samo prikupljanjem novčića.
 Pokaži situacijsku svjesnost, pri čemu je ugađanje mentalni skok u poznato i nepoznato.
 
-    • Izbjegavaj ili traži smetnje i prepreke
+    • Izbjegavaj ili traži prepreke
     • Skupljaj ili izbjegavaj novčiće
     • Ubij vrijeme ili ubij samo vrijeme
-    • Izbjegni namjerno zaraznu igru
+    • Izbjegni igranje koje izaziva ovisnost
     • Besplatna igra bez zlokobnih namjera
 
 Više bodova:
-    • Prijateljski dizajn i upotrebljivo sučelje
+    • Lijepi dizajn i upotrebljivo sučelje
     • Zabava za sve uzraste, za godine
     • Libre softver / otvoreni kod
     • Dobra pling-plong glazba i efekti
     • Igraj s jednim gumbom
 
-Prevoditelji i drugi suradnici srdačno su dobrodošli poboljšati
-trčanja i skakanja psa s više lokaliziranih jezika i novim funkcijama.
+Prevodioci i drugi suradnici srdačno su dobrodošli poboljšati prijevode i nove funkcije naše igre trčanja i skakanja psa.
 
-Preuzmi besplatno Ella in Jungle Adventure danas i javi svojim prijateljima.
+Preuzmi Ella in Jungle Adventure besplatno danas i javi svojim prijateljima.
 Obavijesti nas o svim greškama, pitanjima, zahtjevima za novim funkcijama ili bilo kojim drugim prijedlozima.
+
+Web-stranica: <a href="https://crazymarvin.com/ella/">https://crazymarvin.com/ella/</a>
+Prevodi: <a href="https://hosted.weblate.org/engage/ella-the-game/">https://hosted.weblate.org/engage/ella-the-game// </a>
+Izvor na GitHubu: <a href="https://github.com/Crazy-Marvin/EllaTheGame/">https://github.com/Crazy-Marvin/EllaTheGame/</a>
+Hrvatski
