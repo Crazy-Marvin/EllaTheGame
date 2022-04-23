@@ -49,6 +49,8 @@ public class NativeShareScript : MonoBehaviour
         }
 
         yield return new WaitUntil(() => isFocus);
+        PlayGames.Instance.SharingIsCaring();
+        PlayGames.Instance.SendLove();
         isProcessing = false;
     }
 

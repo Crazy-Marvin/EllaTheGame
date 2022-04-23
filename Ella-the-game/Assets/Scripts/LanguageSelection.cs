@@ -35,6 +35,8 @@ public class LanguageSelection : MonoBehaviour
     }
     void PopulateLanguageOptions()
     {
+        if (TranslationReader.Instance.languages == null) return;
+        if (TranslationReader.Instance.languages.Count == 0) return;
         currentLanguage = PlayerPrefs.GetInt("currentLanguage");
         languages.ClearOptions();
         List<string> options = new List<string>();

@@ -32,6 +32,12 @@ public class TranslationAgent : MonoBehaviour
     }
     void GetTranslation()
     {
+        if (!PlayerPrefs.HasKey("currentLanguage"))
+            return;
+        if (TranslationReader.Instance.languages == null)
+            return;
+        if (TranslationReader.Instance.languages.Count == 0)
+            return;
         switch ((int)word)
         {
             case 0:

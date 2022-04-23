@@ -33,7 +33,8 @@ public class inGameUI : MonoBehaviour {
     public Sprite unMuteSprite, muteSprite;
     private GameObject endMenu;
     public AudioClip failedClip;
-
+    float playTime_timer = 0; // Used for "Hugs And kisses" & "Lover" achievements
+    bool playTimeAchievementRegistred; // Used for "Hugs And kisses" & "Lover" achievements
     void Awake()
     {
         _instance = this;
@@ -45,6 +46,7 @@ public class inGameUI : MonoBehaviour {
         GameManager.GamePauseEvent += GamePauseEventExecuted;
         GameManager.GameResumeEvent += GameResumeEventExecuted;
 
+        playTime_timer = Time.time + 60;
         inGameMenu = transform.Find("inGameMenu").gameObject.transform;
         if(inGameMenu.gameObject.activeSelf)
             inGameMenu.gameObject.SetActive(false);
@@ -56,6 +58,14 @@ public class inGameUI : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        if (!playTimeAchievementRegistred)
+        {
+            if (Time.time > playTime_timer)
+            {
+                PlayGames.Instance.HugsAndkisses_Lover();
+                playTimeAchievementRegistred = true;
+            }
+        }
         handleBars();
     }
     private void handleBars()
@@ -91,6 +101,7 @@ public class inGameUI : MonoBehaviour {
         endMenu.SetActive(true);
         GameObject.FindGameObjectWithTag("scoreText").GetComponent<Text>().text = scoreAmount.ToString();
         PlayGames.Instance.AddScoreToLeaderboard(scoreAmount);
+        PlayGames.Instance.ScoreAchievements(scoreAmount);
     }
     public void GameOverEventExecuted()
     {
@@ -124,11 +135,13 @@ public class inGameUI : MonoBehaviour {
     }
     public void ReplayGame()
     {
+        PlayGames.Instance.KeepHitting();
         GameObject.FindGameObjectWithTag("LevelGlobalGO").GetComponent<LevelGlobals>().ReplayGame();
     }
     public void LoadMainMenu()
     {
         PlayGames.Instance.AddScoreToLeaderboard(scoreAmount);
+        PlayGames.Instance.ScoreAchievements(scoreAmount);
         GameObject.FindGameObjectWithTag("LevelGlobalGO").GetComponent<LevelGlobals>().LoadMainMenu();
     }
 

@@ -52,6 +52,10 @@ public class MainMenuManager : MonoBehaviour {
     {
         PlayGames.Instance.ShowLeaderboard();
     }
+    public void ShowAchievements()
+    {
+        PlayGames.Instance.ShowAchievements();
+    }
     public void exitGame()
     {
         Application.Quit();

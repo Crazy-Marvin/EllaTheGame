@@ -52,6 +52,7 @@ public class TranslationReader : MonoBehaviour
             }
             else
             {
+                //Debug.LogError(www.downloadHandler.text);
                 JSONNode jsonResult;
                 jsonResult = JSON.Parse(www.downloadHandler.text);
                 ExtractTraslation(jsonResult);
