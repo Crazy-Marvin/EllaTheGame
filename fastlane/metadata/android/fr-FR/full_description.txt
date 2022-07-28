@@ -1,10 +1,10 @@
-Ella, l'adorable et maline petite chienne,
-est perdue dans une aventure dans la jungle et se démène pour retrouver son chemin.
+Ella, l'adorable et maline petite chienne, est perdue dans une aventure dans la jungle et se démène pour retrouver son chemin.
 Étrangement, elle semble être bloquée dans une sorte de paradoxe où il n'existe qu'une seule voie pour s'en sortir.
 Les pièges et obstacles sont d'autant d'indices supplémentaires, ou alors ont été créés par la nature défilante de ce monde.
 La progression n'est possible qu'on amassant les pièces sur le chemin.
 Montrez-vous à la hauteur dans cet univers où l'esprit oscille entre le connu et l'inconnu.
 
+• Évitez ou cherchez les obstacles et les haies
 • Esquivez ou sautez dans les pièges et obstacles
 • Ramasser ou ignorez les pièces
 • Tuer les temps, ou anéantissez-le
@@ -22,3 +22,7 @@ Les traductions et autres contributions sont chaleureusement appréciées pour n
 
 Téléchargez Ella dans la Jungle gratuitement dès aujourd'hui et parlez-en à vos amis.
 N'hésitez pas à nous signaler tout problème, nous poser des questions ou demander des améliorations, ou apporter vos suggestions.
+
+Page web : <a href="https://crazymarvin.com/ella/">https://crazymarvin.com/ella/</a>
+Traductions à ne pas faire : <a href="https://hosted.weblate.org/engage/ella-the-game/">https://hosted.weblate.org/engage/ella-the-game//</a> 
+Code source sur GitHub : <a href="https://github.com/Crazy-Marvin/EllaTheGame/">https://github.com/Crazy-Marvin/EllaTheGame/</a>
