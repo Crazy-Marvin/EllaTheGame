@@ -1,0 +1,3 @@
+- Papan peringkat yang lebih baik
+- Basis code yang lebih rapih
+- Perningkatan terjemahkan
