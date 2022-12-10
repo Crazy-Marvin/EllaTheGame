@@ -8,11 +8,13 @@ namespace Yodo1.MAS
     {
         public string AppKey;
         public string AdmobAppID;
+        public string BundleID;
 
         public Yodo1PlatformSettings()
         {
             this.AppKey = string.Empty;
             this.AdmobAppID = string.Empty;
+            this.BundleID = string.Empty;
         }
     }
 }

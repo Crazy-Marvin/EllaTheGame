@@ -1,11 +1,10 @@
-using System;
-using System.IO;
-using System.Linq;
-using UnityEditor;
-using UnityEngine;
-
 namespace Yodo1.MAS
 {
+    using System;
+    using System.Linq;
+    using UnityEditor;
+    using UnityEngine;
+
     public class Yodo1ConflictData
     {
         public string name;

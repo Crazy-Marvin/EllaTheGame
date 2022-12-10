@@ -318,7 +318,7 @@ TextureImporter:
       213: 21300208
     second: WALK (41)
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -338,6 +338,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -346,9 +348,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -369,10 +371,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 1
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -412,6 +418,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -2640,6 +2658,112 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Dead (14): 21300026
+      Jump10: 21300056
+      Jump11: 21300058
+      Dead (18): 21300034
+      Run1: 21300090
+      Jump25: 21300086
+      WALK (9): 21300144
+      Run13: 21300114
+      Run6: 21300100
+      WALK (11): 21300148
+      WALK (37): 21300200
+      Jump3: 21300042
+      WALK (32): 21300190
+      Run18: 21300124
+      WALK (22): 21300170
+      Run16: 21300120
+      Run4: 21300096
+      Run9: 21300106
+      Dead (16): 21300030
+      Run10: 21300108
+      Jump13: 21300062
+      WALK (7): 21300140
+      WALK (14): 21300154
+      Run12: 21300112
+      Jump26: 21300088
+      WALK (15): 21300156
+      WALK (4): 21300134
+      Jump23: 21300082
+      WALK (19): 21300164
+      Jump4: 21300044
+      Jump15: 21300066
+      WALK (16): 21300158
+      WALK (33): 21300192
+      WALK (36): 21300198
+      WALK (28): 21300182
+      Dead (4): 21300006
+      Jump20: 21300076
+      WALK (41): 21300208
+      Dead (5): 21300008
+      WALK (13): 21300152
+      WALK (24): 21300174
+      Dead (3): 21300004
+      Run19: 21300126
+      Jump5: 21300046
+      WALK (27): 21300180
+      WALK (35): 21300196
+      Dead (12): 21300022
+      Dead (6): 21300010
+      WALK (12): 21300150
+      Dead (8): 21300014
+      WALK (38): 21300202
+      WALK (17): 21300160
+      Jump2: 21300040
+      WALK (30): 21300186
+      WALK (29): 21300184
+      Run14: 21300116
+      Dead (17): 21300032
+      WALK (26): 21300178
+      WALK (18): 21300162
+      Run2: 21300092
+      Jump9: 21300054
+      Jump18: 21300072
+      Run15: 21300118
+      Dead (13): 21300024
+      WALK (8): 21300142
+      Dead (11): 21300020
+      Dead (1): 21300000
+      Jump12: 21300060
+      WALK (25): 21300176
+      WALK (23): 21300172
+      Jump7: 21300050
+      Jump: 21300038
+      WALK (3): 21300132
+      Run8: 21300104
+      Jump24: 21300084
+      Dead (9): 21300016
+      Jump14: 21300064
+      Jump21: 21300078
+      Jump8: 21300052
+      WALK (5): 21300136
+      Run17: 21300122
+      Run7: 21300102
+      WALK (6): 21300138
+      WALK (40): 21300206
+      Dead (7): 21300012
+      Dead (15): 21300028
+      Jump17: 21300070
+      Jump16: 21300068
+      Run5: 21300098
+      Run3: 21300094
+      Jump6: 21300048
+      Run11: 21300110
+      WALK (2): 21300130
+      WALK (10): 21300146
+      WALK (20): 21300166
+      WALK (21): 21300168
+      Jump19: 21300074
+      WALK (39): 21300204
+      WALK (34): 21300194
+      Dead (19): 21300036
+      Jump22: 21300080
+      Dead (10): 21300018
+      Dead (2): 21300002
+      WALK (1): 21300128
+      WALK (31): 21300188
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -15,12 +15,14 @@ MonoBehaviour:
   androidSettings:
     AppKey: 2ECNGGJcTw
     AdmobAppID: ca-app-pub-4973750815225055~2223962877
+    BundleID: rocks.poopjournal.Ella
     GooglePlayStore: 1
     ChineseAndroidStores: 0
     Channel: 
   iOSSettings:
     AppKey: 
     AdmobAppID: 
+    BundleID: 
     ChinaRegion: 0
     GlobalRegion: 1
     AppLovinSdkKey: xcGD2fy-GdmiZQapx_kUSy5SMKyLoXBk8RyB5u9MVv34KetGdbl4XrXvAUFy0Qg9scKyVTI0NM4i_yzdXih4XE

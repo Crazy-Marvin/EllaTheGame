@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: MonKey Settings
   m_EditorClassIdentifier: 
   UseSortedSelection: 1
-  MaxSortedSelectionSize: 200
+  MaxSortedSelectionSize: 1000
   ShowSortedSelectionWarning: 1
-  MonkeyConsoleOverrideHotKey: F1
+  MonkeyConsoleOverrideHotKey: 
   PauseGameOnConsoleOpen: 1
   PutInvalidCommandAtEndOfSearch: 0
   IncludeMenuItems: 1

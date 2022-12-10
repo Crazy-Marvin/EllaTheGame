@@ -1,23 +1,25 @@
 <dependencies>
   <packages>
-    <package>com.google.games:gpgs-plugin-support:0.10.14</package>
-    <package>com.yodo1.mas:google:4.3.2</package>
+    <package>com.google.games:gpgs-plugin-support:0.11.01</package>
+    <package>com.yodo1.mas:full:4.8.1</package>
   </packages>
   <files>
     <file>Assets/Plugins/Android/androidx.activity.activity-1.1.0.aar</file>
-    <file>Assets/Plugins/Android/androidx.annotation.annotation-1.2.0.jar</file>
+    <file>Assets/Plugins/Android/androidx.annotation.annotation-1.3.0.jar</file>
+    <file>Assets/Plugins/Android/androidx.annotation.annotation-experimental-1.1.0.aar</file>
     <file>Assets/Plugins/Android/androidx.appcompat.appcompat-1.2.0.aar</file>
     <file>Assets/Plugins/Android/androidx.appcompat.appcompat-resources-1.2.0.aar</file>
     <file>Assets/Plugins/Android/androidx.arch.core.core-common-2.1.0.jar</file>
     <file>Assets/Plugins/Android/androidx.arch.core.core-runtime-2.1.0.aar</file>
     <file>Assets/Plugins/Android/androidx.asynclayoutinflater.asynclayoutinflater-1.0.0.aar</file>
-    <file>Assets/Plugins/Android/androidx.browser.browser-1.3.0.aar</file>
+    <file>Assets/Plugins/Android/androidx.browser.browser-1.4.0.aar</file>
     <file>Assets/Plugins/Android/androidx.collection.collection-1.1.0.jar</file>
     <file>Assets/Plugins/Android/androidx.concurrent.concurrent-futures-1.0.0.jar</file>
     <file>Assets/Plugins/Android/androidx.constraintlayout.constraintlayout-2.1.0.aar</file>
     <file>Assets/Plugins/Android/androidx.constraintlayout.constraintlayout-core-1.0.0.jar</file>
     <file>Assets/Plugins/Android/androidx.coordinatorlayout.coordinatorlayout-1.1.0.aar</file>
-    <file>Assets/Plugins/Android/androidx.core.core-1.3.2.aar</file>
+    <file>Assets/Plugins/Android/androidx.core.core-1.7.0.aar</file>
+    <file>Assets/Plugins/Android/androidx.core.core-ktx-1.7.0.aar</file>
     <file>Assets/Plugins/Android/androidx.cursoradapter.cursoradapter-1.0.0.aar</file>
     <file>Assets/Plugins/Android/androidx.customview.customview-1.0.0.aar</file>
     <file>Assets/Plugins/Android/androidx.documentfile.documentfile-1.0.0.aar</file>
@@ -28,87 +30,153 @@
     <file>Assets/Plugins/Android/androidx.legacy.legacy-support-core-ui-1.0.0.aar</file>
     <file>Assets/Plugins/Android/androidx.legacy.legacy-support-core-utils-1.0.0.aar</file>
     <file>Assets/Plugins/Android/androidx.legacy.legacy-support-v4-1.0.0.aar</file>
-    <file>Assets/Plugins/Android/androidx.lifecycle.lifecycle-common-2.2.0.jar</file>
-    <file>Assets/Plugins/Android/androidx.lifecycle.lifecycle-livedata-2.0.0.aar</file>
+    <file>Assets/Plugins/Android/androidx.lifecycle.lifecycle-common-2.3.1.jar</file>
+    <file>Assets/Plugins/Android/androidx.lifecycle.lifecycle-livedata-2.1.0.aar</file>
     <file>Assets/Plugins/Android/androidx.lifecycle.lifecycle-livedata-core-2.2.0.aar</file>
-    <file>Assets/Plugins/Android/androidx.lifecycle.lifecycle-process-2.2.0.aar</file>
-    <file>Assets/Plugins/Android/androidx.lifecycle.lifecycle-runtime-2.2.0.aar</file>
-    <file>Assets/Plugins/Android/androidx.lifecycle.lifecycle-service-2.0.0.aar</file>
+    <file>Assets/Plugins/Android/androidx.lifecycle.lifecycle-runtime-2.3.1.aar</file>
+    <file>Assets/Plugins/Android/androidx.lifecycle.lifecycle-service-2.1.0.aar</file>
     <file>Assets/Plugins/Android/androidx.lifecycle.lifecycle-viewmodel-2.2.0.aar</file>
     <file>Assets/Plugins/Android/androidx.lifecycle.lifecycle-viewmodel-savedstate-2.2.0.aar</file>
     <file>Assets/Plugins/Android/androidx.loader.loader-1.0.0.aar</file>
     <file>Assets/Plugins/Android/androidx.localbroadcastmanager.localbroadcastmanager-1.0.0.aar</file>
-    <file>Assets/Plugins/Android/androidx.media.media-1.0.0.aar</file>
-    <file>Assets/Plugins/Android/androidx.multidex.multidex-2.0.0.aar</file>
+    <file>Assets/Plugins/Android/androidx.media.media-1.4.3.aar</file>
     <file>Assets/Plugins/Android/androidx.print.print-1.0.0.aar</file>
-    <file>Assets/Plugins/Android/androidx.recyclerview.recyclerview-1.1.0.aar</file>
-    <file>Assets/Plugins/Android/androidx.room.room-common-2.1.0.jar</file>
-    <file>Assets/Plugins/Android/androidx.room.room-runtime-2.1.0.aar</file>
+    <file>Assets/Plugins/Android/androidx.recyclerview.recyclerview-1.2.1.aar</file>
+    <file>Assets/Plugins/Android/androidx.room.room-common-2.2.5.jar</file>
+    <file>Assets/Plugins/Android/androidx.room.room-runtime-2.2.5.aar</file>
     <file>Assets/Plugins/Android/androidx.savedstate.savedstate-1.0.0.aar</file>
     <file>Assets/Plugins/Android/androidx.slidingpanelayout.slidingpanelayout-1.0.0.aar</file>
-    <file>Assets/Plugins/Android/androidx.sqlite.sqlite-2.0.1.aar</file>
-    <file>Assets/Plugins/Android/androidx.sqlite.sqlite-framework-2.0.1.aar</file>
+    <file>Assets/Plugins/Android/androidx.sqlite.sqlite-2.1.0.aar</file>
+    <file>Assets/Plugins/Android/androidx.sqlite.sqlite-framework-2.1.0.aar</file>
+    <file>Assets/Plugins/Android/androidx.startup.startup-runtime-1.0.0.aar</file>
     <file>Assets/Plugins/Android/androidx.swiperefreshlayout.swiperefreshlayout-1.0.0.aar</file>
+    <file>Assets/Plugins/Android/androidx.tracing.tracing-1.0.0.aar</file>
+    <file>Assets/Plugins/Android/androidx.transition.transition-1.2.0.aar</file>
     <file>Assets/Plugins/Android/androidx.vectordrawable.vectordrawable-1.1.0.aar</file>
     <file>Assets/Plugins/Android/androidx.vectordrawable.vectordrawable-animated-1.1.0.aar</file>
-    <file>Assets/Plugins/Android/androidx.versionedparcelable.versionedparcelable-1.1.0.aar</file>
+    <file>Assets/Plugins/Android/androidx.versionedparcelable.versionedparcelable-1.1.1.aar</file>
     <file>Assets/Plugins/Android/androidx.viewpager.viewpager-1.0.0.aar</file>
-    <file>Assets/Plugins/Android/androidx.work.work-runtime-2.1.0.aar</file>
-    <file>Assets/Plugins/Android/com.applovin.applovin-sdk-10.3.4.aar</file>
-    <file>Assets/Plugins/Android/com.applovin.mediation.google-adapter-20.4.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.applovin.mediation.inmobi-adapter-9.9.9.8.aar</file>
-    <file>Assets/Plugins/Android/com.applovin.mediation.unityads-adapter-3.7.5.1.aar</file>
-    <file>Assets/Plugins/Android/com.applovin.mediation.vungle-adapter-6.10.2.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.ads.mediation.applovin-10.3.4.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.ads.mediation.inmobi-9.2.1.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.ads.mediation.unity-3.7.5.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.ads.mediation.vungle-6.10.2.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-20.4.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-base-20.4.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-identifier-17.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-lite-20.4.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-auth-19.2.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-auth-api-phone-17.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-auth-base-17.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-base-17.5.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-basement-17.6.0.aar</file>
+    <file>Assets/Plugins/Android/androidx.viewpager2.viewpager2-1.0.0.aar</file>
+    <file>Assets/Plugins/Android/androidx.work.work-runtime-2.7.0.aar</file>
+    <file>Assets/Plugins/Android/com.android.installreferrer.installreferrer-2.2.aar</file>
+    <file>Assets/Plugins/Android/com.applovin.applovin-sdk-11.5.0.aar</file>
+    <file>Assets/Plugins/Android/com.applovin.mediation.bytedance-adapter-4.7.0.5.0.aar</file>
+    <file>Assets/Plugins/Android/com.applovin.mediation.facebook-adapter-6.11.0.5.aar</file>
+    <file>Assets/Plugins/Android/com.applovin.mediation.fyber-adapter-8.2.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.applovin.mediation.google-adapter-21.2.0.1.aar</file>
+    <file>Assets/Plugins/Android/com.applovin.mediation.google-ad-manager-adapter-21.2.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.applovin.mediation.inmobi-adapter-10.0.7.0.aar</file>
+    <file>Assets/Plugins/Android/com.applovin.mediation.ironsource-adapter-7.2.4.1.0.aar</file>
+    <file>Assets/Plugins/Android/com.applovin.mediation.mintegral-adapter-16.2.61.1.aar</file>
+    <file>Assets/Plugins/Android/com.applovin.mediation.mytarget-adapter-5.15.5.0.aar</file>
+    <file>Assets/Plugins/Android/com.applovin.mediation.unityads-adapter-4.4.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.applovin.mediation.vungle-adapter-6.12.0.2.aar</file>
+    <file>Assets/Plugins/Android/com.applovin.mediation.yandex-adapter-5.3.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.facebook.android.audience-network-sdk-6.11.0.aar</file>
+    <file>Assets/Plugins/Android/com.fyber.marketplace-sdk-8.2.0.aar</file>
+    <file>Assets/Plugins/Android/com.fyber.omsdk.om-sdk-1.3.30.aar</file>
+    <file>Assets/Plugins/Android/com.github.anrwatchdog.anrwatchdog-1.4.0.jar</file>
+    <file>Assets/Plugins/Android/com.google.ads.mediation.applovin-11.4.6.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.ads.mediation.facebook-6.11.0.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.ads.mediation.fyber-8.2.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.ads.mediation.inmobi-10.0.7.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.ads.mediation.ironsource-7.2.3.1.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.ads.mediation.mytarget-5.15.4.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.ads.mediation.unity-4.4.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.ads.mediation.vungle-6.12.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.exoplayer.exoplayer-2.17.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.exoplayer.exoplayer-common-2.17.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.exoplayer.exoplayer-core-2.17.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.exoplayer.exoplayer-dash-2.17.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.exoplayer.exoplayer-database-2.17.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.exoplayer.exoplayer-datasource-2.17.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.exoplayer.exoplayer-decoder-2.17.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.exoplayer.exoplayer-extractor-2.17.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.exoplayer.exoplayer-hls-2.17.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.exoplayer.exoplayer-rtsp-2.17.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.exoplayer.exoplayer-smoothstreaming-2.17.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.exoplayer.exoplayer-ui-2.17.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-21.2.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-base-21.2.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-identifier-18.0.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-lite-21.2.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-appset-16.0.2.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-base-18.0.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-basement-18.0.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-drive-17.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-games-21.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-measurement-base-18.0.3.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-measurement-sdk-api-18.0.3.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-nearby-18.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-tasks-17.2.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.ump.user-messaging-platform-1.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-games-v2-17.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-measurement-base-20.1.2.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-measurement-sdk-api-20.1.2.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-nearby-18.0.2.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-tasks-18.0.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.ump.user-messaging-platform-2.0.0.aar</file>
     <file>Assets/Plugins/Android/com.google.code.gson.gson-2.8.6.jar</file>
-    <file>Assets/Plugins/Android/com.google.games.gpgs-plugin-support-0.10.14.aar</file>
-    <file>Assets/Plugins/Android/com.google.guava.listenablefuture-1.0.jar</file>
-    <file>Assets/Plugins/Android/com.inmobi.monetization.inmobi-ads-9.2.1.aar</file>
-    <file>Assets/Plugins/Android/com.squareup.okhttp3.okhttp-3.12.13.jar</file>
-    <file>Assets/Plugins/Android/com.squareup.okio.okio-1.15.0.jar</file>
+    <file>Assets/Plugins/Android/com.google.games.gpgs-plugin-support-0.11.01.aar</file>
+    <file>Assets/Plugins/Android/com.google.guava.failureaccess-1.0.1.jar</file>
+    <file>Assets/Plugins/Android/com.google.guava.guava-31.0.1-android.jar</file>
+    <file>Assets/Plugins/Android/com.google.guava.listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar</file>
+    <file>Assets/Plugins/Android/com.inmobi.monetization.inmobi-ads-10.0.7.aar</file>
+    <file>Assets/Plugins/Android/com.inmobi.omsdk.inmobi-omsdk-1.3.17.1.aar</file>
+    <file>Assets/Plugins/Android/com.ironsource.adapters.admobadapter-4.3.30.aar</file>
+    <file>Assets/Plugins/Android/com.ironsource.adapters.applovinadapter-4.3.33.aar</file>
+    <file>Assets/Plugins/Android/com.ironsource.adapters.facebookadapter-4.3.37.aar</file>
+    <file>Assets/Plugins/Android/com.ironsource.adapters.fyberadapter-4.3.22.aar</file>
+    <file>Assets/Plugins/Android/com.ironsource.adapters.inmobiadapter-4.3.14.aar</file>
+    <file>Assets/Plugins/Android/com.ironsource.adapters.mytargetadapter-4.1.14.aar</file>
+    <file>Assets/Plugins/Android/com.ironsource.adapters.pangleadapter-4.3.14.aar</file>
+    <file>Assets/Plugins/Android/com.ironsource.adapters.unityadsadapter-4.3.22.aar</file>
+    <file>Assets/Plugins/Android/com.ironsource.adapters.vungleadapter-4.3.18.aar</file>
+    <file>Assets/Plugins/Android/com.ironsource.sdk.mediationsdk-7.2.4.1.aar</file>
+    <file>Assets/Plugins/Android/com.mbridge.msdk.oversea.dycreator-16.2.61.aar</file>
+    <file>Assets/Plugins/Android/com.mbridge.msdk.oversea.interstitial-16.2.61.aar</file>
+    <file>Assets/Plugins/Android/com.mbridge.msdk.oversea.interstitialvideo-16.2.61.aar</file>
+    <file>Assets/Plugins/Android/com.mbridge.msdk.oversea.mbbanner-16.2.61.aar</file>
+    <file>Assets/Plugins/Android/com.mbridge.msdk.oversea.mbbid-16.2.61.aar</file>
+    <file>Assets/Plugins/Android/com.mbridge.msdk.oversea.mbjscommon-16.2.61.aar</file>
+    <file>Assets/Plugins/Android/com.mbridge.msdk.oversea.mbnative-16.2.61.aar</file>
+    <file>Assets/Plugins/Android/com.mbridge.msdk.oversea.nativeex-16.2.61.aar</file>
+    <file>Assets/Plugins/Android/com.mbridge.msdk.oversea.playercommon-16.2.61.aar</file>
+    <file>Assets/Plugins/Android/com.mbridge.msdk.oversea.reward-16.2.61.aar</file>
+    <file>Assets/Plugins/Android/com.mbridge.msdk.oversea.same-16.2.61.aar</file>
+    <file>Assets/Plugins/Android/com.mbridge.msdk.oversea.videocommon-16.2.61.aar</file>
+    <file>Assets/Plugins/Android/com.mbridge.msdk.oversea.videojs-16.2.61.aar</file>
+    <file>Assets/Plugins/Android/com.my.target.mytarget-sdk-5.15.5.aar</file>
+    <file>Assets/Plugins/Android/com.pangle.global.ads-sdk-4.7.0.5.aar</file>
+    <file>Assets/Plugins/Android/com.pangle.global.crash_monitor-1.3.8.1.aar</file>
+    <file>Assets/Plugins/Android/com.pangle.global.encryptor-0.0.9-rc.2-private.aar</file>
+    <file>Assets/Plugins/Android/com.pangle.global.metasec_pgl-4.3.7-alpha.5-Pgl.aar</file>
+    <file>Assets/Plugins/Android/com.squareup.okhttp3.okhttp-4.10.0.jar</file>
+    <file>Assets/Plugins/Android/com.squareup.okio.okio-jvm-3.0.0.jar</file>
     <file>Assets/Plugins/Android/com.squareup.picasso.picasso-2.71828.aar</file>
-    <file>Assets/Plugins/Android/com.unity3d.ads.unity-ads-3.7.5.aar</file>
-    <file>Assets/Plugins/Android/com.vungle.publisher-sdk-android-6.10.2.aar</file>
-    <file>Assets/Plugins/Android/com.yodo1.common.androidx-1.0.1.aar</file>
-    <file>Assets/Plugins/Android/com.yodo1.common.collection-1.1.4.aar</file>
-    <file>Assets/Plugins/Android/com.yodo1.common.kit-1.1.2.aar</file>
-    <file>Assets/Plugins/Android/com.yodo1.common.noHttp-1.1.2.aar</file>
-    <file>Assets/Plugins/Android/com.yodo1.common.online-config-1.0.3.aar</file>
-    <file>Assets/Plugins/Android/com.yodo1.common.sensor-1.0.4.aar</file>
-    <file>Assets/Plugins/Android/com.yodo1.mas.core-4.3.2.aar</file>
-    <file>Assets/Plugins/Android/com.yodo1.mas.google-4.3.2.aar</file>
-    <file>Assets/Plugins/Android/com.yodo1.mas.mediation.admob-4.3.2.aar</file>
-    <file>Assets/Plugins/Android/com.yodo1.mas.mediation.applovin-4.3.2.aar</file>
-    <file>Assets/Plugins/Android/com.yodo1.mas.mediation.inmobi-4.3.2.aar</file>
-    <file>Assets/Plugins/Android/com.yodo1.mas.mediation.unityads-4.3.2.aar</file>
-    <file>Assets/Plugins/Android/com.yodo1.mas.mediation.vungle-4.3.2.aar</file>
-    <file>Assets/Plugins/Android/com.yodo1.mas.mediation.yodo1-4.3.2.aar</file>
+    <file>Assets/Plugins/Android/com.unity3d.ads.unity-ads-4.4.0.aar</file>
+    <file>Assets/Plugins/Android/com.vungle.publisher-sdk-android-6.12.0.aar</file>
+    <file>Assets/Plugins/Android/com.yandex.android.mobileads-5.3.0.aar</file>
+    <file>Assets/Plugins/Android/com.yandex.android.mobmetricalib-5.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.yandex.android.mobmetricalib-identifiers-5.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.yodo1.mas.core-4.8.1.aar</file>
+    <file>Assets/Plugins/Android/com.yodo1.mas.full-4.8.1.aar</file>
+    <file>Assets/Plugins/Android/com.yodo1.mas.mediation.admob-4.8.1.aar</file>
+    <file>Assets/Plugins/Android/com.yodo1.mas.mediation.applovin-4.8.1.aar</file>
+    <file>Assets/Plugins/Android/com.yodo1.mas.mediation.facebook-4.8.1.aar</file>
+    <file>Assets/Plugins/Android/com.yodo1.mas.mediation.fyber-4.8.1.aar</file>
+    <file>Assets/Plugins/Android/com.yodo1.mas.mediation.inmobi-4.8.1.aar</file>
+    <file>Assets/Plugins/Android/com.yodo1.mas.mediation.ironsource-4.8.1.aar</file>
+    <file>Assets/Plugins/Android/com.yodo1.mas.mediation.mintegral-4.8.1.aar</file>
+    <file>Assets/Plugins/Android/com.yodo1.mas.mediation.mytarget-4.8.1.aar</file>
+    <file>Assets/Plugins/Android/com.yodo1.mas.mediation.pangle-4.8.1.aar</file>
+    <file>Assets/Plugins/Android/com.yodo1.mas.mediation.unityads-4.8.1.aar</file>
+    <file>Assets/Plugins/Android/com.yodo1.mas.mediation.vungle-4.8.1.aar</file>
+    <file>Assets/Plugins/Android/com.yodo1.mas.mediation.yandex-4.8.1.aar</file>
+    <file>Assets/Plugins/Android/com.yodo1.mas.mediation.yodo1-4.8.1.aar</file>
+    <file>Assets/Plugins/Android/javax.inject.javax.inject-1.jar</file>
     <file>Assets/Plugins/Android/org.jetbrains.annotations-13.0.jar</file>
-    <file>Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-android-extensions-runtime-1.5.10.jar</file>
-    <file>Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-1.5.10.jar</file>
-    <file>Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-common-1.5.10.jar</file>
+    <file>Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-1.6.20.jar</file>
+    <file>Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-common-1.6.20.jar</file>
+    <file>Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-jdk7-1.5.31.jar</file>
+    <file>Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-jdk8-1.5.31.jar</file>
   </files>
   <settings>
-    <setting name="androidAbis" value="arm64-v8a" />
+    <setting name="androidAbis" value="arm64-v8a,armeabi-v7a" />
     <setting name="bundleId" value="rocks.poopjournal.Ella" />
     <setting name="explodeAars" value="True" />
     <setting name="gradleBuildEnabled" value="True" />

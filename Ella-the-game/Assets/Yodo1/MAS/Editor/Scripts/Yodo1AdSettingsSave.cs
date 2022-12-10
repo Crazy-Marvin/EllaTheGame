@@ -1,11 +1,9 @@
-﻿using System;
-
-using UnityEditor;
-using UnityEngine;
-using System.IO;
-
-namespace Yodo1.MAS
+﻿namespace Yodo1.MAS
 {
+    using UnityEditor;
+    using UnityEngine;
+    using System.IO;
+
     public static class Yodo1AdSettingsSave
     {
         const string YODO1_RESOURCE_PATH = "Assets/Resources/Yodo1/";
@@ -19,7 +17,7 @@ namespace Yodo1.MAS
                 settings = ScriptableObject.CreateInstance<Yodo1AdSettings>();
                 try
                 {
-                    Debug.Log("[Yodo1 Mas] Creating new Yodo1AdSettings.asset");
+                    Debug.Log(Yodo1U3dMas.TAG + "Creating new Yodo1AdSettings.asset");
                     string resPath = Path.GetFullPath(YODO1_RESOURCE_PATH);
                     if (!Directory.Exists(resPath))
                     {
@@ -34,7 +32,7 @@ namespace Yodo1.MAS
                 }
                 catch (UnityException)
                 {
-                    Debug.LogError("[Yodo1 Mas] Failed to create the Yodo1 Ad Settings asset.");
+                    Debug.LogError(Yodo1U3dMas.TAG + "Failed to create the Yodo1 Ad Settings asset.");
                 }
             }
             return settings;
@@ -43,53 +41,36 @@ namespace Yodo1.MAS
         public static void Save(Yodo1AdSettings settings)
         {
             EditorUtility.SetDirty(settings);
-            //AssetDatabase.SaveAssets();
-            //AssetDatabase.Refresh();
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
         }
 
-        public static void UpdateDependencies(Yodo1AdSettings settings)
+        public static bool CheckConfiguration_iOS(Yodo1AdSettings settings)
         {
             if (settings == null)
             {
-                Debug.LogError("[Yodo1 Mas] Update dependencies failed. Yodo1 ad settings is not exsit.");
-                return;
+                string message = "MAS iOS settings is null, please check the configuration.";
+                Debug.LogError(Yodo1U3dMas.TAG + message);
+                Yodo1AdUtils.ShowAlert("Error", message, "Ok");
+                return false;
             }
-            string dependenciesPath = Path.GetFullPath(Application.dataPath + "/Yodo1/MAS/Editor/Dependencies/");
-            string dependenciesTemplatePath = dependenciesPath + "Template/";
 
-            string sourcePath = string.Empty;
-            if (settings.androidSettings.ChineseAndroidStores)
+            if (string.IsNullOrEmpty(settings.iOSSettings.AppKey.Trim()))
             {
-                sourcePath = dependenciesTemplatePath + "Android/Yodo1AdsAndroidDependenciesChina.xml";
+                string message = "MAS iOS AppKey is null, please check the configuration.";
+                Debug.LogError(Yodo1U3dMas.TAG + message);
+                Yodo1AdUtils.ShowAlert("Error", message, "Ok");
+                return false;
             }
-            else if (settings.androidSettings.GooglePlayStore)
+
+            if (settings.iOSSettings.GlobalRegion && string.IsNullOrEmpty(settings.iOSSettings.AdmobAppID.Trim()))
             {
-                sourcePath = dependenciesTemplatePath + "Android/Yodo1AdsAndroidDependenciesGlobal.xml";
+                string message = "MAS iOS AdMob App ID is null, please check the configuration.";
+                Debug.LogError(Yodo1U3dMas.TAG + message);
+                Yodo1AdUtils.ShowAlert("Error", message, "Ok");
+                return false;
             }
-            if (File.Exists(sourcePath))
-            {
-                string destFile = dependenciesPath + "Yodo1AdsAndroidDependencies.xml";
-                if (File.Exists(destFile))
-                {
-                    File.Delete(destFile);
-                }
-
-                AssetDatabase.SaveAssets();
-                AssetDatabase.Refresh();
-
-                File.Copy(sourcePath, destFile, true);
-            }
-
-            //if (settings.iOSSettings.ChinaRegion) {
-            //    string sourcePath = dependenciesTemplatePath + "iOS/ChinaDependenciesTemplate.xml";
-            //    File.Copy(sourcePath,dependenciesPath + "Yodo1AdsiOSDependencies.xml", true);
-            //} else if (settings.iOSSettings.GlobalRegion) {
-            //    string sourcePath = dependenciesTemplatePath + "iOS/GlobalDependenciesTemplate.xml";
-            //    File.Copy(sourcePath,dependenciesPath + "Yodo1AdsiOSDependencies.xml", true);
-            //}
-
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
+            return true;
         }
     }
 

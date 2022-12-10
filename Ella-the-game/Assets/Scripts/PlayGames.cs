@@ -40,9 +40,9 @@ public class PlayGames : MonoBehaviour
         //leaderBoardBtn.onClick.AddListener(ShowLeaderboard);
         if (platform == null)
         {
-            PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
-                .EnableSavedGames().RequestEmail().Build();
-            PlayGamesPlatform.InitializeInstance(config);
+            //PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
+            //    .EnableSavedGames().RequestEmail().Build();
+            //PlayGamesPlatform.InitializeInstance(config);
             PlayGamesPlatform.DebugLogEnabled = true;
             platform = PlayGamesPlatform.Activate();
         }

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using UnityEditor;
-using UnityEditor.Experimental.SceneManagement;
+
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -287,7 +287,7 @@ namespace MonKey.Editor.Commands
                 OverrideName = "Prefab Name", PreventDefaultValueUsage = true)]
             string prefabPath)
         {
-            Type utils = typeof(PrefabStageUtility);
+            Type utils = typeof(UnityEditor.SceneManagement.PrefabStageUtility);
             var methods = utils.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static);
 
             if (methods.Length == 0)

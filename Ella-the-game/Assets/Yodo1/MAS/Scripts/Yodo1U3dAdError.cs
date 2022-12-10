@@ -57,7 +57,7 @@ namespace Yodo1.MAS
             errorDic.Add("code", Code);
             errorDic.Add("message", Message);
 
-            return errorDic.ToString();
+            return Yodo1JSON.Serialize(errorDic);
         }
     }
 }

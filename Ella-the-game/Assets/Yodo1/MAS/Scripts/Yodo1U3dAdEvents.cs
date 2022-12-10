@@ -9,6 +9,9 @@ namespace Yodo1.MAS
         AdError = -1,
         AdOpened = 1001,
         AdClosed = 1002,
+        AdLoaded = 1003,
+        AdLoadFail = 1004,
+        AdOpenFail = 1005,
         AdReward = 2001
     }
 }

@@ -25,6 +25,7 @@ ScriptedImporter:
     streamingMipmaps: 1
     streamingMipmapsPriority: 0
     vTOnly: 0
+    ignoreMasterTextureLimit: 0
     nPOTScale: 1
     sRGBTexture: 1
     spriteMode: 2
@@ -46,6 +47,7 @@ ScriptedImporter:
     flipbookRows: 0
     flipbookColumns: 0
     ignorePngGamma: 0
+    cookieMode: 0
     filterMode: 1
     aniso: 1
     mipBias: 0
@@ -79,7 +81,6 @@ ScriptedImporter:
       width: 0
       height: 0
     spriteID: 
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -103,58 +104,97 @@ ScriptedImporter:
       width: 894
       height: 886
     spriteID: 2b4421b30c0aae647aa07ec2a4296cd5
-    internalID: 0
     spriteBone:
     - name: Hip
+      guid: 
       position: {x: 476.08606, y: 214.58899, z: 0}
       rotation: {x: 0, y: 0, z: 0.76649636, w: 0.64224863}
       length: 78.19971
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Foot.L
+      guid: 
       position: {x: 179.8525, y: 0.00008314013, z: 0}
       rotation: {x: 0, y: 0, z: -0.7570111, w: 0.65340203}
       length: 106.367836
       parentId: 2
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Leg.L
+      guid: 
       position: {x: -206.54037, y: 36.22836, z: 0}
       rotation: {x: 0, y: 0, z: -0.92140347, w: 0.3886075}
       length: 179.85252
       parentId: 8
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Leg.R
+      guid: 
       position: {x: -191.75684, y: -172.07396, z: 0}
       rotation: {x: 0, y: 0, z: -0.91890293, w: 0.39448363}
       length: 68.82162
       parentId: 8
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Foot.R
+      guid: 
       position: {x: 68.821556, y: 0.00001817658, z: 0}
       rotation: {x: 0, y: 0, z: -0.30735183, w: 0.951596}
       length: 106.09236
       parentId: 3
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: TailRoot
+      guid: 
       position: {x: -172.41777, y: -215.26436, z: 0}
       rotation: {x: 0, y: 0, z: -0.7386271, w: 0.67411435}
       length: 76.85942
       parentId: 8
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: TailBody
+      guid: 
       position: {x: 76.85942, y: 0.000031319716, z: 0}
       rotation: {x: 0, y: 0, z: 0.2572674, w: 0.96634024}
       length: 91.30739
       parentId: 5
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: TailTip
+      guid: 
       position: {x: 91.307396, y: 0.000038020386, z: 0}
       rotation: {x: 0, y: 0, z: 0.24424149, w: 0.9697144}
       length: 111.53985
       parentId: 6
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Head
+      guid: 
       position: {x: 140.33911, y: -0.0000478888, z: 0}
       rotation: {x: 0, y: 0, z: -0.11311073, w: 0.9935824}
       length: 340.58145
       parentId: 9
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Torso
+      guid: 
       position: {x: 78.199715, y: 0.000027326645, z: 0}
       rotation: {x: 0, y: 0, z: -0.07570483, w: 0.9971303}
       length: 140.33907
       parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteOutline: []
     vertices:
     - position: {x: 620, y: 884}
@@ -1238,89 +1278,107 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -61, y: -65}
-  platformSettings: []
-  mosaicLayers: 1
-  documentPivot: {x: 0, y: 0}
-  documentAlignment: 7
-  importHiddenLayers: 0
-  importedTextureWidth: 1024
-  importedTextureHeight: 1024
-  documentSize: {x: 1024, y: 1024}
-  paperDollMode: 0
-  keepDupilcateSpriteName: 0
-  spriteCategoryList:
-    categories: []
-  textureActualWidth: 1024
-  textureActualHeight: 1024
-  spritePackingTag: 
-  resliceFromLayer: 0
-  characterMode: 1
-  mosaicPSDLayers: []
-  rigPSDLayers:
-  - name: char_01
-    spriteName: char_01
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 2b4421b30c0aae647aa07ec2a4296cd5
-    layerID: 2
-    mosaicPosition: {x: 4, y: 4}
   characterData:
     bones:
     - name: Hip
+      guid: 
       position: {x: 541.08606, y: 283.589, z: 0}
       rotation: {x: 0, y: 0, z: 0.76649636, w: 0.64224863}
       length: 78.19971
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Torso
+      guid: 
       position: {x: 78.19971, y: -0.0000019541358, z: 0}
       rotation: {x: 0, y: 0, z: -0.07570486, w: 0.9971303}
       length: 140.33907
       parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Head
+      guid: 
       position: {x: 140.33905, y: 0.000020257428, z: 0}
       rotation: {x: 0, y: 0, z: -0.1131107, w: 0.9935824}
       length: 340.58142
       parentId: 1
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Leg.L
+      guid: 
       position: {x: -206.5403, y: 36.22838, z: 0}
       rotation: {x: 0, y: -0, z: -0.9214034, w: 0.38860747}
       length: 179.85255
       parentId: 2
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Foot.L
+      guid: 
       position: {x: 179.85255, y: -0.000011845019, z: 0}
       rotation: {x: 0, y: 0, z: -0.7570112, w: 0.65340203}
       length: 106.36786
       parentId: 3
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Leg.R
+      guid: 
       position: {x: -191.75673, y: -172.07396, z: 0}
       rotation: {x: 0, y: -0, z: -0.918903, w: 0.39448363}
       length: 68.8216
       parentId: 2
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Foot.R
+      guid: 
       position: {x: 68.8216, y: 0.00005860554, z: 0}
       rotation: {x: 0, y: 0, z: -0.3073518, w: 0.951596}
       length: 106.09235
       parentId: 5
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: TailRoot
+      guid: 
       position: {x: -172.41771, y: -215.26436, z: 0}
       rotation: {x: 0, y: -0, z: -0.7386271, w: 0.67411435}
       length: 76.85942
       parentId: 2
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: TailBody
+      guid: 
       position: {x: 76.8594, y: -0.000004548845, z: 0}
       rotation: {x: 0, y: 0, z: 0.25726748, w: 0.96634024}
       length: 91.30737
       parentId: 7
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: TailTip
+      guid: 
       position: {x: 91.3074, y: -0.0000106521065, z: 0}
       rotation: {x: 0, y: 0, z: 0.24424143, w: 0.9697145}
       length: 111.539825
       parentId: 8
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: bone_11
+      guid: 
       position: {x: -203.44612, y: 89.26024, z: 0}
       rotation: {x: 0, y: 0, z: 0.65156555, w: 0.75859237}
       length: 202.45612
       parentId: 2
+      color:
+        serializedVersion: 2
+        rgba: 0
     parts:
     - spritePosition:
         x: 65
@@ -1333,8 +1391,46 @@ ScriptedImporter:
       order: 0
     dimension: {x: 0, y: 0}
     characterGroups: []
+    boneReadOnly: 0
+  sharedRigSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    boneReadOnly: 0
+  platformSettings: []
+  mosaicLayers: 1
+  characterMode: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  layerMappingOption: 2
+  generatePhysicsShape: 0
+  paperDollMode: 0
+  keepDupilcateSpriteName: 0
+  skeletonAssetReferenceID: 
+  spriteCategoryList:
+    categories: []
+  spritePackingTag: 
+  resliceFromLayer: 0
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: char_01
+    spriteName: char_01
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 2b4421b30c0aae647aa07ec2a4296cd5
+    layerID: 2
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  sharedRigPSDLayers: []
+  pSDLayerImportSetting: []
   generateGOHierarchy: 1
   textureAssetName: DesertMonster Texture
   prefabAssetName: DesertMonster Prefab
   spriteLibAssetName: DesertMonster Sprite Lib
+  skeletonAssetName: 
   secondarySpriteTextures: []

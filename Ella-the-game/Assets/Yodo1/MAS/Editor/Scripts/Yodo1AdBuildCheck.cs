@@ -1,12 +1,11 @@
-﻿using System;
-using UnityEditor;
-using UnityEngine;
-using System.IO;
-using UnityEditor.PackageManager.Requests;
-using UnityEditor.PackageManager;
-
-namespace Yodo1.MAS
+﻿namespace Yodo1.MAS
 {
+    using System;
+    using UnityEngine;
+    using System.IO;
+    using UnityEditor.PackageManager.Requests;
+    using UnityEditor.PackageManager;
+
     public static class Yodo1AdBuildCheck
     {
         public static bool HasConflict()
@@ -18,7 +17,8 @@ namespace Yodo1.MAS
         {
             string remove_package_name = "com.unity.ads";
             string manifest_path = Directory.GetCurrentDirectory() + "/Packages/manifest.json";
-            if (!File.Exists(manifest_path)) {
+            if (!File.Exists(manifest_path))
+            {
                 return false;
             }
             string text = File.ReadAllText(manifest_path);
@@ -27,32 +27,26 @@ namespace Yodo1.MAS
         private static RemoveRequest Request;
         public static void RemoveUnityAds()
         {
-            if (IsUnityAdsExist()) {
+            if (IsUnityAdsExist())
+            {
                 Request = Client.Remove("com.unity.ads");
                 //EditorApplication.update += Progress;
             }
         }
 
-        //private static void Progress()
-        //{
-        //    if (Request.IsCompleted) {
-        //        if (Request.Status == StatusCode.Success) {
-
-        //        }else if (Request.Status >= StatusCode.Failure) {
-        //            UnityEngine.Debug.Log(Request.Error.message);
-        //        }
-        //        EditorApplication.update -= Progress;
-        //    }
-        //}
-        public static bool IsFBSDKCoreKitExist() 
+        public static bool IsFBSDKCoreKitExist()
         {
             string dependencies_path = Directory.GetCurrentDirectory() + "/Assets/FacebookSDK/Plugins/Editor/Dependencies.xml";
-            if (File.Exists(dependencies_path)) {
+            if (File.Exists(dependencies_path))
+            {
                 string line = null;
                 string line_to_delete = "FBSDKCoreKit";
-                using (StreamReader reader = new StreamReader(dependencies_path)) {
-                    while ((line = reader.ReadLine()) != null) {
-                        if (line.Contains(line_to_delete)) {
+                using (StreamReader reader = new StreamReader(dependencies_path))
+                {
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        if (line.Contains(line_to_delete))
+                        {
                             return true;
                         }
                     }
@@ -61,19 +55,24 @@ namespace Yodo1.MAS
             return false;
         }
 
-        public static void RemoveFacebookCoreKit() 
+        public static void RemoveFacebookCoreKit()
         {
-            if (!IsFBSDKCoreKitExist()) {
+            if (!IsFBSDKCoreKitExist())
+            {
                 return;
             }
             string dependencies_path = Directory.GetCurrentDirectory() + "/Assets/FacebookSDK/Plugins/Editor/Dependencies.xml";
             string new_dependencies_path = Directory.GetCurrentDirectory() + "/Assets/FacebookSDK/Plugins/Editor/Dependencies_new.xml";
             string line = null;
             string line_to_delete = "FBSDKCoreKit";
-            using (StreamReader reader = new StreamReader(dependencies_path)) {
-                using (StreamWriter writer = new StreamWriter(new_dependencies_path)) {
-                    while ((line = reader.ReadLine()) != null) {
-                        if (line.Contains(line_to_delete)) {
+            using (StreamReader reader = new StreamReader(dependencies_path))
+            {
+                using (StreamWriter writer = new StreamWriter(new_dependencies_path))
+                {
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        if (line.Contains(line_to_delete))
+                        {
                             continue;
                         }
                         writer.WriteLine(line);
@@ -81,7 +80,7 @@ namespace Yodo1.MAS
                 }
             }
             File.Delete(dependencies_path);
-            File.Move(new_dependencies_path,dependencies_path);
+            File.Move(new_dependencies_path, dependencies_path);
         }
 
         public static bool IsAdmobAdsExist()
@@ -102,7 +101,7 @@ namespace Yodo1.MAS
             string admobPath2 = Path.GetFullPath(Application.dataPath + "/Plugins/Android/GoogleMobileAdsPlugin.androidlib");
             string admobPath3 = Path.GetFullPath(Application.dataPath + "/Plugins/Android/googlemobileads-unity.aar");
             string admobPath4 = Path.GetFullPath(Application.dataPath + "/Plugins/iOS/unity-plugin-library.a");
-                       
+
             // common
             DeleteDir(admobPath1);
             DeleteTempFile(admobPath1);
@@ -138,13 +137,12 @@ namespace Yodo1.MAS
                 if (File.Exists(tempPaht))
                 {
                     File.Delete(tempPaht);
-                    //Debug.LogError("[Yodo1 Mas] DeleteTempFile successed : tempPaht " + tempPaht);
                 }
-            } catch(Exception e)
-            {
-                Debug.LogError("[Yodo1 Mas] DeleteTempFile error : tempPaht " + tempPaht + " error: " + e.Message.ToString());
             }
-           
+            catch (Exception e)
+            {
+                Debug.LogError(Yodo1U3dMas.TAG + "DeleteTempFile error : tempPaht " + tempPaht + " error: " + e.Message.ToString());
+            }
         }
 
         public static void DeleteFile(string file)
@@ -154,15 +152,13 @@ namespace Yodo1.MAS
                 if (File.Exists(file))
                 {
                     File.Delete(file);
-                    //Debug.LogError("[Yodo1 Mas] DeleteFile successed : file " + file);
                 }
             }
             catch (Exception e)
             {
-                Debug.LogError("[Yodo1 Mas] DeleteFile error : file " + file + " error: " + e.Message.ToString());
+                Debug.LogError(Yodo1U3dMas.TAG + "DeleteFile error : file " + file + " error: " + e.Message.ToString());
             }
         }
-
 
         public static void DeleteDir(string file)
         {
@@ -179,7 +175,7 @@ namespace Yodo1.MAS
 
                 //Remove the read-only attribute
                 System.IO.File.SetAttributes(file, System.IO.FileAttributes.Normal);
-                                
+
                 if (Directory.Exists(file))
                 {
                     foreach (string f in Directory.GetFileSystemEntries(file))
@@ -199,19 +195,14 @@ namespace Yodo1.MAS
                     //Delete empty dir
                     Directory.Delete(file);
                     Console.WriteLine(file);
-                    
                 }
-
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message.ToString());
             }
         }
-
-        
     }
-
 }
 
 

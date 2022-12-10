@@ -1,9 +1,7 @@
-﻿using System;
-using UnityEngine;
-using UnityEditor;
-
-namespace Yodo1.MAS
+﻿namespace Yodo1.MAS
 {
+    using UnityEditor;
+
     public class Yodo1AdAssetsMenuEditor : Editor
     {
         [MenuItem("Assets/Yodo1/MAS Conflict Manager")]
@@ -23,7 +21,7 @@ namespace Yodo1.MAS
         {
             Yodo1AdWindows.Initialize(Yodo1AdWindows.PlatfromTab.iOS);
         }
-              
+
 
     }
 }

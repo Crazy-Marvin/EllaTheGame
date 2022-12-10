@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 namespace Yodo1.MAS
-{   
+{
     [Serializable]
     public class Yodo1QualityServiceData
     {
@@ -31,13 +31,14 @@ namespace Yodo1.MAS
         private const string QualityServiceApiKey = "    apiKey '{0}'";
         private const string QualityServiceBintrayMavenRepo = "https://applovin.bintray.com/Quality-Service";
 
-        public static void AddAdReviewToApplicationGradle(string path) {
+        public static void AddAdReviewToApplicationGradle(string path)
+        {
 
 
             var sdkKey = Yodo1AdEditorConstants.DEFAULT_APPLOVIN_SDK_KEY;
             if (string.IsNullOrEmpty(sdkKey))
             {
-                Debug.LogError("Failed to install AppLovin Quality Service plugin. SDK Key is empty. Please enter the AppLovin SDK Key in the Integration Manager.");
+                Debug.LogError(Yodo1U3dMas.TAG + "Failed to install AppLovin Quality Service plugin. SDK Key is empty. Please enter the AppLovin SDK Key in the Integration Manager.");
                 return;
             }
 
@@ -46,7 +47,7 @@ namespace Yodo1.MAS
             var apiKey = qualityServiceData.api_key;
             if (string.IsNullOrEmpty(apiKey))
             {
-                Debug.LogError("Failed to install AppLovin Quality Service plugin. API Key is empty.");
+                Debug.LogError(Yodo1U3dMas.TAG + "Failed to install AppLovin Quality Service plugin. API Key is empty.");
                 return;
             }
 
@@ -70,13 +71,13 @@ namespace Yodo1.MAS
             }
             catch (Exception exception)
             {
-                Debug.LogError("Failed to install AppLovin Quality Service plugin. Gradle file write failed.");
+                Debug.LogError(Yodo1U3dMas.TAG + "Failed to install AppLovin Quality Service plugin. Gradle file write failed.");
                 Console.WriteLine(exception);
             }
-
         }
 
-        public static bool AddAdReviewToTootGradle(string path) {
+        public static bool AddAdReviewToTootGradle(string path)
+        {
             var lines = File.ReadAllLines(path).ToList();
             var outputLines = GenerateUpdatedBuildFileLines(lines, null, true);
 
@@ -89,7 +90,7 @@ namespace Yodo1.MAS
             }
             catch (Exception exception)
             {
-                Debug.LogError("Failed to install AppLovin Quality Service plugin. Root Gradle file write failed.");
+                Debug.LogError(Yodo1U3dMas.TAG + "Failed to install AppLovin Quality Service plugin. Root Gradle file write failed.");
                 Console.WriteLine(exception);
                 return false;
             }
@@ -240,7 +241,7 @@ namespace Yodo1.MAS
 
                 if ((addBuildScriptLines && (!qualityServiceRepositoryAdded || !qualityServiceDependencyClassPathAdded)) || (addPlugin && !qualityServicePluginAdded))
                 {
-                    Debug.LogError("Failed to add AppLovin Quality Service plugin. Quality Service Plugin Added?: " + qualityServicePluginAdded + ", Quality Service Repo added?: " + qualityServiceRepositoryAdded + ", Quality Service dependency added?: " + qualityServiceDependencyClassPathAdded);
+                    Debug.LogError(Yodo1U3dMas.TAG + "Failed to add AppLovin Quality Service plugin. Quality Service Plugin Added?: " + qualityServicePluginAdded + ", Quality Service Repo added?: " + qualityServiceRepositoryAdded + ", Quality Service dependency added?: " + qualityServiceDependencyClassPathAdded);
                     return null;
                 }
             }
@@ -305,20 +306,25 @@ namespace Yodo1.MAS
             if (webRequest.isError)
 #endif
             {
-                Debug.LogError("Failed to retrieve API Key for SDK Key: " + sdkKey + "with error: " + unityWebRequest.error);
+                Debug.LogError(Yodo1U3dMas.TAG + "Failed to retrieve API Key for SDK Key: " + sdkKey + "with error: " + unityWebRequest.error);
                 return new Yodo1QualityServiceData();
             }
 
+            var data = new Yodo1QualityServiceData();
             try
             {
-                return JsonUtility.FromJson<Yodo1QualityServiceData>(unityWebRequest.downloadHandler.text);
+                data = JsonUtility.FromJson<Yodo1QualityServiceData>(unityWebRequest.downloadHandler.text);
             }
             catch (Exception exception)
             {
-                Debug.LogError("Failed to parse API Key." + exception);
-                return new Yodo1QualityServiceData();
+                Debug.LogError(Yodo1U3dMas.TAG + "Failed to parse API Key." + exception);
             }
+            finally
+            {
+                unityWebRequest.Dispose();
+            }
+            return data;
         }
-        
+
     }
 }

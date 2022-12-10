@@ -1,4 +1,3 @@
-
 #if !UNITY_2017_2_OR_NEWER
 
 using System;

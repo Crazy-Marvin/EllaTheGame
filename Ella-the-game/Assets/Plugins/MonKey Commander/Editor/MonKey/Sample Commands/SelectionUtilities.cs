@@ -10,7 +10,7 @@ using System.Linq;
 using System.Reflection;
 using UnityEditor;
 using UnityEditor.Compilation;
-using UnityEditor.Experimental.SceneManagement;
+
 using UnityEngine;
 using Assembly = UnityEditor.Compilation.Assembly;
 using Object = UnityEngine.Object;
@@ -640,7 +640,7 @@ namespace MonKey.Editor.Commands
 
             Object[] objs;
             
-            var stage = PrefabStageUtility.GetCurrentPrefabStage();
+            var stage = UnityEditor.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage();
             if (stage != null)
             {
                 objs = stage.scene.GetRootGameObjects()[0].GetComponentsInChildren(type)
@@ -876,7 +876,7 @@ namespace MonKey.Editor.Commands
             SelectionCombineRestrictedCombine comb = SelectionCombineRestrictedCombine.REPLACE)
         {
             Object[] newObjs;
-            var stage = PrefabStageUtility.GetCurrentPrefabStage();
+            var stage = UnityEditor.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage();
             if (stage != null)
             {
                 newObjs = stage.scene.GetRootGameObjects()[0].GetComponentsInChildren<Transform>()

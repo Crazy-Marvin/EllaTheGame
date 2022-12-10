@@ -4,7 +4,7 @@ using MonKey.Settings.Internal;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
-using UnityEditor.Experimental.SceneManagement;
+
 using UnityEngine;
 
 public class MonKeySelectionUtils
@@ -112,9 +112,9 @@ public class MonKeySelectionUtils
     private static bool IsAsset(Object obj)
     {
         var go = obj as GameObject;
-        bool isPrefabStage = PrefabStageUtility.GetCurrentPrefabStage() != null;
+        bool isPrefabStage = UnityEditor.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage() != null;
         if (go && (go.scene.IsValid()
-                   || (isPrefabStage && PrefabStageUtility.GetCurrentPrefabStage().scene == go.scene)))
+                   || (isPrefabStage && UnityEditor.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage().scene == go.scene)))
         {
             return false;
         }
@@ -275,9 +275,9 @@ public class MonKeySelectionUtils
                     if (!SelectionStack.Contains(obj))
                     {
                         var go = obj as GameObject;
-                        bool isPrefabStage = PrefabStageUtility.GetCurrentPrefabStage() != null;
+                        bool isPrefabStage = UnityEditor.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage() != null;
                         if (go && (go.scene.IsValid()
-                                   || (isPrefabStage && PrefabStageUtility.GetCurrentPrefabStage().scene == go.scene)))
+                                   || (isPrefabStage && UnityEditor.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage().scene == go.scene)))
                         {
                             newGOs.Add(go);
                         }
