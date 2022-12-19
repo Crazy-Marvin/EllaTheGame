@@ -1,6 +1,10 @@
 <dependencies>
   <packages>
+    <package>com.android.support:appcompat-v7:24.0.+</package>
+    <package>com.android.support:support-v4:26.1.+</package>
+    <package>com.google.android.play:core:1.8.+</package>
     <package>com.google.games:gpgs-plugin-support:0.11.01</package>
+    <package>com.sglib.easymobile:easy-mobile:1.+</package>
     <package>com.yodo1.mas:full:4.8.1</package>
   </packages>
   <files>
@@ -109,6 +113,7 @@
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-measurement-sdk-api-20.1.2.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-nearby-18.0.2.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-tasks-18.0.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.play.core-1.8.3.aar</file>
     <file>Assets/Plugins/Android/com.google.android.ump.user-messaging-platform-2.0.0.aar</file>
     <file>Assets/Plugins/Android/com.google.code.gson.gson-2.8.6.jar</file>
     <file>Assets/Plugins/Android/com.google.games.gpgs-plugin-support-0.11.01.aar</file>
@@ -145,6 +150,7 @@
     <file>Assets/Plugins/Android/com.pangle.global.crash_monitor-1.3.8.1.aar</file>
     <file>Assets/Plugins/Android/com.pangle.global.encryptor-0.0.9-rc.2-private.aar</file>
     <file>Assets/Plugins/Android/com.pangle.global.metasec_pgl-4.3.7-alpha.5-Pgl.aar</file>
+    <file>Assets/Plugins/Android/com.sglib.easymobile.easy-mobile-1.4.0.aar</file>
     <file>Assets/Plugins/Android/com.squareup.okhttp3.okhttp-4.10.0.jar</file>
     <file>Assets/Plugins/Android/com.squareup.okio.okio-jvm-3.0.0.jar</file>
     <file>Assets/Plugins/Android/com.squareup.picasso.picasso-2.71828.aar</file>

@@ -1,0 +1,43 @@
+<dependencies>
+  <!-- Android dependencies are specified under the "androidPackages" element.
+       Each "androidPackage" element contains the attributes of an Android
+       dependency (e.g AAR, JAR reference). -->
+  <androidPackages>
+    <!-- The "spec" attribute is *required* and provides the Maven package
+         specification.
+
+         Currently this only supports group:artifact:version_specification where
+         group:artifact:version_specification references a Maven package that
+         can be located in:
+         * Maven central.
+         * Google's Maven repo.
+         * Local Android SDK Maven repo.
+
+         Additional repositories can be added using the "repositories" element.
+    -->
+    <androidPackage spec="com.google.android.play:core:1.8.+">
+      <repositories>
+        <repository>https://maven.google.com</repository>
+      </repositories>
+    </androidPackage>
+
+    <androidPackage spec="com.android.support:support-v4:26.1.+">
+      <repositories>
+        <repository>https://maven.google.com</repository>
+      </repositories>
+    </androidPackage>
+
+    <androidPackage spec="com.android.support:appcompat-v7:24.0.+">
+      <repositories>
+        <repository>https://maven.google.com</repository>
+      </repositories>
+    </androidPackage>
+
+    <androidPackage spec="com.sglib.easymobile:easy-mobile:1.+">
+      <repositories>
+        <repository>Assets/EasyMobile/Plugins/Android/m2repository</repository>
+      </repositories>
+    </androidPackage>
+
+  </androidPackages>
+</dependencies>
