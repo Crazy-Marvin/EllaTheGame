@@ -134,9 +134,18 @@ NEXT WE NEED TO INSTALL THE ANDROID SDK TOOLS
 - In Platforms Make sure to select Webgl and click switch platform
 - Click Build.
   
-# Contribute
-  
-Contributions are always welcome! Please read the [contribution guidelines](https://github.com/Crazy-Marvin/EllaTheGame/blob/master/CONTRIBUTING.md) first.
+# Contributing
+
+The ```development``` or a feature branch is used while developing the code, and pushed into the master branch ```trunk``` afterwards for releases.
+PRs to the ```trunk``` need at least one approving review before getting merged.
+
+Help translate the app at [Hosted Weblate](https://hosted.weblate.org/engage/ella-the-game/).
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+Check out the [contribution guidelines](https://github.com/Crazy-Marvin/EllaTheGame/blob/trunk/.github/CONTRIBUTING.md) for details please.
   
 # License
   
