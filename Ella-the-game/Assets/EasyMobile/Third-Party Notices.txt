@@ -1,0 +1,13 @@
+Asset is governed by the Asset Store EULA; however, the following components are governed by the licenses indicated below:
+
+1. JosefinSans Font
+"SIL Open Font License"
+
+2. Montserrat Font
+"SIL Open Font License"
+
+3. Moments recoder by Thomas Hourdel
+"Zlib License"
+
+4. External Dependency Manager by Google
+"Apache License"

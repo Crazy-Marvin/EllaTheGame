@@ -134,7 +134,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 23
+  bundleVersion: 26
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -161,7 +161,7 @@ PlayerSettings:
     iPhone: 5
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
-  AndroidBundleVersionCode: 23
+  AndroidBundleVersionCode: 26
   AndroidMinSdkVersion: 22
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
@@ -249,7 +249,7 @@ PlayerSettings:
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: /Users/macbook/Documents/Client Games/marvinlozano/Ella.keystore
+  AndroidKeystoreName: '{inproject}: Ella.keystore'
   AndroidKeyaliasName: crazy_marvin
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0
@@ -733,7 +733,23 @@ PlayerSettings:
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    Android: EASY_MOBILE;EASY_MOBILE_PRO
+    EmbeddedLinux: EASY_MOBILE;EASY_MOBILE_PRO
+    GameCoreScarlett: EASY_MOBILE;EASY_MOBILE_PRO
+    GameCoreXboxOne: EASY_MOBILE;EASY_MOBILE_PRO
+    LinuxHeadlessSimulation: EASY_MOBILE;EASY_MOBILE_PRO
+    Lumin: EASY_MOBILE;EASY_MOBILE_PRO
+    Nintendo Switch: EASY_MOBILE;EASY_MOBILE_PRO
+    PS4: EASY_MOBILE;EASY_MOBILE_PRO
+    PS5: EASY_MOBILE;EASY_MOBILE_PRO
+    Stadia: EASY_MOBILE;EASY_MOBILE_PRO
+    Standalone: EASY_MOBILE;EASY_MOBILE_PRO
+    WebGL: EASY_MOBILE;EASY_MOBILE_PRO
+    Windows Store Apps: EASY_MOBILE;EASY_MOBILE_PRO
+    XboxOne: EASY_MOBILE;EASY_MOBILE_PRO
+    iPhone: EASY_MOBILE;EASY_MOBILE_PRO
+    tvOS: EASY_MOBILE;EASY_MOBILE_PRO
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:

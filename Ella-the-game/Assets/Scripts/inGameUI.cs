@@ -73,7 +73,10 @@ public class inGameUI : MonoBehaviour {
         healthImage.fillAmount = healthAmount;
         scoreText.text = (scoreAmount).ToString("0000");
     }
-
+    public int getCurrentScore()
+    {
+        return int.Parse(scoreText.text);
+    }
     public void setHealthAmount(int value)
     {
         healthAmount = (float)value / 100;

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This Easy Mobile plugin manifest is generated automatically and 
+will get merged with your application's manifest, adding the necessary elements
+required for Easy Mobile operation.
+DO NOT MODIFY!
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.sglib.easymobile.android" xmlns:tools="http://schemas.android.com/tools">
+    <application>
+    </application>
+</manifest>
