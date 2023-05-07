@@ -1,0 +1,3 @@
+- Highscore-Ansicht verbsessert
+- Codebasis aufgeräumt
+- Übersetzungen korrigiert
