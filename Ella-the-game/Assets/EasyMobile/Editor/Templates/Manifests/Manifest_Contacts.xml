@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.sglib.easymobile.androidnative">
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <application>
+        <!-- Activity used to pick contacts from device -->
+        <activity android:name=".contacts.PickContactActivity" />
+    </application>
+</manifest>

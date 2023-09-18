@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: ShFX_SquareHollow_Crisp_Additive NoSP
+  m_Shader: {fileID: 4800000, guid: 9e338cf9a2b0a2d428e57ebca93aca19, type: 3}
+  m_ShaderKeywords: SHFX_DISABLE_SOFT_PARTICLES
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _MainTex
+        second:
+          m_Texture: {fileID: 2800000, guid: 7dc9dc3eb62d44943b57ea02ac97ae75, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _InvFade
+        second: 1
+      data:
+        first:
+          name: _NoSoftParticles
+        second: 1
+      data:
+        first:
+          name: _NoTexture
+        second: 0
+    m_Colors: {}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" package="com.sglib.easymobile.androidnative">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" tools:node="replace" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <application>
+        <!-- Activity that gets started when a user try to take picture or pick from gallery. -->
+        <activity android:name=".media.CameraActivity" />
+        <activity android:name=".media.GalleryActivity" />
+    </application>
+</manifest>

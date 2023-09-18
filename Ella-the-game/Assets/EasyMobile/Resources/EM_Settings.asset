@@ -1,0 +1,387 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb4452e2410c04b34915077cbe0f3a4d, type: 3}
+  m_Name: EM_Settings
+  m_EditorClassIdentifier: 
+  mAdvertisingSettings:
+    mAutoLoadAdsMode: 2
+    mAdCheckingInterval: 10
+    mAdLoadingInterval: 20
+    mIosDefaultAdNetworks:
+      bannerAdNetwork: 0
+      interstitialAdNetwork: 0
+      rewardedAdNetwork: 0
+    mAndroidDefaultAdNetworks:
+      bannerAdNetwork: 0
+      interstitialAdNetwork: 0
+      rewardedAdNetwork: 0
+    mAdColony:
+      mEnable: 0
+      mAppId:
+        mIosId: 
+        mAndroidId: 
+      mOrientation: 2
+      mEnableRewardedAdPrePopup: 0
+      mEnableRewardedAdPostPopup: 0
+      mDefaultInterstitialAdId:
+        mIosId: 
+        mAndroidId: 
+      mDefaultRewardedAdId:
+        mIosId: 
+        mAndroidId: 
+      mDefaultBannerAdId:
+        mIosId: 
+        mAndroidId: 
+      mCustomInterstitialAdIds:
+        keys: []
+        values: []
+      mCustomRewardedAdIds:
+        keys: []
+        values: []
+      mCustomBannerAdIds:
+        keys: []
+        values: []
+    mAdMob:
+      mEnable: 0
+      mTargetingSettings:
+        mTagForChildDirectedTreatment: 0
+        mExtraOptions:
+          keys: []
+          values: []
+      mEnableTestMode: 0
+      mAppId:
+        mIosId: 
+        mAndroidId: 
+      mDefaultBannerAdId:
+        mIosId: 
+        mAndroidId: 
+      mDefaultInterstitialAdId:
+        mIosId: 
+        mAndroidId: 
+      mDefaultRewardedAdId:
+        mIosId: 
+        mAndroidId: 
+      mCustomBannerAdIds:
+        keys: []
+        values: []
+      mCustomInterstitialAdIds:
+        keys: []
+        values: []
+      mCustomRewardedAdIds:
+        keys: []
+        values: []
+    mAppLovin:
+      mEnable: 0
+      mAgeRestrictMode: 0
+      mSDKKey: 
+      mDefaultBannerAdId:
+        mIosId: 
+        mAndroidId: 
+      mDefaultInterstitialAdId:
+        mIosId: 
+        mAndroidId: 
+      mDefaultRewardedAdId:
+        mIosId: 
+        mAndroidId: 
+      mCustomBannerAdIds:
+        keys: []
+        values: []
+      mCustomInterstitialAdIds:
+        keys: []
+        values: []
+      mCustomRewardedAdIds:
+        keys: []
+        values: []
+    mFBAudience:
+      mEnable: 0
+      mBannerAdSize: 0
+      mEnableTestMode: 0
+      mTestDevices: []
+      mDefaultBannerId:
+        mIosId: 
+        mAndroidId: 
+      mDefaultInterstitialAdId:
+        mIosId: 
+        mAndroidId: 
+      mDefaultRewardedAdId:
+        mIosId: 
+        mAndroidId: 
+      mCustomBannerIds:
+        keys: []
+        values: []
+      mCustomInterstitialAdIds:
+        keys: []
+        values: []
+      mCustomRewardedAdIds:
+        keys: []
+        values: []
+    mChartboost:
+      mEnable: 0
+      mCustomInterstitialPlacements: []
+      mCustomRewardedPlacements: []
+    mFairBid:
+      mEnable: 0
+      mPublisherId: 
+      mShowTestSuite: 0
+      mDefaultBannerId: 
+      mDefaultInterstitialAdId: 
+      mDefaultRewardedAdId: 
+      mCustomBannerPlacements: []
+      mCustomInterstitialPlacements: []
+      mCustomRewardedPlacements: []
+    mIronSource:
+      mEnable: 0
+      mAppId:
+        mIosId: 
+        mAndroidId: 
+      mUseAdvancedSetting: 0
+      mSegments:
+        age: 0
+        gender: 
+        level: 0
+        isPaying: 0
+        userCreationDate: 0
+        iapt: 0
+        segmentName: 
+        customParams:
+          keys: []
+          values: []
+    mMoPub:
+      mEnable: 0
+      mReportAppOpen: 0
+      mITuneAppID: 
+      mEnableLocationPassing: 0
+      mUseAdvancedSetting: 0
+      mAllowLegitimateInterest: 0
+      mLogLevel: 70
+      mMediatedNetworks: []
+      mAutoRequestConsent: 0
+      mForceGdprApplicable: 0
+      mDefaultBannerId:
+        mIosId: 
+        mAndroidId: 
+      mDefaultInterstitialAdId:
+        mIosId: 
+        mAndroidId: 
+      mDefaultRewardedAdId:
+        mIosId: 
+        mAndroidId: 
+      mCustomBannerIds:
+        keys: []
+        values: []
+      mCustomInterstitialAdIds:
+        keys: []
+        values: []
+      mCustomRewardedAdIds:
+        keys: []
+        values: []
+    mTapjoy:
+      mEnable: 0
+      mAutoReconnect: 1
+      mAutoReconnectInterval: 10
+      mDefaultInterstitialAdId:
+        mIosId: 
+        mAndroidId: 
+      mDefaultRewardedAdId:
+        mIosId: 
+        mAndroidId: 
+      mCustomInterstitialAdIds:
+        keys: []
+        values: []
+      mCustomRewardedAdIds:
+        keys: []
+        values: []
+    mUnityAds:
+      mEnable: 0
+      mAppId:
+        mIosId: 
+        mAndroidId: 
+      mDefaultBannerAdId:
+        mIosId: 
+        mAndroidId: 
+      mDefaultInterstitialAdId:
+        mIosId: video
+        mAndroidId: video
+      mDefaultRewardedAdId:
+        mIosId: rewardedVideo
+        mAndroidId: rewardedVideo
+      mCustomBannerAdIds:
+        keys: []
+        values: []
+      mCustomInterstitialAdIds:
+        keys: []
+        values: []
+      mCustomRewardedAdIds:
+        keys: []
+        values: []
+      mEnableTestMode: 0
+    mVungleAds:
+      mEnable: 0
+      mAppId:
+        mIosId: 
+        mAndroidId: 
+      mDefaultInterstitialAdId:
+        mIosId: 
+        mAndroidId: 
+      mDefaultRewardedAdId:
+        mIosId: 
+        mAndroidId: 
+      mDefaultBannerAdId:
+        mIosId: 
+        mAndroidId: 
+      mCustomInterstitialAdIds:
+        keys: []
+        values: []
+      mCustomRewardedAdIds:
+        keys: []
+        values: []
+      mCustomBannerAdIds:
+        keys: []
+        values: []
+      mUseAdvancedSetting: 0
+      mAdvancedSettings:
+        adOrientation: 6
+        prematureAdClosePopup:
+          alertTitle: Alert!!!
+          alertText: You are about to close this ad. If this is a rewarded ad, you
+            might not receive the reward.
+          closeText: Close
+          continueText: Continue
+        enableAdSound: 1
+        minimumDiskSpaceForInitialization: 51000000
+        minimumDiskSpaceForAds: 50000000
+        disableHardwareId: 0
+  mGameServiceSettings:
+    mAutoInit: 1
+    mAutoInitAfterUserLogout: 0
+    mAutoInitDelay: 0
+    mAndroidMaxLoginRequests: 0
+    mGpgsDebugLogEnabled: 0
+    mGpgsPopupGravity: 0
+    mGpgsShouldRequestServerAuthCode: 0
+    mGpgsForceRefreshServerAuthCode: 0
+    mGpgsOauthScopes: []
+    mLeaderboards: []
+    mAchievements: []
+    mAndroidXmlResources: 
+    mEnableMultiplayer: 0
+    mEnableSavedGames: 0
+    mAutoConflictResolutionStrategy: 0
+    mGpgsDataSource: 0
+  mInAppPurchaseSettings:
+    mAutoInit: 1
+    mTargetAndroidStore: 0
+    mSimulateAppleAskToBuy: 0
+    mInterceptApplePromotionalPurchases: 0
+    mEnableAmazonSandboxTesting: 0
+    mValidateAppleReceipt: 1
+    mValidateGooglePlayReceipt: 1
+    mProducts: []
+  mNotificationSettings:
+    mAutoInit: 1
+    mAutoInitDelay: 0
+    mIosAuthOptions: 7
+    mPushNotificationService: 0
+    mOneSignalAppId: 
+    mFirebaseTopics: []
+    mCategoryGroups: []
+    mDefaultCategory:
+      id: notification.category.default
+      groupId: 
+      name: Default
+      description: 
+      importance: 0
+      enableBadge: 1
+      lights: 1
+      lightColor: {r: 1, g: 1, b: 1, a: 1}
+      vibration: 1
+      vibrationPattern: 
+      lockScreenVisibility: 2
+      sound: 1
+      soundName: 
+      actionButtons: []
+    mUserCategories: []
+    mAndroidPermissions:
+    - mElementName: uses-permission
+      mValue: android.permission.RECEIVE_BOOT_COMPLETED
+  mPrivacySettings:
+    mDefaultConsentDialog:
+      mContent: 
+      mTitle: Privacy Consent
+      mToggles: []
+      mActionButtons: []
+    mConsentDialogComposerSettings:
+      mToggleSelectedIndex: 0
+      mButtonSelectedIndex: 0
+      mEnableCopyPasteMode: 0
+  mRatingRequestSettings:
+    mDefaultRatingDialogContent:
+      mTitle: Rate $PRODUCT_NAME
+      mMessage: How would you rate $PRODUCT_NAME?
+      mLowRatingMessage: That's bad. Would you like to give us some feedback instead?
+      mHighRatingMessage: Awesome! Let's do it!
+      mPostponeButtonText: Not Now
+      mRefuseButtonText: Don't Ask Again
+      mRateButtonText: Rate Now!
+      mCancelButtonText: Cancel
+      mFeedbackButtonText: Send Feedback
+    mMinimumAcceptedStars: 4
+    mSupportEmail: 
+    mIosAppId: 
+    mAnnualCap: 12
+    mDelayAfterInstallation: 10
+    mCoolingOffPeriod: 10
+    mIgnoreContraintsInDevelopment: 0
+  mSharingSettings:
+    mAndroidPermissions:
+    - mElementName: uses-permission
+      mValue: android.permission.WRITE_EXTERNAL_STORAGE
+    mIOSInfoPlistItems:
+    - mKey: NSPhotoLibraryUsageDescription
+      mValue: '[Your usage description]'
+    - mKey: NSPhotoLibraryAddUsageDescription
+      mValue: '[Your usage description]'
+  mNativeApisSettings:
+    mIsMediaEnabled: 0
+    mMediaSettings:
+      mAndroidPermissions:
+      - mElementName: uses-permission
+        mValue: android.permission.WRITE_EXTERNAL_STORAGE
+      - mElementName: uses-feature
+        mValue: android.hardware.camera
+      mIOSInfoPlistKeys:
+      - mKey: NSPhotoLibraryUsageDescription
+        mValue: '[Your usage description]'
+      - mKey: NSPhotoLibraryAddUsageDescription
+        mValue: '[Your usage description]'
+      - mKey: NSCameraUsageDescription
+        mValue: '[Your usage description]'
+      - mKey: NSMicrophoneUsageDescription
+        mValue: '[Your usage description]'
+    mIsContactsEnabled: 0
+    mContactsSettings:
+      mAndroidPermissions:
+      - mElementName: uses-permission
+        mValue: android.permission.WRITE_CONTACTS
+      - mElementName: uses-permission
+        mValue: android.permission.READ_CONTACTS
+      mIOSInfoPlistKeys:
+      - mKey: NSContactsUsageDescription
+        mValue: '[Your usage description]'
+  mRuntimeAutoInitialization: 1
+  mIsAdModuleEnable: 0
+  mIsIAPModuleEnable: 0
+  mIsGameServiceModuleEnable: 0
+  mIsNotificationModuleEnable: 0
+  mIsSharingModuleEnable: 1
+  mActiveModuleIndex: 7
+  mIsSelectingModule: 1

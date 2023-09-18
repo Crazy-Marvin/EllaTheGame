@@ -1,0 +1,9 @@
+<linker>
+   <assembly fullname="mscorlib">
+       <type fullname="System.Security.Cryptography.*" preserve="all"/>
+   </assembly>
+
+   <assembly fullname="UnityEngine">
+		<type fullname="UnityEngine.AndroidJavaRunnableProxy" preserve="all"/>
+	</assembly>
+</linker>

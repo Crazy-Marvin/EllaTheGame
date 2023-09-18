@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.sglib.easymobile.androidnative">
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <application>
+        <!-- Receiver for the alarm manager events and post notifications. -->
+        <receiver android:name=".notification.NotificationAlarmReceiver" android:enabled="false" />
+        <!-- Receiver for the boot completed event and reschedule pending notifications. -->
+        <receiver android:name=".notification.NotificationBootReceiver" android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+        </receiver>
+        <!-- Activity that gets started when a notification is opened. -->
+        <activity android:name=".notification.NotificationHandlerActivity" />
+    </application>
+</manifest>

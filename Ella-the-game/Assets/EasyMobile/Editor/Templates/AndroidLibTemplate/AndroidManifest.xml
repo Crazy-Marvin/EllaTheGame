@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+   WARNING: Do NOT modify! Generated file.
+-->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="__AndroidManifest_Package__"
+    android:versionCode="__AndroidManifest_VersionCode__"
+    android:versionName="__AndroidManifest_VersionName__">
+    
+    <uses-sdk 
+    	android:minSdkVersion="__AndroidManifest_MinSdkVersion__"
+    	android:targetSdkVersion="__AndroidManifest_TargetSdkVersion__"/>
+
+</manifest>

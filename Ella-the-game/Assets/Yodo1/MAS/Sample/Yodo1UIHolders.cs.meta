@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 0d550ebec227c4a82b1f1f5651f417f9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - menuHolder: {instanceID: 0}
+  - bannerHolder: {instanceID: 0}
+  - interstitialHolder: {instanceID: 0}
+  - rewardHolder: {instanceID: 0}
+  - nativeAdsHolder: {instanceID: 0}
+  - rewardedInterstitialAdsHolder: {instanceID: 0}
+  - appOpenAdsHolder: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
