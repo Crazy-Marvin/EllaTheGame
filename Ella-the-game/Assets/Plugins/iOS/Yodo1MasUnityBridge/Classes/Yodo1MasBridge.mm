@@ -31,7 +31,8 @@ Yodo1MasBannerAdDelegate,
 Yodo1MasBannerAdViewDelegate,
 Yodo1MasNativeAdViewDelegate,
 Yodo1MasRewardedInterstitialAdDelegate,
-Yodo1MasAppOpenAdDelegate>
+Yodo1MasAppOpenAdDelegate,
+Yodo1MasAppStatusDelegate>
 
 + (UIViewController*)getRootViewController;
 
@@ -121,6 +122,7 @@ Yodo1MasAppOpenAdDelegate>
     [Yodo1Mas sharedInstance].rewardAdDelegate = self;
     [Yodo1Mas sharedInstance].interstitialAdDelegate = self;
     [Yodo1Mas sharedInstance].bannerAdDelegate = self;
+    [Yodo1Mas sharedInstance].appStatusDelegate = self;
     
     _bannerViews = [NSMutableDictionary dictionary];
     _nativeViews = [NSMutableDictionary dictionary];
@@ -139,6 +141,7 @@ Yodo1MasAppOpenAdDelegate>
     _bannerViews = [NSMutableDictionary dictionary];
     _nativeViews = [NSMutableDictionary dictionary];
     
+    [Yodo1Mas sharedInstance].appStatusDelegate = self;
     [[Yodo1Mas sharedInstance] initMasWithAppKey:appKey successful:successful fail:fail];
     
     if (![UIDevice currentDevice].generatesDeviceOrientationNotifications) {
@@ -146,6 +149,13 @@ Yodo1MasAppOpenAdDelegate>
     }
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDeviceOrientationChange:)
                                          name:UIDeviceOrientationDidChangeNotification object:nil];
+}
+
+#pragma mark - Yodo1MasAppStatusDelegate
+- (void)onApplicationEnterForeground {
+    NSString* data = [Yodo1MasBridge convertToAppJsonString:YES];
+    NSString* msg = [Yodo1MasBridge getSendMessage:2 data:data];
+    UnitySendMessage([kYodo1MasGameObject cStringUsingEncoding:NSUTF8StringEncoding], [kYodo1MasMethodName cStringUsingEncoding:NSUTF8StringEncoding], [msg cStringUsingEncoding:NSUTF8StringEncoding]);
 }
 
 #pragma mark - Reward
@@ -806,7 +816,7 @@ Yodo1MasAppOpenAdDelegate>
     [Yodo1MasBridge sendMessageWithEvent: event];
 }
 
-#pragma mark - Yodo1MasRewardAdvertDelegate
+#pragma mark - Yodo1MasRewardAdDelegate
 - (void)onAdRewardEarned:(Yodo1MasAdEvent *)event {
     if (event == nil) {
         return;
@@ -909,6 +919,13 @@ Yodo1MasAppOpenAdDelegate>
         [dict setObject:errorJsonString forKey:@"error"];
     }
     
+    NSString* data = [Yodo1MasBridge stringWithJSONObject:dict error:nil];
+    return data;
+}
+
++ (NSString*)convertToAppJsonString:(BOOL)foreground {
+    NSMutableDictionary* dict = [NSMutableDictionary dictionary];
+    [dict setObject:[NSNumber numberWithInt:foreground ? 1 : 2] forKey:@"status"];
     NSString* data = [Yodo1MasBridge stringWithJSONObject:dict error:nil];
     return data;
 }
@@ -1025,6 +1042,14 @@ void UnityMasInitMasWithAppKey(const char* appKey,const char* gameObjectName, co
         NSString* msg = [Yodo1MasBridge getSendMessage:0 data:data];
         UnitySendMessage([kYodo1MasGameObject cStringUsingEncoding:NSUTF8StringEncoding], [kYodo1MasMethodName cStringUsingEncoding:NSUTF8StringEncoding], [msg cStringUsingEncoding:NSUTF8StringEncoding]);
     }];
+}
+
+void UnityMasShowPopupToReportAd() {
+    [[Yodo1Mas sharedInstance] showPopupToReportAd];
+}
+
+void UnityMasShowDebugger() {
+    [[Yodo1Mas sharedInstance] showDebugger];
 }
 
 void UnitySetAdBuildConfig(const char * config) {

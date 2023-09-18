@@ -1,4 +1,4 @@
-#if UNITY_IOS || UNITY_IPHONE
+//#if UNITY_IOS || UNITY_IPHONE
 
 using System.Diagnostics;
 using System.IO;
@@ -80,4 +80,4 @@ namespace Yodo1.MAS
     }
 }
 
-#endif
+//#endif

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Yodo1.MAS
 {
@@ -67,6 +68,7 @@ namespace Yodo1.MAS
         /// <summary>
         /// Initialize the default instance of Yodo1 MAS SDK.
         /// </summary>
+        [Obsolete("InitializeSdk() is obsolete and will be deprecated soon. Use InitializeMasSdk()")]
         public static void InitializeSdk()
         {
             string appKey = _InitializeSdk();
@@ -163,6 +165,39 @@ namespace Yodo1.MAS
             {
 #if UNITY_ANDROID
                 Yodo1U3dAdsAndroid.InitMasWithAppKey(appKey);
+#endif
+            }
+        }
+
+
+        public static void ShowPopupToReportAd()
+        {
+            if (Application.platform == RuntimePlatform.IPhonePlayer)
+            {
+#if UNITY_IPHONE
+                Yodo1U3dAdsIOS.ShowPopupToReportAd();
+#endif
+            }
+            else if (Application.platform == RuntimePlatform.Android)
+            {
+#if UNITY_ANDROID
+                Yodo1U3dAdsAndroid.ShowPopupToReportAd();
+#endif
+            }
+        }
+
+        public static void ShowDebugger()
+        {
+            if (Application.platform == RuntimePlatform.IPhonePlayer)
+            {
+#if UNITY_IPHONE
+                Yodo1U3dAdsIOS.ShowDebugger();
+#endif
+            }
+            else if (Application.platform == RuntimePlatform.Android)
+            {
+#if UNITY_ANDROID
+                Yodo1U3dAdsAndroid.ShowDebugger();
 #endif
             }
         }
@@ -621,6 +656,9 @@ namespace Yodo1.MAS
         /// <summary>
         /// Shows the interstitial ad.
         /// </summary>
+        ///
+        
+        [Obsolete("Yodo1U3dMas.ShowInterstitialAd() is obsolete and will be deprecated soon. Use Yodo1U3dInterstitialAd.GetInstance().ShowAd()")]
         public static void ShowInterstitialAd()
         {
 #if UNITY_EDITOR
@@ -645,6 +683,8 @@ namespace Yodo1.MAS
         /// Shows the interstitial ad with placement id.
         /// </summary>
         /// <param name="placementId"></param>
+        ///
+        [Obsolete("Yodo1U3dMas.ShowInterstitialAd(placementId) is obsolete and will be deprecated soon. Use Yodo1U3dInterstitialAd.GetInstance().ShowAd(placementId)")]
         public static void ShowInterstitialAd(string placementId)
         {
 #if UNITY_EDITOR
@@ -696,6 +736,8 @@ namespace Yodo1.MAS
         /// <summary>
         /// Shows the reward video ad.
         /// </summary>
+        ///
+        [Obsolete("Yodo1U3dMas.ShowRewardedAd() is obsolete and will be deprecated soon. Use Yodo1U3dRewardAd.GetInstance().ShowAd()")]
         public static void ShowRewardedAd()
         {
 
@@ -722,7 +764,9 @@ namespace Yodo1.MAS
         /// Shows the reward video ad.
         /// </summary>
         /// <param name="placementId"></param>
-        public static void ShowRewardedAd(string palcementId)
+        ///
+        [Obsolete("Yodo1U3dMas.ShowRewardedAd(placementId) is obsolete and will be deprecated soon. Use Yodo1U3dRewardAd.GetInstance().ShowAd()")]
+        public static void ShowRewardedAd(string placementId)
         {
 #if UNITY_EDITOR
             Yodo1EditorAds.ShowRewardedVideodsInEditor();
@@ -734,9 +778,9 @@ namespace Yodo1.MAS
             }
 
 #if UNITY_IPHONE
-            Yodo1U3dAdsIOS.ShowRewardedAd(palcementId);
+            Yodo1U3dAdsIOS.ShowRewardedAd(placementId);
 #elif UNITY_ANDROID
-            Yodo1U3dAdsAndroid.ShowRewardedAd(palcementId);
+            Yodo1U3dAdsAndroid.ShowRewardedAd(placementId);
 #endif
         }
         #endregion

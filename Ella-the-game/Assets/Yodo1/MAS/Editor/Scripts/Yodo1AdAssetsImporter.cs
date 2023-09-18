@@ -187,7 +187,7 @@
             UpdateData(settings, iosData);
         }
 
-        private static void UpdateData(Yodo1AdSettings settings, Dictionary<string, object> dic)
+        public static void UpdateData(Yodo1AdSettings settings, Dictionary<string, object> dic)
         {
             if (settings == null || dic == null)
             {
@@ -263,7 +263,7 @@
         {
             try
             {
-                Debug.Log(Yodo1U3dMas.TAG + "HttpPost request - " + json);
+                //Debug.Log(Yodo1U3dMas.TAG + "HttpPost request - " + json);
 
                 // Send Request
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
@@ -278,15 +278,15 @@
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 if (response != null)
                 {
-                    Debug.Log(Yodo1U3dMas.TAG + "Response.StatusCode: " + response.StatusCode);
+                    //Debug.Log(Yodo1U3dMas.TAG + "Response.StatusCode: " + response.StatusCode);
                 }
                 else
                 {
-                    Debug.Log(Yodo1U3dMas.TAG + "Response is null");
+                    //Debug.Log(Yodo1U3dMas.TAG + "Response is null");
                 }
                 StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
                 string result = reader.ReadToEnd();
-                Debug.Log(Yodo1U3dMas.TAG + "HttpPost result - " + result);
+               // Debug.Log(Yodo1U3dMas.TAG + "HttpPost result - " + result);
 
                 reader.Close();
                 return result;

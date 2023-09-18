@@ -33,11 +33,27 @@ namespace Yodo1.MAS
             }
         }
 
-         public static void InitMasWithAppKey(string appKey)
+        public static void InitMasWithAppKey(string appKey)
         {
             if (Application.platform == RuntimePlatform.Android && javaClass != null)
             {
                 javaClass.CallStatic("initMas", currentActivity, appKey, Yodo1U3dMasCallback.Instance.SdkObjectName, Yodo1U3dMasCallback.Instance.SdkMethodName);
+            }
+        }
+
+        public static void ShowPopupToReportAd()
+        {
+            if (Application.platform == RuntimePlatform.Android && javaClass != null)
+            {
+                javaClass.CallStatic("showPopupToReportAd", currentActivity);
+            }
+        }
+
+        public static void ShowDebugger()
+        {
+            if (Application.platform == RuntimePlatform.Android && javaClass != null)
+            {
+                javaClass.CallStatic("showDebugger", currentActivity);
             }
         }
 

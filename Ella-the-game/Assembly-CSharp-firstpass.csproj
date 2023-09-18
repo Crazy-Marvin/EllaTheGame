@@ -77,7 +77,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/Plugins/Android/GooglePlayGamesManifest.androidlib/AndroidManifest.xml" />
-    <None Include="Assets/Plugins/Android/EasyMobile.androidlib/AndroidManifest.xml" />
     <None Include="Assets/Plugins/Pixelplacement/iTween/ReadMe!/ReadMe!.txt" />
     <None Include="Assets/Plugins/MonKey Commander/MonKey Readme!.txt" />
   </ItemGroup>
@@ -322,11 +321,11 @@
     <Reference Include="Unity.Burst.Unsafe">
       <HintPath>Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.Unsafe.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>Library/PackageCache/com.unity.analytics@3.6.12/Unity.Analytics.Tracker.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Burst.Cecil.Pdb">
       <HintPath>Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.Tracker">
+      <HintPath>Library/PackageCache/com.unity.analytics@3.6.12/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>

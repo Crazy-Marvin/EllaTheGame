@@ -10,6 +10,7 @@ namespace Yodo1.MAS
 
         private Action<Yodo1U3dRewardedInterstitialAd> _onRewardedInterstitialAdLoadedEvent;
         private Action<Yodo1U3dRewardedInterstitialAd, Yodo1U3dAdError> _onRewardedInterstitialAdLoadFailedEvent;
+        private Action<Yodo1U3dRewardedInterstitialAd> _onRewardedInterstitialAdOpeningEvent;
         private Action<Yodo1U3dRewardedInterstitialAd> _onRewardedInterstitialAdOpenedEvent;
         private Action<Yodo1U3dRewardedInterstitialAd, Yodo1U3dAdError> _onRewardedInterstitialAdOpenFailedEvent;
         private Action<Yodo1U3dRewardedInterstitialAd> _onRewardedInterstitialAdClosedEvent;
@@ -36,6 +37,18 @@ namespace Yodo1.MAS
             remove
             {
                 _onRewardedInterstitialAdLoadFailedEvent -= value;
+            }
+        }
+
+        public event Action<Yodo1U3dRewardedInterstitialAd> OnAdOpeningEvent
+        {
+            add
+            {
+                _onRewardedInterstitialAdOpeningEvent += value;
+            }
+            remove
+            {
+                _onRewardedInterstitialAdOpeningEvent -= value;
             }
         }
 
@@ -111,6 +124,9 @@ namespace Yodo1.MAS
                     break;
                 case Yodo1U3dAdEvent.AdLoadFail:
                     Yodo1U3dMasCallback.InvokeEvent(_onRewardedInterstitialAdLoadFailedEvent, this, adError);
+                    break;
+                case Yodo1U3dAdEvent.AdOpening:
+                    Yodo1U3dMasCallback.InvokeEvent(_onRewardedInterstitialAdOpeningEvent, this);
                     break;
                 case Yodo1U3dAdEvent.AdOpened:
                     Yodo1U3dMasCallback.Instance.Pause();
@@ -202,6 +218,7 @@ namespace Yodo1.MAS
         /// </summary>
         public void ShowAd()
         {
+            handleOpningEvent();
             this.adPlacement = string.Empty;
 #if UNITY_EDITOR
             Yodo1EditorAds.ShowRewardedInterstitialInEditor();
@@ -213,6 +230,7 @@ namespace Yodo1.MAS
 
         public void ShowAd(string placement)
         {
+            handleOpningEvent();
             this.adPlacement = placement;
 #if UNITY_EDITOR
             Yodo1EditorAds.ShowRewardedInterstitialInEditor();
@@ -220,6 +238,14 @@ namespace Yodo1.MAS
 #if !UNITY_EDITOR
         RewardedInterstitial("showRewardedInterstitialAd");
 #endif
+        }
+
+        private void handleOpningEvent()
+        {
+            if (IsLoaded())
+            {
+                CallbcksEvent(Yodo1U3dAdEvent.AdOpening, null);
+            }
         }
 
         public string ToJsonString()

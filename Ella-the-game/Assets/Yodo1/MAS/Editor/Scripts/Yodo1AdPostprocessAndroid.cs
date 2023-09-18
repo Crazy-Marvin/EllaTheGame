@@ -1,4 +1,6 @@
-﻿namespace Yodo1.MAS
+﻿#if UNITY_ANDROID
+
+namespace Yodo1.MAS
 {
     using UnityEngine;
     using UnityEditor;
@@ -6,27 +8,32 @@
     using System.IO;
     using System.Xml;
 
-    public class Yodo1PostProcessAndroid
+    public class Yodo1PostProcessAndroid : Yodo1ProcessGradleBuildFile
     {
         [PostProcessBuild()]
         public static void OnPostprocessBuild(BuildTarget buildTarget, string pathToBuiltProject)
         {
             if (buildTarget == BuildTarget.Android)
             {
-#if UNITY_ANDROID
                 Yodo1AdSettings settings = Yodo1AdSettingsSave.Load();
                 if (CheckConfiguration_Android(settings))
                 {
 #if UNITY_2019_1_OR_NEWER
 #else
                     ValidateManifest(settings);
-#endif
+#endif              
+                }
+                string GradleTemplatePath = Path.Combine("Assets/Plugins/Android", "mainTemplate.gradle");
+                if (File.Exists(GradleTemplatePath) && isAdReviewFuntionEnable())
+                {
 #if UNITY_2019_3_OR_NEWER
+                    // The publisher could be migrating from older Unity versions to 2019_3 or newer.
+                    // If so, we should delete the plugin from the template. The plugin will be added to the project's application module in the post processing script (Yodo1PostProcessGradleProject).
+                    RemoveAppLovinQualityServiceOrSafeDkPlugin(GradleTemplatePath);
 #else
-                    Yodo1ProcessGradleBuildFile.AddAdReviewToApplicationGradle(Path.Combine("Assets/Plugins/Android", "mainTemplate.gradle"));
+                    AddAppLovinQualityServicePlugin(GradleTemplatePath);
 #endif
                 }
-#endif
             }
         }
 
@@ -380,15 +387,15 @@
             XmlNode acNode = applicaiton.FirstChild;
             while (acNode != null)
             {
-                if(acNode.Name.Equals("activity"))
+                if (acNode.Name.Equals("activity"))
                 {
                     XmlNode intentFilterNode = acNode.FirstChild;
-                    while(intentFilterNode != null)
+                    while (intentFilterNode != null)
                     {
-                        if(intentFilterNode.Name.Equals("intent-filter"))
+                        if (intentFilterNode.Name.Equals("intent-filter"))
                         {
                             XmlNode launcherCategeryNode = FindChildNodeWithAttribute(intentFilterNode, "category", "android:name", "android.intent.category.LAUNCHER");
-                            if(launcherCategeryNode != null)
+                            if (launcherCategeryNode != null)
                             {
                                 return acNode;
                             }
@@ -396,12 +403,14 @@
 
                         intentFilterNode = intentFilterNode.NextSibling;
                     }
-                    
+
                 }
-               
+
                 acNode = acNode.NextSibling;
             }
             return null;
         }
     }
 }
+
+#endif

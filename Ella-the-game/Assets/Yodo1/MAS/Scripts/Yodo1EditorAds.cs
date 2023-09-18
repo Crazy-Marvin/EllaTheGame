@@ -464,7 +464,7 @@ public class Yodo1EditorAds : MonoBehaviour
                     CalculateAnchoringForAdaptiveBanner(align, out anchorMinX, out anchorMinY, out anchorMaxX, out anchorMaxY, out pivotX, out pivotY, out anchoredPositionX, out anchoredPositionY);
                 }
             }
-            BannerSampleAdEditorTemp.transform.SetSiblingIndex(BannerSampleAdEditorTemp.transform.parent.childCount - 3);
+            BannerSampleAdEditorTemp.transform.SetSiblingIndex(BannerSampleAdEditorTemp.transform.parent.childCount - 5);
             BannerSampleAdEditorTemp.GetComponent<RectTransform>().anchorMin = new Vector2(anchorMinX, anchorMinY);
             BannerSampleAdEditorTemp.GetComponent<RectTransform>().anchorMax = new Vector2(anchorMaxX, anchorMaxY);
             BannerSampleAdEditorTemp.GetComponent<RectTransform>().pivot = new Vector2(pivotX, pivotY);
@@ -611,7 +611,7 @@ public class Yodo1EditorAds : MonoBehaviour
             }
 
             //NativeSampleAdEditorTemp.transform.SetAsFirstSibling();
-            NativeSampleAdEditorTemp.transform.SetSiblingIndex(NativeSampleAdEditorTemp.transform.parent.childCount - 3);
+            NativeSampleAdEditorTemp.transform.SetSiblingIndex(NativeSampleAdEditorTemp.transform.parent.childCount - 5);
 
             NativeSampleAdEditorTemp.GetComponent<RectTransform>().anchorMin = new Vector2(0, 1);
             NativeSampleAdEditorTemp.GetComponent<RectTransform>().anchorMax = new Vector2(0, 1);
@@ -708,7 +708,7 @@ public class Yodo1EditorAds : MonoBehaviour
                 }
             }
 
-            NativeSampleAdEditorTemp.transform.SetSiblingIndex(NativeSampleAdEditorTemp.transform.parent.childCount - 3);
+            NativeSampleAdEditorTemp.transform.SetSiblingIndex(NativeSampleAdEditorTemp.transform.parent.childCount - 5);
             NativeSampleAdEditorTemp.GetComponent<RectTransform>().anchorMin = new Vector2(anchorMinX, anchorMinY);
             NativeSampleAdEditorTemp.GetComponent<RectTransform>().anchorMax = new Vector2(anchorMaxX, anchorMaxY);
             NativeSampleAdEditorTemp.GetComponent<RectTransform>().pivot = new Vector2(pivotX, pivotY);

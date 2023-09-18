@@ -10,6 +10,7 @@ namespace Yodo1.MAS
 
         private Action<Yodo1U3dRewardAd> _onRewardAdLoadedEvent;
         private Action<Yodo1U3dRewardAd, Yodo1U3dAdError> _onRewardAdLoadFailedEvent;
+        private Action<Yodo1U3dRewardAd> _onRewardAdOpeningEvent;
         private Action<Yodo1U3dRewardAd> _onRewardAdOpenedEvent;
         private Action<Yodo1U3dRewardAd, Yodo1U3dAdError> _onRewardAdOpenFailedEvent;
         private Action<Yodo1U3dRewardAd> _onRewardAdClosedEvent;
@@ -36,6 +37,18 @@ namespace Yodo1.MAS
             remove
             {
                 _onRewardAdLoadFailedEvent -= value;
+            }
+        }
+
+        public event Action<Yodo1U3dRewardAd> OnAdOpeningEvent
+        {
+            add
+            {
+                _onRewardAdOpeningEvent += value;
+            }
+            remove
+            {
+                _onRewardAdOpeningEvent -= value;
             }
         }
 
@@ -111,6 +124,9 @@ namespace Yodo1.MAS
                     break;
                 case Yodo1U3dAdEvent.AdLoadFail:
                     Yodo1U3dMasCallback.InvokeEvent(_onRewardAdLoadFailedEvent, this, adError);
+                    break;
+                case Yodo1U3dAdEvent.AdOpening:
+                    Yodo1U3dMasCallback.InvokeEvent(_onRewardAdOpeningEvent, this);
                     break;
                 case Yodo1U3dAdEvent.AdOpened:
                     Yodo1U3dMasCallback.Instance.Pause();
@@ -202,6 +218,7 @@ namespace Yodo1.MAS
         /// </summary>
         public void ShowAd()
         {
+            handleOpningEvent();
             this.adPlacement = string.Empty;
 #if UNITY_EDITOR
             Yodo1EditorAds.ShowRewardedVideodsInEditor();
@@ -213,6 +230,7 @@ namespace Yodo1.MAS
 
         public void ShowAd(string placement)
         {
+            handleOpningEvent();
             this.adPlacement = placement;
 #if UNITY_EDITOR
             Yodo1EditorAds.ShowRewardedVideodsInEditor();
@@ -220,6 +238,14 @@ namespace Yodo1.MAS
 #if !UNITY_EDITOR
             RewardV2("showRewardAdV2");
 #endif
+        }
+
+        private void handleOpningEvent()
+        {
+            if (IsLoaded())
+            {
+                CallbcksEvent(Yodo1U3dAdEvent.AdOpening, null);
+            }
         }
 
         public string ToJsonString()

@@ -11,6 +11,7 @@ namespace Yodo1.MAS
 
         private Action<Yodo1U3dInterstitialAd> _onInterstitialAdLoadedEvent;
         private Action<Yodo1U3dInterstitialAd, Yodo1U3dAdError> _onInterstitialAdLoadFailedEvent;
+        private Action<Yodo1U3dInterstitialAd> _onInterstitialAdOpeningEvent;
         private Action<Yodo1U3dInterstitialAd> _onInterstitialAdOpenedEvent;
         private Action<Yodo1U3dInterstitialAd, Yodo1U3dAdError> _onInterstitialAdOpenFailedEvent;
         private Action<Yodo1U3dInterstitialAd> _onInterstitialAdClosedEvent;
@@ -36,6 +37,18 @@ namespace Yodo1.MAS
             remove
             {
                 _onInterstitialAdLoadFailedEvent -= value;
+            }
+        }
+
+        public event Action<Yodo1U3dInterstitialAd> OnAdOpeningEvent
+        {
+            add
+            {
+                _onInterstitialAdOpeningEvent += value;
+            }
+            remove
+            {
+                _onInterstitialAdOpeningEvent -= value;
             }
         }
 
@@ -100,6 +113,9 @@ namespace Yodo1.MAS
                     break;
                 case Yodo1U3dAdEvent.AdLoadFail:
                     Yodo1U3dMasCallback.InvokeEvent(_onInterstitialAdLoadFailedEvent, this, adError);
+                    break;
+                case Yodo1U3dAdEvent.AdOpening:
+                    Yodo1U3dMasCallback.InvokeEvent(_onInterstitialAdOpeningEvent, this);
                     break;
                 case Yodo1U3dAdEvent.AdOpened:
                     Yodo1U3dMasCallback.Instance.Pause();
@@ -188,6 +204,7 @@ namespace Yodo1.MAS
         /// </summary>
         public void ShowAd()
         {
+            handleOpningEvent();
             SetAdPlacement(string.Empty);
 #if UNITY_EDITOR
             Yodo1EditorAds.ShowInterstitialAdsInEditor();
@@ -199,6 +216,7 @@ namespace Yodo1.MAS
 
         public void ShowAd(string placement)
         {
+            handleOpningEvent();
             SetAdPlacement(placement);
 #if UNITY_EDITOR
             Yodo1EditorAds.ShowInterstitialAdsInEditor();
@@ -206,6 +224,14 @@ namespace Yodo1.MAS
 #if !UNITY_EDITOR
             InterstitialV2("showInterstitialAdV2");
 #endif
+        }
+
+        private void handleOpningEvent()
+        {
+            if (IsLoaded())
+            {
+                CallbcksEvent(Yodo1U3dAdEvent.AdOpening, null);
+            }
         }
 
         public string ToJsonString()

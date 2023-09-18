@@ -35,11 +35,7 @@
             XmlNode xnRead = xmlReadDoc.SelectSingleNode("versions");
             XmlElement unityNode = (XmlElement)xnRead.SelectSingleNode("unity");
             string version = unityNode.GetAttribute("version").ToString();
-            string suffix = unityNode.GetAttribute("suffix").ToString();
-            if (!string.IsNullOrEmpty(suffix))
-            {
-                version = version + "-" + suffix;
-            }
+       
             reader.Close();
             return version;
         }

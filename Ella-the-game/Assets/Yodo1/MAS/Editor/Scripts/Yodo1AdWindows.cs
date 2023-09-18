@@ -264,7 +264,7 @@
         {
             if (selectPlarformTab == PlatfromTab.Android)
             {
-
+#if UNITY_ANDROID
                 if (Yodo1PostProcessAndroid.CheckConfiguration_Android(this.adSettings))
                 {
 #if UNITY_2019_1_OR_NEWER
@@ -277,6 +277,7 @@
                 {
                     return;
                 }
+#endif
             }
             if (selectPlarformTab == PlatfromTab.iOS)
             {

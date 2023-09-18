@@ -1,4 +1,5 @@
-﻿#if UNITY_ANDROID
+﻿#if UNITY_2018_2_OR_NEWER && UNITY_ANDROID
+
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.Android;
@@ -8,8 +9,7 @@ using System.Text.RegularExpressions;
 
 namespace Yodo1.MAS
 {
-#if UNITY_2018_1_OR_NEWER
-    public class Yodo1PostGenerateGradleAndroidProject : IPostGenerateGradleAndroidProject
+    public class Yodo1PostGenerateGradleAndroidProject : Yodo1ProcessGradleBuildFile, IPostGenerateGradleAndroidProject
     {
         public int callbackOrder
         {
@@ -22,15 +22,52 @@ namespace Yodo1.MAS
             Yodo1ValidateManifest(path);
             Yodo1ValidateGradleProperties(path);
 
-            // 添加Ad Review
-#if UNITY_2019_3_OR_NEWER
-            var rootGradlePath = Path.Combine(path, "../build.gradle");
-            var buildScriptAdded = Yodo1ProcessGradleBuildFile.AddAdReviewToTootGradle(rootGradlePath);
-            var applicationGradlePath = Path.Combine(path, "../launcher/build.gradle");
-#else
-            var applicationGradlePath = Path.Combine(path, "build.gradle");
+            if (isAdReviewFuntionEnable())
+            {
+                AddAdReview(path);
+            }
+
+#if UNITY_2022_2_OR_NEWER
+            var rootSettingsGradleFilePath = Path.Combine(path, "../settings.gradle");
+            AddMasRepository(rootSettingsGradleFilePath);
 #endif
-            Yodo1ProcessGradleBuildFile.AddAdReviewToApplicationGradle(applicationGradlePath);
+        }
+
+        /// <summary>
+        /// Adds Quality Service plugin to the Gradle project once the project has been exported. See <see cref="Yodo1ProcessGradleBuildFile"/> for more details.
+        /// </summary>
+        private void AddAdReview(string path)
+        {
+#if UNITY_2019_3_OR_NEWER
+            // On Unity 2019.3+, the path returned is the path to the unityLibrary's module.
+            // The AppLovin Quality Service buildscript closure related lines need to be added to the root build.gradle file.
+            var rootGradleBuildFilePath = Path.Combine(path, "../build.gradle");
+#if UNITY_2022_2_OR_NEWER
+            if (!AddPluginToRootGradleBuildFile(rootGradleBuildFilePath)) return;
+
+            var rootSettingsGradleFilePath = Path.Combine(path, "../settings.gradle");
+            if (!AddAppLovinRepository(rootSettingsGradleFilePath)) return;
+#else
+            var buildScriptChangesAdded = AddQualityServiceBuildScriptLines(rootGradleBuildFilePath);
+            if (!buildScriptChangesAdded) return;
+#endif
+
+            // The plugin needs to be added to the application module (named launcher)
+            var applicationGradleBuildFilePath = Path.Combine(path, "../launcher/build.gradle");
+#else
+            // If Gradle template is enabled, we would have already updated the plugin.
+            if (AppLovinIntegrationManager.GradleTemplateEnabled) return;
+
+            var applicationGradleBuildFilePath = Path.Combine(path, "build.gradle");
+#endif
+
+            if (!File.Exists(applicationGradleBuildFilePath))
+            {
+                Debug.LogError(Yodo1U3dMas.TAG + "Couldn't find build.gradle file. Failed to add AppLovin Quality Service plugin to the gradle project.");
+                return;
+            }
+
+            AddAppLovinQualityServicePlugin(applicationGradleBuildFilePath);
         }
 
         static void Yodo1ValidateManifest(string path)
@@ -203,14 +240,16 @@ namespace Yodo1.MAS
                 }
             }
 
-            if(string.IsNullOrEmpty(oldLineStr) || oldLineStr.Contains("false"))
+            if (string.IsNullOrEmpty(oldLineStr) || oldLineStr.Contains("false"))
             {
                 if (string.IsNullOrEmpty(oldLineStr))
                 {
-                    newLineStr="android.enableDexingArtifactTransform=false";
+                    newLineStr = "android.enableDexingArtifactTransform=false";
                     text_all = text_all + "\n" + newLineStr;
-                } else {
-                    newLineStr=oldLineStr.Replace("false", "true");
+                }
+                else
+                {
+                    newLineStr = oldLineStr.Replace("false", "true");
                     text_all = text_all.Replace(oldLineStr, newLineStr);
                 }
                 StreamWriter streamWriter = new StreamWriter(gradlePropertiesPath);
@@ -229,10 +268,10 @@ namespace Yodo1.MAS
             }
             Debug.LogFormat(Yodo1U3dMas.TAG + "Updating gradle for Play Instant: {0}", gradlePath);
             WriteBelow(gradlePath, "defaultConfig {", "\t\tmultiDexEnabled true");
-             validateCompileSDKLevel(gradlePath);
+            validateCompileSDKLevel(gradlePath);
         }
 
-         private static void validateCompileSDKLevel(string launcherGradlePath)
+        private static void validateCompileSDKLevel(string launcherGradlePath)
         {
             StreamReader streamReader1 = new StreamReader(launcherGradlePath);
             string text_all = streamReader1.ReadToEnd();
@@ -259,12 +298,12 @@ namespace Yodo1.MAS
 
             string tempStr = oldLineStr.Trim();
             string[] tempArray = Regex.Split(tempStr, @"\s+");
-            if(tempArray.Length > 1)
+            if (tempArray.Length > 1)
             {
                 string versionStr = tempArray[1];
                 int version;
                 bool parsed = int.TryParse(versionStr, out version);
-                if(parsed && version >= 31)
+                if (parsed && version >= 31)
                 {
                     return;
                 }
@@ -319,15 +358,15 @@ namespace Yodo1.MAS
                 }
             }
 
-            if(!string.IsNullOrEmpty(oldLineStr) && oldLineStr.Contains(":") && oldLineStr.Contains("'"))
+            if (!string.IsNullOrEmpty(oldLineStr) && oldLineStr.Contains(":") && oldLineStr.Contains("'"))
             {
                 var temp = oldLineStr.Replace("'", "");
                 string[] tempArray = temp.Split(":".ToCharArray());
-                if(tempArray != null && tempArray.Length > 0)
+                if (tempArray != null && tempArray.Length > 0)
                 {
                     var oldPluginVersion = tempArray[tempArray.Length - 1]; // such as 3.4.0
                     string resultPluginVersion = ValidatePluginVersionStr_(oldPluginVersion, projectGradlePath);
-                    if(resultPluginVersion != null && !oldPluginVersion.Equals(resultPluginVersion))
+                    if (resultPluginVersion != null && !oldPluginVersion.Equals(resultPluginVersion))
                     {
                         newLineStr = oldLineStr.Replace(oldPluginVersion, resultPluginVersion);
                         changed = true;
@@ -440,6 +479,5 @@ namespace Yodo1.MAS
             return false;
         }
     }
-#endif
 }
 #endif
