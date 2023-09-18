@@ -1,0 +1,3 @@
+- Amélioration du tableau des scores
+- Code ordonné
+- Correction des traductions

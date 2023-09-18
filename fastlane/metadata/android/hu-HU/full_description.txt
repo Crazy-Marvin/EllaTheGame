@@ -1,0 +1,34 @@
+Ella, az okos és aranyos kutya,
+ elveszett az őserdői kalandban, és most minden erejével keresi a kiutat. Ebben az ingyenes ugrálós és szaladós kutyás játékban, Ella automatikusan fut és a kép vele együtt mozog, a játékosnak így csak az akadályok átugrására és az érmék és ajándékok gyűjtésére kell figyelnie. Két célja van ennek a kalandjátéknak: az akadályokkal való ütközés elkerülése, és az érmék gyűjtése. Így hát hogyha szereted a hasonló ugrálós és szaladós játékokat, és imádsz végtelenített és addiktív játékokkal játszani, akkor Ella az Őserdői Kalandban egy remek társad lesz, hogyha csak múlatni akarod az időt vagy szórakozni egy jót a családdal és barátokkal.
+Töltsd le ezt az ingyenes kalandjátékot és élvezd az érmék gyűjtését, a különböző akadályokon átugrást, és az új terepek felfedezését!
+
+Könnyű megtanulni, mégis addiktív ez a végtelenített kutyával futás
+
+Ella, az ingyenes szaladós és ugrálós játék, letisztult és rendezett designjával és intuitív kezelőfelületével, valamint könnyen tanulható játékmenetével, már az első pár játék során segít ráérezni az akadályok átugrására és az érmék gyűjtésére. Ami a könnyen elsajátítható játékmenetet illeti, mindössze a képernyő megérintésére van szükség a kutya ugrásához, és máris ugorhatod át az akadályokat és a kihívásokat. Három különböző nehézségi szint közül lehet választani, ezzel növelve a játék által állított kihívás nehézségét, ami minél pontosabb és precízebb ugrásokat követel meg a játékostól.
+Három különböző környezet felfedezése biztosítja, hogy soha ne und meg ezt a nyílt forráskódú játékot.
+Szórakoztató, addiktív, és végtelenített
+
+Ints búcsút a zavaró reklámoknak és az idegesítő alkalmazáson belüli vásárlásoknak
+Ella, az ingyenes kutyás szaladó játék, teljesen nyílt forráskódú, ahol nem fogsz látni zavaró reklámokat vagy alkalmazáson belüli vásárlásokat futás és ugrás közben. Teljesen ingyenes. Örökké.
+
+Ella in Jungle Adventure main features at a glance:
+Ella az Őserdői Kalandban az alábbiakat kínálja:
+	• Letisztult és rendezett design egy intuitív kezelőfelülettel
+	• Gyönyörű grafika király hangeffektekkel és zenével
+	• Három különböző felfedezhető környezet
+	• Három különböző nehézségi szint változó kihívásokkal
+	• Végtelenített és addiktív játékmenet
+    • Egykezes irányítás
+	• Pontszám növelése érmék gyűjtésével
+    • Nyílt forráskód
+    • Ingyenes, zavaró reklámoktól és alkalmazáson belüli vásárlástól mentes
+	• Minden korosztály számára szórakoztató
+
+Tehát, Ella az Őserdői Kalandban mindent megad amit egy ingyenes szaladós és ugrálós kutyás játéktól várhatsz,
+ és egyszerre magasabbra is rakja a lécet gyönyörű grafikájával, végtelenített és addiktív játékmenetével, reklámoktól és applikáción belüli vásárlásoktól mentes formátumával, a különböző szintű kihívásokkal, egykezes irányításával, és még oly' sok mással.
+Mivel ez az ingyenes kalandjáték nyílt forráskódú, ezért együttműködő partnereket és fordítókat szívesen fogadunk csapatunkban, hogy együtt tegyük ezt a szaladós és ugrálós játékot még jobbá a különböző nyelvekkel és funkciókkal.
+Töltsd le ingyen az Ella az Őserdői Kalandban játékot, élvezd a végtelenített és addiktív játékmenetet, elküldd el nekünk kérdéseidet, kéréseidet, és javaslataidat a játékkal kapcsolatban, továbbá ne habozz jelenteni a megtalált hibákat.
+
+Webpage: <a href="https://crazymarvin.com/ella/">https://crazymarvin.com/ella/</a>
+Translate To Don’t: <a href="https://hosted.weblate.org/engage/ella-the-game/">https://hosted.weblate.org/engage/ella-the-game//</a> 
+Source on GitHub: <a href="https://github.com/Crazy-Marvin/EllaTheGame/">https://github.com/Crazy-Marvin/EllaTheGame/</a>

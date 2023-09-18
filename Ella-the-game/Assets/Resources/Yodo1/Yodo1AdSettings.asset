@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e4b2049b47b4e10baf951e88000c6e, type: 3}
+  m_Name: Yodo1AdSettings
+  m_EditorClassIdentifier: 
+  androidSettings:
+    AppKey: 2ECNGGJcTw
+    AdmobAppID: ca-app-pub-4973750815225055~2223962877
+    BundleID: rocks.poopjournal.Ella
+    GooglePlayStore: 1
+    ChineseAndroidStores: 0
+    Channel: 
+  iOSSettings:
+    AppKey: 
+    AdmobAppID: 
+    BundleID: 
+    ChinaRegion: 0
+    GlobalRegion: 1
+    AppLovinSdkKey: xcGD2fy-GdmiZQapx_kUSy5SMKyLoXBk8RyB5u9MVv34KetGdbl4XrXvAUFy0Qg9scKyVTI0NM4i_yzdXih4XE
+  androidDynamicNetworkSettings:
+    sdkType: 0
+    sdkVersion: 4.9.2
+    latestSdkVersion: 4.9.2
+    networks:
+    - APPLOVIN
+    - ADMOB
+    - IRONSOURCE
+    - facebook
+    - fyber
+    - inmobi
+    - kidoz
+    - mintegral
+    - mytarget
+    - pangle
+    - unity
+    - vungle
+  iosDynamicNetworkSettings:
+    sdkType: -1
+    sdkVersion: 
+    latestSdkVersion: 
+    networks: []

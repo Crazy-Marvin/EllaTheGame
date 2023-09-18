@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dependencies>
+  <androidPackages>
+    <repositories>
+      <repository>https://android-sdk.is.com</repository>
+      <repository>https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea</repository>
+      <repository>https://artifact.bytedance.com/repository/pangle</repository>
+    </repositories>
+    <androidPackage spec="com.yodo1.mas:core:4.9.2" />
+    <androidPackage spec="com.yodo1.mas:gplibrary:4.9.2" />
+    <androidPackage spec="com.yodo1.mas.mediation:applovin:4.9.2" />
+    <androidPackage spec="com.yodo1.mas.mediation:admob:4.9.2" />
+    <androidPackage spec="com.yodo1.mas.mediation.admob.adapters:applovin-admob:4.9.2" />
+    <androidPackage spec="com.yodo1.mas.mediation.admob.adapters:applovin-ad-manager:4.9.2" />
+    <androidPackage spec="com.yodo1.mas.mediation:ironsource:4.9.2" />
+    <androidPackage spec="com.yodo1.mas.mediation.ironsource.adapters:applovin:4.9.2" />
+    <androidPackage spec="com.yodo1.mas.mediation:facebook:4.9.2" />
+    <androidPackage spec="com.yodo1.mas.mediation.facebook.adapters:applovin:4.9.2" />
+    <androidPackage spec="com.yodo1.mas.mediation:fyber:4.9.2" />
+    <androidPackage spec="com.yodo1.mas.mediation.fyber.adapters:applovin:4.9.2" />
+    <androidPackage spec="com.yodo1.mas.mediation:inmobi:4.9.2" />
+    <androidPackage spec="com.yodo1.mas.mediation.inmobi.adapters:applovin:4.9.2" />
+    <androidPackage spec="com.yodo1.mas.mediation:kidoz:4.9.2" />
+    <androidPackage spec="com.yodo1.mas.mediation.kidoz.adapters:applovin:4.9.2" />
+    <androidPackage spec="com.yodo1.mas.mediation:mintegral:4.9.2" />
+    <androidPackage spec="com.yodo1.mas.mediation.mintegral.adapters:applovin:4.9.2" />
+    <androidPackage spec="com.yodo1.mas.mediation:mytarget:4.9.2" />
+    <androidPackage spec="com.yodo1.mas.mediation.mytarget.adapters:applovin:4.9.2" />
+    <androidPackage spec="com.yodo1.mas.mediation:pangle:4.9.2" />
+    <androidPackage spec="com.yodo1.mas.mediation.pangle.adapters:applovin:4.9.2" />
+    <androidPackage spec="com.yodo1.mas.mediation:unityads:4.9.2" />
+    <androidPackage spec="com.yodo1.mas.mediation.unityads.adapters:applovin:4.9.2" />
+    <androidPackage spec="com.yodo1.mas.mediation:vungle:4.9.2" />
+    <androidPackage spec="com.yodo1.mas.mediation.vungle.adapters:applovin:4.9.2" />
+    <androidPackage spec="com.yodo1.mas.mediation:yodo1:4.9.2" />
+  </androidPackages>
+</dependencies>

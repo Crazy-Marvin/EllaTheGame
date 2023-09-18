@@ -1,0 +1,3 @@
+- Improved leaderboard
+- Tidied codebase
+- Fixed translations

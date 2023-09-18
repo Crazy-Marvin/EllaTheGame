@@ -1,0 +1,3 @@
+- Továbbfejlesztett ranglista
+- Rendezett kódbázis
+- Javított fordítások

@@ -1,0 +1,3 @@
+- Poboljšana ploča s najboljim rezultatima
+- Uređena baza kodova
+- Ispravljeni prijevodi
