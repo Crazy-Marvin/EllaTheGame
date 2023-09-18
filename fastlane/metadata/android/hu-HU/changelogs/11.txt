@@ -1,4 +1,0 @@
-- Három új szint 🆕
-- Előkészítettük az alkalmazást a lokalizációra 🧏
-
-Kérlek, jelezzétek, ha bármilyen hibát találtok, vagy ha segítenétek az alkalmazás fordításában. 🙏

@@ -1,4 +1,0 @@
-- Three new levels 🆕
-- Prepared the app for localization 🧏
-
-Please let me know of any bugs or if you would like to help with translating the app. 🙏

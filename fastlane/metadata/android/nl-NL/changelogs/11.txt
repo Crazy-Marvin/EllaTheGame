@@ -1,4 +1,0 @@
-- Drie nieuwe levels 🆕
-- App voorbereid op lokalisatie 🧏
-
-Laat het me weten als er bugs zijn of als je wilt helpen met het vertalen van de app. 🙏

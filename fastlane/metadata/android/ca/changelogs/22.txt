@@ -1,3 +1,0 @@
-- Tauler de classificació millorat
-- Base de codi ordenada
-- Traduccions arreglades

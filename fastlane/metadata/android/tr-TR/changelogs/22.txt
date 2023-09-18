@@ -1,3 +1,0 @@
-- Liderlik tablosu iyileştirildi
-- Kodlar düzenlendi
-- Çeviriler düzeltildi
