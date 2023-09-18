@@ -1,0 +1,3 @@
+- Tabla de clasificación mejorada
+- Código base ordenado
+- Traducciones corregidas
