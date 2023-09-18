@@ -102,6 +102,14 @@ NEXT WE NEED TO INSTALL THE ANDROID SDK TOOLS
  - Now comeback open the Build Settings from the top menu (File > Build Settings), and click on Build.
  for detailed tutorial about building to ANDROID visit this link https://unity3d.com/learn/tutorials/topics/mobile-touch/building-your-unity-game-android-device-testing
  
+### Google Play Game Services
+
+Make sure that the SHA-1 certificate fingerprint from Google Play is identically to the one listed in Google Cloud.
+Otherwise the players won't be able to access Google Play Game Services like leaderboard or achievements.
+
+![ella_sha1_gc](https://user-images.githubusercontent.com/15004217/208733858-ab9f1b37-cd66-4dde-8cdd-49f6337d1479.PNG)
+![ella_sha1](https://user-images.githubusercontent.com/15004217/208733861-d8c999fa-9fa0-4b58-99dc-611123d952d7.PNG)
+
  ## Building for iOS
  
  Building for iOS is a long process, but Unity created a good Guide for building for iOS.
@@ -134,9 +142,18 @@ NEXT WE NEED TO INSTALL THE ANDROID SDK TOOLS
 - In Platforms Make sure to select Webgl and click switch platform
 - Click Build.
   
-# Contribute
-  
-Contributions are always welcome! Please read the [contribution guidelines](https://github.com/Crazy-Marvin/EllaTheGame/blob/master/CONTRIBUTING.md) first.
+# Contributing
+
+The ```development``` or a feature branch is used while developing the code, and pushed into the master branch ```trunk``` afterwards for releases.
+PRs to the ```trunk``` need at least one approving review before getting merged.
+
+Help translate the app at [Hosted Weblate](https://hosted.weblate.org/engage/ella-the-game/).
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+Check out the [contribution guidelines](https://github.com/Crazy-Marvin/EllaTheGame/blob/trunk/.github/CONTRIBUTING.md) for details please.
   
 # License
   

@@ -4,6 +4,6 @@
     <sources>
       <source>https://github.com/Yodo1Games/MAS-Spec.git</source>
     </sources>
-    <iosPod name="Yodo1MasFull" version="4.8.1" minTargetSdk="10.0" />
+    <iosPod name="Yodo1MasFull" version="4.9.2" minTargetSdk="12.0" />
   </iosPods>
 </dependencies>

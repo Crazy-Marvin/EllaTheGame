@@ -6,6 +6,6 @@
       <repository>https://android-sdk.is.com/</repository>
       <repository>https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea</repository>
     </repositories>
-    <androidPackage spec="com.yodo1.mas:full:4.8.1" />
+    <androidPackage spec="com.yodo1.mas:full:4.9.2" />
   </androidPackages>
 </dependencies>

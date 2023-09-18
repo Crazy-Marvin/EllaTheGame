@@ -63,10 +63,8 @@
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Tools/Statistic.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/TimeLine/BlendShapeFrameDopeElement.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/SpriteMeshInstanceEditor.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_SettingsEditorHelper.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/XUPorter/Editor/PBXObject.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Smoothing/SimpleSmoother.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/Common/PropertyDrawers/EnumFlagsDrawer.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/SelectionRectTool.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/VertexManipulator/VertexManipulator.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/VertexAnimation/BakedMesh.cs" />
@@ -87,62 +85,40 @@
     <Compile Include="Assets/Anima2D/Scripts/Editor/TextureEditorWindow.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/XUPorter/XCConfigurationList.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Smoothing/ISmoother.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/Modules/ModuleManagers/ModuleManager_Notifications.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_SettingsEditor_Sharing.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/XUPorter/Editor/PBXParser.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/IO/FileReader.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/ScriptableObjectUtility.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Edge.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/EditorGUIExtra.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/BoneWeight.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_BuildManager.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_ProjectSettings.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Data/Segment.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_ExternalPluginManager.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/VertexAnimation/SpriteMeshInstanceTracker.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/EditorEventHandler.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_SettingsEditor_Utilities.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/IO/IGeometryFormat.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/XUPorter/XCBuildConfiguration.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/XUPorter/Editor/PBXFileReference.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/XUPorter/Editor/PBXDictionary.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_SettingsEditor_Privacy.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/Common/Utils/GlobalDefineManager.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/Modules/ModuleManagers/CompositeModuleManager.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Log/SimpleLogItem.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_BuiltinObjectCreator.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/Common/PropertyDrawers/RenameDrawer.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdPostprocess.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/AnimationWindowExtra/IAnimationWindowImpl.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/TriangleLocator.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_EditorUtil.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdUtils.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/CurveUtility.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/AnimationWindowExtra/AnimationWindowImpl_55.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdBuildCheck.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/Modules/ModuleManagers/ModuleManager_GameServices.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_GUIStyleManager.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/OnionSkin/OnionLayer_56.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/Modules/ModuleManagers/ModuleManager_Advertising.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/BbwPlugin.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/Common/PropertyDrawers/KeyValuePairDrawer.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Geometry/BoundingBox.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Tools/QuadTree.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/Common/Extensions/SerializedPropertyExtension.cs" />
     <Compile Include="Assets/JMO Assets/Shape FX/Editor/ShFX_EffectLight_Editor.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/Modules/ModuleManagers/ModuleManager_NativeAPIs.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/XUPorter/XCPlist.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/Common/SerializableDictionary/DictionaryDrawer_AdPlacement_AdId.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/IkCCD2DEditor.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/XUPorter/Plist/Plist.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/ToolsExtra.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/OnionSkin/OnionSkinWindow.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_SettingsEditor_GameServices.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/XUPorter/XCMod.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/OnionSkin/ObjectPool.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/Common/ManifestGenerator/AndroidManifestElementEditWindow.cs" />
     <Compile Include="Assets/Editor/NewEditModeTest.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_SettingsEditor_Notifications.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/IkUtils.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/KeyframeUtility.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/EditorCoroutineRunner.cs" />
@@ -150,15 +126,11 @@
     <Compile Include="Assets/Anima2D/Scripts/Editor/InspectorEditor.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/WindowEditorTool.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/OnionSkin/OnionLayerManager.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_AndroidLibBuilder.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_AndroidManifestBuilder.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/OnionSkin/OnionLayer.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Exporter/Exporter.cs" />
     <Compile Include="Assets/JMO Assets/Shape FX/Editor/ShFX_Variants_Editor.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/TimeLine/TickStyle.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/AnimationWindowExtra/AnimationWindowImpl_2017_1.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_Editor_TabSelection.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_SettingsEditor.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/VertexManipulator/RectManipulator/IRectManipulatorData.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Gizmos.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/SpriteMeshUtils.cs" />
@@ -168,15 +140,12 @@
     <Compile Include="Assets/Anima2D/Scripts/Editor/Hole.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/MeshToolEditor.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/Common/Utils/FileIO.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Tools/BoundedVoronoi.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Tools/RegionIterator.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_PluginManager.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/XUPorter/Editor/PBXSortedDictionary.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/NewLocation.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/MaskCreator.cs" />
     <Compile Include="Assets/JMO Assets/Cartoon FX/Editor/CFX_InspectorHelpEditor.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_ScriptingSymbols.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/SpriteMeshInstancePostProcessor.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/AnimationWindowExtra/AnimationWindowExtra.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Log/ILogItem.cs" />
@@ -185,22 +154,15 @@
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/XUPorter/XCProject.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/RectHandles.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Tools/Voronoi.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_Constants.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/Modules/ModuleManagers/ModuleManager_Gif.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/BindInfo.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/Common/PropertyDrawers/NotificationActionButtonDrawer.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/Modules/GIF/RecorderEditor.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Data/BadSubseg.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/BlendShapeEditor.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_SettingsEditor_Ads.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdWindows.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/IO/DebugWriter.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Log/ILog.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/TimeLine/TickHandler.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_EditorGUI.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Quality.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdIntegrationManagerWindow.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/Common/Extensions/EditorGUILayoutExt.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/BlendShapeFrameEditor.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/SpriteMeshAnimationEditor.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/VertexManipulator/IVertexManipulator.cs" />
@@ -214,8 +176,6 @@
     <Compile Include="Assets/Anima2D/Scripts/Editor/EditorExtra.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Tools/IVoronoi.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Geometry/EdgeEnumerator.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_SettingsEditor_ModuleSelection.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_Editor_Tab_Tools.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/IO/IMeshFormat.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/TimeLine/TimeArea.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Log/SimpleLog.cs" />
@@ -224,14 +184,12 @@
     <Compile Include="Assets/Anima2D/Scripts/Editor/Ik2DEditor.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/AnimationWindowExtra/AnimationWindowImpl_50.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/XUPorter/Editor/PBXBuildPhase.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/Modules/ModuleManagers/ModuleManager_Sharing.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/Yodo1ProcessGradleBuildFile.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/IO/DataReader.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/AnimationWindowExtra/AnimationWindowImpl_51_52_53.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Algorithm/SweepLine.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/IkLimb2DEditor.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Geometry/Edge.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_About.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/IO/FileWriter.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Algorithm/Incremental.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/XUPorter/Editor/PBXVariantGroup.cs" />
@@ -239,86 +197,67 @@
     <Compile Include="Assets/Anima2D/Scripts/Editor/VertexManipulator/RectManipulator/RectManipulatorData.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/AnimationWindowExtra/AnimationWindowImpl_51_52_53_54_55.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/AnimationWindowExtra/AnimationWindowImpl_56.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/Modules/ModuleManagers/ModuleManager_InAppPurchasing.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/AnimationWindowExtra/AnimationWindowImpl_54.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/VertexAnimation/VertexSelection.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/HandlesExtra.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Node.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Geometry/ITriangle.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Data/Osub.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_Editor_Tab_Build.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_SettingsEditor_IAP.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/VertexManipulator/RectManipulator/RectManipulator.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Algorithm/Dwyer.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/SpriteMeshCache.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdEditorConstants.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Tools/VoronoiRegion.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/IndexedEdge.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_MenuManager.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Tools/CuthillMcKee.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/XUPorter/Editor/PBXBuildFile.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Geometry/RegionPointer.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Geometry/Point.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/VertexManipulator/RectManipulator/IRectManipulable.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/Common/SerializableDictionary/SerializableDictionaryPropertyDrawer.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/SpriteMeshPostprocessor.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsMenuEditor.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/XUPorter/Editor/PBXProject.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Data/Vertex.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/Modules/ModuleManagers/ModuleManager_Utilities.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Behavior.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdPostprocessAndroid.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/BoneUtils.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_SettingsEditor_NativeAPIs.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/TimeLine/IDopeElement.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdCommandLine.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/PoseUtils.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/TimeLine/TimeLine.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/SliceEditor.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/Common/PropertyDrawers/MinDrawer.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Bone2DEditor.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/Common/SerializableDictionary/SerializableDictionaryDrawerDefinition.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/Modules/ModuleManagers/ModuleManager_Privacy.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/XUPorter/MiniJSON/MiniJSON.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/Modules/ModuleManagers/ModuleManager.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/VertexManipulator/IVertexManipulable.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_SettingsWindow.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Primitives.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/SerializedCache.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/AnimationFixer/AnimationFixer.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Data/Triangle.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/EM_Constants_Version.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/BlendShapeFrame.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/AnimationBaker.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/XUPorter/Editor/PBXGroup.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/VertexManipulator/RectManipulator/RectManipulatorParams.cs" />
-    <Compile Include="Assets/EasyMobile/Editor/Common/PropertyDrawers/AdPlacementDrawer.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Data/BadTriangle.cs" />
+    <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/IntegrationManager/Yodo1AdNetworkUtil.cs" />
+    <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/Yodo1IdSync.cs" />
+    <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/IntegrationManager/Entity/Yodo1AdNetworkConfig.cs" />
+    <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/IntegrationManager/IntegrationManager.cs" />
+    <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/IntegrationManager/Entity/Yodo1AdNetwork.cs" />
+    <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/IntegrationManager/Entity/Yodo1AdNetworkConfigCacheData.cs" />
+    <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/IntegrationManager/Yodo1AdNetworkManager.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets/EasyMobile/Editor/Templates/Template_TapJoyAndroidManifest.xml" />
-    <None Include="Assets/EasyMobile/Editor/Templates/Manifests/Manifest_Main.xml" />
-    <None Include="Assets/ExternalDependencyManager/Editor/1.2.172/Google.VersionHandlerImpl.dll" />
-    <None Include="Assets/ExternalDependencyManager/Editor/1.2.172/Google.IOSResolver.dll" />
-    <None Include="Assets/EasyMobile/Editor/Templates/Manifests/Manifest_Sharing.xml" />
-    <None Include="Assets/ExternalDependencyManager/Editor/external-dependency-manager_version-1.2.172_manifest.txt" />
-    <None Include="Assets/EasyMobile/Editor/EasyMobileDependencies.xml" />
     <None Include="Assets/Yodo1/MAS/Editor/Dependencies/Yodo1MasiOSDependencies.xml" />
     <None Include="Assets/ExternalDependencyManager/Editor/Google.VersionHandler.dll" />
+    <None Include="Assets/ExternalDependencyManager/Editor/1.2.175/Google.PackageManagerResolver.dll" />
     <None Include="Assets/Yodo1/MAS/Editor/Dependencies/Yodo1MasAndroidDependencies.xml" />
-    <None Include="Assets/EasyMobile/Editor/Templates/AndroidLibTemplate/AndroidManifest.xml" />
-    <None Include="Assets/ExternalDependencyManager/Editor/1.2.172/Google.PackageManagerResolver.dll" />
-    <None Include="Assets/EasyMobile/Editor/Templates/Manifests/Manifest_CameraGallery.xml" />
     <None Include="Assets/Anima2D/Lib/Editor/x86/Anima2D.dll" />
-    <None Include="Assets/EasyMobile/Editor/Templates/Template_GooglePlayTangle.txt" />
-    <None Include="Assets/EasyMobile/Editor/EasyMobileSettings.txt" />
-    <None Include="Assets/EasyMobile/Editor/Templates/Template_Constants.txt" />
-    <None Include="Assets/EasyMobile/Editor/Templates/Template_AppleTangle.txt" />
-    <None Include="Assets/EasyMobile/Editor/Templates/Manifests/Manifest_Notifications.xml" />
-    <None Include="Assets/ExternalDependencyManager/Editor/1.2.172/Google.JarResolver.dll" />
-    <None Include="Assets/EasyMobile/Editor/Templates/Manifests/Manifest_Contacts.xml" />
+    <None Include="Assets/ExternalDependencyManager/Editor/1.2.175/Google.IOSResolver.dll" />
+    <None Include="Assets/ExternalDependencyManager/Editor/external-dependency-manager_version-1.2.175_manifest.txt" />
     <None Include="Assets/Anima2D/Lib/Editor/x64/Anima2D.dll" />
+    <None Include="Assets/ExternalDependencyManager/Editor/1.2.175/Google.VersionHandlerImpl.dll" />
     <None Include="Assets/JMO Assets/Editor/JMOAssets.dll" />
+    <None Include="Assets/ExternalDependencyManager/Editor/1.2.175/Google.JarResolver.dll" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -579,8 +518,14 @@
     <Reference Include="UnityEditor.iOS.Extensions">
       <HintPath>/Applications/Unity/Hub/Editor/2021.3.9f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.WindowsStandalone.Extensions">
-      <HintPath>/Applications/Unity/Hub/Editor/2021.3.9f1/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+    <Reference Include="Unity.Analytics.Editor">
+      <HintPath>Library/PackageCache/com.unity.analytics@3.6.12/Unity.Analytics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Unsafe">
+      <HintPath>Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Pdb">
+      <HintPath>Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
     </Reference>
     <Reference Include="log4netPlastic">
       <HintPath>Library/PackageCache/com.unity.collab-proxy@1.17.2/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
@@ -588,26 +533,14 @@
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>Library/PackageCache/com.unity.collab-proxy@1.17.2/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Analytics.Editor">
-      <HintPath>Library/PackageCache/com.unity.analytics@3.6.12/Unity.Analytics.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
       <HintPath>Library/PackageCache/com.unity.collab-proxy@1.17.2/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst.Unsafe">
-      <HintPath>Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.Unsafe.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>Library/PackageCache/com.unity.analytics@3.6.12/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Google.VersionHandler">
       <HintPath>Assets/ExternalDependencyManager/Editor/Google.VersionHandler.dll</HintPath>
     </Reference>
-    <Reference Include="Google.PackageManagerResolver">
-      <HintPath>Assets/ExternalDependencyManager/Editor/1.2.172/Google.PackageManagerResolver.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst.Cecil.Pdb">
-      <HintPath>Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
+    <Reference Include="Unity.Analytics.Tracker">
+      <HintPath>Library/PackageCache/com.unity.analytics@3.6.12/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
@@ -624,20 +557,23 @@
     <Reference Include="unityplastic">
       <HintPath>Library/PackageCache/com.unity.collab-proxy@1.17.2/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
     </Reference>
-    <Reference Include="Google.JarResolver">
-      <HintPath>Assets/ExternalDependencyManager/Editor/1.2.172/Google.JarResolver.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
       <HintPath>Library/PackageCache/com.unity.analytics@3.6.12/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="JMOAssets">
       <HintPath>Assets/JMO Assets/Editor/JMOAssets.dll</HintPath>
     </Reference>
-    <Reference Include="Google.VersionHandlerImpl">
-      <HintPath>Assets/ExternalDependencyManager/Editor/1.2.172/Google.VersionHandlerImpl.dll</HintPath>
+    <Reference Include="Google.PackageManagerResolver">
+      <HintPath>Assets/ExternalDependencyManager/Editor/1.2.175/Google.PackageManagerResolver.dll</HintPath>
     </Reference>
     <Reference Include="Google.IOSResolver">
-      <HintPath>Assets/ExternalDependencyManager/Editor/1.2.172/Google.IOSResolver.dll</HintPath>
+      <HintPath>Assets/ExternalDependencyManager/Editor/1.2.175/Google.IOSResolver.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.VersionHandlerImpl">
+      <HintPath>Assets/ExternalDependencyManager/Editor/1.2.175/Google.VersionHandlerImpl.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.JarResolver">
+      <HintPath>Assets/ExternalDependencyManager/Editor/1.2.175/Google.JarResolver.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
