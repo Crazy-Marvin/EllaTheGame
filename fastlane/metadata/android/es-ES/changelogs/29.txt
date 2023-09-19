@@ -1,0 +1,3 @@
+- Actualizadas las dependencias (Unity, Yodo1, Google Play Games, Compras en la aplicación) ⚙️
+- Eliminado el descatalogado EasyMobile Pro y su código es usado para los juegos para la Google Play 🥀
+- Corrección de errores 🐛
