@@ -1,0 +1,3 @@
+- Tabela de classificação melhorada
+- Base de código limpa
+- Traduções corrigidas
