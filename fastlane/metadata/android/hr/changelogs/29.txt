@@ -1,0 +1,3 @@
+- Aktualiziranje ovisnosti (Unity, Yodo1, Google Play igre, kupnje putem aplikacije) ⚙️
+- Uklanjanje ukinute EasyMobile Pro usluge i korištenje izvornog koda za Google Play igre 🥀
+- Ispravci grešaka 🐛
