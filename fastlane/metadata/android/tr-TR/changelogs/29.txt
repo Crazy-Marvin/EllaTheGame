@@ -1,0 +1,3 @@
+- Bağımlılıklar Güncellendi (Unity, Yodo1, Google Play Oyunlar, Uygulama İçi Satın Almalar) ⚙️
+- Geliştirilmesi Durdurulan EasyMobile Pro Kaldırıldı ve Google Play Oyunlar İçin Yerel Kod Kullanıldı 🥀
+- Hata Düzeltmeleri 🐛
