@@ -1,0 +1,3 @@
+- Clasament îmbunătățit
+- Baza de cod ordonată
+- Traduceri fixe
