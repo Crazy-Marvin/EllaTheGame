@@ -1,0 +1,3 @@
+- Dependențe actualizate (Unity, Yodo1, Google Play Games, achiziții în aplicație) ⚙️
+- EasyMobile Pro a fost șters și sa utilizat codul nativ pentru jocurile Google Play 🥀
+- Remedieri de erori 🐛
