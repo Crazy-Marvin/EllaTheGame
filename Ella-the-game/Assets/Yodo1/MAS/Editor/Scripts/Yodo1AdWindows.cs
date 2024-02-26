@@ -19,8 +19,9 @@
         private static string app_admob_key = string.Empty;
         private static string resultString = string.Empty;
         private bool IsIOSRunTime = false;
-        private bool IsAndroidRunTime = false;
+        private static bool IsAndroidRunTime = false;
         Yodo1AdSettings adSettings;
+        private bool admobValid = false;
 
         delegate void ApiCallback(string response);
 
@@ -72,6 +73,7 @@
         public Yodo1AdWindows()
         {
             selectPlarformTab = PlatfromTab.iOS;
+            admobValid = Yodo1AdUtils.IsAdMobValid();
         }
 
         public static void Initialize(PlatfromTab platfromTab)
@@ -104,9 +106,13 @@
         private void OnGUI()
         {
             this.scrollPosition = GUILayout.BeginScrollView(this.scrollPosition, new GUILayoutOption[0]);
-            DrawContent();
-            GUIStyle gUIStyle = new GUIStyle();
-            gUIStyle.padding = new RectOffset(10, 10, 10, 0);
+
+            DrawConfigureContent();
+
+            GUIStyle gUIStyle = new GUIStyle()
+            {
+                padding = new RectOffset(10, 10, 10, 0)
+            };
             GUILayout.BeginVertical(gUIStyle, new GUILayoutOption[0]);
             if (GUILayout.Button("Save Configuration"))
             {
@@ -119,7 +125,7 @@
 
         #endregion
 
-        private void DrawContent()
+        private void DrawConfigureContent()
         {
             GUIStyle gUIStyle = new GUIStyle
             {
@@ -127,11 +133,25 @@
             };
             GUILayout.BeginVertical(gUIStyle, new GUILayoutOption[0]);
 
+            GUIStyle gUIStyle2 = new GUIStyle()
+            {
+                padding = new RectOffset(0, 10, 10, 0)
+            };
 
-            GUIStyle gUIStyle2 = new GUIStyle();
-            gUIStyle2.padding = new RectOffset(0, 10, 10, 0);
+            DrawAppKeyContent(gUIStyle2);
 
+            if (admobValid)
+            {
+                DrawAdMobAppIdContent(gUIStyle2);
+            }
+
+            GUILayout.EndVertical();
+        }
+
+        private void DrawAppKeyContent(GUIStyle gUIStyle2)
+        {
             GUILayout.BeginVertical();
+
             GUILayout.BeginHorizontal(gUIStyle2, new GUILayoutOption[0]);
 
             //Set AppKey
@@ -165,36 +185,19 @@
 
             GUILayout.Space(10);
 
-            if (selectPlarformTab == PlatfromTab.iOS)
+            if (selectPlarformTab == PlatfromTab.iOS && string.IsNullOrEmpty(this.adSettings.iOSSettings.AppKey.Trim()) ||
+                selectPlarformTab == PlatfromTab.Android && string.IsNullOrEmpty(this.adSettings.androidSettings.AppKey.Trim()))
             {
-                if (string.IsNullOrEmpty(this.adSettings.iOSSettings.AppKey.Trim()))
-                {
-                    EditorGUILayout.HelpBox("Please fill in the MAS app key correctly, you can find your app key on the MAS dashboard.", MessageType.Error);
-                    GUILayout.Space(15);
-                }
-            }
-            else
-            {
-                if (string.IsNullOrEmpty(this.adSettings.androidSettings.AppKey.Trim()))
-                {
-                    EditorGUILayout.HelpBox("Please fill in the MAS app key correctly, you can find your app key on the MAS dashboard.", MessageType.Error);
-                    GUILayout.Space(15);
-                }
+                EditorGUILayout.HelpBox("Please fill in the MAS app key correctly, you can find your app key on the MAS dashboard.", MessageType.Error);
+                GUILayout.Space(15);
             }
 
             GUILayout.EndVertical();
+        }
 
+        private void DrawAdMobAppIdContent(GUIStyle gUIStyle2)
+        {
             GUILayout.BeginVertical(gUIStyle2, new GUILayoutOption[0]);
-
-            string imagePath = Application.dataPath + "/Yodo1/MAS/Editor/refresh.png";
-            FileStream fs = new FileStream(imagePath, FileMode.Open, FileAccess.Read);
-            byte[] thebytes = new byte[fs.Length];
-            fs.Read(thebytes, 0, (int)fs.Length);
-            fs.Close();
-            fs.Dispose();
-
-            Texture2D image = new Texture2D(30, 30);
-            image.LoadImage(thebytes);
 
             GUILayout.BeginHorizontal(gUIStyle2, new GUILayoutOption[0]);
 
@@ -228,35 +231,19 @@
 
             GUILayout.Space(10);
 
-            if (selectPlarformTab == PlatfromTab.iOS)
+            if (selectPlarformTab == PlatfromTab.iOS && string.IsNullOrEmpty(this.adSettings.iOSSettings.AdmobAppID.Trim()) ||
+                selectPlarformTab == PlatfromTab.Android && string.IsNullOrEmpty(this.adSettings.androidSettings.AdmobAppID.Trim()))
             {
-                if (string.IsNullOrEmpty(this.adSettings.iOSSettings.AdmobAppID.Trim()))
+                if (string.IsNullOrEmpty(resultString))
                 {
-                    if (string.IsNullOrEmpty(resultString))
-                    {
-                        EditorGUILayout.HelpBox("A null or incorrect value will cause a crash when it builds. Please make sure to copy Admob App ID from MAS dashboard.", MessageType.Info);
-                    }
-                    else
-                    {
-                        EditorGUILayout.HelpBox(resultString, MessageType.Error);
-                    }
+                    EditorGUILayout.HelpBox("A null or incorrect value will cause a crash when it builds. Please make sure to copy Admob App ID from MAS dashboard.", MessageType.Info);
+                }
+                else
+                {
+                    EditorGUILayout.HelpBox(resultString, MessageType.Error);
                 }
             }
-            else
-            {
-                if (string.IsNullOrEmpty(this.adSettings.androidSettings.AdmobAppID.Trim()))
-                {
-                    if (string.IsNullOrEmpty(resultString))
-                    {
-                        EditorGUILayout.HelpBox("A null or incorrect value will cause a crash when it builds. Please make sure to copy Admob App ID from MAS dashboard.", MessageType.Info);
-                    }
-                    else
-                    {
-                        EditorGUILayout.HelpBox(resultString, MessageType.Error);
-                    }
-                }
-            }
-            GUILayout.EndVertical();
+
             GUILayout.EndVertical();
         }
 
@@ -294,6 +281,10 @@
 
         private string RequestAdmobConfig(string appKey)
         {
+            if (!admobValid)
+            {
+                return "";
+            }
             if (Application.internetReachability == NetworkReachability.NotReachable)
             {
                 return "Please check your network. You can also fill in manually.";
@@ -303,6 +294,7 @@
             {
                 return "Please enter the correct MAS App Key.";
             }
+
             string result = string.Empty;
             string api = "https://sdk.mas.yodo1.com/v1/unity/setup/" + appKey;
 #if UNITY_2018_1_OR_NEWER

@@ -11,13 +11,40 @@ using System.Text;
 public class Yodo1IdSync : IPreprocessBuildWithReport
 {
     public int callbackOrder { get { return 0; } }
+#if UNITY_ANDROID
     private String AdmobDefaultIDAndroid = "ca-app-pub-5580537606944457~4465578836";
+#elif UNITY_IOS
     private String AdmobDefaultIDiOS = "ca-app-pub-5580537606944457~2166718551";
+#endif
     public void OnPreprocessBuild(BuildReport report)
     {
+#if UNITY_ANDROID
+        if (!Yodo1AdUtils.IsGooglePlayVersion())
+        {
+            return;
+        }
+#endif
+
         Yodo1AdSettings settings = Yodo1AdSettingsSave.Load();
 
         string bundleId = string.Empty;
+        string api = string.Empty;
+#if UNITY_ANDROID
+        api = "https://sdk.mas.yodo1.com/v1/unity/setup/" + settings.androidSettings.AppKey;
+#elif UNITY_IOS
+        api = "https://sdk.mas.yodo1.com/v1/unity/setup/" + settings.iOSSettings.AppKey;
+#endif
+        string response = HttpGet(api);
+        Dictionary<string, object> obj = (Dictionary<string, object>)Yodo1JSON.Deserialize(response);
+        if (obj.ContainsKey("bundle_id"))
+        {
+            if (string.IsNullOrEmpty((string)obj["bundle_id"]))
+            {
+                UnityEngine.Debug.Log(Yodo1U3dMas.TAG + " Update the store linkwhen your game is live on Play Store or App Store.");
+                return;
+            }
+
+        }
 #if UNITY_ANDROID
         if (!string.Equals(settings.androidSettings.AdmobAppID, AdmobDefaultIDAndroid))
         {
@@ -89,6 +116,29 @@ public class Yodo1IdSync : IPreprocessBuildWithReport
         catch (WebException)
         {
             throw new BuildFailedException(Yodo1U3dMas.TAG + " Unable to verify AdMob App Id with MAS Server. Please check your internet connectivity and try again.");
+        }
+    }
+    private string HttpGet(string api)
+    {
+        try
+        {
+            string serviceAddress = api;
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(serviceAddress);
+            request.Method = "GET";
+            request.ContentType = "text/html;charset=UTF-8";
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            Stream myResponseStream = response.GetResponseStream();
+            StreamReader myStreamReader = new StreamReader(myResponseStream, Encoding.UTF8);
+            string returnXml = myStreamReader.ReadToEnd();
+            myStreamReader.Close();
+            response.Close();
+            return returnXml;
+
+        }
+        catch (WebException e)
+        {
+            e.StackTrace.ToString();
+            return e.StackTrace.ToString();
         }
     }
     private static string Md5(string strToEncryppt)

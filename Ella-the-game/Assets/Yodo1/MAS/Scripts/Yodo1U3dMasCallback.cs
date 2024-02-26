@@ -3,6 +3,8 @@
     using UnityEngine;
     using System;
     using System.Collections.Generic;
+    using UnityEngine.SceneManagement;
+    using UnityEngine.EventSystems;
 
     public class Yodo1U3dMasCallback : MonoBehaviour
     {
@@ -49,42 +51,6 @@
         {
             return _initialized;
         }
-
-        private static Yodo1U3dMas.InitializeDelegate _initializeDelegate;
-        public static void SetInitializeDelegate(Yodo1U3dMas.InitializeDelegate initializeDelegate)
-        {
-            _initializeDelegate = initializeDelegate;
-        }
-
-        public static Yodo1U3dMas.InitializeDelegate GetInitializeDelegate()
-        {
-            return _initializeDelegate;
-        }
-
-        #region Ad Delegate
-
-        //InterstitialAd of delegate
-        private static Yodo1U3dMas.InterstitialAdDelegate _interstitialAdDelegate;
-        public static void SetInterstitialAdDelegate(Yodo1U3dMas.InterstitialAdDelegate interstitialAdDelegate)
-        {
-            _interstitialAdDelegate = interstitialAdDelegate;
-        }
-
-        //ShowBanner of delegate
-        private static Yodo1U3dMas.BannerdAdDelegate _bannerDelegate;
-        public static void SetBannerAdDelegate(Yodo1U3dMas.BannerdAdDelegate bannerDelegate)
-        {
-            _bannerDelegate = bannerDelegate;
-        }
-
-        //RewardVideo of delegate
-        private static Yodo1U3dMas.RewardedAdDelegate _rewardedAdDelegate;
-        public static void SetRewardedAdDelegate(Yodo1U3dMas.RewardedAdDelegate rewardedAdDelegate)
-        {
-            _rewardedAdDelegate = rewardedAdDelegate;
-        }
-
-        #endregion
 
         private static bool CanInvokeEvent(System.Delegate evt)
         {
@@ -148,7 +114,7 @@
         private static System.Action _onBannerAdOpenedEvent;
         private static System.Action<Yodo1U3dAdError> _onBannerAdErrorEvent;
         private static System.Action _onBannerAdClosedEvent;
-
+        [System.Obsolete("Please use `Yodo1U3dBannerAdView` instead", true)]
         public class Banner
         {
             public static event System.Action OnAdOpenedEvent
@@ -193,6 +159,7 @@
         private static System.Action _onInterstitialAdClosedEvent;
         private static System.Action<Yodo1U3dAdError> _onInterstitialAdErrorEvent;
 
+        [Obsolete("Please use Yodo1U3dInterstitialAd.GetInstance()", true)]
         public class Interstitial
         {
             public static event System.Action OnAdOpeningEvent
@@ -210,7 +177,7 @@
             /**
              * Fired when an interstitial ad is displayed (may not be received by Unity until the interstitial ad closes).
              */
-            [Obsolete("Yodo1U3dMasCallback.Interstitial.OnAdOpenedEvent is obsolete and will be deprecated soon. Use Yodo1U3dInterstitialAd.GetInstance().OnAdOpenedEvent")]
+            [Obsolete("Please use Yodo1U3dInterstitialAd.GetInstance().OnAdOpenedEvent", true)]
             public static event System.Action OnAdOpenedEvent
             {
                 add
@@ -222,7 +189,7 @@
                     _onInterstitialAdOpenedEvent -= value;
                 }
             }
-            [Obsolete("Yodo1U3dMasCallback.Interstitial.OnAdClosedEvent is obsolete and will be deprecated soon. Use Yodo1U3dInterstitialAd.GetInstance().OnAdClosedEvent")]
+            [Obsolete("Please use Yodo1U3dInterstitialAd.GetInstance().OnAdClosedEvent", true)]
             public static event System.Action OnAdClosedEvent
             {
                 add
@@ -235,7 +202,7 @@
                 }
             }
 
-            [Obsolete("Yodo1U3dMasCallback.Interstitial.OnAdErrorEvent is obsolete and will be deprecated soon. Use Yodo1U3dInterstitialAd.GetInstance().OnAdOpenFailedEvent")]
+            [Obsolete("Please use Yodo1U3dInterstitialAd.GetInstance().OnAdOpenFailedEvent", true)]
             public static event System.Action<Yodo1U3dAdError> OnAdErrorEvent
             {
                 add
@@ -254,12 +221,13 @@
         private static System.Action _onRewardedAdReceivedRewardEvent;
         private static System.Action<Yodo1U3dAdError> _onRewardedAdErrorEvent;
 
+        [Obsolete("Please use Yodo1U3dRewardAd.GetInstance()", true)]
         public class Rewarded
         {
             /**
              * Fired when an rewarded ad is displayed (may not be received by Unity until the rewarded ad closes).
              */
-            [Obsolete("Yodo1U3dMasCallback.Rewarded.OnAdOpenedEvent is obsolete and will be deprecated soon. Use Yodo1U3dRewardAd.GetInstance().OnAdOpenedEvent")]
+            [Obsolete("Please use Yodo1U3dRewardAd.GetInstance().OnAdOpenedEvent", true)]
             public static event System.Action OnAdOpenedEvent
             {
                 add
@@ -271,7 +239,7 @@
                     _onRewardedAdOpenedEvent -= value;
                 }
             }
-            [Obsolete("Yodo1U3dMasCallback.Rewarded.OnAdClosedEvent is obsolete and will be deprecated soon. Use Yodo1U3dRewardAd.GetInstance().OnAdClosedEvent")]
+            [Obsolete("Please use Yodo1U3dRewardAd.GetInstance().OnAdClosedEvent", true)]
             public static event System.Action OnAdClosedEvent
             {
                 add
@@ -283,7 +251,7 @@
                     _onRewardedAdClosedEvent -= value;
                 }
             }
-            [Obsolete("Yodo1U3dMasCallback.Rewarded.OnAdReceivedRewardEvent is obsolete and will be deprecated soon. Use Yodo1U3dRewardAd.GetInstance().OnAdEarnedEvent")]
+            [Obsolete("Please use Yodo1U3dRewardAd.GetInstance().OnAdEarnedEvent", true)]
             public static event System.Action OnAdReceivedRewardEvent
             {
                 add
@@ -296,7 +264,7 @@
                 }
             }
 
-            [Obsolete("Yodo1U3dMasCallback.Rewarded.OnAdErrorEvent is obsolete and will be deprecated soon. Use Yodo1U3dRewardAd.GetInstance().OnAdOpenFailedEvent")]
+            [Obsolete("Please use Yodo1U3dRewardAd.GetInstance().OnAdOpenFailedEvent", true)]
             public static event System.Action<Yodo1U3dAdError> OnAdErrorEvent
             {
                 add
@@ -318,7 +286,33 @@
                 DontDestroyOnLoad(gameObject);
             }
         }
+#if UNITY_EDITOR
+        private void OnEnable()
+        {
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+        private void OnDisable()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+        void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            EventSystem sceneEventSystem = FindObjectOfType<EventSystem>();
+            if (GameObject.Find("Yodo1AdCanvas") == null)
+            {
+                Yodo1EditorAds.AdHolder = Instantiate(Resources.Load("SampleAds/AdHolder") as GameObject);
+                Yodo1EditorAds.AdHolder.name = "Yodo1AdCanvas";
+                Yodo1EditorAds.AdHolderCanvas = Yodo1EditorAds.AdHolder.transform.GetChild(0).GetComponent<Canvas>();
+                Yodo1EditorAds.AdHolderCanvas.sortingOrder = Yodo1EditorAds.HighestOrder;
+            }
+            if (sceneEventSystem == null)
+            {
+                var eventSystem = new GameObject("EventSystem", typeof(EventSystem), typeof(StandaloneInputModule));
+            }
+            Yodo1EditorAds.InitializeAds();
 
+        }
+#endif
         #region Pause game
 
         private static bool _autoPauseGame = true;
@@ -407,10 +401,6 @@
                 }
 
                 _initialized = success;
-                if (_initializeDelegate != null)
-                {
-                    _initializeDelegate(success, error);
-                }
                 InvokeEvent(_onSdkInitializedEvent, success, error);
             }
             else if (flag == FLAG_AD_EVENT)
@@ -454,35 +444,16 @@
                 {
                     case AdType.Rewarded:
                         {
-                            if (_rewardedAdDelegate != null)
-                            {
-                                _rewardedAdDelegate(adEvent, adError);
-                            }
-
-                            RewardedCallbacksEvent(adEvent, adError);
                             Yodo1U3dRewardAd.CallbcksEvent(adEvent, adError);
                         }
                         break;
                     case AdType.Interstitial:
                         {
-                            if (_interstitialAdDelegate != null)
-                            {
-                                _interstitialAdDelegate(adEvent, adError);
-                            }
-
-                            InterstitialCallbacksEvent(adEvent, adError);
                             Yodo1U3dInterstitialAd.CallbcksEvent(adEvent, adError);
                         }
                         break;
                     case AdType.Banner:
                         {
-                            if (_bannerDelegate != null)
-                            {
-                                _bannerDelegate(adEvent, adError);
-                            }
-
-                            BannerCallbacksEvent(adEvent, adError);
-
                             Yodo1U3dBannerAdView.CallbcksEvent(adEvent, adError, indexId);
                         }
                         break;
@@ -504,7 +475,8 @@
                     default:
                         break;
                 }
-            } else if (flag == FLAG_APP_EVENT)
+            }
+            else if (flag == FLAG_APP_EVENT)
             {
                 if (dataDic.ContainsKey("status"))
                 {
@@ -517,71 +489,6 @@
             }
         }
 
-        private void BannerCallbacksEvent(Yodo1U3dAdEvent adEvent, Yodo1U3dAdError adError)
-        {
-            switch (adEvent)
-            {
-                case Yodo1U3dAdEvent.AdError:
-                    InvokeEvent(_onBannerAdErrorEvent, adError);
-                    break;
-                case Yodo1U3dAdEvent.AdOpened:
-                    InvokeEvent(_onBannerAdOpenedEvent);
-                    break;
-                case Yodo1U3dAdEvent.AdClosed:
-                    InvokeEvent(_onBannerAdClosedEvent);
-                    break;
-            }
-        }
-
-        private void InterstitialCallbacksEvent(Yodo1U3dAdEvent adEvent, Yodo1U3dAdError adError)
-        {
-            switch (adEvent)
-            {
-                case Yodo1U3dAdEvent.AdError:
-                    if (adError.Code == -600201)
-                    {
-                        UnPause();
-                    }
-                    InvokeEvent(_onInterstitialAdErrorEvent, adError);
-                    break;
-                case Yodo1U3dAdEvent.AdOpening:
-                    InvokeEvent(_onInterstitialAdOpeningEvent);
-                    break;
-                case Yodo1U3dAdEvent.AdOpened:
-                    Pause();
-                    InvokeEvent(_onInterstitialAdOpenedEvent);
-                    break;
-                case Yodo1U3dAdEvent.AdClosed:
-                    UnPause();
-                    InvokeEvent(_onInterstitialAdClosedEvent);
-                    break;
-            }
-        }
-
-        private void RewardedCallbacksEvent(Yodo1U3dAdEvent adEvent, Yodo1U3dAdError adError)
-        {
-            switch (adEvent)
-            {
-                case Yodo1U3dAdEvent.AdError:
-                    if (adError.Code == -600201)
-                    {
-                        UnPause();
-                    }
-                    InvokeEvent(_onRewardedAdErrorEvent, adError);
-                    break;
-                case Yodo1U3dAdEvent.AdOpened:
-                    Pause();
-                    InvokeEvent(_onRewardedAdOpenedEvent);
-                    break;
-                case Yodo1U3dAdEvent.AdReward:
-                    InvokeEvent(_onRewardedAdReceivedRewardEvent);
-                    break;
-                case Yodo1U3dAdEvent.AdClosed:
-                    UnPause();
-                    InvokeEvent(_onRewardedAdClosedEvent);
-                    break;
-            }
-        }
         public static void ForwardEvent(string val)
         {
             if (string.Equals(val, "onSdkInitializedEvent"))

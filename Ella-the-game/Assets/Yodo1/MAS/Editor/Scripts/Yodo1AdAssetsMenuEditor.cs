@@ -4,11 +4,21 @@
 
     public class Yodo1AdAssetsMenuEditor : Editor
     {
-        [MenuItem("Yodo1/MAS/MAS Conflict Manager")]
-        public static void ConflictManager()
-        {
-            Yodo1AdIntegrationManagerWindow.ShowManager();
-        }
+        //        [MenuItem("Yodo1/MAS/MAS Conflict Manager", false)]
+        //        static void ConflictManager()
+        //        {
+        //            Yodo1AdIntegrationManagerWindow.ShowManager();
+        //        }
+
+        //        [MenuItem("Yodo1/MAS/MAS Conflict Manager", true)]
+        //        static bool ValidateConflictManager()
+        //        {
+        //#if UNITY_ANDROID
+        //            return Yodo1AdUtils.IsGooglePlayVersion();
+        //#else
+        //            return true;
+        //#endif
+        //        }
 
         [MenuItem("Yodo1/MAS/MAS Settings/Android Settings")]
         public static void AndroidSettings()

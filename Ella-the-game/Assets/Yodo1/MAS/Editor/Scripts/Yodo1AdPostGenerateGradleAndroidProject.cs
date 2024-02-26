@@ -6,6 +6,7 @@ using UnityEditor.Android;
 using System.IO;
 using System.Xml;
 using System.Text.RegularExpressions;
+using System;
 
 namespace Yodo1.MAS
 {
@@ -18,14 +19,14 @@ namespace Yodo1.MAS
 
         public void OnPostGenerateGradleAndroidProject(string path)
         {
-            Yodo1ValidateGradle(path);
-            Yodo1ValidateManifest(path);
-            Yodo1ValidateGradleProperties(path);
+            UpdateBuildGradle(path);
+            UpdateAndroidManifest(path);
+            UpdateGradleProperties(path);
 
-            if (isAdReviewFuntionEnable())
-            {
-                AddAdReview(path);
-            }
+            //if (Yodo1AdUtils.IsAppLovinValid())
+            //{
+            //    AddAdReview(path);
+            //}
 
 #if UNITY_2022_2_OR_NEWER
             var rootSettingsGradleFilePath = Path.Combine(path, "../settings.gradle");
@@ -70,28 +71,39 @@ namespace Yodo1.MAS
             AddAppLovinQualityServicePlugin(applicationGradleBuildFilePath);
         }
 
-        static void Yodo1ValidateManifest(string path)
+#region Android Manifest
+
+        static void UpdateAndroidManifest(string path)
         {
-            var mainfestPath = Path.Combine(path, "src/main/AndroidManifest.xml");
-            ValidateManifestForSupportAndroid12(mainfestPath, getProjectGradlePath(path));
+            // unityLibrary
+            var manifestPath = Path.Combine(path, "src/main/AndroidManifest.xml");
+            CheckAndAddExportedForAndroidApiLevel31(manifestPath, GetLauncherGradlePath(path));
 
-            if (mainfestPath.Contains("unityLibrary"))
+            // launcher
+            if (manifestPath.Contains("unityLibrary"))
             {
-                mainfestPath = mainfestPath.Replace("unityLibrary", "launcher");
+                manifestPath = manifestPath.Replace("unityLibrary", "launcher");
             }
-
-            if (File.Exists(mainfestPath))
+            if (File.Exists(manifestPath))
             {
                 Yodo1AdSettings settings = Yodo1AdSettingsSave.Load();
                 if (Yodo1PostProcessAndroid.CheckConfiguration_Android(settings))
                 {
-                    ValidateManifest(mainfestPath, settings);
+                    UpdateManifestWithSettings(manifestPath, settings);
                 }
             }
         }
 
-        private static void ValidateManifestForSupportAndroid12(string manifestFile, string projectGradlePath)
+        private static void CheckAndAddExportedForAndroidApiLevel31(string manifestFile, string projectGradlePath)
         {
+            // Check AndroidSdkVersions.AndroidApiLevel30(Android 11)
+            int targetSdkVersion = GetTargetSdkVersion(projectGradlePath);
+            if (targetSdkVersion <= 30)
+            {
+                return;
+            }
+
+            // Trying to add the exported attribute for AndroidApiLevel31(Android 12)
             XmlDocument doc = new XmlDocument();
             doc.Load(manifestFile);
 
@@ -105,17 +117,9 @@ namespace Yodo1.MAS
             string ns = manNode.GetNamespaceOfPrefix("android");
 
             XmlNode app = Yodo1PostProcessAndroid.FindChildNode(manNode, "application");
-
             if (app == null)
             {
                 Debug.LogError(Yodo1U3dMas.TAG + "Error parsing " + manifestFile + ", tag for application not found.");
-                return;
-            }
-
-            // supprted android 12
-            int targetSDKVersion = getTargetSDKVersion(projectGradlePath);
-            if (targetSDKVersion <= 30) // support android 12
-            {
                 return;
             }
 
@@ -129,7 +133,7 @@ namespace Yodo1.MAS
             doc.Save(manifestFile);
         }
 
-        static void ValidateManifest(string manifestFile, Yodo1AdSettings settings)
+        static void UpdateManifestWithSettings(string manifestFile, Yodo1AdSettings settings)
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(manifestFile);
@@ -144,27 +148,23 @@ namespace Yodo1.MAS
             string ns = manNode.GetNamespaceOfPrefix("android");
 
             XmlNode app = Yodo1PostProcessAndroid.FindChildNode(manNode, "application");
-
             if (app == null)
             {
                 Debug.LogError(Yodo1U3dMas.TAG + "Error parsing " + manifestFile + ", tag for application not found.");
                 return;
             }
 
-            ////Enable hardware acceleration for video play
-            //XmlElement elem = (XmlElement)app;
-
             //Add AdMob App ID
-            if (settings.androidSettings.GooglePlayStore)
+            string admobAppIdValue = settings.androidSettings.AdmobAppID.Trim();
+            if (Yodo1AdUtils.IsAdMobValid())
             {
-                string admobAppIdValue = settings.androidSettings.AdmobAppID.Trim();
                 if (string.IsNullOrEmpty(admobAppIdValue))
                 {
                     Debug.LogError(Yodo1U3dMas.TAG + "MAS Android AdMob App ID is null, please check the configuration.");
                     return;
                 }
                 string admobAppIdName = "com.google.android.gms.ads.APPLICATION_ID";
-                ValidateMetaData(app, doc, ns, admobAppIdName, admobAppIdValue);
+                AddMetaData(app, doc, ns, admobAppIdName, admobAppIdValue);
             }
 
             //Add Channel
@@ -178,12 +178,12 @@ namespace Yodo1.MAS
                     return;
                 }
             }
-            if (settings.androidSettings.GooglePlayStore)
+            if (Yodo1AdUtils.IsGooglePlayVersion())
             {
                 channelValue = "GooglePlay";
             }
             string channelName = "Yodo1ChannelCode";
-            XmlElement metaElementChannel = ValidateMetaData(app, doc, ns, channelName, channelValue);
+            XmlElement metaElementChannel = AddMetaData(app, doc, ns, channelName, channelValue);
             string ns2 = manNode.GetNamespaceOfPrefix("tools");
             metaElementChannel.SetAttribute("replace", ns2, "android:value");
 
@@ -192,16 +192,16 @@ namespace Yodo1.MAS
             if (!string.IsNullOrEmpty(version))
             {
                 string engineType = "engineType";
-                ValidateMetaData(app, doc, ns, engineType, "Unity");
+                AddMetaData(app, doc, ns, engineType, "Unity");
 
                 string engineVersion = "engineVersion";
-                ValidateMetaData(app, doc, ns, engineVersion, version);
+                AddMetaData(app, doc, ns, engineVersion, version);
             }
 
             doc.Save(manifestFile);
         }
 
-        private static XmlElement ValidateMetaData(XmlNode app, XmlDocument doc, string ns, string metaName, string metaValue)
+        private static XmlElement AddMetaData(XmlNode app, XmlDocument doc, string ns, string metaName, string metaValue)
         {
             XmlNode metaNode = Yodo1PostProcessAndroid.FindChildNodeWithAttribute(app, "meta-data", "android:name", metaName);
             if (metaNode == null)
@@ -218,67 +218,120 @@ namespace Yodo1.MAS
             return metaElement;
         }
 
-        static void Yodo1ValidateGradleProperties(string path)
+#endregion
+
+#region Gradle Properties
+
+        private static string GetProjectPropertiesPath(string path)
         {
-            var gradlePropertiesPath = Path.Combine(path.Replace("unityLibrary", ""), "gradle.properties");
-            StreamReader streamReader1 = new StreamReader(gradlePropertiesPath);
-            string text_all = streamReader1.ReadToEnd();
-            streamReader1.Close();
+            var projectPropertiesPath = string.Empty;
+            if (path.Contains("unityLibrary"))
+            {
+                var projectPath = path.Replace("unityLibrary", "");
+                projectPropertiesPath = Path.Combine(projectPath, "gradle.properties");
+            }
+            else
+            {
+                projectPropertiesPath = Path.Combine(path, "gradle.properties");
+            }
+            return projectPropertiesPath;
+        }
 
-            //bool changed = false;
-            string oldLineStr = string.Empty;
-            string newLineStr = string.Empty;
+        static void UpdateGradleProperties(string path)
+        {
+            var gradlePropertiesPath = GetProjectPropertiesPath(path);
 
+            StreamReader streamReader = new StreamReader(gradlePropertiesPath);
+            string text_all = streamReader.ReadToEnd();
+            streamReader.Close();
+
+            string enableDexingArtifactTransform = string.Empty;
             string[] array = text_all.Split(System.Environment.NewLine.ToCharArray());
             for (int i = 0; i < array.Length; i++)
             {
-                string str = array[i];
-                if (str.Contains("android.enableDexingArtifactTransform"))
+                string lineString = array[i];
+                if (lineString.Contains("android.enableDexingArtifactTransform"))
                 {
-                    oldLineStr = str;
+                    enableDexingArtifactTransform = lineString;
                     break;
                 }
             }
 
-            if (string.IsNullOrEmpty(oldLineStr) || oldLineStr.Contains("false"))
+            bool needToChange = false;
+            if (string.IsNullOrEmpty(enableDexingArtifactTransform))
             {
-                if (string.IsNullOrEmpty(oldLineStr))
+                needToChange = true;
+                text_all = text_all + "\n" + "android.enableDexingArtifactTransform=true";
+            }
+            else
+            {
+                if (enableDexingArtifactTransform.Contains("false"))
                 {
-                    newLineStr = "android.enableDexingArtifactTransform=false";
-                    text_all = text_all + "\n" + newLineStr;
+                    needToChange = true;
+                    string temp = enableDexingArtifactTransform.Replace("false", "true");
+                    text_all = text_all.Replace(enableDexingArtifactTransform, temp);
                 }
-                else
-                {
-                    newLineStr = oldLineStr.Replace("false", "true");
-                    text_all = text_all.Replace(oldLineStr, newLineStr);
-                }
+            }
+
+            if (needToChange)
+            {
                 StreamWriter streamWriter = new StreamWriter(gradlePropertiesPath);
                 streamWriter.Write(text_all);
                 streamWriter.Close();
             }
         }
 
-        static void Yodo1ValidateGradle(string path)
+#endregion
+
+#region Gradle
+
+        private static string GetProjectGradlePath(string path)
         {
-            var gradlePath = Path.Combine(path, "build.gradle");
-            ValidateGradlePluginVersion(path);
-            if (gradlePath.Contains("unityLibrary"))
+            var gradlePath = string.Empty;
+            if (path.Contains("unityLibrary"))
             {
-                gradlePath = gradlePath.Replace("unityLibrary", "launcher");
+                var projectPath = path.Replace("unityLibrary", "");
+                gradlePath = Path.Combine(projectPath, "build.gradle");
             }
-            Debug.LogFormat(Yodo1U3dMas.TAG + "Updating gradle for Play Instant: {0}", gradlePath);
-            WriteBelow(gradlePath, "defaultConfig {", "\t\tmultiDexEnabled true");
-            validateCompileSDKLevel(gradlePath);
+            else
+            {
+                gradlePath = Path.Combine(path, "build.gradle");
+            }
+            return gradlePath;
         }
 
-        private static void validateCompileSDKLevel(string launcherGradlePath)
+        private static string GetLauncherGradlePath(string path)
         {
-            StreamReader streamReader1 = new StreamReader(launcherGradlePath);
-            string text_all = streamReader1.ReadToEnd();
-            streamReader1.Close();
+            var gradlePath = string.Empty;
+            if (path.Contains("unityLibrary"))
+            {
+                var projectPath = path.Replace("unityLibrary", "launcher");
+                gradlePath = Path.Combine(projectPath, "build.gradle");
+            }
+            else
+            {
+                gradlePath = Path.Combine(path, "build.gradle");
+            }
+            return gradlePath;
+        }
+
+        static void UpdateBuildGradle(string path)
+        {
+            CheckAndUpateGradlePluginVersion(GetProjectGradlePath(path));
+            CheckAndUpateCompileSdkVersion(GetLauncherGradlePath(path));
+
+            // Add multiDexEnabled
+            WriteBelow(GetLauncherGradlePath(path), "defaultConfig {", "\t\tmultiDexEnabled true");
+        }
+
+        private static void CheckAndUpateCompileSdkVersion(string launcherGradlePath)
+        {
+            StreamReader streamReader = new StreamReader(launcherGradlePath);
+            string text_all = streamReader.ReadToEnd();
+            streamReader.Close();
 
             string oldLineStr = string.Empty;
-            string newLineStr = "compileSdkVersion 31";
+            string newLineStr = "\tcompileSdkVersion 33";
 
             string[] array = text_all.Split(System.Environment.NewLine.ToCharArray());
             for (int i = 0; i < array.Length; i++)
@@ -303,7 +356,7 @@ namespace Yodo1.MAS
                 string versionStr = tempArray[1];
                 int version;
                 bool parsed = int.TryParse(versionStr, out version);
-                if (parsed && version >= 31)
+                if (parsed && version >= 33)
                 {
                     return;
                 }
@@ -313,35 +366,13 @@ namespace Yodo1.MAS
             StreamWriter streamWriter = new StreamWriter(launcherGradlePath);
             streamWriter.Write(text_all);
             streamWriter.Close();
-            //Debug.Log(Yodo1U3dMas.TAG + "changed compileSdkVersion version from " + oldLineStr + " to " + newLineStr);
         }
 
-        static void ValidateGradlePluginVersion(string path)
+        private static void CheckAndUpateGradlePluginVersion(string projectGradlePath)
         {
-            string projectGradlePath = getProjectGradlePath(path);
-            ValidateGradlePluginVersion_(projectGradlePath);
-        }
-
-        private static string getProjectGradlePath(string path)
-        {
-            var projectGradlePath = "";
-            if (path.Contains("unityLibrary"))
-            {
-                var projectPath = path.Replace("unityLibrary", "");
-                projectGradlePath = Path.Combine(projectPath, "build.gradle");
-            }
-            else
-            {
-                projectGradlePath = Path.Combine(path, "build.gradle");
-            }
-            return projectGradlePath;
-        }
-
-        private static void ValidateGradlePluginVersion_(string projectGradlePath)
-        {
-            StreamReader streamReader1 = new StreamReader(projectGradlePath);
-            string text_all = streamReader1.ReadToEnd();
-            streamReader1.Close();
+            StreamReader streamReader = new StreamReader(projectGradlePath);
+            string text_all = streamReader.ReadToEnd();
+            streamReader.Close();
 
             bool changed = false;
             string oldLineStr = string.Empty;
@@ -365,14 +396,14 @@ namespace Yodo1.MAS
                 if (tempArray != null && tempArray.Length > 0)
                 {
                     var oldPluginVersion = tempArray[tempArray.Length - 1]; // such as 3.4.0
-                    string resultPluginVersion = ValidatePluginVersionStr_(oldPluginVersion, projectGradlePath);
-                    if (resultPluginVersion != null && !oldPluginVersion.Equals(resultPluginVersion))
+                    Version minVersion = new Version("4.2.0");
+                    Version currentVersion = new Version(oldPluginVersion);
+                    if (currentVersion < minVersion)
                     {
-                        newLineStr = oldLineStr.Replace(oldPluginVersion, resultPluginVersion);
+                        newLineStr = oldLineStr.Replace(oldPluginVersion, minVersion.ToString());
                         changed = true;
                     }
                 }
-
             }
 
             if (changed)
@@ -381,43 +412,24 @@ namespace Yodo1.MAS
                 StreamWriter streamWriter = new StreamWriter(projectGradlePath);
                 streamWriter.Write(text_all);
                 streamWriter.Close();
-                Debug.Log(Yodo1U3dMas.TAG + "changed gradle plugin version from " + oldLineStr + " to " + newLineStr);
+                Debug.Log(Yodo1U3dMas.TAG + "Gradle plugin version changed from " + oldLineStr.Trim() + " to " + newLineStr.Trim());
             }
         }
 
-        private static string ValidatePluginVersionStr_(string oldPluginVersion, string projectGradlePath)
+#endregion
+
+        private static int GetTargetSdkVersion(string projectGradlePath)
         {
-            if (!oldPluginVersion.Contains("."))
+            int targetSdkVersion = (int)PlayerSettings.Android.targetSdkVersion;
+            Debug.Log(Yodo1U3dMas.TAG + "PlayerSettings.Android.targetSdkVersion: " + targetSdkVersion);
+            if (targetSdkVersion > 0)
             {
-                return null;
+                return targetSdkVersion;
             }
 
-            var versionNumStr = oldPluginVersion.Replace(".", "");
-            int oldVerionNum = int.Parse(versionNumStr);
-            int minVersionNum = 401;
-
-            if (oldVerionNum >= minVersionNum)
-            {
-                return null;
-            }
-            else
-            {
-                return "4.0.1";
-            }
-        }
-
-        private static int getTargetSDKVersion(string projectGradlePath)
-        {
-            int targetSDKVersion = (int)PlayerSettings.Android.targetSdkVersion;
-            Debug.Log(Yodo1U3dMas.TAG + "current targetSDKVersion is : " + targetSDKVersion);
-            if (targetSDKVersion > 0)
-            {
-                return targetSDKVersion;
-            }
-
-            StreamReader streamReader1 = new StreamReader(projectGradlePath);
-            string text_all = streamReader1.ReadToEnd();
-            streamReader1.Close();
+            StreamReader streamReader = new StreamReader(projectGradlePath);
+            string text_all = streamReader.ReadToEnd();
+            streamReader.Close();
 
             string targetLineStr = string.Empty;
 
@@ -434,13 +446,13 @@ namespace Yodo1.MAS
 
             if (!string.IsNullOrEmpty(targetLineStr))
             {
-                string temp = targetLineStr.Replace("targetSdkVersion", "");
-                if (!string.IsNullOrEmpty(temp))
+                string tempTargetSdkVersion = targetLineStr.Replace("targetSdkVersion", "");
+                if (!string.IsNullOrEmpty(tempTargetSdkVersion))
                 {
                     try
                     {
-                        Debug.Log(Yodo1U3dMas.TAG + "get targetSDKVersion from gradle is : " + temp);
-                        return int.Parse(temp);
+                        Debug.Log(Yodo1U3dMas.TAG + "Got targetSdkVersion from gradle is : " + tempTargetSdkVersion);
+                        return int.Parse(tempTargetSdkVersion);
                     }
                     catch
                     {

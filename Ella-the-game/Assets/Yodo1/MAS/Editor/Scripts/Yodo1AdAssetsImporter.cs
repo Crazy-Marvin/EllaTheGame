@@ -286,14 +286,14 @@
                 }
                 StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
                 string result = reader.ReadToEnd();
-               // Debug.Log(Yodo1U3dMas.TAG + "HttpPost result - " + result);
+                // Debug.Log(Yodo1U3dMas.TAG + "HttpPost result - " + result);
 
                 reader.Close();
                 return result;
             }
             catch (WebException e)
             {
-                Debug.LogWarning(Yodo1U3dMas.TAG + "HttpPost Exception.Status - " + e.Status + ", please check your bundle id or package name.");
+                //Debug.LogWarning(Yodo1U3dMas.TAG + "HttpPost Exception.Status - " + e.Status + ", please check your bundle id or package name.");
                 return string.Empty;
             }
         }

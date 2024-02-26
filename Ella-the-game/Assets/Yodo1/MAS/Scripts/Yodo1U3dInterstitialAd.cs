@@ -6,7 +6,6 @@ namespace Yodo1.MAS
 {
     public class Yodo1U3dInterstitialAd
     {
-
         private string adPlacement = "";
 
         private Action<Yodo1U3dInterstitialAd> _onInterstitialAdLoadedEvent;

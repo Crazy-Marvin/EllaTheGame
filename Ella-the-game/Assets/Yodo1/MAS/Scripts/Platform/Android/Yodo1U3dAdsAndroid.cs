@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System;
 
 namespace Yodo1.MAS
 {
@@ -12,24 +12,19 @@ namespace Yodo1.MAS
         {
             if (Application.platform == RuntimePlatform.Android)
             {
-                javaClass = new AndroidJavaClass("com.yodo1.mas.UntiyYodo1Mas");
-
-                using (AndroidJavaClass unityPlayerClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+                try
                 {
-                    currentActivity = unityPlayerClass.GetStatic<AndroidJavaObject>("currentActivity");
-                }
-            }
-        }
+                    javaClass = new AndroidJavaClass("com.yodo1.mas.UntiyYodo1Mas");
 
-        /// <summary>
-        /// Initialize the with app key.
-        /// </summary>
-        /// <param name="appKey">App key.</param>
-        public static void InitWithAppKey(string appKey)
-        {
-            if (Application.platform == RuntimePlatform.Android && javaClass != null)
-            {
-                javaClass.CallStatic("init", currentActivity, appKey, Yodo1U3dMasCallback.Instance.SdkObjectName, Yodo1U3dMasCallback.Instance.SdkMethodName);
+                    using (AndroidJavaClass unityPlayerClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+                    {
+                        currentActivity = unityPlayerClass.GetStatic<AndroidJavaObject>("currentActivity");
+                    }
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError(Yodo1U3dMas.TAG + e.StackTrace);
+                }
             }
         }
 
@@ -119,6 +114,14 @@ namespace Yodo1.MAS
             return false;
         }
 
+        public static void SetPersonalizedState(bool disablePersonal)
+        {
+            if (Application.platform == RuntimePlatform.Android && javaClass != null)
+            {
+                javaClass.CallStatic("setPersonalizedState", disablePersonal);
+            }
+        }
+
         public static int GetUserAge()
         {
             if (Application.platform == RuntimePlatform.Android && javaClass != null)
@@ -127,124 +130,6 @@ namespace Yodo1.MAS
                 return value;
             }
             return 0;
-        }
-
-        public static void ShowInterstitialAd()
-        {
-            if (Application.platform == RuntimePlatform.Android && javaClass != null)
-            {
-                javaClass.CallStatic("showInterstitialAd", currentActivity);
-            }
-        }
-
-        public static void ShowInterstitialAd(string placementId)
-        {
-            if (Application.platform == RuntimePlatform.Android && javaClass != null)
-            {
-                javaClass.CallStatic("showInterstitialAd", currentActivity, placementId);
-            }
-        }
-
-        public static bool IsInterstitialLoaded()
-        {
-            if (Application.platform == RuntimePlatform.Android && javaClass != null)
-            {
-                bool value = javaClass.CallStatic<bool>("isInterstitialAdLoaded");
-                return value;
-            }
-            return false;
-        }
-
-        public static void ShowRewardedAd()
-        {
-            if (Application.platform == RuntimePlatform.Android && javaClass != null)
-            {
-                javaClass.CallStatic("showRewardedAd", currentActivity);
-            }
-        }
-
-        public static void ShowRewardedAd(string placementId)
-        {
-            if (Application.platform == RuntimePlatform.Android && javaClass != null)
-            {
-                javaClass.CallStatic("showRewardedAd", currentActivity, placementId);
-            }
-        }
-
-        public static bool IsRewardedAdLoaded()
-        {
-            if (Application.platform == RuntimePlatform.Android && javaClass != null)
-            {
-                bool value = javaClass.CallStatic<bool>("isRewardedAdLoaded");
-                return value;
-            }
-            return false;
-        }
-
-        public static bool IsBannerAdLoaded()
-        {
-            if (Application.platform == RuntimePlatform.Android && javaClass != null)
-            {
-                bool value = javaClass.CallStatic<bool>("isBannerAdLoaded");
-                return value;
-            }
-            return false;
-        }
-
-        public static void ShowBannerAd()
-        {
-            if (Application.platform == RuntimePlatform.Android && javaClass != null)
-            {
-                javaClass.CallStatic("showBannerAd", currentActivity);
-            }
-        }
-
-        public static void ShowBannerAd(string placementId)
-        {
-            if (Application.platform == RuntimePlatform.Android && javaClass != null)
-            {
-                javaClass.CallStatic("showBannerAd", currentActivity, placementId);
-            }
-        }
-
-        public static void ShowBannerAd(int align)
-        {
-            if (Application.platform == RuntimePlatform.Android && javaClass != null)
-            {
-                javaClass.CallStatic("showBannerAd", currentActivity, align);
-            }
-        }
-
-        public static void ShowBannerAd(int align, int offsetX, int offsetY)
-        {
-            if (Application.platform == RuntimePlatform.Android && javaClass != null)
-            {
-                javaClass.CallStatic("showBannerAd", currentActivity, align, offsetX, offsetY);
-            }
-        }
-
-        public static void ShowBannerAd(string placementId, int align, int offsetX, int offsetY)
-        {
-            if (Application.platform == RuntimePlatform.Android && javaClass != null)
-            {
-                javaClass.CallStatic("showBannerAd", currentActivity, placementId, align, offsetX, offsetY);
-            }
-        }
-
-        public static void DismissBannerAd()
-        {
-            if (Application.platform == RuntimePlatform.Android && javaClass != null)
-            {
-                javaClass.CallStatic("dismissBannerAd", currentActivity);
-            }
-        }
-
-        public static void DismissBannerAd(bool destroy)
-        {
-            if (Application.platform == RuntimePlatform.Android && javaClass != null)
-            {
-                javaClass.CallStatic("dismissBannerAd", currentActivity, destroy);
-            }
         }
 
         public static void BannerV2(string methodName, string param)

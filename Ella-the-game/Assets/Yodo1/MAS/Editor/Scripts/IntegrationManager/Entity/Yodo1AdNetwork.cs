@@ -9,6 +9,7 @@ namespace Yodo1.MAS
         }
 
         public string name;
+        public string displayName;
         public string version;
         public float size;
         public string repoUrl;

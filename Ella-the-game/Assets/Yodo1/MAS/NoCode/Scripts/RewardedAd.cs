@@ -20,9 +20,6 @@ public class RewardedAd : MonoBehaviour
     [Header("Award User Here")]
     [SerializeField] UnityEvent OnAdReceivedReward;
 
-    //[System.Obsolete("Please use `OnAdLoadFailedEvent` and `OnAdOpenFailedEvent` instead.", false)]
-    //[SerializeField] UnityEvent OnRewardedAdError;
-
     private void Awake()
     {
         rvBtn = GetComponent<Button>();

@@ -101,7 +101,7 @@ namespace Anima2D
 				}
 					
 #if UNITY_5_6_OR_NEWER
-				Vector3 newPosition = Handles.FreeMoveHandle(m_Bone.transform.position, rotation, size, Vector3.zero, Handles.RectangleHandleCap);
+				Vector3 newPosition = Handles.FreeMoveHandle(m_Bone.transform.position, size, Vector3.zero, Handles.RectangleHandleCap);
 #else
 				Vector3 newPosition = Handles.FreeMoveHandle(m_Bone.transform.position, rotation, size, Vector3.zero, Handles.RectangleCap);
 #endif

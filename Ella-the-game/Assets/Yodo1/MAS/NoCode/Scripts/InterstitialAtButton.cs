@@ -16,9 +16,6 @@ public class InterstitialAtButton : MonoBehaviour
     [SerializeField] UnityEvent OnInterstitialAdOpenFailed;
     [SerializeField] UnityEvent OnInterstitialAdClosed;
 
-    //[System.Obsolete("Please use `OnAdLoadFailedEvent` and `OnAdOpenFailedEvent` instead.", false)]
-    //[SerializeField] UnityEvent OnInterstitialAdError;
-
     Button btn;
 
     private void Awake()

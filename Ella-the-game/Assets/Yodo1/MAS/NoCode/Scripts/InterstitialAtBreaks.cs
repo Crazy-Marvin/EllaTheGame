@@ -15,9 +15,6 @@ public class InterstitialAtBreaks : MonoBehaviour
     [SerializeField] UnityEvent OnInterstitialAdOpenFailed;
     [SerializeField] UnityEvent OnInterstitialAdClosed;
 
-    //[System.Obsolete("Please use `OnAdLoadFailedEvent` and `OnAdOpenFailedEvent` instead.", false)]
-    //[SerializeField] UnityEvent OnInterstitialAdError;
-
     private void OnEnable()
     {
         Yodo1U3dInterstitialAd.GetInstance().OnAdLoadedEvent += OnInterstitialAdLoadedEvent;

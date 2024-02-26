@@ -12,7 +12,7 @@ public class Yodo1AdsTest : MonoBehaviour
 
     void Start()
     {
-        Yodo1U3dMasCallback.OnAppEnterForegroundEvent += ()=>
+        Yodo1U3dMasCallback.OnAppEnterForegroundEvent += () =>
         {
             Debug.Log(Yodo1U3dMas.TAG + ": The game has entered the foreground");
         };
@@ -40,14 +40,14 @@ public class Yodo1AdsTest : MonoBehaviour
             .buttonTextColor(Color.green);
 
         Yodo1AdBuildConfig config = new Yodo1AdBuildConfig()
-            .enableAdaptiveBanner(true)
             .enableUserPrivacyDialog(true)
-            .userPrivacyConfig(userPrivacyConfig);
+            .userPrivacyConfig(userPrivacyConfig)
+            .enableATTAuthorization(true);
         Yodo1U3dMas.SetAdBuildConfig(config);
 
         Yodo1U3dMas.InitializeMasSdk();
     }
-    
+
 
     #region Banner Ad Methods
     private void InitializeBannerAds()
@@ -316,7 +316,7 @@ public class Yodo1AdsTest : MonoBehaviour
     #region Interstitial Ad Methods
     private void InitializeInterstitialAds()
     {
-        
+
         InitializeInterstitialAdsV2();
     }
 
@@ -330,51 +330,6 @@ public class Yodo1AdsTest : MonoBehaviour
         ShowInterstitialAdsV2(adPlacement);
 
     }
-    #endregion
-
-    #region Interstitial Ad Methods - V1
-
-    //private void InitializeInterstitialAdsV1()
-    //{
-    //    Yodo1U3dMasCallback.Interstitial.OnAdOpenedEvent += OnInterstitialAdOpenedEvent;
-    //    Yodo1U3dMasCallback.Interstitial.OnAdClosedEvent += OnInterstitialAdClosedEvent;
-    //    Yodo1U3dMasCallback.Interstitial.OnAdErrorEvent += OnInterstitialAdErorEvent;
-    //}
-
-    //private void OnInterstitialAdOpenedEvent()
-    //{
-    //    Debug.Log(Yodo1U3dMas.TAG + "Interstitial ad opened");
-    //}
-
-    //private void OnInterstitialAdClosedEvent()
-    //{
-    //    Debug.Log(Yodo1U3dMas.TAG + "Interstitial ad closed");
-    //}
-
-    //private void OnInterstitialAdErorEvent(Yodo1U3dAdError adError)
-    //{
-    //    Debug.Log(Yodo1U3dMas.TAG + "Interstitial ad error - " + adError.ToString());
-    //}
-
-    //private void ShowInterstitialAdsV1(string adPlacement)
-    //{
-    //    if (Yodo1U3dMas.IsInterstitialAdLoaded())
-    //    {
-    //        if (string.IsNullOrEmpty(adPlacement))
-    //        {
-    //            Yodo1U3dMas.ShowInterstitialAd();
-    //        }
-    //        else
-    //        {
-    //            Yodo1U3dMas.ShowInterstitialAd(adPlacement);
-    //        }
-    //    }
-    //    else
-    //    {
-    //        Debug.Log(Yodo1U3dMas.TAG + "Interstitial ad has not been cached.");
-    //    }
-    //}
-
     #endregion
 
     #region Interstitial Ad Methods - V2
@@ -456,56 +411,6 @@ public class Yodo1AdsTest : MonoBehaviour
     }
     #endregion
 
-    #region Reward video Ad Methods - V1
-    //private void InitializeRewardedAdsV1()
-    //{
-    //    Yodo1U3dMasCallback.Rewarded.OnAdOpenedEvent += OnRewardedAdOpenedEvent;
-    //    Yodo1U3dMasCallback.Rewarded.OnAdClosedEvent += OnRewardedAdClosedEvent;
-    //    Yodo1U3dMasCallback.Rewarded.OnAdReceivedRewardEvent += OnAdReceivedRewardEvent;
-    //    Yodo1U3dMasCallback.Rewarded.OnAdErrorEvent += OnRewardedAdErorEvent;
-    //}
-
-    //private void OnRewardedAdOpenedEvent()
-    //{
-    //    Debug.Log(Yodo1U3dMas.TAG + "Rewarded ad opened");
-    //}
-
-    //private void OnRewardedAdClosedEvent()
-    //{
-    //    Debug.Log(Yodo1U3dMas.TAG + "Rewarded ad closed");
-    //}
-
-    //private void OnAdReceivedRewardEvent()
-    //{
-    //    Debug.Log(Yodo1U3dMas.TAG + "Rewarded ad received reward");
-    //}
-
-    //private void OnRewardedAdErorEvent(Yodo1U3dAdError adError)
-    //{
-    //    Debug.Log(Yodo1U3dMas.TAG + "Rewarded ad error - " + adError.ToString());
-    //}
-
-    //private void ShowRewardedAdsV1(string adPlacement)
-    //{
-    //    if (Yodo1U3dMas.IsRewardedAdLoaded())
-    //    {
-    //        if (string.IsNullOrEmpty(adPlacement))
-    //        {
-    //            Yodo1U3dMas.ShowRewardedAd();
-    //        }
-    //        else
-    //        {
-    //            Yodo1U3dMas.ShowRewardedAd(adPlacement);
-    //        }
-    //    }
-    //    else
-    //    {
-    //        Debug.Log(Yodo1U3dMas.TAG + "Reward video ad has not been cached.");
-    //    }
-    //}
-
-    #endregion
-
     #region Reward video Ad Methods - V2
 
     private void InitializeRewardedAdsV2()
@@ -576,7 +481,6 @@ public class Yodo1AdsTest : MonoBehaviour
     #region Yodo1U3dNativeAdView
     Yodo1U3dNativeAdView nativeAdView = null;
     Yodo1U3dNativeAdView nativeAdView2 = null;
-
 
     /// <summary>
     /// The banner is displayed automatically after loaded
@@ -652,7 +556,7 @@ public class Yodo1AdsTest : MonoBehaviour
     #endregion
 
     #region RewardedInterstitial Ad Methods
-    
+
     private void InitializeRewardedInterstitialAds()
     {
         // Instantiate
@@ -693,12 +597,12 @@ public class Yodo1AdsTest : MonoBehaviour
 
     private void OnRewardedInterstitialAdLoadedEvent(Yodo1U3dRewardedInterstitialAd ad)
     {
-       Debug.Log("[Yodo1 Mas] OnRewardedInterstitialAdLoadedEvent event received");
+        Debug.Log("[Yodo1 Mas] OnRewardedInterstitialAdLoadedEvent event received");
     }
 
     private void OnRewardedInterstitialAdLoadFailedEvent(Yodo1U3dRewardedInterstitialAd ad, Yodo1U3dAdError adError)
     {
-      Debug.Log("[Yodo1 Mas] OnRewardedInterstitialAdLoadFailedEvent event received with error: " + adError.ToString());
+        Debug.Log("[Yodo1 Mas] OnRewardedInterstitialAdLoadFailedEvent event received with error: " + adError.ToString());
     }
 
     private void OnRewardedInterstitialAdOpeningEvent(Yodo1U3dRewardedInterstitialAd ad)

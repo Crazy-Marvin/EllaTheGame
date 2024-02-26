@@ -33,29 +33,30 @@ namespace Yodo1.MAS
                 Yodo1AdSettings settings = Yodo1AdSettingsSave.Load();
                 if (Yodo1AdSettingsSave.CheckConfiguration_iOS(settings))
                 {
+                    var podVersion = Yodo1AdCommandLine.Run("pod", "--version", pathToBuiltProject);
+                    if (podVersion.ExitCode == 0)
+                    {
+                        var podResult = Yodo1AdCommandLine.Run("pod", "install --repo-update", pathToBuiltProject);
+                        if (podResult != null)
+                        {
+                            if (podResult.ExitCode != 0)
+                            {
+                                Yodo1AdCommandLine.Run("pod", "install", pathToBuiltProject);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        //Debug.LogWarning(Yodo1U3dMas.TAG + "Cocoapods is not installed, " + podVersion.StandardOutput + "," + podVersion.StandardError);
+                    }
+
                     UpdateIOSPlist(pathToBuiltProject, settings);
                     UpdateIOSProject(pathToBuiltProject);
 
-                    var podVersion = Yodo1AdCommandLine.Run("pod", "--version", pathToBuiltProject);
-                    if (podVersion.ExitCode != 0)
-                    {
-                        Debug.LogError(Yodo1U3dMas.TAG + "Cocoapods is not installed, " + podVersion.StandardOutput + "," + podVersion.StandardError);
-                        return;
-                    }
-
-                    var podResult = Yodo1AdCommandLine.Run("pod", "install --repo-update", pathToBuiltProject);
-                    if (podResult != null)
-                    {
-                        if (isAdReviewFuntionEnable())
-                        {
-                            EnableAdReview(pathToBuiltProject);
-                        }
-                        
-                        if (podResult.ExitCode != 0)
-                        {
-                            Yodo1AdCommandLine.Run("pod", "install", pathToBuiltProject);
-                        }
-                    }
+                    //if (Yodo1AdUtils.IsAppLovinValid())
+                    //{
+                    //    EnableAdReview(pathToBuiltProject);
+                    //}
                 }
             }
         }
@@ -63,7 +64,7 @@ namespace Yodo1.MAS
         private static Yodo1SkAdNetworkData GetSkAdNetworkData()
         {
             var uriBuilder = new UriBuilder("https://dash.applovin.com/docs/v1/unity_integration_manager/sk_ad_networks_info");
-            uriBuilder.Query += "adnetworks=AdColony,ByteDance,Facebook,Fyber,Google,GoogleAdManager,InMobi,IronSource,Mintegral,MyTarget,Tapjoy,TencentGDT,UnityAds,Vungle,Yandex";
+            uriBuilder.Query += "adnetworks=AdColony,Amazon,BidMachine,ByteDance,CSJ,Facebook,Fyber,Google,GoogleAdManager,InMobi,IronSource,Mintegral,MyTarget,Tapjoy,TencentGDT,UnityAds,Vungle,Yandex";
             var unityWebRequest = UnityWebRequest.Get(uriBuilder.ToString());
 
 #if UNITY_2017_2_OR_NEWER
@@ -393,7 +394,7 @@ namespace Yodo1.MAS
 
 #if UNITY_2019_3_OR_NEWER
             // Embed framework only if the podfile does not contain target `Unity-iPhone`.
-            if (!ContainsUnityIphoneTargetInPodfile(buildPath))
+            //if (!ContainsUnityIphoneTargetInPodfile(buildPath))
             {
                 foreach (var dynamicLibraryPath in dynamicLibraryPathsPresentInProject)
                 {
@@ -467,44 +468,6 @@ namespace Yodo1.MAS
             var proc = new System.Diagnostics.Process();
             proc.StartInfo.FileName = Path.Combine(path, podcommand);
             proc.Start();
-        }
-
-        protected static bool isAdReviewFuntionEnable()
-        {
-            bool adReview = false;
-            string dependencyFilePath = Path.Combine("Assets/Yodo1/MAS/Editor/Dependencies", "Yodo1MasiOSDependencies.xml");
-
-            XmlReaderSettings settings = new XmlReaderSettings();
-            settings.IgnoreComments = true;//忽略文档里面的注释
-            XmlReader reader = XmlReader.Create(dependencyFilePath, settings);
-
-            XmlDocument xmlReadDoc = new XmlDocument();
-            xmlReadDoc.Load(dependencyFilePath);
-            XmlNode dependenciesRead = xmlReadDoc.SelectSingleNode("dependencies");
-            XmlNode iosPodsRead = dependenciesRead.SelectSingleNode("iosPods");
-            XmlNodeList nodeList = iosPodsRead.SelectNodes("iosPod");
-            if (nodeList != null && nodeList.Count > 0)
-            {
-                try
-                {
-                    foreach (XmlNode node in nodeList)
-                    {
-                        string name = ((XmlElement)node).GetAttribute("name").ToString();
-                        if (!string.IsNullOrEmpty(name) && name.Contains("Yodo1MasMediationApplovin"))
-                        {
-                            adReview = true;
-                            break;
-                        }
-                    }
-                }
-                catch (Exception e)
-                {
-                    Debug.LogError(Yodo1U3dMas.TAG + e.Message);
-                }
-            }
-            reader.Close();
-
-            return adReview;
         }
 
         public static void EnableAdReview(string buildPath)
@@ -598,7 +561,10 @@ namespace Yodo1.MAS
             get
             {
                 var dynamicLibraryPathsToEmbed = new List<string>();
-                dynamicLibraryPathsToEmbed.Add(Path.Combine("Pods/", "FBSDKCoreKit_Basics/XCFrameworks/FBSDKCoreKit_Basics.xcframework"));
+
+                dynamicLibraryPathsToEmbed.Add(Path.Combine("Pods/", "Yodo1MasMediationApplovin/Yodo1MasMediationApplovin/Lib/DTBiOSSDK.xcframework"));
+                dynamicLibraryPathsToEmbed.Add(Path.Combine("Pods/", "OMSDK_Appodeal/OMSDK_Appodeal.xcframework"));
+                dynamicLibraryPathsToEmbed.Add(Path.Combine("Pods/", "Fyber_Marketplace_SDK/IASDKCore/IASDKCore.xcframework/ios-arm64/IASDKCore.framework"));
                 return dynamicLibraryPathsToEmbed;
             }
         }

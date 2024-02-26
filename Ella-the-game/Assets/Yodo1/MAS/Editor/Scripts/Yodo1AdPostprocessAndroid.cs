@@ -21,19 +21,19 @@ namespace Yodo1.MAS
 #if UNITY_2019_1_OR_NEWER
 #else
                     ValidateManifest(settings);
-#endif              
-                }
-                string GradleTemplatePath = Path.Combine("Assets/Plugins/Android", "mainTemplate.gradle");
-                if (File.Exists(GradleTemplatePath) && isAdReviewFuntionEnable())
-                {
-#if UNITY_2019_3_OR_NEWER
-                    // The publisher could be migrating from older Unity versions to 2019_3 or newer.
-                    // If so, we should delete the plugin from the template. The plugin will be added to the project's application module in the post processing script (Yodo1PostProcessGradleProject).
-                    RemoveAppLovinQualityServiceOrSafeDkPlugin(GradleTemplatePath);
-#else
-                    AddAppLovinQualityServicePlugin(GradleTemplatePath);
 #endif
                 }
+//                string GradleTemplatePath = Path.Combine("Assets/Plugins/Android", "mainTemplate.gradle");
+//                if (File.Exists(GradleTemplatePath) && Yodo1AdUtils.IsAppLovinValid())
+//                {
+//#if UNITY_2019_3_OR_NEWER
+//                    // The publisher could be migrating from older Unity versions to 2019_3 or newer.
+//                    // If so, we should delete the plugin from the template. The plugin will be added to the project's application module in the post processing script (Yodo1PostProcessGradleProject).
+//                    RemoveAppLovinQualityServiceOrSafeDkPlugin(GradleTemplatePath);
+//#else
+//                    AddAppLovinQualityServicePlugin(GradleTemplatePath);
+//#endif
+//                }
             }
         }
 
@@ -63,7 +63,7 @@ namespace Yodo1.MAS
                 return false;
             }
 
-            if (settings.androidSettings.GooglePlayStore && string.IsNullOrEmpty(settings.androidSettings.AdmobAppID.Trim()))
+            if (Yodo1AdUtils.IsAdMobValid() && string.IsNullOrEmpty(settings.androidSettings.AdmobAppID.Trim()))
             {
                 string message = "MAS Android AdMob App ID is null, please check the configuration.";
                 Debug.LogError(Yodo1U3dMas.TAG + message);
@@ -224,37 +224,26 @@ namespace Yodo1.MAS
 
             var versionNumStr = oldPluginVersion.Replace(".", "");
             int oldVerionNum = int.Parse(versionNumStr);
-            int minVersionNum = 330;
+            int minVersionNum = 340;
 
             if (oldVerionNum < minVersionNum)
             {
                 Debug.Log(Yodo1U3dMas.TAG + "need to use the version of Unity as follows:" + System.Environment.NewLine +
-                    "Unity 2017 starting from 2017.4.38f1" + System.Environment.NewLine +
-                    "Unity 2018 starting from 2018.4.4f1" + System.Environment.NewLine +
-                    "Unity 2019 starting from 2019.1.7f1" + System.Environment.NewLine +
-                    "Unity 2020 all version");
+                    "Unity 2019 starting from 2019.4.40f1" + System.Environment.NewLine +
+                    "Unity 2020 starting from 2020.3.48f1" + System.Environment.NewLine +
+                    "Unity 2021 starting from 2021.3.33f1" + System.Environment.NewLine +
+                    "Unity 2022 starting from 2022.3.16f1" + System.Environment.NewLine +
+                    "Unity 2023 all version");
                 return null;
             }
 
-            if (oldVerionNum > 410)
+            if (oldVerionNum >= 420)
             {
                 Debug.Log(Yodo1U3dMas.TAG + "no need do anything");
                 return null;
             }
 
-
-            string[] resultArray = { "3.3.3", "3.4.3", "3.5.4", "3.6.4", "4.0.1" };
-            string subOldPluginVersion = oldPluginVersion.Substring(0, oldPluginVersion.LastIndexOf("."));
-            for (int i = 0; i < resultArray.Length; i++)
-            {
-                string result = resultArray[i];
-                if (!result.Equals(oldPluginVersion) && result.StartsWith(subOldPluginVersion))
-                {
-                    return result;
-                }
-            }
-
-            return null;
+            return "4.2.0";
         }
 
         public static bool ValidateManifest(Yodo1AdSettings settings)
@@ -297,7 +286,7 @@ namespace Yodo1.MAS
             //XmlElement elem = (XmlElement)app;
 
             //Add AdMob App ID
-            if (settings.androidSettings.GooglePlayStore)
+            if (Yodo1AdUtils.IsAdMobValid())
             {
                 string admobAppIdValue = settings.androidSettings.AdmobAppID.Trim();
                 if (string.IsNullOrEmpty(admobAppIdValue))
@@ -330,7 +319,7 @@ namespace Yodo1.MAS
                     return false;
                 }
             }
-            if (settings.androidSettings.GooglePlayStore)
+            if (Yodo1AdUtils.IsGooglePlayVersion())
             {
                 channelValue = "GooglePlay";
             }

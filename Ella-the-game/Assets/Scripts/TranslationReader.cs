@@ -70,7 +70,7 @@ public class TranslationReader : MonoBehaviour
             //string[] words = inResults[i].Split(',');
             JSONArray words = inResults[i].AsArray;
             Language newLanguage = new Language(words[0], words[1], words[2], words[3], words[4], words[5], words[6], words[7], words[8]
-                , words[9], words[10], words[11]);
+                , words[9], words[10], words[11], words[12]);
             languages.Add(newLanguage);
         }
         if(PlayerPrefs.HasKey("currentLanguage"))
@@ -99,6 +99,7 @@ public class TranslationReader : MonoBehaviour
 public struct Language
 {
     public string languageCode;
+    public string Languageword;
     public string lvlSelect;
     public string difficulty;
     public string puppy;
@@ -110,10 +111,11 @@ public struct Language
     public string replay;
     public string mainMenu;
     public string resume;
-    public Language(string languageCode, string lvlSelect, string difficulty, string puppy, string adult, string senior, string exit, string score,
+    public Language(string languageCode, string Languageword, string lvlSelect, string difficulty, string puppy, string adult, string senior, string exit, string score,
         string share, string replay, string mainmenu, string resume)
     {
         this.languageCode = languageCode;
+        this.Languageword = Languageword;
         this.lvlSelect = lvlSelect;
         this.difficulty = difficulty;
         this.puppy = puppy;

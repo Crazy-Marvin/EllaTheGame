@@ -1,10 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace Yodo1.MAS
+﻿namespace Yodo1.MAS
 {
-    [System.Obsolete("`Yodo1U3dBannerAlign` has been deprecated. Please use `Yodo1U3dBannerAdPosition` instead.")]
+    [System.Obsolete("`Please use `Yodo1U3dBannerAdPosition` instead.", true)]
     public class Yodo1U3dBannerAlign
     {
         public const int BannerLeft = 1;

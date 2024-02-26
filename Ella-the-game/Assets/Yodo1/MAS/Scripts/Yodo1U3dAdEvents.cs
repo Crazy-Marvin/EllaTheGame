@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace Yodo1.MAS
+﻿namespace Yodo1.MAS
 {
     public enum Yodo1U3dAdEvent
     {

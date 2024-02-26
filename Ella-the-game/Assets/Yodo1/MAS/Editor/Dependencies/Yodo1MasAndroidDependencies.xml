@@ -5,7 +5,8 @@
       <repository>https://artifact.bytedance.com/repository/pangle/</repository>
       <repository>https://android-sdk.is.com/</repository>
       <repository>https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea</repository>
+      <repository>https://artifactory.bidmachine.io/bidmachine</repository>
     </repositories>
-    <androidPackage spec="com.yodo1.mas:full:4.9.2" />
+    <androidPackage spec="com.yodo1.mas:full:4.11.0" />
   </androidPackages>
 </dependencies>
