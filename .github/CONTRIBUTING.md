@@ -1,4 +1,4 @@
-# Contributing to Flashy
+# Contributing to Ella - The Game
 
 Thank you for choosing to contribute to our project! We appreciate your input and want to make contributing to this project as simple and transparent as possible, whether it's:
 
@@ -8,13 +8,13 @@ Thank you for choosing to contribute to our project! We appreciate your input an
 - Proposing new features
 - Becoming a maintainer
 
-Check out the [README](https://github.com/Crazy-Marvin/Flashy/blob/trunk/README.md) file for an overview of the project.
+Check out the [README](https://github.com/Crazy-Marvin/EllaTheGame/blob/trunk/README.md) file for an overview of the project.
 
 ## Any contributions you make will be under the Apache License 2.0
 
-When you submit code changes, they are subject to the same [Apache License](https://www.apache.org/licenses/LICENSE-2.0) as the project. If you have any concerns, please contact the project maintainers.
+When you submit code changes, they are subject to the same [MIT License](https://choosealicense.com/licenses/mit/) as the project. If you have any concerns, please contact the project maintainers.
 
-## How to Contribute Code
+## How to contribute code
 
 These are the steps you should take to contribute to this project:
 
@@ -22,39 +22,39 @@ These are the steps you should take to contribute to this project:
 - Fork the repository and contribute to the forked repo in a new branch `yourfeature`
 - Send a pull request to the origin `development` branch be reviewed.
 
-Use [Android Studio](https://developer.android.com/studio/) to edit the source.
+Use your preferred editor to edit the source.
 
 Following a successful PR review, the project maintainer will merge your contribution into the project.
 
-Releases are based on the `trunk` branch. A maintainer will create a tagged release and attach a signed .apk. The .apk will go to Google Play too then. F-Droid checks this repository and will start a build when one of their build servers is available.
+Releases are based on the `trunk` branch. A maintainer will create a tagged release and attach a signed .apk. The .apk will go to Google Play too then.
 
-Hooray! You have successfully contributed to Flashy!
+Hooray! You have successfully contributed to Ella - The Game!
 
-## How to Contribute Translations
+## How to contribute translations
 
-The translation is managed by Weblate which is accessible under [https://hosted.weblate.org/engage/flashy/](https://hosted.weblate.org/engage/flashy/).  
+The translation is managed by Weblate which is accessible under [https://hosted.weblate.org/engage/ella-the-game/](https://hosted.weblate.org/engage/ella-the-game/).  
 We have two components: 
-- `Flashy` for the app itself
-- `Metadata` for the store description (F-Droid & Google Play) and changelogs
+- `Ella - The Game` for the app itself
+- `Metadata` for the store description (Google Play) and changelogs
 - `Glossary` is not used yet
 
-Hooray! You have successfully contributed to Flashy!
+Hooray! You have successfully contributed to Ella - The Game!
 
-## How to Open a Bug Report or Feature Request
+## How to open a bug report or feature request
 
-We use GitHub issues for the management of issues, bugs and features. You may open an issue by following [https://github.com/Crazy-Marvin/Flashy/issues/new/choose](https://github.com/Crazy-Marvin/Flashy/issues/new/choose).
+We use GitHub issues for the management of issues, bugs and features. You may open an issue by following [https://github.com/Crazy-Marvin/EllaTheGame/issues/new/choose](https://github.com/Crazy-Marvin/EllaTheGame/issues/new/choose).
 
-Hooray! You have successfully contributed to Flashy!
+Hooray! You have successfully contributed to Ella - The Game!
 
-## How to Report a Security Vulnerability
+## How to report a security vulnerability
 
-Please send me an e-mail to [marvin@poopjournal.rocks](mailto:marvin@poopjournal.rocks?subject=Flashy%20Security%20Vulnerability). I may give you information how to community encrypted. More details may be found in the [`SECURITY.md`](https://github.com/Crazy-Marvin/Flashy/blob/trunk/.github/SECURITY.md)
+Please send me an e-mail to [marvin@poopjournal.rocks](mailto:marvin@poopjournal.rocks?subject=Ella%20-%20The%20Game%20Security%20Vulnerability). I may give you information how to communicate encrypted. More details may be found in the [`SECURITY.md`](https://github.com/Crazy-Marvin/EllaTheGame/blob/trunk/.github/SECURITY.md)
 
-Hooray! You have successfully contributed to Flashy!
+Hooray! You have successfully contributed to Ella - The Game!
 
-## How to Contribute Money
+## How to contribute money (donate)
 
-Please send an e-mail to [marvin@poopjournal.rocks](mailto:marvin@poopjournal.rocks?subject=Flashy%20Donation) to discuss the details.
+Please send an e-mail to [marvin@poopjournal.rocks](mailto:marvin@poopjournal.rocks?subject=Ella%20-%20The%20Game%20Donation) to discuss the details.
 You may find some options on [this page](https://poopjournal.rocks/blog/donate/) too.
 
-Hooray! You have successfully contributed to Flashy!
+Hooray! You have successfully contributed to Ella - The Game!
