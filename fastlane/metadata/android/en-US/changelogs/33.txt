@@ -1,0 +1,6 @@
+- 🛠️ Updated Dependencies
+- 🛠️ Upgraded Yodo1 SDK
+- 🛠️ Upgraded Google Play Games SDK
+- 🛠️ Upgraded Google Play Billing SDK
+- 🤖 Target Android 16
+- 🌍 Updated Translations
