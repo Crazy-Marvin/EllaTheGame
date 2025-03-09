@@ -1,0 +1,6 @@
+- 🛠️ Оновлені залежності
+- 🛠️ Оновлено Yodo1 SDK
+- 🛠️ Оновлено Google Play Games SDK
+- 🛠️ Оновлено Google Play Billing SDK
+- 🤖 Цільова версія Android 16
+- 🌍 Оновлені переклади
