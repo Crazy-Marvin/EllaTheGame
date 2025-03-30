@@ -1,5 +1,5 @@
-lastUpgrade=01101
-proj.pluginVersion=0.11.01
+lastUpgrade=20000
+proj.pluginVersion=2.0.0
 proj.AppId=977930212929
 and.BundleId=rocks.poopjournal.Ella
 proj.classDir=Assets

@@ -20,6 +20,8 @@ public class InterstitialRewardedAd : MonoBehaviour
     [Header("Award User Here")]
     [SerializeField] UnityEvent OnAdReceivedReward;
 
+    [SerializeField] UnityEvent OnRewardedIntertitialAdPayRevenue;
+
     private void Awake()
     {
         interstitialRewardBtn = GetComponent<Button>();
@@ -38,7 +40,8 @@ public class InterstitialRewardedAd : MonoBehaviour
             Yodo1U3dRewardedInterstitialAd.GetInstance().OnAdOpenedEvent += OnRewardedIntertitialAdOpenedEvent;
             Yodo1U3dRewardedInterstitialAd.GetInstance().OnAdOpenFailedEvent += OnRewardedIntertitialAdOpenFailedEvent;
             Yodo1U3dRewardedInterstitialAd.GetInstance().OnAdClosedEvent += OnRewardedIntertitialAdClosedEvent;
-            Yodo1U3dRewardedInterstitialAd.GetInstance().OnAdEarnedEvent += OnRewardedIntertitialAdEarnedEvent; 
+            Yodo1U3dRewardedInterstitialAd.GetInstance().OnAdEarnedEvent += OnRewardedIntertitialAdEarnedEvent;
+            Yodo1U3dRewardedInterstitialAd.GetInstance().OnAdPayRevenueEvent += OnRewardedIntertitialAdPayRevenueEvent;
 
             if (string.IsNullOrEmpty(placementID))
             {
@@ -103,6 +106,7 @@ public class InterstitialRewardedAd : MonoBehaviour
         Yodo1U3dRewardedInterstitialAd.GetInstance().OnAdOpenFailedEvent -= OnRewardedIntertitialAdOpenFailedEvent;
         Yodo1U3dRewardedInterstitialAd.GetInstance().OnAdClosedEvent -= OnRewardedIntertitialAdClosedEvent;
         Yodo1U3dRewardedInterstitialAd.GetInstance().OnAdEarnedEvent -= OnRewardedIntertitialAdEarnedEvent;
+        Yodo1U3dRewardedInterstitialAd.GetInstance().OnAdPayRevenueEvent -= OnRewardedIntertitialAdPayRevenueEvent;
 
         LoadAd();
     }
@@ -111,5 +115,11 @@ public class InterstitialRewardedAd : MonoBehaviour
     {
         Debug.Log(Yodo1U3dMas.TAG + "NoCode Rewarded Interstitial ad received reward");
         OnAdReceivedReward.Invoke();
+    }
+
+    private void OnRewardedIntertitialAdPayRevenueEvent(Yodo1U3dRewardedInterstitialAd ad, Yodo1U3dAdValue adValue)
+    {
+        Debug.Log(Yodo1U3dMas.TAG + "NoCode Rewarded Interstitial ad pay revenue");
+        OnRewardedIntertitialAdPayRevenue.Invoke();
     }
 }

@@ -4,8 +4,8 @@ apply plugin: 'com.android.library'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 // Android Resolver Dependencies Start
-    implementation 'com.google.games:gpgs-plugin-support:0.11.01' // Assets/GooglePlayGames/com.google.play.games/Editor/GooglePlayGamesPluginDependencies.xml:11
-    implementation 'com.yodo1.mas:full:4.11.0' // Assets/Yodo1/MAS/Editor/Dependencies/Yodo1MasAndroidDependencies.xml:10
+    implementation 'com.google.games:gpgs-plugin-support:2.0.0' // Assets/GooglePlayGames/com.google.play.games/Editor/GooglePlayGamesPluginDependencies.xml:11
+    implementation 'com.yodo1.mas:full:4.14.2' // Assets/Yodo1/MAS/Editor/Dependencies/Yodo1MasAndroidDependencies.xml:12
 // Android Resolver Dependencies End
 **DEPS**}
 

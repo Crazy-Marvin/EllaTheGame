@@ -2,13 +2,13 @@
 {
     using UnityEngine;
     using UnityEditor;
-    using System;
-    using System.IO;
-    using System.Net;
-    using System.Text;
     using System.Collections.Generic;
-    using UnityEngine.Networking;
-    using System.Collections;
+
+    public enum Yodo1PlatfromTarget
+    {
+        Android,
+        iOS
+    }
 
     public class Yodo1AdWindows : EditorWindow
     {
@@ -21,7 +21,7 @@
         private bool IsIOSRunTime = false;
         private static bool IsAndroidRunTime = false;
         Yodo1AdSettings adSettings;
-        private bool admobValid = false;
+        private static bool admobValid = false;
 
         delegate void ApiCallback(string response);
 
@@ -59,24 +59,16 @@
             }
         }
 
-        public enum PlatfromTab
-        {
-            Android,
-            iOS
-        }
-
-        static PlatfromTab selectPlarformTab;
+        static Yodo1PlatfromTarget selectPlarformTab;
         Vector2 scrollPosition;
 
         static EditorWindow window;
 
         public Yodo1AdWindows()
         {
-            selectPlarformTab = PlatfromTab.iOS;
-            admobValid = Yodo1AdUtils.IsAdMobValid();
         }
 
-        public static void Initialize(PlatfromTab platfromTab)
+        public static void Initialize(Yodo1PlatfromTarget platfromTab)
         {
             if (window != null)
             {
@@ -86,7 +78,9 @@
 
             window = EditorWindow.GetWindow(typeof(Yodo1AdWindows), false, platfromTab.ToString() + " Setting", true);
             window.Show();
+
             selectPlarformTab = platfromTab;
+            admobValid = Yodo1AdUtils.IsAdMobValid(selectPlarformTab);
         }
 
         #region cycle
@@ -156,7 +150,7 @@
 
             //Set AppKey
             GUILayout.Label("MAS App Key", GUILayout.Width(120));
-            if (selectPlarformTab == PlatfromTab.iOS)
+            if (selectPlarformTab == Yodo1PlatfromTarget.iOS)
             {
                 this.App_iOSKey = GUILayout.TextField(this.App_iOSKey.Trim());
                 if (!string.IsNullOrEmpty(this.App_iOSKey))
@@ -185,8 +179,8 @@
 
             GUILayout.Space(10);
 
-            if (selectPlarformTab == PlatfromTab.iOS && string.IsNullOrEmpty(this.adSettings.iOSSettings.AppKey.Trim()) ||
-                selectPlarformTab == PlatfromTab.Android && string.IsNullOrEmpty(this.adSettings.androidSettings.AppKey.Trim()))
+            if (selectPlarformTab == Yodo1PlatfromTarget.iOS && string.IsNullOrEmpty(this.adSettings.iOSSettings.AppKey.Trim()) ||
+                selectPlarformTab == Yodo1PlatfromTarget.Android && string.IsNullOrEmpty(this.adSettings.androidSettings.AppKey.Trim()))
             {
                 EditorGUILayout.HelpBox("Please fill in the MAS app key correctly, you can find your app key on the MAS dashboard.", MessageType.Error);
                 GUILayout.Space(15);
@@ -204,7 +198,7 @@
             //Set AdMob App ID
             GUILayout.Label("AdMob App ID", GUILayout.Width(120));
 
-            if (selectPlarformTab == PlatfromTab.iOS)
+            if (selectPlarformTab == Yodo1PlatfromTarget.iOS)
             {
                 this.adSettings.iOSSettings.AdmobAppID = GUILayout.TextField(this.adSettings.iOSSettings.AdmobAppID);
 
@@ -231,8 +225,8 @@
 
             GUILayout.Space(10);
 
-            if (selectPlarformTab == PlatfromTab.iOS && string.IsNullOrEmpty(this.adSettings.iOSSettings.AdmobAppID.Trim()) ||
-                selectPlarformTab == PlatfromTab.Android && string.IsNullOrEmpty(this.adSettings.androidSettings.AdmobAppID.Trim()))
+            if (selectPlarformTab == Yodo1PlatfromTarget.iOS && string.IsNullOrEmpty(this.adSettings.iOSSettings.AdmobAppID.Trim()) ||
+                selectPlarformTab == Yodo1PlatfromTarget.Android && string.IsNullOrEmpty(this.adSettings.androidSettings.AdmobAppID.Trim()))
             {
                 if (string.IsNullOrEmpty(resultString))
                 {
@@ -249,7 +243,7 @@
 
         private void SaveConfig()
         {
-            if (selectPlarformTab == PlatfromTab.Android)
+            if (selectPlarformTab == Yodo1PlatfromTarget.Android)
             {
 #if UNITY_ANDROID
                 if (Yodo1PostProcessAndroid.CheckConfiguration_Android(this.adSettings))
@@ -266,7 +260,7 @@
                 }
 #endif
             }
-            if (selectPlarformTab == PlatfromTab.iOS)
+            if (selectPlarformTab == Yodo1PlatfromTarget.iOS)
             {
                 if (!Yodo1AdSettingsSave.CheckConfiguration_iOS(this.adSettings))
                 {
@@ -295,28 +289,12 @@
                 return "Please enter the correct MAS App Key.";
             }
 
+            Dictionary<string, object> obj = Yodo1Net.GetInstance().GetAppInfoByAppKey(appKey);
             string result = string.Empty;
-            string api = "https://sdk.mas.yodo1.com/v1/unity/setup/" + appKey;
-#if UNITY_2018_1_OR_NEWER
-            string response = HttpGet(api);
-            Dictionary<string, object> obj = (Dictionary<string, object>)Yodo1JSON.Deserialize(response);
-            Debug.Log(Yodo1U3dMas.TAG + "response:" + response);
             if (!this.GetAdMobKey(obj))
             {
                 result = "MAS App Key not found. please fill in correctly.";
             }
-#else
-            ApiCallback callback = delegate (string response)
-            {
-                Dictionary<string, object> obj = (Dictionary<string, object>)Yodo1JSON.Deserialize(response);
-                Debug.Log(Yodo1U3dMas.TAG + "response:" + response);
-                if (!this.GetAdMobKey(obj))
-                {
-                    result = "MAS App Key not found. please fill in correctly.";
-                }
-            };
-            EditorCoroutineRunner.StartEditorCoroutine(SendUrl(api, callback));
-#endif
             return result;
         }
 
@@ -359,46 +337,5 @@
         }
 
         #endregion
-
-        private string HttpGet(string api)
-        {
-            try
-            {
-                string serviceAddress = api;
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(serviceAddress);
-                request.Method = "GET";
-                request.ContentType = "text/html;charset=UTF-8";
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-                Stream myResponseStream = response.GetResponseStream();
-                StreamReader myStreamReader = new StreamReader(myResponseStream, Encoding.UTF8);
-                string returnXml = myStreamReader.ReadToEnd();
-                myStreamReader.Close();
-                response.Close();
-                return returnXml;
-
-            }
-            catch (WebException e)
-            {
-                e.StackTrace.ToString();
-                return e.StackTrace.ToString();
-            }
-        }
-
-        private IEnumerator SendUrl(string url, ApiCallback callback)
-        {
-            using (UnityWebRequest www = new UnityWebRequest(url))
-            {
-                yield return www;
-                if (www.error != null)
-                {
-                    Debug.Log(Yodo1U3dMas.TAG + www.error);
-                    yield return null;
-                }
-                else
-                {
-                    callback(www.downloadHandler.text);
-                }
-            }
-        }
     }
 }

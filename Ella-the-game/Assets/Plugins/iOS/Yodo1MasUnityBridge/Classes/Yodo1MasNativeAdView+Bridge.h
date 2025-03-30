@@ -7,7 +7,12 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
+#if __has_include(<Yodo1MasCore/Yodo1MasNativeAdView.h>)
+#import <Yodo1MasCore/Yodo1MasNativeAdView.h>
+#else
 #import "Yodo1MasNativeAdView.h"
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -32,8 +37,11 @@ typedef NS_ENUM(NSInteger, Yodo1MasAdNativeAlign) {
 @property (nonatomic, assign) CGFloat width;
 @property (nonatomic, assign) CGFloat height;
 @property (nonatomic, copy) NSString *adPlacement;
+@property (nonatomic, copy) NSString *customData;
 @property (nonatomic, copy) NSString *indexId;
 @property (nonatomic, copy) NSString *backgroundColor;
+
+@property (nonatomic, assign) int payRevenueEventCount;
 
 @end
 

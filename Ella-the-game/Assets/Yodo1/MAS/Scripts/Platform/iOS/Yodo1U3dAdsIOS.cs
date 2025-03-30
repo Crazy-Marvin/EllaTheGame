@@ -84,6 +84,16 @@ public class Yodo1U3dAdsIOS
     }
 
     [DllImport(LIB_NAME)]
+    private static extern void UnityMasSetPersonalizedAdState(int state);
+    public static void SetPersonalizedAdState(Yodo1MasPersonalizedAdState personalizedAdState)
+    {
+        if (Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            UnityMasSetPersonalizedAdState((int)personalizedAdState);
+        }
+    }
+
+    [DllImport(LIB_NAME)]
     private static extern int UnityMasUserAge();
     public static int GetUserAge()
     {
@@ -92,6 +102,27 @@ public class Yodo1U3dAdsIOS
             return UnityMasUserAge();
         }
         return 0;
+    }
+
+    [DllImport(LIB_NAME)]
+    private static extern string UnityMasGetUserIdentifier();
+    public static string GetUserIdentifier()
+    {
+        if (Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            return UnityMasGetUserIdentifier();
+        }
+        return string.Empty;
+    }
+
+    [DllImport(LIB_NAME)]
+    private static extern void UnityMasSetUserIdentifier(string userIdentifier);
+    public static void SetUserIdentifier(string userIdentifier)
+    {
+        if (Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            UnityMasSetUserIdentifier(userIdentifier);
+        }
     }
 
     [DllImport(LIB_NAME)]
@@ -137,6 +168,27 @@ public class Yodo1U3dAdsIOS
         {
             UnityMasShowDebugger();
         }
+    }
+
+    [DllImport(LIB_NAME)]
+    private static extern void UnityMasShowUmpForExistingUser();
+    public static void ShowUmpForExistingUser()
+    {
+        if (Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            UnityMasShowUmpForExistingUser();
+        }
+    }
+
+    [DllImport(LIB_NAME)]
+    private static extern string UnityMasGetIABTCFString(string key);
+    public static string GetIABTCFString(string key)
+    {
+        if (Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            return UnityMasGetIABTCFString(key);
+        }
+        return "";
     }
 
     /// <summary>

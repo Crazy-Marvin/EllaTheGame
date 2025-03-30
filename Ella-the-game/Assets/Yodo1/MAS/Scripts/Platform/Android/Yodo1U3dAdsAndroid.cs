@@ -52,6 +52,24 @@ namespace Yodo1.MAS
             }
         }
 
+        public static void ShowUmpForExistingUser()
+        {
+            if (Application.platform == RuntimePlatform.Android && javaClass != null)
+            {
+                javaClass.CallStatic("showUmpForExistingUser", currentActivity);
+            }
+        }
+
+        public static string GetIABTCFString(string key)
+        {
+            if (Application.platform == RuntimePlatform.Android && javaClass != null)
+            {
+                string value = javaClass.CallStatic<string>("getIABTCFString",  currentActivity, key);
+                return value;
+            }
+            return "";
+        }
+
         public static void SetUserConsent(bool consent)
         {
             if (Application.platform == RuntimePlatform.Android && javaClass != null)
@@ -114,10 +132,11 @@ namespace Yodo1.MAS
             return false;
         }
 
-        public static void SetPersonalizedState(bool disablePersonal)
+        public static void SetPersonalizedAdState(Yodo1MasPersonalizedAdState personalizedAdState)
         {
             if (Application.platform == RuntimePlatform.Android && javaClass != null)
             {
+                bool disablePersonal = (personalizedAdState == Yodo1MasPersonalizedAdState.PersonalizedAdOff);
                 javaClass.CallStatic("setPersonalizedState", disablePersonal);
             }
         }
@@ -130,6 +149,24 @@ namespace Yodo1.MAS
                 return value;
             }
             return 0;
+        }
+
+        public static string GetUserIdentifier()
+        {
+            if (Application.platform == RuntimePlatform.Android && javaClass != null)
+            {
+                string value = javaClass.CallStatic<string>("getUserIdentifier");
+                return value;
+            }
+            return string.Empty;
+        }
+
+        public static void SetUserIdentifier(string userIdentifier)
+        {
+            if (Application.platform == RuntimePlatform.Android && javaClass != null)
+            {
+                javaClass.CallStatic("setUserIdentifier", userIdentifier);
+            }
         }
 
         public static void BannerV2(string methodName, string param)

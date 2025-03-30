@@ -19,10 +19,22 @@
         config.adPlacement = @"";
     }
     
+    if (json[@"customData"]) {
+        config.customData = json[@"customData"];
+    } else {
+        config.customData = @"";
+    }
+    
     if (json[@"autoDelayIfLoadFail"]) {
         config.autoDelayIfLoadFail = [json[@"autoDelayIfLoadFail"] boolValue];
     } else {
         config.autoDelayIfLoadFail = NO;
+    }
+    
+    if (json[@"payRevenueEventCount"]) {
+        config.payRevenueEventCount = [json[@"payRevenueEventCount"] intValue];
+    } else {
+        config.payRevenueEventCount = 0;
     }
     
     return config;

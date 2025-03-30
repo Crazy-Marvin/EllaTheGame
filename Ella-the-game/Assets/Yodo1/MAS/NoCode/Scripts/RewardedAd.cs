@@ -20,6 +20,8 @@ public class RewardedAd : MonoBehaviour
     [Header("Award User Here")]
     [SerializeField] UnityEvent OnAdReceivedReward;
 
+    [SerializeField] UnityEvent OnRewardedAdPayRevenue;
+
     private void Awake()
     {
         rvBtn = GetComponent<Button>();
@@ -40,6 +42,7 @@ public class RewardedAd : MonoBehaviour
             Yodo1U3dRewardAd.GetInstance().OnAdOpenFailedEvent += OnRewardAdOpenFailedEvent;
             Yodo1U3dRewardAd.GetInstance().OnAdClosedEvent += OnRewardAdClosedEvent;
             Yodo1U3dRewardAd.GetInstance().OnAdEarnedEvent += OnRewardAdEarnedEvent;
+            Yodo1U3dRewardAd.GetInstance().OnAdPayRevenueEvent += OnRewardAdPayRevenueEvent;
 
             if (string.IsNullOrEmpty(placementID))
             {
@@ -106,6 +109,7 @@ public class RewardedAd : MonoBehaviour
         Yodo1U3dRewardAd.GetInstance().OnAdOpenFailedEvent -= OnRewardAdOpenFailedEvent;
         Yodo1U3dRewardAd.GetInstance().OnAdClosedEvent -= OnRewardAdClosedEvent;
         Yodo1U3dRewardAd.GetInstance().OnAdEarnedEvent -= OnRewardAdEarnedEvent;
+        Yodo1U3dRewardAd.GetInstance().OnAdPayRevenueEvent -= OnRewardAdPayRevenueEvent;
 
         LoadAd();
     }
@@ -114,5 +118,11 @@ public class RewardedAd : MonoBehaviour
     {
         Debug.Log(Yodo1U3dMas.TAG + "NoCode Rewarded ad received reward");
         OnAdReceivedReward.Invoke();
+    }
+
+    private void OnRewardAdPayRevenueEvent(Yodo1U3dRewardAd ad, Yodo1U3dAdValue adValue)
+    {
+        Debug.Log(Yodo1U3dMas.TAG + "NoCode Rewarded ad pay revenue");
+        OnRewardedAdPayRevenue.Invoke();
     }
 }

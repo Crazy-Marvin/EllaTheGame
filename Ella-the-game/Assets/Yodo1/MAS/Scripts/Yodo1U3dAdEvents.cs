@@ -9,7 +9,8 @@
         AdLoadFail = 1004,
         AdOpenFail = 1005,
         AdOpening = 1006,
-        AdReward = 2001
+        AdReward = 2001,
+        AdPayRevenue = 2002
     }
 }
 

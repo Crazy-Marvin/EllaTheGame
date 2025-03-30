@@ -48,6 +48,7 @@ public class TemplateNativeAd : MonoBehaviour
     [Header("Native AD Events (optional) ")]
     [SerializeField] UnityEvent OnNativeAdLoaded;
     [SerializeField] UnityEvent OnNativeAdFailedToLoad;
+    [SerializeField] UnityEvent OnNativeAdPayRevenue;
 
     Yodo1U3dNativeAdView nativeAdView = null;
 
@@ -118,6 +119,7 @@ public class TemplateNativeAd : MonoBehaviour
         {
             nativeAdView.OnAdLoadedEvent += OnNativeAdLoadedEvent;
             nativeAdView.OnAdFailedToLoadEvent += OnNativeAdFailedToLoadEvent;
+            nativeAdView.OnAdPayRevenueEvent += OnNativeAdPayRevenueEvent;
 
             nativeAdView.Show();
         }
@@ -132,6 +134,7 @@ public class TemplateNativeAd : MonoBehaviour
         {
             nativeAdView.OnAdLoadedEvent -= OnNativeAdLoadedEvent;
             nativeAdView.OnAdFailedToLoadEvent -= OnNativeAdFailedToLoadEvent;
+            nativeAdView.OnAdPayRevenueEvent -= OnNativeAdPayRevenueEvent;
 
             nativeAdView.Hide();
         }
@@ -177,6 +180,7 @@ public class TemplateNativeAd : MonoBehaviour
         // Add Events
         nativeAdView.OnAdLoadedEvent += OnNativeAdLoadedEvent;
         nativeAdView.OnAdFailedToLoadEvent += OnNativeAdFailedToLoadEvent;
+        nativeAdView.OnAdPayRevenueEvent += OnNativeAdPayRevenueEvent;
 
         nativeAdView.LoadAd();
     }
@@ -224,5 +228,11 @@ public class TemplateNativeAd : MonoBehaviour
     {
         Debug.Log(Yodo1U3dMas.TAG + "Native ad failed to load with error code: " + adError.ToString());
         OnNativeAdFailedToLoad.Invoke();
+    }
+
+    private void OnNativeAdPayRevenueEvent(Yodo1U3dNativeAdView adView, Yodo1U3dAdValue adValue)
+    {
+        Debug.Log(Yodo1U3dMas.TAG + "Native ad pay revenue");
+        OnNativeAdPayRevenue.Invoke();
     }
 }

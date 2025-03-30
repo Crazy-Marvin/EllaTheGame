@@ -66,7 +66,7 @@ namespace UnityEditor.XCodeEditor
 				this.projectRootPath = Path.GetDirectoryName( filePath );
 				this.filePath = filePath;
 			} else {
-				Debug.Log( "Looking for xcodeproj files in " + filePath );
+				//Debug.Log( "Looking for xcodeproj files in " + filePath );
 				string[] projects = System.IO.Directory.GetDirectories( filePath, "*.xcodeproj" );
 				if( projects.Length == 0 ) {
 					Debug.LogWarning( "Error: missing xcodeproj file" );

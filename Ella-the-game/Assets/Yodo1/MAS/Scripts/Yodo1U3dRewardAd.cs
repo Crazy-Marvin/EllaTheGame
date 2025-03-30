@@ -7,24 +7,26 @@ namespace Yodo1.MAS
     public class Yodo1U3dRewardAd
     {
         private string adPlacement = string.Empty;
+        private string customData = string.Empty;
 
-        private Action<Yodo1U3dRewardAd> _onRewardAdLoadedEvent;
-        private Action<Yodo1U3dRewardAd, Yodo1U3dAdError> _onRewardAdLoadFailedEvent;
-        private Action<Yodo1U3dRewardAd> _onRewardAdOpeningEvent;
-        private Action<Yodo1U3dRewardAd> _onRewardAdOpenedEvent;
-        private Action<Yodo1U3dRewardAd, Yodo1U3dAdError> _onRewardAdOpenFailedEvent;
-        private Action<Yodo1U3dRewardAd> _onRewardAdClosedEvent;
-        private Action<Yodo1U3dRewardAd> _onRewardAdEarnedEvent;
+        private Action<Yodo1U3dRewardAd> _onAdLoadedEvent;
+        private Action<Yodo1U3dRewardAd, Yodo1U3dAdError> _onAdLoadFailedEvent;
+        private Action<Yodo1U3dRewardAd> _onAdOpeningEvent;
+        private Action<Yodo1U3dRewardAd> _onAdOpenedEvent;
+        private Action<Yodo1U3dRewardAd, Yodo1U3dAdError> _onAdOpenFailedEvent;
+        private Action<Yodo1U3dRewardAd> _onAdClosedEvent;
+        private Action<Yodo1U3dRewardAd> _onAdEarnedEvent;
+        private Action<Yodo1U3dRewardAd, Yodo1U3dAdValue> _onAdPayRevenueEvent;
 
         public event Action<Yodo1U3dRewardAd> OnAdLoadedEvent
         {
             add
             {
-                _onRewardAdLoadedEvent += value;
+                _onAdLoadedEvent += value;
             }
             remove
             {
-                _onRewardAdLoadedEvent -= value;
+                _onAdLoadedEvent -= value;
             }
         }
 
@@ -32,11 +34,11 @@ namespace Yodo1.MAS
         {
             add
             {
-                _onRewardAdLoadFailedEvent += value;
+                _onAdLoadFailedEvent += value;
             }
             remove
             {
-                _onRewardAdLoadFailedEvent -= value;
+                _onAdLoadFailedEvent -= value;
             }
         }
 
@@ -44,11 +46,11 @@ namespace Yodo1.MAS
         {
             add
             {
-                _onRewardAdOpeningEvent += value;
+                _onAdOpeningEvent += value;
             }
             remove
             {
-                _onRewardAdOpeningEvent -= value;
+                _onAdOpeningEvent -= value;
             }
         }
 
@@ -56,11 +58,11 @@ namespace Yodo1.MAS
         {
             add
             {
-                _onRewardAdOpenedEvent += value;
+                _onAdOpenedEvent += value;
             }
             remove
             {
-                _onRewardAdOpenedEvent -= value;
+                _onAdOpenedEvent -= value;
             }
         }
 
@@ -68,11 +70,11 @@ namespace Yodo1.MAS
         {
             add
             {
-                _onRewardAdOpenFailedEvent += value;
+                _onAdOpenFailedEvent += value;
             }
             remove
             {
-                _onRewardAdOpenFailedEvent -= value;
+                _onAdOpenFailedEvent -= value;
             }
         }
 
@@ -80,11 +82,11 @@ namespace Yodo1.MAS
         {
             add
             {
-                _onRewardAdClosedEvent += value;
+                _onAdClosedEvent += value;
             }
             remove
             {
-                _onRewardAdClosedEvent -= value;
+                _onAdClosedEvent -= value;
             }
         }
 
@@ -92,11 +94,23 @@ namespace Yodo1.MAS
         {
             add
             {
-                _onRewardAdEarnedEvent += value;
+                _onAdEarnedEvent += value;
             }
             remove
             {
-                _onRewardAdEarnedEvent -= value;
+                _onAdEarnedEvent -= value;
+            }
+        }
+
+        public event Action<Yodo1U3dRewardAd, Yodo1U3dAdValue> OnAdPayRevenueEvent
+        {
+            add
+            {
+                _onAdPayRevenueEvent += value;
+            }
+            remove
+            {
+                _onAdPayRevenueEvent -= value;
             }
         }
 
@@ -110,43 +124,46 @@ namespace Yodo1.MAS
             return HelperHolder.Helper;
         }
 
-        public static void CallbcksEvent(Yodo1U3dAdEvent adEvent, Yodo1U3dAdError adError)
+        public static void CallbcksEvent(Yodo1U3dAdEvent adEvent, Yodo1U3dAdError adError, Yodo1U3dAdValue adValue = null)
         {
-            Yodo1U3dRewardAd.GetInstance().Callbacks(adEvent, adError);
+            Yodo1U3dRewardAd.GetInstance().Callbacks(adEvent, adError, adValue);
         }
 
-        private void Callbacks(Yodo1U3dAdEvent adEvent, Yodo1U3dAdError adError)
+        private void Callbacks(Yodo1U3dAdEvent adEvent, Yodo1U3dAdError adError, Yodo1U3dAdValue adValue)
         {
             switch (adEvent)
             {
                 case Yodo1U3dAdEvent.AdLoaded:
-                    Yodo1U3dMasCallback.InvokeEvent(_onRewardAdLoadedEvent, this);
+                    Yodo1U3dMasCallback.InvokeEvent(_onAdLoadedEvent, this);
                     break;
                 case Yodo1U3dAdEvent.AdLoadFail:
-                    Yodo1U3dMasCallback.InvokeEvent(_onRewardAdLoadFailedEvent, this, adError);
+                    Yodo1U3dMasCallback.InvokeEvent(_onAdLoadFailedEvent, this, adError);
                     break;
                 case Yodo1U3dAdEvent.AdOpening:
-                    Yodo1U3dMasCallback.InvokeEvent(_onRewardAdOpeningEvent, this);
+                    Yodo1U3dMasCallback.InvokeEvent(_onAdOpeningEvent, this);
                     break;
                 case Yodo1U3dAdEvent.AdOpened:
                     Yodo1U3dMasCallback.Instance.Pause();
-                    Yodo1U3dMasCallback.InvokeEvent(_onRewardAdOpenedEvent, this);
+                    Yodo1U3dMasCallback.InvokeEvent(_onAdOpenedEvent, this);
                     break;
                 case Yodo1U3dAdEvent.AdOpenFail:
                     Yodo1U3dMasCallback.Instance.UnPause();
-                    Yodo1U3dMasCallback.InvokeEvent(_onRewardAdOpenFailedEvent, this, adError);
+                    Yodo1U3dMasCallback.InvokeEvent(_onAdOpenFailedEvent, this, adError);
                     break;
                 case Yodo1U3dAdEvent.AdClosed:
                     Yodo1U3dMasCallback.Instance.UnPause();
-                    Yodo1U3dMasCallback.InvokeEvent(_onRewardAdClosedEvent, this);
+                    Yodo1U3dMasCallback.InvokeEvent(_onAdClosedEvent, this);
                     break;
                 case Yodo1U3dAdEvent.AdReward:
-                    Yodo1U3dMasCallback.InvokeEvent(_onRewardAdEarnedEvent, this);
+                    Yodo1U3dMasCallback.InvokeEvent(_onAdEarnedEvent, this);
+                    break;
+                case Yodo1U3dAdEvent.AdPayRevenue:
+                    Yodo1U3dMasCallback.InvokeEvent(_onAdPayRevenueEvent, this, adValue);
                     break;
             }
         }
 
-        public bool autoDelayIfLoadFail = false;
+        public bool autoDelayIfLoadFail = true;
 
         /// <summary>
         /// The default `Yodo1U3dRewardAd` constructor
@@ -193,6 +210,7 @@ namespace Yodo1.MAS
 #endif
         }
 
+        [System.Obsolete("", true)]
         private void SetAdPlacement(string adPlacement)
         {
             this.adPlacement = adPlacement;
@@ -218,20 +236,19 @@ namespace Yodo1.MAS
         /// </summary>
         public void ShowAd()
         {
-            handleOpningEvent();
-            this.adPlacement = string.Empty;
-#if UNITY_EDITOR
-            Yodo1EditorAds.ShowRewardedVideodsInEditor();
-#endif
-#if !UNITY_EDITOR
-            RewardV2("showRewardAdV2");
-#endif
+            ShowAd(string.Empty, string.Empty);
         }
 
         public void ShowAd(string placement)
         {
-            handleOpningEvent();
+            ShowAd(placement, string.Empty);
+        }
+
+        public void ShowAd(string placement, string customData)
+        {
+            HandleOpeningEvent();
             this.adPlacement = placement;
+            this.customData = customData;
 #if UNITY_EDITOR
             Yodo1EditorAds.ShowRewardedVideodsInEditor();
 #endif
@@ -240,7 +257,7 @@ namespace Yodo1.MAS
 #endif
         }
 
-        private void handleOpningEvent()
+        private void HandleOpeningEvent()
         {
             if (IsLoaded())
             {
@@ -251,8 +268,32 @@ namespace Yodo1.MAS
         public string ToJsonString()
         {
             Dictionary<string, object> dic = new Dictionary<string, object>();
-            dic.Add("adPlacement", this.adPlacement);
+            if (string.IsNullOrEmpty(this.adPlacement))
+            {
+                dic.Add("adPlacement", "");
+            }
+            else
+            {
+                dic.Add("adPlacement", this.adPlacement);
+            }
+
+            if (string.IsNullOrEmpty(this.customData))
+            {
+                dic.Add("customData", "");
+            }
+            else
+            {
+                dic.Add("customData", this.customData);
+            }
             dic.Add("autoDelayIfLoadFail", this.autoDelayIfLoadFail);
+            if (_onAdPayRevenueEvent == null)
+            {
+                dic.Add("payRevenueEventCount", 0);
+            }
+            else
+            {
+                dic.Add("payRevenueEventCount", _onAdPayRevenueEvent.GetInvocationList().Length);
+            }
             return Yodo1JSON.Serialize(dic);
         }
     }

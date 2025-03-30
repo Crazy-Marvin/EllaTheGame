@@ -12,10 +12,10 @@ namespace Yodo1.MAS
         public const int SystemLow = -1;
     }
 
-    public class Yodo1U3dInitializeInfo
+    public enum Yodo1MasPersonalizedAdState
     {
-        public const int UserAge = 1;
-        public const int AttrackingStatus = 2;
+        PersonalizedAdOn = 0,
+        PersonalizedAdOff = 1,
     }
 
     public class Yodo1U3dMas
@@ -24,12 +24,12 @@ namespace Yodo1.MAS
 
         private static Yodo1AdBuildConfig adBuildConfig = null;
 
+        #region Delegates - Obsolete
+
         public delegate void InitializeDelegate(bool success, Yodo1U3dAdError error);
         [System.Obsolete("Please use `Yodo1U3dMasCallback.OnSdkInitializedEvent` instead.\n" +
             "Yodo1U3dMasCallback.OnSdkInitializedEvent += (success, error) => { };", true)]
         public static void SetInitializeDelegate(InitializeDelegate initializeDelegate) { }
-
-        #region Ad Delegates
 
         //InterstitialAd of delegate
         public delegate void InterstitialAdDelegate(Yodo1U3dAdEvent adEvent, Yodo1U3dAdError adError);
@@ -55,11 +55,15 @@ namespace Yodo1.MAS
 
         #endregion
 
+        #region Initialize - Obsolete
+
         /// <summary>
         /// Initialize the default instance of Yodo1 MAS SDK.
         /// </summary>
         [Obsolete("Please use Yodo1U3dMas.InitializeMasSdk()", true)]
         public static void InitializeSdk() { }
+
+        #endregion
 
         /// <summary>
         /// Initialize the default instance of Yodo1 MAS SDK.
@@ -71,14 +75,14 @@ namespace Yodo1.MAS
                 Yodo1AdBuildConfig buildConfig = new Yodo1AdBuildConfig();
                 SetAdBuildConfig(buildConfig);
             }
-            string appKey = _InitializeSdk();
+            string appKey = InitializeSdkAndInstantiatePrefab();
             if (appKey != null)
             {
                 Yodo1U3dMas.InitMasWithAppKey(appKey);
             }
         }
 
-        private static string _InitializeSdk()
+        private static string InitializeSdkAndInstantiatePrefab()
         {
             if (Yodo1U3dMasCallback.isInitialized())
             {
@@ -170,7 +174,46 @@ namespace Yodo1.MAS
             }
         }
 
-        #region Privacy Methods
+        public static Yodo1MasSdkConfiguration GetSdkConfiguration()
+        {
+            return Yodo1U3dMasCallback.GetSdkConfiguration();
+        }
+
+        public static void ShowUmpForExistingUser()
+        {
+            if (Application.platform == RuntimePlatform.IPhonePlayer)
+            {
+#if UNITY_IPHONE
+                Yodo1U3dAdsIOS.ShowUmpForExistingUser();
+#endif
+            }
+            else if (Application.platform == RuntimePlatform.Android)
+            {
+#if UNITY_ANDROID
+                Yodo1U3dAdsAndroid.ShowUmpForExistingUser();
+#endif
+            }
+        }
+
+        public static string GetIABTCFString(string key)
+        {
+            string ret = "";
+            if (Application.platform == RuntimePlatform.IPhonePlayer)
+            {
+#if UNITY_IPHONE
+                ret = Yodo1U3dAdsIOS.GetIABTCFString(key);
+#endif
+            }
+            else if (Application.platform == RuntimePlatform.Android)
+            {
+#if UNITY_ANDROID
+                ret = Yodo1U3dAdsAndroid.GetIABTCFString(key);
+#endif
+            }
+            return ret;
+        }
+
+        #region Legal Frameworks Methods
         /// <summary>
         /// MAS SDK requires that publishers set a flag indicating whether a user located in the European Economic Area (i.e., EEA/GDPR data subject) has provided opt-in consent for the collection and use of personal data.
         /// If the user has consented, please set the flag to true. If the user has not consented, please set the flag to false.
@@ -306,22 +349,86 @@ namespace Yodo1.MAS
         /// This method must be called before InitializeSdk method.
         /// </summary>
         /// <param name="disablePersonal"></param>
+        [Obsolete("Please use Yodo1U3dMas.SetPersonalizedAdState instead", true)]
         public static void SetPersonalizedState(bool disablePersonal)
+        {
+            Yodo1MasPersonalizedAdState personalizedAdState = disablePersonal ? Yodo1MasPersonalizedAdState.PersonalizedAdOff : Yodo1MasPersonalizedAdState.PersonalizedAdOn;
+            SetPersonalizedAdState(personalizedAdState);
+        }
+
+        /// <summary>
+        /// According to Chinese data protection laws, testimonial advertising and commercial marketing to Chinese users through automated decision-making methods should be accompanied by options that do not target their personal characteristics or provide Chinese users with a way to reject them.
+        /// Based on the above requirements, You must set the user's choice through the 'SetPersonalizedAdState' API,
+        /// through which you will send MAS information about that user has refused to the option based on his personal characteristics through automated decision-making.
+        /// If set to 'PersonalizedAdOff', MAS will no longer provide the user with personalized information based on its persistent identifiers. The default is PersonalizedAdOn
+        ///
+        /// This method must be called before InitializeSdk method.
+        /// </summary>
+        /// <param name="personalizedAdState"></param>
+        public static void SetPersonalizedAdState(Yodo1MasPersonalizedAdState personalizedAdState)
         {
             if (Application.platform == RuntimePlatform.IPhonePlayer)
             {
 #if UNITY_IPHONE
-
+                Yodo1U3dAdsIOS.SetPersonalizedAdState(personalizedAdState);
 #endif
             }
             else if (Application.platform == RuntimePlatform.Android)
             {
 #if UNITY_ANDROID
-                Yodo1U3dAdsAndroid.SetPersonalizedState(disablePersonal);
+                Yodo1U3dAdsAndroid.SetPersonalizedAdState(personalizedAdState);
 #endif
             }
         }
+
+
         #endregion
+
+        public static string GetUserIdentifier()
+        {
+            string userIdentifier = string.Empty;
+
+            if (Application.platform == RuntimePlatform.IPhonePlayer)
+            {
+#if UNITY_IPHONE
+                userIdentifier = Yodo1U3dAdsIOS.GetUserIdentifier();
+#endif
+            }
+            else if (Application.platform == RuntimePlatform.Android)
+            {
+#if UNITY_ANDROID
+                userIdentifier = Yodo1U3dAdsAndroid.GetUserIdentifier();
+#endif
+            }
+            return userIdentifier;
+        }
+
+        /// <summary>
+        /// An identifier for the current user. This identifier will be tied to SDK events and MAS's optional S2S postbacks.
+        ///
+        /// If you use reward validation, you can optionally set an identifier that MAS will include with its currency validation postbacks (for example, a username
+        /// or email address). MAS will include this in the postback when MAS pings your currency endpoint from our server.
+        ///
+        /// Maximum size is 8KB.
+        ///
+        /// </summary>
+        /// <param name="userIdentifier">An identifier for the current user</param>
+        /// <returns></returns>
+        public static void SetUserIdentifier(string userIdentifier)
+        {
+            if (Application.platform == RuntimePlatform.IPhonePlayer)
+            {
+#if UNITY_IPHONE
+                Yodo1U3dAdsIOS.SetUserIdentifier(userIdentifier);
+#endif
+            }
+            else if (Application.platform == RuntimePlatform.Android)
+            {
+#if UNITY_ANDROID
+                Yodo1U3dAdsAndroid.SetUserIdentifier(userIdentifier);
+#endif
+            }
+        }
 
         public static int GetUserAge()
         {
@@ -400,7 +507,7 @@ namespace Yodo1.MAS
             Yodo1U3dMasCallback.SetAutoPauseGame(autoPauseGame);
         }
 
-        #region Banner Ad Methods
+        #region Banner Ad Methods - Obsolete
         /// <summary>
         /// Whether the banner ads have been loaded.
         /// </summary>
@@ -476,7 +583,7 @@ namespace Yodo1.MAS
 
         #endregion
 
-        #region Interstitial Ad Methods
+        #region Interstitial Ad Methods - Obsolete
         /// <summary>
         /// Whether the interstitial ads have been loaded.
         /// </summary>
@@ -504,7 +611,7 @@ namespace Yodo1.MAS
 
         #endregion
 
-        #region Rewarded Ad Methods
+        #region Rewarded Ad Methods - Obsolete
         /// <summary>
         /// Whether the reward video ads have been loaded.
         /// </summary>

@@ -42,6 +42,7 @@ public class Banner : MonoBehaviour
     [SerializeField] UnityEvent OnBannerOpen;
     [SerializeField] UnityEvent OnBannerFailToOpen;
     [SerializeField] UnityEvent OnBannerClosed;
+    [SerializeField] UnityEvent OnBannerPayRevenue;
 
     Yodo1U3dBannerAdView bannerAdView = null;
 
@@ -115,6 +116,7 @@ public class Banner : MonoBehaviour
             bannerAdView.OnAdOpenedEvent += OnBannerAdOpenedEvent;
             bannerAdView.OnAdFailedToOpenEvent += OnBannerAdFailedToOpenEvent;
             bannerAdView.OnAdClosedEvent += OnBannerAdClosedEvent;
+            bannerAdView.OnAdPayRevenueEvent += OnBannerAdPayRevenueEvent;
 
             bannerAdView.Show();
         }
@@ -132,6 +134,7 @@ public class Banner : MonoBehaviour
             bannerAdView.OnAdOpenedEvent -= OnBannerAdOpenedEvent;
             bannerAdView.OnAdFailedToOpenEvent -= OnBannerAdFailedToOpenEvent;
             bannerAdView.OnAdClosedEvent -= OnBannerAdClosedEvent;
+            bannerAdView.OnAdPayRevenueEvent -= OnBannerAdPayRevenueEvent;
 
             bannerAdView.Hide();
         }
@@ -172,7 +175,7 @@ public class Banner : MonoBehaviour
         bannerAdView.OnAdOpenedEvent += OnBannerAdOpenedEvent;
         bannerAdView.OnAdFailedToOpenEvent += OnBannerAdFailedToOpenEvent;
         bannerAdView.OnAdClosedEvent += OnBannerAdClosedEvent;
-
+        bannerAdView.OnAdPayRevenueEvent += OnBannerAdPayRevenueEvent;
 
         bannerAdView.LoadAd();
     }
@@ -237,5 +240,11 @@ public class Banner : MonoBehaviour
     {
         Debug.Log(Yodo1U3dMas.TAG + "NoCode BannerV2 ad closed");
         OnBannerClosed.Invoke();
+    }
+
+    private void OnBannerAdPayRevenueEvent(Yodo1U3dBannerAdView adView, Yodo1U3dAdValue adValue)
+    {
+        Debug.Log(Yodo1U3dMas.TAG + "NoCode BannerV2 ad pay revenue");
+        OnBannerPayRevenue.Invoke();
     }
 }

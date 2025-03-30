@@ -14,6 +14,7 @@ public class InterstitialAtBreaks : MonoBehaviour
     [SerializeField] UnityEvent OnInterstitialAdOpened;
     [SerializeField] UnityEvent OnInterstitialAdOpenFailed;
     [SerializeField] UnityEvent OnInterstitialAdClosed;
+    [SerializeField] UnityEvent OnInterstitialAdPayRevenue;
 
     private void OnEnable()
     {
@@ -22,6 +23,7 @@ public class InterstitialAtBreaks : MonoBehaviour
         Yodo1U3dInterstitialAd.GetInstance().OnAdOpenedEvent += OnInterstitialAdOpenedEvent;
         Yodo1U3dInterstitialAd.GetInstance().OnAdOpenFailedEvent += OnInterstitialAdOpenFailedEvent;
         Yodo1U3dInterstitialAd.GetInstance().OnAdClosedEvent += OnInterstitialAdClosedEvent;
+        Yodo1U3dInterstitialAd.GetInstance().OnAdPayRevenueEvent += OnInterstitialAdPayRevenueEvent;
 
         ShowAd();
     }
@@ -33,6 +35,7 @@ public class InterstitialAtBreaks : MonoBehaviour
         Yodo1U3dInterstitialAd.GetInstance().OnAdOpenedEvent -= OnInterstitialAdOpenedEvent;
         Yodo1U3dInterstitialAd.GetInstance().OnAdOpenFailedEvent -= OnInterstitialAdOpenFailedEvent;
         Yodo1U3dInterstitialAd.GetInstance().OnAdClosedEvent -= OnInterstitialAdClosedEvent;
+        Yodo1U3dInterstitialAd.GetInstance().OnAdPayRevenueEvent -= OnInterstitialAdPayRevenueEvent;
     }
 
     private void LoadAd()
@@ -99,5 +102,11 @@ public class InterstitialAtBreaks : MonoBehaviour
         OnInterstitialAdClosed.Invoke();
         LoadAd();
         gameObject.SetActive(false);
+    }
+
+    private void OnInterstitialAdPayRevenueEvent(Yodo1U3dInterstitialAd ad, Yodo1U3dAdValue adValue)
+    {
+        Debug.Log(Yodo1U3dMas.TAG + "NoCode Interstitial ad pay revenue - AdBreaks");
+        OnInterstitialAdPayRevenue.Invoke();
     }
 }

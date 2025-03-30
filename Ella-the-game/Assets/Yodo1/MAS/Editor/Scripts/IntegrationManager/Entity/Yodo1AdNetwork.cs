@@ -19,6 +19,7 @@ namespace Yodo1.MAS
         public string admanagerAdapterDependency;
         public string applovinAdapterDependency;
         public string ironsourceAdapterDependency;
+        public string tobidAdapterDependency;
 
     }
 }

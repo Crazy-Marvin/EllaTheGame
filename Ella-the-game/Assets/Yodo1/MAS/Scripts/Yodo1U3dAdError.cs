@@ -1,36 +1,13 @@
-﻿using System.Collections.Generic;
-
-namespace Yodo1.MAS
+﻿namespace Yodo1.MAS
 {
+    using System.Collections.Generic;
+
     public class Yodo1U3dAdError
     {
-        private int code;
-        public int Code
-        {
-            get
-            {
-                return code;
-            }
-            set
-            {
-                code = value;
-            }
-        }
+        public int Code { get; private set; }
+        public string Message { get; set; }
 
-        private string message;
-        public string Message
-        {
-            get
-            {
-                return message;
-            }
-            set
-            {
-                message = value;
-            }
-        }
-
-        public static Yodo1U3dAdError createWithJson(string errorJsonString)
+        public static Yodo1U3dAdError CreateWithJson(string errorJsonString)
         {
             Yodo1U3dAdError error = new Yodo1U3dAdError();
             Dictionary<string, object> errorDic = (Dictionary<string, object>)Yodo1JSON.Deserialize(errorJsonString);

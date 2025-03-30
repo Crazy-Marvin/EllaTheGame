@@ -23,12 +23,12 @@ namespace Yodo1.MAS
             UpdateAndroidManifest(path);
             UpdateGradleProperties(path);
 
-            //if (Yodo1AdUtils.IsAppLovinValid())
+            //if (Yodo1AdUtils.IsAppLovinValid(Yodo1PlatfromTarget.Android))
             //{
             //    AddAdReview(path);
             //}
 
-#if UNITY_2022_2_OR_NEWER
+#if UNITY_2021_3_OR_NEWER || UNITY_2022_2_OR_NEWER
             var rootSettingsGradleFilePath = Path.Combine(path, "../settings.gradle");
             AddMasRepository(rootSettingsGradleFilePath);
 #endif
@@ -43,7 +43,7 @@ namespace Yodo1.MAS
             // On Unity 2019.3+, the path returned is the path to the unityLibrary's module.
             // The AppLovin Quality Service buildscript closure related lines need to be added to the root build.gradle file.
             var rootGradleBuildFilePath = Path.Combine(path, "../build.gradle");
-#if UNITY_2022_2_OR_NEWER
+#if UNITY_2021_3_OR_NEWER || UNITY_2022_2_OR_NEWER
             if (!AddPluginToRootGradleBuildFile(rootGradleBuildFilePath)) return;
 
             var rootSettingsGradleFilePath = Path.Combine(path, "../settings.gradle");
@@ -71,7 +71,7 @@ namespace Yodo1.MAS
             AddAppLovinQualityServicePlugin(applicationGradleBuildFilePath);
         }
 
-#region Android Manifest
+        #region Android Manifest
 
         static void UpdateAndroidManifest(string path)
         {
@@ -156,7 +156,7 @@ namespace Yodo1.MAS
 
             //Add AdMob App ID
             string admobAppIdValue = settings.androidSettings.AdmobAppID.Trim();
-            if (Yodo1AdUtils.IsAdMobValid())
+            if (Yodo1AdUtils.IsAdMobValid(Yodo1PlatfromTarget.Android))
             {
                 if (string.IsNullOrEmpty(admobAppIdValue))
                 {
@@ -218,9 +218,9 @@ namespace Yodo1.MAS
             return metaElement;
         }
 
-#endregion
+        #endregion
 
-#region Gradle Properties
+        #region Gradle Properties
 
         private static string GetProjectPropertiesPath(string path)
         {
@@ -281,9 +281,9 @@ namespace Yodo1.MAS
             }
         }
 
-#endregion
+        #endregion
 
-#region Gradle
+        #region Gradle
 
         private static string GetProjectGradlePath(string path)
         {
@@ -416,12 +416,12 @@ namespace Yodo1.MAS
             }
         }
 
-#endregion
+        #endregion
 
         private static int GetTargetSdkVersion(string projectGradlePath)
         {
             int targetSdkVersion = (int)PlayerSettings.Android.targetSdkVersion;
-            Debug.Log(Yodo1U3dMas.TAG + "PlayerSettings.Android.targetSdkVersion: " + targetSdkVersion);
+            //Debug.Log(Yodo1U3dMas.TAG + "PlayerSettings.Android.targetSdkVersion: " + targetSdkVersion);
             if (targetSdkVersion > 0)
             {
                 return targetSdkVersion;

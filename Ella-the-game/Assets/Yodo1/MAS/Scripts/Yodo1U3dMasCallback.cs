@@ -11,6 +11,7 @@
         private const int FLAG_INITIALIZE = 0;
         private const int FLAG_AD_EVENT = 1;
         private const int FLAG_APP_EVENT = 2;
+        private const int FLAG_UMP_EVENT = 3;
 
         private const int EVENT_INITIALIZE_FAILURE = 0;
         private const int EVENT_INITIALIZE_SUCCESS = 1;
@@ -18,6 +19,7 @@
         private const int EVENT_APP_FOREGROUND = 1;
 
         static bool _initialized = false;
+        static Yodo1MasSdkConfiguration configuration = null;
 
         public enum AdType
         {
@@ -50,6 +52,11 @@
         public static bool isInitialized()
         {
             return _initialized;
+        }
+
+        public static Yodo1MasSdkConfiguration GetSdkConfiguration()
+        {
+            return configuration;
         }
 
         private static bool CanInvokeEvent(System.Delegate evt)
@@ -98,6 +105,20 @@
             }
         }
 
+        private static System.Action<Yodo1MasSdkConfiguration, Yodo1U3dAdError> _onSdkInitializationEvent;
+        public static event System.Action<Yodo1MasSdkConfiguration, Yodo1U3dAdError> OnSdkInitializationEvent
+        {
+            add
+            {
+                _onSdkInitializationEvent += value;
+            }
+            remove
+            {
+                _onSdkInitializationEvent -= value;
+            }
+        }
+
+
         private static System.Action _onAppEnterForegroundEvent;
         public static event System.Action OnAppEnterForegroundEvent
         {
@@ -110,6 +131,21 @@
                 _onAppEnterForegroundEvent -= value;
             }
         }
+
+        private static System.Action<Yodo1U3dAdError> _onUmpCompletionEvent;
+        public static event System.Action<Yodo1U3dAdError> OnUmpCompletionEvent
+        {
+            add
+            {
+                _onUmpCompletionEvent += value;
+            }
+            remove
+            {
+                _onUmpCompletionEvent -= value;
+            }
+        }
+
+        #region Obsoleted Ad Delegates
 
         private static System.Action _onBannerAdOpenedEvent;
         private static System.Action<Yodo1U3dAdError> _onBannerAdErrorEvent;
@@ -278,6 +314,8 @@
             }
         }
 
+        #endregion
+
         public void Awake()
         {
             if (Instance == null)
@@ -297,7 +335,11 @@
         }
         void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
+#if UNITY_2023_2_OR_NEWER
+            EventSystem sceneEventSystem = FindFirstObjectByType<EventSystem>();
+#else
             EventSystem sceneEventSystem = FindObjectOfType<EventSystem>();
+#endif
             if (GameObject.Find("Yodo1AdCanvas") == null)
             {
                 Yodo1EditorAds.AdHolder = Instantiate(Resources.Load("SampleAds/AdHolder") as GameObject);
@@ -391,9 +433,13 @@
                 {
                     success = int.Parse(dataDic["success"].ToString()) == EVENT_INITIALIZE_SUCCESS;
                 }
+                if (dataDic.ContainsKey("configuration"))
+                {
+                    configuration = Yodo1MasSdkConfiguration.CreateWithJson(dataDic["configuration"].ToString());
+                }
                 if (dataDic.ContainsKey("error"))
                 {
-                    error = Yodo1U3dAdError.createWithJson(dataDic["error"].ToString());
+                    error = Yodo1U3dAdError.CreateWithJson(dataDic["error"].ToString());
                 }
                 else
                 {
@@ -401,7 +447,14 @@
                 }
 
                 _initialized = success;
-                InvokeEvent(_onSdkInitializedEvent, success, error);
+                if (_onSdkInitializedEvent != null && _onSdkInitializedEvent.GetInvocationList().Length > 0)
+                {
+                    InvokeEvent(_onSdkInitializedEvent, success, error);
+                }
+                if (_onSdkInitializationEvent != null && _onSdkInitializationEvent.GetInvocationList().Length > 0)
+                {
+                    InvokeEvent(_onSdkInitializationEvent, configuration, error);
+                }
             }
             else if (flag == FLAG_AD_EVENT)
             {
@@ -427,11 +480,13 @@
                 Yodo1U3dAdError adError = null;
                 if (dataDic.ContainsKey("error"))
                 {
-                    adError = Yodo1U3dAdError.createWithJson(Yodo1JSON.Serialize(dataDic["error"]));
+                    adError = Yodo1U3dAdError.CreateWithJson(Yodo1JSON.Serialize(dataDic["error"]));
                 }
-                else
+
+                Yodo1U3dAdValue adValue = null;
+                if (dataDic.ContainsKey("adValue"))
                 {
-                    adError = new Yodo1U3dAdError();
+                    adValue = Yodo1U3dAdValue.CreateWithJson(Yodo1JSON.Serialize(dataDic["adValue"]));
                 }
 
                 string indexId = string.Empty;
@@ -444,32 +499,32 @@
                 {
                     case AdType.Rewarded:
                         {
-                            Yodo1U3dRewardAd.CallbcksEvent(adEvent, adError);
+                            Yodo1U3dRewardAd.CallbcksEvent(adEvent, adError, adValue);
                         }
                         break;
                     case AdType.Interstitial:
                         {
-                            Yodo1U3dInterstitialAd.CallbcksEvent(adEvent, adError);
+                            Yodo1U3dInterstitialAd.CallbcksEvent(adEvent, adError, adValue);
                         }
                         break;
                     case AdType.Banner:
                         {
-                            Yodo1U3dBannerAdView.CallbcksEvent(adEvent, adError, indexId);
+                            Yodo1U3dBannerAdView.CallbcksEvent(adEvent, adError, indexId, adValue);
                         }
                         break;
                     case AdType.Native:
                         {
-                            Yodo1U3dNativeAdView.CallbcksEvent(adEvent, adError, indexId);
+                            Yodo1U3dNativeAdView.CallbcksEvent(adEvent, adError, indexId, adValue);
                         }
                         break;
                     case AdType.RewardedInterstitial:
                         {
-                            Yodo1U3dRewardedInterstitialAd.CallbcksEvent(adEvent, adError);
+                            Yodo1U3dRewardedInterstitialAd.CallbcksEvent(adEvent, adError, adValue);
                         }
                         break;
                     case AdType.AppOpen:
                         {
-                            Yodo1U3dAppOpenAd.CallbcksEvent(adEvent, adError);
+                            Yodo1U3dAppOpenAd.CallbcksEvent(adEvent, adError, adValue);
                         }
                         break;
                     default:
@@ -486,6 +541,15 @@
                         InvokeEvent(_onAppEnterForegroundEvent);
                     }
                 }
+            }
+            else if (flag == FLAG_UMP_EVENT)
+            {
+                Yodo1U3dAdError error = null;
+                if (dataDic.ContainsKey("error"))
+                {
+                    error = Yodo1U3dAdError.CreateWithJson(dataDic["error"].ToString());
+                }
+                InvokeEvent(_onUmpCompletionEvent, error);
             }
         }
 

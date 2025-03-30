@@ -26,16 +26,22 @@ extern "C" {
 
 #endif
 
-NSString* Yodo1MasCreateNSString(const char* string)
+NSString* Yodo1MasConvertCharToNSString(const char* string)
 {
     return string ? [NSString stringWithUTF8String:string] : [NSString stringWithUTF8String:""];
 }
 
-char* Yodo1MasMakeStringCopy(const char* string)
+char* Yodo1MasConvertNSStringToChar(NSString* string)
 {
-    if (string == NULL)
+    if (string == nil) {
+        string = @"";
+    }
+    
+    const char * cString = [string cStringUsingEncoding:NSUTF8StringEncoding];
+    
+    if (cString == NULL)
         return NULL;
-    char* res = (char*)malloc(strlen(string) + 1);
-    strcpy(res, string);
+    char* res = (char*)malloc(strlen(cString) + 1);
+    strcpy(res, cString);
     return res;
 }

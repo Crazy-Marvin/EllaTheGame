@@ -23,13 +23,13 @@
         [MenuItem("Yodo1/MAS/MAS Settings/Android Settings")]
         public static void AndroidSettings()
         {
-            Yodo1AdWindows.Initialize(Yodo1AdWindows.PlatfromTab.Android);
+            Yodo1AdWindows.Initialize(Yodo1PlatfromTarget.Android);
         }
 
         [MenuItem("Yodo1/MAS/MAS Settings/iOS Settings")]
         public static void IOSSettings()
         {
-            Yodo1AdWindows.Initialize(Yodo1AdWindows.PlatfromTab.iOS);
+            Yodo1AdWindows.Initialize(Yodo1PlatfromTarget.iOS);
         }
 
 

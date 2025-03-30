@@ -7,7 +7,12 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
+#if __has_include(<Yodo1MasCore/Yodo1MasAppOpenAd.h>)
+#import <Yodo1MasCore/Yodo1MasAppOpenAd.h>
+#else
 #import "Yodo1MasAppOpenAd.h"
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,7 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (Yodo1MasBridgeAppOpenAdConfig *)parse:(id)json;
 
 @property (nonatomic, copy) NSString *adPlacement;
+@property (nonatomic, copy) NSString *customData;
 @property (nonatomic, assign) BOOL autoDelayIfLoadFail;
+@property (nonatomic, assign) int payRevenueEventCount;
 
 @end
 

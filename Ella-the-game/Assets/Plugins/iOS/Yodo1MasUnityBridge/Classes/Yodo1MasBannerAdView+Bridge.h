@@ -7,7 +7,12 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
+#if __has_include(<Yodo1MasCore/Yodo1MasBannerAdView.h>)
+#import <Yodo1MasCore/Yodo1MasBannerAdView.h>
+#else
 #import "Yodo1MasBannerAdView.h"
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,8 +24,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) Yodo1MasAdBannerAlign adPosition;
 @property (nonatomic, assign) CGPoint customPosition;
 @property (nonatomic, copy) NSString *adPlacement;
+@property (nonatomic, copy) NSString *customData;
 @property (nonatomic, copy) NSString *indexId;
 @property (nonatomic, copy) NSString *backgroundColor;
+
+@property (nonatomic, assign) int payRevenueEventCount;
 
 @end
 

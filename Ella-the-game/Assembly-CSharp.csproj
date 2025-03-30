@@ -54,7 +54,7 @@
     <UnityVersion>2022.3.12f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="/Applications/Visual Studio.app/Contents/MonoBundle/Addins/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="/Applications/Unity/Hub/Editor/2022.3.12f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll" />
     <Analyzer Include="/Applications/Unity/Hub/Editor/2022.3.12f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
@@ -63,6 +63,7 @@
     <Compile Include="Assets/Yodo1/MAS/NoCode/Scripts/AppOpenSampleAds.cs" />
     <Compile Include="Assets/Anima2D/Examples/Scripts/SkinnedMeshCombiner.cs" />
     <Compile Include="Assets/Yodo1/MAS/Scripts/Yodo1U3dRewardAd.cs" />
+    <Compile Include="Assets/Yodo1/MAS/Scripts/Yodo1U3dAdUtils.cs" />
     <Compile Include="Assets/Scripts/SimpleJSONBinary.cs" />
     <Compile Include="Assets/Yodo1/MAS/Scripts/Yodo1U3dInterstitialAd.cs" />
     <Compile Include="Assets/Scripts/CowboyObstacle.cs" />
@@ -96,6 +97,7 @@
     <Compile Include="Assets/JMO Assets/Cartoon FX/Demo/Assets/CFX_Demo_RandomDir.cs" />
     <Compile Include="Assets/Scripts/TranslationAgent.cs" />
     <Compile Include="Assets/Scripts/BoxerObstacle.cs" />
+    <Compile Include="Assets/Yodo1/MAS/Scripts/Yodo1U3dAdValue.cs" />
     <Compile Include="Assets/JMO Assets/Cartoon FX/Demo/Assets/CFX_Demo_RandomDirectionTranslate.cs" />
     <Compile Include="Assets/Yodo1/MAS/NoCode/Scripts/ConditionalHideAttribute.cs" />
     <Compile Include="Assets/Yodo1/MAS/Scripts/Entity/Yodo1AdDynamicNetworkSettings.cs" />
@@ -135,6 +137,7 @@
     <Compile Include="Assets/Yodo1/MAS/NoCode/Scripts/InterstitialAtButton.cs" />
     <Compile Include="Assets/JMO Assets/Cartoon FX/Scripts/CFX_LightFlicker.cs" />
     <Compile Include="Assets/Yodo1/MAS/NoCode/Scripts/NativeAdButtonEditorAction.cs" />
+    <Compile Include="Assets/Yodo1/MAS/Scripts/Entity/Yodo1MasSdkConfiguration.cs" />
     <Compile Include="Assets/Scripts/Prizes.cs" />
     <Compile Include="Assets/JMO Assets/Cartoon FX/Demo/Assets/CFX_AutoStopLoopedEffect.cs" />
     <Compile Include="Assets/Yodo1/MAS/Scripts/Yodo1U3dAdError.cs" />
@@ -201,9 +204,9 @@
     <Compile Include="Assets/Scripts/AchievementsRecorder.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets/GooglePlayGames/com.google.play.games/Proguard/games.txt" />
     <None Include="Assets/JMO Assets/Cartoon FX/Shaders/CFX3 Multiply Color.shader" />
     <None Include="Assets/JMO Assets/Cartoon FX/Shaders/CFX4 Particle AlphaBlend+Add.shader" />
-    <None Include="Assets/GooglePlayGames/com.google.play.games/Proguard/games.txt" />
     <None Include="Assets/JMO Assets/Cartoon FX/Shaders/CFX2 Particle Alpha Blend Add.shader" />
     <None Include="Assets/JMO Assets/Cartoon FX/CartoonFX2 Readme.txt" />
     <None Include="Assets/JMO Assets/Shape FX/Shaders/CbFX Particle AddSoft.shader" />

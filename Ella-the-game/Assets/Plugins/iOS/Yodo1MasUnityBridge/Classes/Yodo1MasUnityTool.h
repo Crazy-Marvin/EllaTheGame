@@ -17,8 +17,8 @@ extern "C" {
 #else
     extern void UnityPause(int pause);
 #endif
-    extern NSString* Yodo1MasCreateNSString(const char* string);
-    extern char* Yodo1MasMakeStringCopy(const char* string);
+    extern NSString* Yodo1MasConvertCharToNSString(const char* string);
+    extern char* Yodo1MasConvertNSStringToChar(NSString* string);
     
 #ifdef __cplusplus
 }

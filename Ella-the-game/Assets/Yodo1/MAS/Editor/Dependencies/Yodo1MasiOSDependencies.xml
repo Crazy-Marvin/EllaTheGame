@@ -3,7 +3,8 @@
   <iosPods>
     <sources>
       <source>https://github.com/Yodo1Games/MAS-Spec.git</source>
+      <source>https://github.com/CocoaPods/Specs.git</source>
     </sources>
-    <iosPod name="Yodo1MasFull" version="4.11.0" minTargetSdk="13.0" />
+    <iosPod name="Yodo1MasFull" version="4.14.2" minTargetSdk="13.0" />
   </iosPods>
 </dependencies>

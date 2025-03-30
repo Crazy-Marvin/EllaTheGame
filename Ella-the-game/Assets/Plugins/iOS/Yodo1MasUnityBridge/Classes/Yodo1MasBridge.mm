@@ -7,7 +7,12 @@
 
 #import "Yodo1MasBridge.h"
 
+#if __has_include(<Yodo1MasCore/Yodo1Mas.h>)
+#import <Yodo1MasCore/Yodo1Mas.h>
+#else
 #import "Yodo1Mas.h"
+#endif
+
 #import "Yodo1MasUnityTool.h"
 #import "UnityAppController.h"
 
@@ -24,13 +29,19 @@ static NSString* kYodo1MasMethodName;
 @interface Yodo1MasBridge : NSObject <
 Yodo1MasRewardAdDelegate,
 Yodo1MasRewardDelegate,
+Yodo1MasRewardAdRevenueDelegate,
 Yodo1MasInterstitialAdDelegate,
 Yodo1MasInterstitialDelegate,
+Yodo1MasInterstitialAdRevenueDelegate,
 Yodo1MasBannerAdDelegate,
 Yodo1MasBannerAdViewDelegate,
+Yodo1MasBannerAdRevenueDelegate,
 Yodo1MasNativeAdViewDelegate,
+Yodo1MasNativeAdRevenueDelegate,
 Yodo1MasRewardedInterstitialAdDelegate,
+Yodo1MasRewardedInterstitialAdRevenueDelegate,
 Yodo1MasAppOpenAdDelegate,
+Yodo1MasAppOpenAdRevenueDelegate,
 Yodo1MasAppStatusDelegate>
 
 + (UIViewController*)getRootViewController;
@@ -45,7 +56,7 @@ Yodo1MasAppStatusDelegate>
 
 + (Yodo1MasBridge *)sharedInstance;
 
-- (void)initMasWithAppKey:(NSString *)appKey successful:(Yodo1MasInitSuccessful)successful fail:(Yodo1MasInitFail)fail;
+- (void)initMasWithAppKey:(NSString *)appKey successfulHandler:(Yodo1MasInitSuccessfulHandler)successful failHandler:(Yodo1MasInitFailHandler)fail;
 
 #pragma mark - Reward
 - (void)loadRewardAdV2:(NSString *)param;
@@ -99,19 +110,18 @@ Yodo1MasAppStatusDelegate>
     return _instance;
 }
 
-- (void)initMasWithAppKey:(NSString *)appKey successful:(Yodo1MasInitSuccessful)successful fail:(Yodo1MasInitFail)fail {
-    
+- (void)initMasWithAppKey:(NSString *)appKey successfulHandler:(Yodo1MasInitSuccessfulHandler)successful failHandler:(Yodo1MasInitFailHandler)fail {
     _bannerViews = [NSMutableDictionary dictionary];
     _nativeViews = [NSMutableDictionary dictionary];
     
     [Yodo1Mas sharedInstance].appStatusDelegate = self;
-    [[Yodo1Mas sharedInstance] initMasWithAppKey:appKey successful:successful fail:fail];
+    [[Yodo1Mas sharedInstance] initMasWithAppKey:appKey successfulHandler:successful failHandler:fail];
     
     if (![UIDevice currentDevice].generatesDeviceOrientationNotifications) {
         [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
     }
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDeviceOrientationChange:)
-                                         name:UIDeviceOrientationDidChangeNotification object:nil];
+                                                 name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 
 #pragma mark - Yodo1MasAppStatusDelegate
@@ -130,10 +140,15 @@ Yodo1MasAppStatusDelegate>
     }
     
     Yodo1MasBridgeRewardAdConfig *config = [Yodo1MasBridgeRewardAdConfig parse:dict];
- 
+    
     Yodo1MasRewardAd *ad = [Yodo1MasRewardAd sharedInstance];
     ad.yodo1_config = config;
     ad.adDelegate = self;
+    if (ad.yodo1_config.payRevenueEventCount > 0) {
+        ad.adRevenueDelegate = self;
+    } else {
+        ad.adRevenueDelegate = nil;
+    }
     ad.autoDelayIfLoadFail = config.autoDelayIfLoadFail;
     return ad;
 }
@@ -150,7 +165,7 @@ Yodo1MasAppStatusDelegate>
 
 - (void)showRewardAdV2:(NSString *)param {
     Yodo1MasRewardAd* ad = [self getRewardAdFromJson:param];
-    [ad showAdWithPlacement:ad.yodo1_config.adPlacement];
+    [ad showAdWithPlacement:ad.yodo1_config.adPlacement customData:ad.yodo1_config.customData];
 }
 
 - (void)destroyRewardAdV2:(NSString *)param {
@@ -189,6 +204,13 @@ Yodo1MasAppStatusDelegate>
     [Yodo1MasBridge sendMessageWithEvent: event];
 }
 
+#pragma mark - Yodo1MasRewardAdRevenueDelegate
+
+- (void)onRewardAdPayRevenue:(Yodo1MasRewardAd *)ad withAdValue:(Yodo1MasAdValue*)adValue {
+    Yodo1MasAdEvent *event = [[Yodo1MasAdEvent alloc] initWithCode:Yodo1MasAdEventCodePayRevenue type:Yodo1MasAdTypeReward adValue:adValue];
+    [Yodo1MasBridge sendMessageWithEvent: event];
+}
+
 #pragma mark - Interstitial
 - (Yodo1MasInterstitialAd *)getInterstitialAdFromJson:(NSString *)json {
     NSError *error = nil;
@@ -198,10 +220,15 @@ Yodo1MasAppStatusDelegate>
     }
     
     Yodo1MasBridgeInterstitialAdConfig *config = [Yodo1MasBridgeInterstitialAdConfig parse:dict];
-  
+    
     Yodo1MasInterstitialAd *ad = [Yodo1MasInterstitialAd sharedInstance];
     ad.yodo1_config = config;
     ad.adDelegate = self;
+    if (ad.yodo1_config.payRevenueEventCount > 0) {
+        ad.adRevenueDelegate = self;
+    } else {
+        ad.adRevenueDelegate = nil;
+    }
     ad.autoDelayIfLoadFail = config.autoDelayIfLoadFail;
     return ad;
 }
@@ -218,7 +245,7 @@ Yodo1MasAppStatusDelegate>
 
 - (void)showInterstitialAdV2:(NSString *)param {
     Yodo1MasInterstitialAd* ad = [self getInterstitialAdFromJson:param];
-    [ad showAdWithPlacement:ad.yodo1_config.adPlacement];
+    [ad showAdWithPlacement:ad.yodo1_config.adPlacement customData:ad.yodo1_config.customData];
 }
 
 - (void)destroyInterstitialAdV2:(NSString *)param {
@@ -255,6 +282,13 @@ Yodo1MasAppStatusDelegate>
     [Yodo1MasBridge sendMessageWithEvent: event];
 }
 
+#pragma mark - Yodo1MasInterstitialAdRevenueDelegate
+
+- (void)onInterstitialAdPayRevenue:(Yodo1MasInterstitialAd *)ad withAdValue:(Yodo1MasAdValue*)adValue {
+    Yodo1MasAdEvent *event = [[Yodo1MasAdEvent alloc] initWithCode:Yodo1MasAdEventCodePayRevenue type:Yodo1MasAdTypeInterstitial adValue:adValue];
+    [Yodo1MasBridge sendMessageWithEvent: event];
+}
+
 #pragma mark - AppOpen
 - (Yodo1MasAppOpenAd *)getAppOpenAdFromJson:(NSString *)json {
     NSError *error = nil;
@@ -264,10 +298,15 @@ Yodo1MasAppStatusDelegate>
     }
     
     Yodo1MasBridgeAppOpenAdConfig *config = [Yodo1MasBridgeAppOpenAdConfig parse:dict];
- 
+    
     Yodo1MasAppOpenAd *ad = [Yodo1MasAppOpenAd sharedInstance];
     ad.yodo1_config = config;
     ad.adDelegate = self;
+    if (ad.yodo1_config.payRevenueEventCount > 0) {
+        ad.adRevenueDelegate = self;
+    } else {
+        ad.adRevenueDelegate = nil;
+    }
     ad.autoDelayIfLoadFail = config.autoDelayIfLoadFail;
     return ad;
 }
@@ -284,7 +323,7 @@ Yodo1MasAppStatusDelegate>
 
 - (void)showAppOpenAd:(NSString *)param {
     Yodo1MasAppOpenAd* ad = [self getAppOpenAdFromJson:param];
-    [ad showAdWithPlacement:ad.yodo1_config.adPlacement];
+    [ad showAdWithPlacement:ad.yodo1_config.adPlacement customData:ad.yodo1_config.customData];
 }
 
 - (void)destroyAppOpenAd:(NSString *)param {
@@ -318,6 +357,13 @@ Yodo1MasAppStatusDelegate>
     [Yodo1MasBridge sendMessageWithEvent: event];
 }
 
+#pragma mark - Yodo1MasAppOpenAdRevenueDelegate
+
+- (void)onAppOpenAdPayRevenue:(Yodo1MasAppOpenAd *)ad withAdValue:(Yodo1MasAdValue*)adValue {
+    Yodo1MasAdEvent *event = [[Yodo1MasAdEvent alloc] initWithCode:Yodo1MasAdEventCodePayRevenue type:Yodo1MasAdTypeAppOpen adValue:adValue];
+    [Yodo1MasBridge sendMessageWithEvent: event];
+}
+
 #pragma mark - RewardedInterstitial
 - (Yodo1MasRewardedInterstitialAd *)getRewardedInterstitialAdFromJson:(NSString *)json {
     NSError *error = nil;
@@ -327,10 +373,15 @@ Yodo1MasAppStatusDelegate>
     }
     
     Yodo1MasBridgeRewardedInterstitialAdConfig *config = [Yodo1MasBridgeRewardedInterstitialAdConfig parse:dict];
- 
+    
     Yodo1MasRewardedInterstitialAd *ad = [Yodo1MasRewardedInterstitialAd sharedInstance];
     ad.yodo1_config = config;
     ad.adDelegate = self;
+    if (ad.yodo1_config.payRevenueEventCount > 0) {
+        ad.adRevenueDelegate = self;
+    } else {
+        ad.adRevenueDelegate = nil;
+    }
     ad.autoDelayIfLoadFail = config.autoDelayIfLoadFail;
     return ad;
 }
@@ -347,7 +398,7 @@ Yodo1MasAppStatusDelegate>
 
 - (void)showRewardedInterstitialAd:(NSString *)param {
     Yodo1MasRewardedInterstitialAd* ad = [self getRewardedInterstitialAdFromJson:param];
-    [ad showAdWithPlacement:ad.yodo1_config.adPlacement];
+    [ad showAdWithPlacement:ad.yodo1_config.adPlacement customData:ad.yodo1_config.customData];
 }
 
 - (void)destroyRewardedInterstitialAd:(NSString *)param {
@@ -355,7 +406,7 @@ Yodo1MasAppStatusDelegate>
     [ad destroy];
 }
 
-#pragma mark - Yodo1MasRewardedInterstitialDelegate
+#pragma mark - Yodo1MasRewardedInterstitialAdDelegate
 - (void)onRewardedInterstitialAdLoaded:(Yodo1MasRewardedInterstitialAd *)ad {
     Yodo1MasAdEvent *event = [[Yodo1MasAdEvent alloc] initWithCode:Yodo1MasAdEventCodeLoaded type:Yodo1MasAdTypeRewardedInterstitial];
     [Yodo1MasBridge sendMessageWithEvent: event];
@@ -386,6 +437,13 @@ Yodo1MasAppStatusDelegate>
     [Yodo1MasBridge sendMessageWithEvent: event];
 }
 
+#pragma mark - Yodo1MasRewardedInterstitialAdRevenueDelegate
+
+- (void)onRewardedInterstitialAdPayRevenue:(Yodo1MasRewardedInterstitialAd *)ad withAdValue:(Yodo1MasAdValue*)adValue {
+    Yodo1MasAdEvent *event = [[Yodo1MasAdEvent alloc] initWithCode:Yodo1MasAdEventCodePayRevenue type:Yodo1MasAdTypeRewardedInterstitial adValue:adValue];
+    [Yodo1MasBridge sendMessageWithEvent: event];
+}
+
 #pragma mark - Banner
 
 - (Yodo1MasBannerAdView *)getBannerViewFromJson:(NSString *)json needInit:(BOOL)needInit {
@@ -404,9 +462,17 @@ Yodo1MasAppStatusDelegate>
         adView = [[Yodo1MasBannerAdView alloc] init];
         adView.yodo1_config = config;
         adView.adDelegate = self;
+        if (adView.yodo1_config.payRevenueEventCount > 0) {
+            adView.adRevenueDelegate = self;
+        } else {
+            adView.adRevenueDelegate = nil;
+        }
         [adView setAdSize:config.adSize];
         if (config.adPlacement != nil && config.adPlacement.length > 0) {
             [adView setAdPlacement:config.adPlacement];
+        }
+        if (config.customData != nil && config.customData.length > 0) {
+            [adView setCustomData:config.customData];
         }
         self.bannerViews[config.indexId] = adView;
     }
@@ -415,7 +481,7 @@ Yodo1MasAppStatusDelegate>
 
 - (void)loadBannerAdV2:(NSString *)jsonString {
     Yodo1MasBannerAdView *adView = [self getBannerViewFromJson:jsonString needInit:YES];
-
+    
     [GetAppController().rootViewController.view addSubview:adView];
     [adView loadAd];
     [self adjustFrame:adView];
@@ -468,7 +534,7 @@ Yodo1MasAppStatusDelegate>
     } else {
         frame.origin.x = (superview.bounds.size.width - frame.size.width) / 2;
     }
-       
+    
     // vertical
     if ((align & Yodo1MasAdBannerAlignTop) == Yodo1MasAdBannerAlignTop) {
         if (@available(iOS 11, *)) {
@@ -543,7 +609,7 @@ Yodo1MasAppStatusDelegate>
 #pragma mark - Yodo1MasBannerAdViewDelegate
 - (void)onBannerAdLoaded:(Yodo1MasBannerAdView *)banner {
     [self adjustFrame:banner];
-
+    
     Yodo1MasAdEvent *event = [[Yodo1MasAdEvent alloc] initWithCode:Yodo1MasAdEventCodeLoaded type:Yodo1MasAdTypeBanner];
     if (event == nil) {
         return;
@@ -581,15 +647,29 @@ Yodo1MasAppStatusDelegate>
 }
 
 - (void)onBannerAdClosed:(Yodo1MasBannerAdView *)banner {
-//    Yodo1MasAdEvent *event = [[Yodo1MasAdEvent alloc] initWithCode:Yodo1MasAdEventCodeClosed type:Yodo1MasAdTypeBanner];
-//    if (event == nil) {
-//        return;
-//    }
-//    [Yodo1MasBridge sendMessageWithEvent: event];
+    //    Yodo1MasAdEvent *event = [[Yodo1MasAdEvent alloc] initWithCode:Yodo1MasAdEventCodeClosed type:Yodo1MasAdTypeBanner];
+    //    if (event == nil) {
+    //        return;
+    //    }
+    //    [Yodo1MasBridge sendMessageWithEvent: event];
 }
 
 - (void)onBannerAdFailedToOpen:(Yodo1MasBannerAdView *)banner withError:(Yodo1MasError *)error {
     Yodo1MasAdEvent *event = [[Yodo1MasAdEvent alloc] initWithCode:(Yodo1MasAdEventCode)1005 type:Yodo1MasAdTypeBanner error:error];
+    if (event == nil) {
+        return;
+    }
+    NSString *index = banner.yodo1_config.indexId;
+    NSMutableDictionary* dic = (NSMutableDictionary*)event.getJsonObject;
+    [dic setObject:index forKey:@"indexId"];
+    
+    [Yodo1MasBridge sendMessageWithJson: dic];
+}
+
+#pragma mark - Yodo1MasBannerAdRevenueDelegate
+
+- (void)onBannerAdPayRevenue:(Yodo1MasBannerAdView *)banner withAdValue:(Yodo1MasAdValue*)adValue {
+    Yodo1MasAdEvent *event = [[Yodo1MasAdEvent alloc] initWithCode:Yodo1MasAdEventCodePayRevenue type:Yodo1MasAdTypeBanner adValue:adValue];
     if (event == nil) {
         return;
     }
@@ -612,7 +692,7 @@ Yodo1MasAppStatusDelegate>
     if (!config.indexId) {
         return nil;
     }
-
+    
     UIView *superview = GetAppController().rootViewController.view;
     Yodo1MasAdNativeAlign align = config.position;
     CGFloat width = config.width / UIScreen.mainScreen.scale;
@@ -628,7 +708,7 @@ Yodo1MasAppStatusDelegate>
         } else {
             frame.origin.x = (superview.bounds.size.width - frame.size.width) / 2;
         }
-           
+        
         // vertical
         if ((align & Yodo1MasAdNativeAlignTop) == Yodo1MasAdNativeAlignTop) {
             if (@available(iOS 11, *)) {
@@ -658,8 +738,16 @@ Yodo1MasAppStatusDelegate>
         adView = [[Yodo1MasNativeAdView alloc] init];
         adView.yodo1_config = config;
         adView.adDelegate = self;
+        if (adView.yodo1_config.payRevenueEventCount > 0) {
+            adView.adRevenueDelegate = self;
+        } else {
+            adView.adRevenueDelegate = nil;
+        }
         if (config.adPlacement != nil && config.adPlacement.length > 0) {
             [adView setAdPlacement:config.adPlacement];
+        }
+        if (config.customData != nil && config.customData.length > 0) {
+            [adView setCustomData:config.customData];
         }
         self.nativeViews[config.indexId] = adView;
     }
@@ -681,7 +769,7 @@ Yodo1MasAppStatusDelegate>
 
 - (void)loadNativeAd:(NSString *)param {
     Yodo1MasNativeAdView *adView = [self getNativeViewFromJson:param needInit:YES];
-
+    
     [GetAppController().rootViewController.view addSubview:adView];
     [adView loadAd];
 }
@@ -712,8 +800,6 @@ Yodo1MasAppStatusDelegate>
     adView = nil;
 }
 
-
-
 #pragma mark - Yodo1MasNativeAdViewDelegate
 - (void)onNativeAdLoaded:(Yodo1MasNativeAdView *)view {
     
@@ -741,13 +827,27 @@ Yodo1MasAppStatusDelegate>
     [Yodo1MasBridge sendMessageWithJson: dic];
 }
 
+#pragma mark - Yodo1MasNativeAdRevenueDelegate
+
+- (void)onNativeAdPayRevenue:(Yodo1MasNativeAdView *)view withAdValue:(Yodo1MasAdValue*)adValue {
+    Yodo1MasAdEvent *event = [[Yodo1MasAdEvent alloc] initWithCode:Yodo1MasAdEventCodePayRevenue type:Yodo1MasAdTypeNative adValue:adValue];
+    if (event == nil) {
+        return;
+    }
+    NSString* index = view.yodo1_config.indexId;
+    NSMutableDictionary* dic = (NSMutableDictionary*)event.getJsonObject;
+    [dic setObject:index forKey:@"indexId"];
+    
+    [Yodo1MasBridge sendMessageWithJson: dic];
+}
+
 #pragma mark - Yodo1MasAdDelegate
 - (void)onAdOpened:(Yodo1MasAdEvent *)event {
     if (event == nil) {
         return;
     }
     [Yodo1MasBridge sendMessageWithEvent: event];
-
+    
 }
 
 - (void)onAdClosed:(Yodo1MasAdEvent *)event {
@@ -857,10 +957,27 @@ Yodo1MasAppStatusDelegate>
     return nil;
 }
 
-+ (NSString*)convertToInitJsonString:(int)success masError:(Yodo1MasError*) error {
++ (NSString*)convertToInitJsonString:(Yodo1MasSdkConfiguration*)configuration masError:(Yodo1MasError*) error {
     NSMutableDictionary* dict = [NSMutableDictionary dictionary];
+    BOOL success = NO;
+    if (configuration != nil) {
+        success = YES;
+        
+        NSString* jsonString = [Yodo1MasBridge stringWithJSONObject:[configuration getJsonObject] error:nil];
+        [dict setObject:jsonString forKey:@"configuration"];
+    }
     [dict setObject:[NSNumber numberWithInt:success] forKey:@"success"];
+    if (error != nil) {
+        NSString* errorJsonString = [Yodo1MasBridge stringWithJSONObject:[error getJsonObject] error:nil];
+        [dict setObject:errorJsonString forKey:@"error"];
+    }
     
+    NSString* data = [Yodo1MasBridge stringWithJSONObject:dict error:nil];
+    return data;
+}
+
++ (NSString*)convertToUmpJsonString:(Yodo1MasError*) error {
+    NSMutableDictionary* dict = [NSMutableDictionary dictionary];
     if (error != nil) {
         NSString* errorJsonString = [Yodo1MasBridge stringWithJSONObject:[error getJsonObject] error:nil];
         [dict setObject:errorJsonString forKey:@"error"];
@@ -931,9 +1048,22 @@ bool UnityMasIsDoNotSell()
     return [Yodo1Mas sharedInstance].isCCPADoNotSell;
 }
 
+void UnityMasSetPersonalizedAdState(int state)
+{
+    [Yodo1Mas sharedInstance].isPersonalizedState = (Yodo1MasPersonalizedAdState)state;
+}
+
 int UnityMasUserAge()
 {
     return (int)[Yodo1Mas sharedInstance].userAge;
+}
+
+const char* UnityMasGetUserIdentifier() {
+    return Yodo1MasConvertNSStringToChar([Yodo1Mas sharedInstance].userIdentifier);
+}
+
+void UnityMasSetUserIdentifier(const char* userIdentifier) {
+    [Yodo1Mas sharedInstance].userIdentifier = Yodo1MasConvertCharToNSString(userIdentifier);
 }
 
 int UnityMasAttrackingStatus()
@@ -945,23 +1075,24 @@ int UnityMasAttrackingStatus()
 
 void UnityMasInitMasWithAppKey(const char* appKey,const char* gameObjectName, const char* callbackMethodName)
 {
-    NSString* m_appKey = Yodo1MasCreateNSString(appKey);
+    NSString* m_appKey = Yodo1MasConvertCharToNSString(appKey);
     NSCAssert(m_appKey != nil, @"AppKey 没有设置!");
     
-    NSString* m_gameObject = Yodo1MasCreateNSString(gameObjectName);
+    NSString* m_gameObject = Yodo1MasConvertCharToNSString(gameObjectName);
     NSCAssert(m_gameObject != nil, @"Unity3d gameObject isn't set!");
     kYodo1MasGameObject = m_gameObject;
     
-    NSString* m_methodName = Yodo1MasCreateNSString(callbackMethodName);
+    NSString* m_methodName = Yodo1MasConvertCharToNSString(callbackMethodName);
     NSCAssert(m_methodName != nil, @"Unity3d callback method isn't set!");
     kYodo1MasMethodName = m_methodName;
     
-    [[Yodo1MasBridge sharedInstance] initMasWithAppKey:m_appKey successful:^{
-        NSString* data = [Yodo1MasBridge convertToInitJsonString:1 masError:nil];
+    [[Yodo1MasBridge sharedInstance] initMasWithAppKey:m_appKey successfulHandler:^(Yodo1MasSdkConfiguration * _Nonnull configuration) {
+        NSString* data = [Yodo1MasBridge convertToInitJsonString:configuration masError:nil];
         NSString* msg = [Yodo1MasBridge getSendMessage:0 data:data];
         UnitySendMessage([kYodo1MasGameObject cStringUsingEncoding:NSUTF8StringEncoding], [kYodo1MasMethodName cStringUsingEncoding:NSUTF8StringEncoding], [msg cStringUsingEncoding:NSUTF8StringEncoding]);
-    } fail:^(Yodo1MasError * _Nonnull error) {
-        NSString* data = [Yodo1MasBridge convertToInitJsonString:0 masError:error];
+        
+    } failHandler:^(Yodo1MasError * _Nonnull error) {
+        NSString* data = [Yodo1MasBridge convertToInitJsonString:nil masError:error];
         NSString* msg = [Yodo1MasBridge getSendMessage:0 data:data];
         UnitySendMessage([kYodo1MasGameObject cStringUsingEncoding:NSUTF8StringEncoding], [kYodo1MasMethodName cStringUsingEncoding:NSUTF8StringEncoding], [msg cStringUsingEncoding:NSUTF8StringEncoding]);
     }];
@@ -975,8 +1106,22 @@ void UnityMasShowDebugger() {
     [[Yodo1Mas sharedInstance] showDebugger];
 }
 
+void UnityMasShowUmpForExistingUser() {
+    [[Yodo1Mas sharedInstance] showUmpForExistingUser:^(Yodo1MasError * _Nullable error) {
+        NSString* data = [Yodo1MasBridge convertToUmpJsonString:error];
+        NSString* msg = [Yodo1MasBridge getSendMessage:3 data:data];
+        UnitySendMessage([kYodo1MasGameObject cStringUsingEncoding:NSUTF8StringEncoding], [kYodo1MasMethodName cStringUsingEncoding:NSUTF8StringEncoding], [msg cStringUsingEncoding:NSUTF8StringEncoding]);
+    }];
+}
+
+const char* UnityMasGetIABTCFString(const char* key) {
+    NSString *m_key = Yodo1MasConvertCharToNSString(key);
+    NSString *iabString = [[Yodo1Mas sharedInstance] getIABTCFString:m_key];
+    return Yodo1MasConvertNSStringToChar(iabString);
+}
+
 void UnitySetAdBuildConfig(const char * config) {
-    NSString * jsonString = Yodo1MasCreateNSString(config);
+    NSString * jsonString = Yodo1MasConvertCharToNSString(config);
     NSError * error = nil;
     id dict = [Yodo1MasBridge JSONObjectWithString:jsonString error:&error];
     if (error) {
@@ -1021,7 +1166,7 @@ void UnitySetAdBuildConfig(const char * config) {
         }
         
         Yodo1MasUserPrivacyConfig *privacyConfig = [Yodo1MasUserPrivacyConfig instance];
-         
+        
         NSString *titleBackgroundColorStr = ageJson[@"titleBackgroundColor"];
         if (titleBackgroundColorStr) {
             UIColor *color = [Yodo1MasUserPrivacyConfig colorWithHexString:titleBackgroundColorStr];
@@ -1078,19 +1223,19 @@ void UnitySetAdBuildConfig(const char * config) {
 
 #pragma mark - Unity Banner V2
 void UnityLoadBannerAdV2(const char* param) {
-    NSString* m_param = Yodo1MasCreateNSString(param);
+    NSString* m_param = Yodo1MasConvertCharToNSString(param);
     [[Yodo1MasBridge sharedInstance] loadBannerAdV2:m_param];
 }
 void UnityShowBannerAdV2(const char* param) {
-    NSString* m_param = Yodo1MasCreateNSString(param);
+    NSString* m_param = Yodo1MasConvertCharToNSString(param);
     [[Yodo1MasBridge sharedInstance] showBannerAdV2:m_param];
 }
 void UnityHideBannerAdV2(const char* param) {
-    NSString* m_param = Yodo1MasCreateNSString(param);
+    NSString* m_param = Yodo1MasConvertCharToNSString(param);
     [[Yodo1MasBridge sharedInstance] hideBannerAdV2:m_param];
 }
 void UnityDestroyBannerAdV2(const char* param) {
-    NSString* m_param = Yodo1MasCreateNSString(param);
+    NSString* m_param = Yodo1MasConvertCharToNSString(param);
     [[Yodo1MasBridge sharedInstance] destroyBannerAdV2:m_param];
 }
 
@@ -1115,25 +1260,25 @@ float UnityGetBannerHeightInPixelsV2(int type) {
 #pragma mark - Unity Native
 void UnityLoadNativeAd(const char* param)
 {
-    NSString* m_param = Yodo1MasCreateNSString(param);
+    NSString* m_param = Yodo1MasConvertCharToNSString(param);
     [[Yodo1MasBridge sharedInstance] loadNativeAd:m_param];
 }
 
 void UnityShowNativeAd(const char* param)
 {
-    NSString* m_param = Yodo1MasCreateNSString(param);
+    NSString* m_param = Yodo1MasConvertCharToNSString(param);
     [[Yodo1MasBridge sharedInstance] showNativeAd:m_param];
 }
 
 void UnityHideNativeAd(const char* param)
 {
-    NSString* m_param = Yodo1MasCreateNSString(param);
+    NSString* m_param = Yodo1MasConvertCharToNSString(param);
     [[Yodo1MasBridge sharedInstance] hideNativeAd:m_param];
 }
 
 void UnityDestroyNativeAd(const char* param)
 {
-    NSString* m_param = Yodo1MasCreateNSString(param);
+    NSString* m_param = Yodo1MasConvertCharToNSString(param);
     [[Yodo1MasBridge sharedInstance] destroyNativeAd:m_param];
 }
 
@@ -1141,25 +1286,25 @@ void UnityDestroyNativeAd(const char* param)
 
 void UnityLoadInterstitialAdV2(const char* param)
 {
-    NSString* m_param = Yodo1MasCreateNSString(param);
+    NSString* m_param = Yodo1MasConvertCharToNSString(param);
     [[Yodo1MasBridge sharedInstance] loadInterstitialAdV2:m_param];
 }
 
 bool UnityIsInterstitialLoadedV2(const char* param)
 {
-    NSString* m_param = Yodo1MasCreateNSString(param);
+    NSString* m_param = Yodo1MasConvertCharToNSString(param);
     return [[Yodo1MasBridge sharedInstance] isInterstitialAdLoadedV2:m_param];
 }
 
 void UnityShowInterstitialAdV2(const char* param)
 {
-    NSString* m_param = Yodo1MasCreateNSString(param);
+    NSString* m_param = Yodo1MasConvertCharToNSString(param);
     [[Yodo1MasBridge sharedInstance] showInterstitialAdV2:m_param];
 }
 
 void UnityDestroyInterstitialAdV2(const char* param)
 {
-    NSString* m_param = Yodo1MasCreateNSString(param);
+    NSString* m_param = Yodo1MasConvertCharToNSString(param);
     [[Yodo1MasBridge sharedInstance] destroyInterstitialAdV2:m_param];
 }
 
@@ -1167,73 +1312,73 @@ void UnityDestroyInterstitialAdV2(const char* param)
 
 void UnityLoadRewardAdV2(const char* param)
 {
-    NSString* m_param = Yodo1MasCreateNSString(param);
+    NSString* m_param = Yodo1MasConvertCharToNSString(param);
     [[Yodo1MasBridge sharedInstance] loadRewardAdV2:m_param];
 }
 
 bool UnityIsRewardedAdLoadedV2(const char* param)
 {
-    NSString* m_param = Yodo1MasCreateNSString(param);
+    NSString* m_param = Yodo1MasConvertCharToNSString(param);
     return [[Yodo1MasBridge sharedInstance] isRewardedAdLoadedV2:m_param];
 }
 
 void UnityShowRewardAdV2(const char* param)
 {
-    NSString* m_param = Yodo1MasCreateNSString(param);
+    NSString* m_param = Yodo1MasConvertCharToNSString(param);
     [[Yodo1MasBridge sharedInstance] showRewardAdV2:m_param];
 }
 
 void UnityDestroyRewardAdV2(const char* param)
 {
-    NSString* m_param = Yodo1MasCreateNSString(param);
+    NSString* m_param = Yodo1MasConvertCharToNSString(param);
     [[Yodo1MasBridge sharedInstance] destroyRewardAdV2:m_param];
 }
 
 void UnityLoadRewardedInterstitialAd(const char* param)
 {
-    NSString* m_param = Yodo1MasCreateNSString(param);
+    NSString* m_param = Yodo1MasConvertCharToNSString(param);
     [[Yodo1MasBridge sharedInstance] loadRewardedInterstitialAd:m_param];
 }
 
 bool UnityIsRewardedInterstitialAdLoaded(const char* param)
 {
-    NSString* m_param = Yodo1MasCreateNSString(param);
+    NSString* m_param = Yodo1MasConvertCharToNSString(param);
     return [[Yodo1MasBridge sharedInstance] isRewardedInterstitialAdLoaded:m_param];
 }
 
 void UnityShowRewardedInterstitialAd(const char* param)
 {
-    NSString* m_param = Yodo1MasCreateNSString(param);
+    NSString* m_param = Yodo1MasConvertCharToNSString(param);
     [[Yodo1MasBridge sharedInstance] showRewardedInterstitialAd:m_param];
 }
 
 void UnityDestroyRewardedInterstitialAd(const char* param)
 {
-    NSString* m_param = Yodo1MasCreateNSString(param);
+    NSString* m_param = Yodo1MasConvertCharToNSString(param);
     [[Yodo1MasBridge sharedInstance] destroyRewardedInterstitialAd:m_param];
 }
 
 void UnityLoadAppOpenAd(const char* param)
 {
-    NSString* m_param = Yodo1MasCreateNSString(param);
+    NSString* m_param = Yodo1MasConvertCharToNSString(param);
     [[Yodo1MasBridge sharedInstance] loadAppOpenAd:m_param];
 }
 
 bool UnityIsAppOpenAdLoaded(const char* param)
 {
-    NSString* m_param = Yodo1MasCreateNSString(param);
+    NSString* m_param = Yodo1MasConvertCharToNSString(param);
     return [[Yodo1MasBridge sharedInstance] isAppOpenAdLoaded:m_param];
 }
 
 void UnityShowAppOpenAd(const char* param)
 {
-    NSString* m_param = Yodo1MasCreateNSString(param);
+    NSString* m_param = Yodo1MasConvertCharToNSString(param);
     [[Yodo1MasBridge sharedInstance] showAppOpenAd:m_param];
 }
 
 void UnityDestroyAppOpenAd(const char* param)
 {
-    NSString* m_param = Yodo1MasCreateNSString(param);
+    NSString* m_param = Yodo1MasConvertCharToNSString(param);
     [[Yodo1MasBridge sharedInstance] destroyAppOpenAd:m_param];
 }
 

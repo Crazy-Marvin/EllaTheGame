@@ -24,7 +24,7 @@ namespace Yodo1.MAS
 #endif
                 }
 //                string GradleTemplatePath = Path.Combine("Assets/Plugins/Android", "mainTemplate.gradle");
-//                if (File.Exists(GradleTemplatePath) && Yodo1AdUtils.IsAppLovinValid())
+//                if (File.Exists(GradleTemplatePath) && Yodo1AdUtils.IsAppLovinValid(Yodo1PlatfromTarget.Android))
 //                {
 //#if UNITY_2019_3_OR_NEWER
 //                    // The publisher could be migrating from older Unity versions to 2019_3 or newer.
@@ -63,7 +63,7 @@ namespace Yodo1.MAS
                 return false;
             }
 
-            if (Yodo1AdUtils.IsAdMobValid() && string.IsNullOrEmpty(settings.androidSettings.AdmobAppID.Trim()))
+            if (Yodo1AdUtils.IsAdMobValid(Yodo1PlatfromTarget.Android) && string.IsNullOrEmpty(settings.androidSettings.AdmobAppID.Trim()))
             {
                 string message = "MAS Android AdMob App ID is null, please check the configuration.";
                 Debug.LogError(Yodo1U3dMas.TAG + message);
@@ -286,7 +286,7 @@ namespace Yodo1.MAS
             //XmlElement elem = (XmlElement)app;
 
             //Add AdMob App ID
-            if (Yodo1AdUtils.IsAdMobValid())
+            if (Yodo1AdUtils.IsAdMobValid(Yodo1PlatfromTarget.Android))
             {
                 string admobAppIdValue = settings.androidSettings.AdmobAppID.Trim();
                 if (string.IsNullOrEmpty(admobAppIdValue))

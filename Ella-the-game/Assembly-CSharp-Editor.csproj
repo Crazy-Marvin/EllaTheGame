@@ -54,11 +54,12 @@
     <UnityVersion>2022.3.12f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="/Applications/Visual Studio.app/Contents/MonoBundle/Addins/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="/Applications/Unity/Hub/Editor/2022.3.12f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll" />
     <Analyzer Include="/Applications/Unity/Hub/Editor/2022.3.12f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdFileClass.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Tools/BoundedVoronoi.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Data/Triangle.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/VertexManipulator/RectManipulator/RectManipulatorParams.cs" />
@@ -125,6 +126,7 @@
     <Compile Include="Assets/Anima2D/Scripts/Editor/SerializedCache.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/ScriptableObjectUtility.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/IO/IGeometryFormat.cs" />
+    <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdPrerequisites.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Tools/CuthillMcKee.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/WindowEditorTool.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Bone2DEditor.cs" />
@@ -181,6 +183,7 @@
     <Compile Include="Assets/Anima2D/Scripts/Editor/Node.cs" />
     <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/XUPorter/Editor/PBXDictionary.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/SpriteMeshCache.cs" />
+    <Compile Include="Assets/Yodo1/MAS/Editor/Scripts/Yodo1Net.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/BindInfo.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/AnimationWindowExtra/AnimationWindowImpl_51_52_53_54_55.cs" />
     <Compile Include="Assets/Anima2D/Scripts/Editor/Triangle/Tools/QuadTree.cs" />
@@ -251,17 +254,17 @@
     <Compile Include="Assets/Anima2D/Scripts/Editor/OnionSkin/OnionLayer_56.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets/ExternalDependencyManager/Editor/1.2.177/Google.PackageManagerResolver.dll" />
+    <None Include="Assets/ExternalDependencyManager/Editor/1.2.183/Google.IOSResolver.dll" />
     <None Include="Assets/Yodo1/MAS/Editor/Dependencies/Yodo1MasiOSDependencies.xml" />
-    <None Include="Assets/ExternalDependencyManager/Editor/1.2.177/Google.IOSResolver.dll" />
-    <None Include="Assets/Yodo1/MAS/Editor/Dependencies/Yodo1MasAndroidDependencies.xml" />
+    <None Include="Assets/ExternalDependencyManager/Editor/1.2.183/Google.PackageManagerResolver.dll" />
     <None Include="Assets/ExternalDependencyManager/Editor/Google.VersionHandler.dll" />
-    <None Include="Assets/ExternalDependencyManager/Editor/external-dependency-manager_version-1.2.177_manifest.txt" />
-    <None Include="Assets/ExternalDependencyManager/Editor/1.2.177/Google.VersionHandlerImpl.dll" />
+    <None Include="Assets/Yodo1/MAS/Editor/Dependencies/Yodo1MasAndroidDependencies.xml" />
     <None Include="Assets/Anima2D/Lib/Editor/x86/Anima2D.dll" />
+    <None Include="Assets/ExternalDependencyManager/Editor/external-dependency-manager_version-1.2.183_manifest.txt" />
+    <None Include="Assets/ExternalDependencyManager/Editor/1.2.183/Google.JarResolver.dll" />
+    <None Include="Assets/ExternalDependencyManager/Editor/1.2.183/Google.VersionHandlerImpl.dll" />
     <None Include="Assets/Anima2D/Lib/Editor/x64/Anima2D.dll" />
     <None Include="Assets/JMO Assets/Editor/JMOAssets.dll" />
-    <None Include="Assets/ExternalDependencyManager/Editor/1.2.177/Google.JarResolver.dll" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -531,9 +534,6 @@
     <Reference Include="UnityEditor.iOS.Extensions">
       <HintPath>/Applications/Unity/Hub/Editor/2022.3.12f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="Google.PackageManagerResolver">
-      <HintPath>Assets/ExternalDependencyManager/Editor/1.2.177/Google.PackageManagerResolver.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Collections.LowLevel.ILSupport">
       <HintPath>Library/PackageCache/com.unity.collections@1.2.4/Unity.Collections.LowLevel.ILSupport/Unity.Collections.LowLevel.ILSupport.dll</HintPath>
     </Reference>
@@ -543,17 +543,20 @@
     <Reference Include="Unity.Analytics.Editor">
       <HintPath>Library/PackageCache/com.unity.analytics@3.8.1/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Google.IOSResolver">
+      <HintPath>Assets/ExternalDependencyManager/Editor/1.2.183/Google.IOSResolver.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
       <HintPath>Library/PackageCache/com.unity.collab-proxy@2.2.0/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="unityplastic">
       <HintPath>Library/PackageCache/com.unity.collab-proxy@2.2.0/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
     </Reference>
-    <Reference Include="Google.IOSResolver">
-      <HintPath>Assets/ExternalDependencyManager/Editor/1.2.177/Google.IOSResolver.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>Library/PackageCache/com.unity.collab-proxy@2.2.0/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.PackageManagerResolver">
+      <HintPath>Assets/ExternalDependencyManager/Editor/1.2.183/Google.PackageManagerResolver.dll</HintPath>
     </Reference>
     <Reference Include="Google.VersionHandler">
       <HintPath>Assets/ExternalDependencyManager/Editor/Google.VersionHandler.dll</HintPath>
@@ -561,17 +564,17 @@
     <Reference Include="log4netPlastic">
       <HintPath>Library/PackageCache/com.unity.collab-proxy@2.2.0/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
     </Reference>
-    <Reference Include="Google.VersionHandlerImpl">
-      <HintPath>Assets/ExternalDependencyManager/Editor/1.2.177/Google.VersionHandlerImpl.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library/PackageCache/com.unity.nuget.newtonsoft-json@3.2.1/Runtime/Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Google.JarResolver">
+      <HintPath>Assets/ExternalDependencyManager/Editor/1.2.183/Google.JarResolver.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.VersionHandlerImpl">
+      <HintPath>Assets/ExternalDependencyManager/Editor/1.2.183/Google.VersionHandlerImpl.dll</HintPath>
+    </Reference>
     <Reference Include="JMOAssets">
       <HintPath>Assets/JMO Assets/Editor/JMOAssets.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.JarResolver">
-      <HintPath>Assets/ExternalDependencyManager/Editor/1.2.177/Google.JarResolver.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
       <HintPath>Library/PackageCache/com.unity.analytics@3.8.1/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>

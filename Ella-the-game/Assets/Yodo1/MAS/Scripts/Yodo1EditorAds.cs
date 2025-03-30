@@ -26,12 +26,16 @@ public class Yodo1EditorAds : MonoBehaviour
 
     private static GameObject BannerSampleAdEditorTemp;
     private static GameObject NativeSampleAdEditorTemp;
-    
+
     public static void InitializeAds()
     {
         BannerSampleAdEditor = new Dictionary<string, GameObject>();
         NativeSampleAdEditor = new Dictionary<string, GameObject>();
+#if UNITY_2023_2_OR_NEWER
+        EventSystem sceneEventSystem = FindFirstObjectByType<EventSystem>();
+#else
         EventSystem sceneEventSystem = FindObjectOfType<EventSystem>();
+#endif
         if (AdHolder == null)
         {
             AdHolder = Instantiate(Resources.Load("SampleAds/AdHolder") as GameObject);
@@ -861,7 +865,7 @@ public class Yodo1EditorAds : MonoBehaviour
         {
             DisableGUI = false;
             AppOpenAdsSampleAdEditor.SetActive(false);
-            
+
             Yodo1U3dMasCallback.ForwardEvent("onAppOpenAdClosedEvent");
         }
     }

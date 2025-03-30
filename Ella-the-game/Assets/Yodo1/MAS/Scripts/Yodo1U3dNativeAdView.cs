@@ -18,7 +18,8 @@ namespace Yodo1.MAS
     {
         private static List<Yodo1U3dNativeAdView> NativeAdViews = new List<Yodo1U3dNativeAdView>();
         private readonly string indexId = ((DateTime.Now.ToUniversalTime().Ticks - 621355968000000000) / 10000) + NativeAdViews.Count + "";
-        private string adPlacement = "";
+        private string adPlacement = string.Empty;
+        private string customData = string.Empty;
         private Yodo1U3dNativeAdPosition adPosition = Yodo1U3dNativeAdPosition.NativeNone;
         private int adOffsetX = 0;
         private int adOffsetY = 0;
@@ -28,18 +29,19 @@ namespace Yodo1.MAS
         private int adHeight = -1;
         private Color backgroundColor;
 
-        private Action<Yodo1U3dNativeAdView> _onNativeAdLoadedEvent;
-        private Action<Yodo1U3dNativeAdView, Yodo1U3dAdError> _onNativeAdFailedToLoadEvent;
+        private Action<Yodo1U3dNativeAdView> _onAdLoadedEvent;
+        private Action<Yodo1U3dNativeAdView, Yodo1U3dAdError> _onAdFailedToLoadEvent;
+        private Action<Yodo1U3dNativeAdView, Yodo1U3dAdValue> _onAdPayRevenueEvent;
 
         public event Action<Yodo1U3dNativeAdView> OnAdLoadedEvent
         {
             add
             {
-                _onNativeAdLoadedEvent += value;
+                _onAdLoadedEvent += value;
             }
             remove
             {
-                _onNativeAdLoadedEvent -= value;
+                _onAdLoadedEvent -= value;
             }
         }
 
@@ -47,15 +49,27 @@ namespace Yodo1.MAS
         {
             add
             {
-                _onNativeAdFailedToLoadEvent += value;
+                _onAdFailedToLoadEvent += value;
             }
             remove
             {
-                _onNativeAdFailedToLoadEvent -= value;
+                _onAdFailedToLoadEvent -= value;
             }
         }
 
-        public static void CallbcksEvent(Yodo1U3dAdEvent adEvent, Yodo1U3dAdError adError, string indexId)
+        public event Action<Yodo1U3dNativeAdView, Yodo1U3dAdValue> OnAdPayRevenueEvent
+        {
+            add
+            {
+                _onAdPayRevenueEvent += value;
+            }
+            remove
+            {
+                _onAdPayRevenueEvent -= value;
+            }
+        }
+
+        public static void CallbcksEvent(Yodo1U3dAdEvent adEvent, Yodo1U3dAdError adError, string indexId, Yodo1U3dAdValue adValue)
         {
             if (string.IsNullOrEmpty(indexId))
             {
@@ -66,22 +80,25 @@ namespace Yodo1.MAS
             {
                 if (nativeAdView != null && indexId.Equals(nativeAdView.indexId))
                 {
-                    nativeAdView.Callbacks(adEvent, adError);
+                    nativeAdView.Callbacks(adEvent, adError, adValue);
                 }
             }
         }
 
-        private void Callbacks(Yodo1U3dAdEvent adEvent, Yodo1U3dAdError adError)
+        private void Callbacks(Yodo1U3dAdEvent adEvent, Yodo1U3dAdError adError, Yodo1U3dAdValue adValue)
         {
             switch (adEvent)
             {
                 case Yodo1U3dAdEvent.AdError:
                     break;
                 case (Yodo1U3dAdEvent)1003:
-                    Yodo1U3dMasCallback.InvokeEvent(_onNativeAdLoadedEvent, this);
+                    Yodo1U3dMasCallback.InvokeEvent(_onAdLoadedEvent, this);
                     break;
                 case (Yodo1U3dAdEvent)1004:
-                    Yodo1U3dMasCallback.InvokeEvent(_onNativeAdFailedToLoadEvent, this, adError);
+                    Yodo1U3dMasCallback.InvokeEvent(_onAdFailedToLoadEvent, this, adError);
+                    break;
+                case Yodo1U3dAdEvent.AdPayRevenue:
+                    Yodo1U3dMasCallback.InvokeEvent(_onAdPayRevenueEvent, this, adValue);
                     break;
             }
         }
@@ -212,6 +229,11 @@ namespace Yodo1.MAS
             this.adPlacement = adPlacement;
         }
 
+        public void SetCustomData(string customData)
+        {
+            this.customData = customData;
+        }
+
         public void SetBackgroundColor(Color backgroundColor)
         {
             this.backgroundColor = backgroundColor;
@@ -227,11 +249,35 @@ namespace Yodo1.MAS
             dic.Add("y", this.adPositionY);
             dic.Add("width", this.adWidth);
             dic.Add("height", this.adHeight);
-            dic.Add("adPlacement", this.adPlacement);
             dic.Add("indexId", this.indexId);
+            if (string.IsNullOrEmpty(this.adPlacement))
+            {
+                dic.Add("adPlacement", "");
+            }
+            else
+            {
+                dic.Add("adPlacement", this.adPlacement);
+            }
+
+            if (string.IsNullOrEmpty(this.customData))
+            {
+                dic.Add("customData", "");
+            }
+            else
+            {
+                dic.Add("customData", this.customData);
+            }
             if (!this.backgroundColor.Equals(Color.clear))
             {
                 dic.Add("backgroundColor", "#" + ColorUtility.ToHtmlStringRGB(this.backgroundColor));
+            }
+            if (_onAdPayRevenueEvent == null)
+            {
+                dic.Add("payRevenueEventCount", 0);
+            }
+            else
+            {
+                dic.Add("payRevenueEventCount", _onAdPayRevenueEvent.GetInvocationList().Length);
             }
             return Yodo1JSON.Serialize(dic);
         }

@@ -15,6 +15,7 @@ public class InterstitialAtButton : MonoBehaviour
     [SerializeField] UnityEvent OnInterstitialAdOpened;
     [SerializeField] UnityEvent OnInterstitialAdOpenFailed;
     [SerializeField] UnityEvent OnInterstitialAdClosed;
+    [SerializeField] UnityEvent OnInterstitialAdPayRevenue;
 
     Button btn;
 
@@ -45,6 +46,7 @@ public class InterstitialAtButton : MonoBehaviour
             Yodo1U3dInterstitialAd.GetInstance().OnAdOpenedEvent += OnInterstitialAdOpenedEvent;
             Yodo1U3dInterstitialAd.GetInstance().OnAdOpenFailedEvent += OnInterstitialAdOpenFailedEvent;
             Yodo1U3dInterstitialAd.GetInstance().OnAdClosedEvent += OnInterstitialAdClosedEvent;
+            Yodo1U3dInterstitialAd.GetInstance().OnAdPayRevenueEvent += OnInterstitialAdPayRevenueEvent;
 
             if (string.IsNullOrEmpty(placementID))
             {
@@ -101,7 +103,14 @@ public class InterstitialAtButton : MonoBehaviour
         Yodo1U3dInterstitialAd.GetInstance().OnAdOpenedEvent -= OnInterstitialAdOpenedEvent;
         Yodo1U3dInterstitialAd.GetInstance().OnAdOpenFailedEvent -= OnInterstitialAdOpenFailedEvent;
         Yodo1U3dInterstitialAd.GetInstance().OnAdClosedEvent -= OnInterstitialAdClosedEvent;
+        Yodo1U3dInterstitialAd.GetInstance().OnAdPayRevenueEvent -= OnInterstitialAdPayRevenueEvent;
 
         LoadAd();
+    }
+
+    private void OnInterstitialAdPayRevenueEvent(Yodo1U3dInterstitialAd ad, Yodo1U3dAdValue adValue)
+    {
+        Debug.Log(Yodo1U3dMas.TAG + "NoCode Interstitial ad pay revenue - AdButton");
+        OnInterstitialAdPayRevenue.Invoke();
     }
 }

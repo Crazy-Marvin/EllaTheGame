@@ -17,7 +17,7 @@
                 settings = ScriptableObject.CreateInstance<Yodo1AdSettings>();
                 try
                 {
-                    Debug.Log(Yodo1U3dMas.TAG + "Creating new Yodo1AdSettings.asset");
+                    //Debug.Log(Yodo1U3dMas.TAG + "Creating new Yodo1AdSettings.asset");
                     string resPath = Path.GetFullPath(YODO1_RESOURCE_PATH);
                     if (!Directory.Exists(resPath))
                     {

@@ -32,7 +32,7 @@ namespace Yodo1.MAS
         private static readonly Regex TokenApiKey = new Regex(".*apiKey.*");
         private static readonly Regex TokenAppLovinPlugin = new Regex(".*apply plugin:.+?(?=applovin-quality-service).*");
 
-#if UNITY_2022_2_OR_NEWER
+#if UNITY_2021_3_OR_NEWER || UNITY_2022_2_OR_NEWER
         private const string PluginsMatcher = "plugins";
         private const string PluginManagementMatcher = "pluginManagement";
         private const string DependencyResolutionManagementMatcher = "dependencyResolutionManagement";
@@ -104,7 +104,7 @@ namespace Yodo1.MAS
                 Console.WriteLine(exception);
             }
         }
-#if UNITY_2022_2_OR_NEWER
+#if UNITY_2021_3_OR_NEWER || UNITY_2022_2_OR_NEWER
         /// <summary>
         /// Adds AppLovin Quality Service plugin DSL element to the project's root build.gradle file. 
         /// </summary>
@@ -296,7 +296,7 @@ namespace Yodo1.MAS
 
             if (!mavenRepoAdded)
             {
-                Debug.LogError(Yodo1U3dMas.TAG + "Failed to add MAS dependencyResolution maven repo to settings gradle file.");
+                //Debug.LogError(Yodo1U3dMas.TAG + "Failed to add MAS dependencyResolution maven repo to settings gradle file.");
                 return false;
             }
 
@@ -667,7 +667,7 @@ namespace Yodo1.MAS
 
         private static string GetFormattedBuildScriptLine(string buildScriptLine)
         {
-#if UNITY_2022_2_OR_NEWER
+#if UNITY_2021_3_OR_NEWER || UNITY_2022_2_OR_NEWER
             return "        "
 #elif UNITY_2019_3_OR_NEWER
             return "            "

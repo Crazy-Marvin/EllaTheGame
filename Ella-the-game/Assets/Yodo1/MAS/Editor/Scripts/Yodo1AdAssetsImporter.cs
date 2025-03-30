@@ -3,12 +3,8 @@
     using UnityEngine;
     using UnityEditor;
     using System;
-    using System.IO;
-    using System.Net;
-    using System.Text;
     using System.Collections.Generic;
     using UnityEditor.Build;
-    using Google;
 
     [InitializeOnLoad]
     public class Yodo1AdAssetsImporter : AssetPostprocessor
@@ -112,9 +108,8 @@
 
         static Yodo1AdAssetsImporter()
         {
-            // Delay initialization until the build target is Android and the editor is not in play
-            // mode.
-            EditorInitializer.InitializeOnMainThread(condition: () =>
+            // Delay initialization until the editor is not in play mode.
+            Google.EditorInitializer.InitializeOnMainThread(condition: () =>
             {
                 return !EditorApplication.isPlayingOrWillChangePlaymode;
             }, initializer: Initialize, name: "Yodo1AdAssetsImporter", logger: null);
@@ -126,8 +121,8 @@
         /// </summary>
         private static bool Initialize()
         {
-            RunOnMainThread.OnUpdate -= PollBundleId;
-            RunOnMainThread.OnUpdate += PollBundleId;
+            Google.RunOnMainThread.OnUpdate -= PollBundleId;
+            Google.RunOnMainThread.OnUpdate += PollBundleId;
             return false;
         }
 
@@ -146,12 +141,12 @@
                 Yodo1AdSettings settings = Yodo1AdSettingsSave.Load();
 #if UNITY_ANDROID
                 string bundleId = currentValue;
-                Dictionary<string, object> data = GetAppInfo("android", bundleId);
+                Dictionary<string, object> data = Yodo1Net.GetInstance().GetAppInfoByBundleID("android", bundleId);
                 UpdateData(settings, data);
 #endif
 #if UNITY_IOS || UNITY_IPHONE
                 string bundleId = currentValue;
-                Dictionary<string, object> data = GetAppInfo("iOS", bundleId);
+                Dictionary<string, object> data = Yodo1Net.GetInstance().GetAppInfoByBundleID("iOS", bundleId);
                 UpdateData(settings, data);
 #endif
             });
@@ -164,6 +159,13 @@
         static void OnProjectLoadedInEditor()
         {
             EditorApplication.update += UpdateAppInfo;
+            EditorApplication.update += UpdateAdNetworkAndDependencies;
+        }
+
+        static void UpdateAdNetworkAndDependencies()
+        {
+            EditorApplication.update -= UpdateAdNetworkAndDependencies;
+            IntegrationManager.UpdateAdNetworkAndDependencies();
         }
 
         public static void UpdateAppInfo()
@@ -178,12 +180,20 @@
             Yodo1AdSettings settings = Yodo1AdSettingsSave.Load();
 
             string bundleId = string.Empty;
+#if UNITY_2023_2_OR_NEWER
+            bundleId = PlayerSettings.GetApplicationIdentifier(NamedBuildTarget.Android);
+#else
             bundleId = PlayerSettings.GetApplicationIdentifier(BuildTargetGroup.Android);
-            Dictionary<string, object> androidData = GetAppInfo("android", bundleId);
+#endif
+            Dictionary<string, object> androidData = Yodo1Net.GetInstance().GetAppInfoByBundleID("android", bundleId);
             UpdateData(settings, androidData);
 
-            bundleId = PlayerSettings.GetApplicationIdentifier(BuildTargetGroup.iOS);
-            Dictionary<string, object> iosData = GetAppInfo("iOS", bundleId);
+#if UNITY_2023_2_OR_NEWER
+            bundleId = PlayerSettings.GetApplicationIdentifier(NamedBuildTarget.Android);
+#else
+            bundleId = PlayerSettings.GetApplicationIdentifier(BuildTargetGroup.Android);
+#endif
+            Dictionary<string, object> iosData = Yodo1Net.GetInstance().GetAppInfoByBundleID("iOS", bundleId);
             UpdateData(settings, iosData);
         }
 
@@ -234,84 +244,6 @@
                 settings.androidSettings.BundleID = bundleId;
             }
             Yodo1AdSettingsSave.Save(settings);
-        }
-
-        #region Get app-key by bundle-id
-
-        private static Dictionary<string, object> GetAppInfo(string platform, string bundleId)
-        {
-            string url = "https://sdk.mas.yodo1.com/v1/unity/get-app-info-by-bundle-id";
-            string secretKey = "W4OJaaOVAmO2uGaUVCCw24cuHKu4Zc";
-            string timestamp = ((DateTime.Now.ToUniversalTime().Ticks - 621355968000000000) / 10000) + "";
-            string sign = Md5(secretKey + timestamp + bundleId).ToLower();
-
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-            dic.Add("timestamp", timestamp);
-            dic.Add("bundle_id", bundleId);
-            dic.Add("plugin_version", Yodo1AdUtils.GetPluginVersion());
-            dic.Add("platform", platform);
-            dic.Add("sign", sign);
-
-            string response = HttpPost(url, Yodo1JSON.Serialize(dic));
-            Dictionary<string, object> obj = (Dictionary<string, object>)Yodo1JSON.Deserialize(response);
-            return obj;
-        }
-
-        #endregion
-
-        private static string HttpPost(string url, string json)
-        {
-            try
-            {
-                //Debug.Log(Yodo1U3dMas.TAG + "HttpPost request - " + json);
-
-                // Send Request
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-                request.ContentType = "application/json";
-                request.Method = "POST";
-                using (var streamWriter = new StreamWriter(request.GetRequestStream()))
-                {
-                    streamWriter.Write(json);
-                }
-
-                // Get Response
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-                if (response != null)
-                {
-                    //Debug.Log(Yodo1U3dMas.TAG + "Response.StatusCode: " + response.StatusCode);
-                }
-                else
-                {
-                    //Debug.Log(Yodo1U3dMas.TAG + "Response is null");
-                }
-                StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
-                string result = reader.ReadToEnd();
-                // Debug.Log(Yodo1U3dMas.TAG + "HttpPost result - " + result);
-
-                reader.Close();
-                return result;
-            }
-            catch (WebException e)
-            {
-                //Debug.LogWarning(Yodo1U3dMas.TAG + "HttpPost Exception.Status - " + e.Status + ", please check your bundle id or package name.");
-                return string.Empty;
-            }
-        }
-
-        private static string Md5(string strToEncryppt)
-        {
-            using (System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create())
-            {
-                byte[] bs = UTF8Encoding.UTF8.GetBytes(strToEncryppt);
-                byte[] hashBytes = md5.ComputeHash(bs);
-                // Convert the byte array to hexadecimal string
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < hashBytes.Length; i++)
-                {
-                    sb.Append(hashBytes[i].ToString("X2"));
-                }
-                return sb.ToString();
-            }
         }
     }
 }

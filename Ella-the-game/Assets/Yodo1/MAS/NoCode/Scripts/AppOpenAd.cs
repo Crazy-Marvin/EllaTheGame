@@ -17,6 +17,7 @@ public class AppOpenAd : MonoBehaviour
     [SerializeField] UnityEvent OnAppOpenAdOpened;
     [SerializeField] UnityEvent OnAppOpenAdOpenFailed;
     [SerializeField] UnityEvent OnAppOpenAdClosed;
+    [SerializeField] UnityEvent OnAppOpenAdPayRevenue;
 
     private void Awake()
     {
@@ -29,7 +30,7 @@ public class AppOpenAd : MonoBehaviour
 
         LoadAd();
     }
-    
+
     void TaskOnClick()
     {
         if (Yodo1U3dAppOpenAd.GetInstance().IsLoaded())
@@ -37,6 +38,7 @@ public class AppOpenAd : MonoBehaviour
             Yodo1U3dAppOpenAd.GetInstance().OnAdOpenedEvent += OnAppOpenAdOpenedEvent;
             Yodo1U3dAppOpenAd.GetInstance().OnAdOpenFailedEvent += OnAppOpenAdOpenFailedEvent;
             Yodo1U3dAppOpenAd.GetInstance().OnAdClosedEvent += OnAppOpenAdClosedEvent;
+            Yodo1U3dAppOpenAd.GetInstance().OnAdPayRevenueEvent += OnAppOpenAdPayRevenueEvent;
 
             if (string.IsNullOrEmpty(placementID))
             {
@@ -100,7 +102,14 @@ public class AppOpenAd : MonoBehaviour
         Yodo1U3dAppOpenAd.GetInstance().OnAdOpenedEvent -= OnAppOpenAdOpenedEvent;
         Yodo1U3dAppOpenAd.GetInstance().OnAdOpenFailedEvent -= OnAppOpenAdOpenFailedEvent;
         Yodo1U3dAppOpenAd.GetInstance().OnAdClosedEvent -= OnAppOpenAdClosedEvent;
+        Yodo1U3dAppOpenAd.GetInstance().OnAdPayRevenueEvent -= OnAppOpenAdPayRevenueEvent;
 
         LoadAd();
+    }
+
+    private void OnAppOpenAdPayRevenueEvent(Yodo1U3dAppOpenAd ad, Yodo1U3dAdValue adValue)
+    {
+        Debug.Log(Yodo1U3dMas.TAG + "NoCode App Open ad closed");
+        OnAppOpenAdPayRevenue.Invoke();
     }
 }

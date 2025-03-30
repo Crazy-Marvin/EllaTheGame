@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Xml;
 using UnityEngine;
 using Yodo1.MAS;
 
 public class Yodo1AdNetworkUtil
 {
-
-    public static string TetCurSDKVersion(string versionPath)
+    public static string GetCurSdkVersion(string versionPath)
     {
         if (string.IsNullOrEmpty(versionPath) || File.Exists(versionPath) == false)
         {
@@ -25,7 +22,7 @@ public class Yodo1AdNetworkUtil
         XmlNode xnRead = xmlReadDoc.SelectSingleNode("versions");
         XmlElement unityNode = (XmlElement)xnRead.SelectSingleNode("unity");
         string version = unityNode.GetAttribute("version").ToString();
-  
+
         reader.Close();
 
         return version;
