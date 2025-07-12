@@ -21,9 +21,8 @@
 热烈欢迎翻译人员及其他贡献者加入，助力这款跑酷跳跃类狗狗游戏变得更出色，增加更多本地化语言与新功能。
  
 今日就免费下载《丛林冒险中的艾拉》，并告诉你的朋友们吧。
- 
-如有任何漏洞、问题、功能需求或其他建议，欢迎随时告知我们。
- 
+如有任何漏洞、问题、功能需求或其他建议，欢迎随时告知我们。 
+
 网页：<a href="https://crazymarvin.com/ella/">https://crazymarvin.com/ella/</a>
 参与翻译：<a href="https://hosted.weblate.org/engage/ella-the-game/">https://hosted.weblate.org/engage/ella-the-game//</a>
 GitHub 上的源代码：<a href="https://github.com/Crazy-Marvin/EllaTheGame/">https://github.com/Crazy-Marvin/EllaTheGame/</a>
