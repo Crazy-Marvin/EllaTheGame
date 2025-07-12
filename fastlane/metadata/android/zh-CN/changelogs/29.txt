@@ -1,0 +1,3 @@
+- 更新依赖项（Unity、Yodo1、Googlr Play Games、In-App-Purchases）⚙️
+- 移除已停用的 EasyMobile Pro，改用原生代码实现 Google Play Games 🥀
+- 修复漏洞 🐛
