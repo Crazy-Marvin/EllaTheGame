@@ -1,0 +1,6 @@
+- 🛠️ Dependências atualizadas
+- 🛠️ Atualizado Yodo1 SDK
+- 🛠️ Atualizado Google Play Games SDK
+- 🛠️ Atualizou o Google Play Billing SDK
+- 🤖 Alvo Android 16
+- 🌍 Tradução atualizada
