@@ -1,0 +1,3 @@
+- Aktualigo de dependaĵoj (Unity, Yodo1, Google Play Games, In-App-Purchases) ⚙️
+- Forigo de EasyMobile Pro kaj uzado de propra kodo por Google Play Games 🥀
+- Senerarigoj 🐛

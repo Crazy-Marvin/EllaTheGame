@@ -1,0 +1,6 @@
+- 🛠️ Aktualigitaj dependaĵoj
+- 🛠️ Aktualigita Yodo1 SDK
+- 🛠️ Aktualigita Google Play Games SDK
+- 🛠️ Aktualigita Google Play Billing SDK
+- 🤖 Target Android 16
+- 🌍 Aktualigitaj tradukaĵoj
