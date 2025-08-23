@@ -1,0 +1,6 @@
+- 🛠️ Обновлены зависимости
+- 🛠️ Обновлен SDK Yodo1
+- 🛠️ Обновлен SDK Google Play Games
+- 🛠️ Обновлен SDK Google Play Billing
+-🤖 Target Android 16
+- 🌍Обновлены переводы
