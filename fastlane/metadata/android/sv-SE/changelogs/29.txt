@@ -1,0 +1,3 @@
+- Uppdatera beroenden (Unity, Yodo1, Google Play Games, In-App-Purchases) ⚙️
+- Ta bort avvecklade EasyMobile Pro och använd inbyggd kod för Google Play-spel 🥀
+- Buggfixar 🐛
