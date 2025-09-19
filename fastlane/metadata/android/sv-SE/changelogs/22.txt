@@ -1,0 +1,3 @@
+- Förbättrad ledartavla
+- Ordnad kodbas
+- Fixade översättningar

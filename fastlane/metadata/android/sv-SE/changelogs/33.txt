@@ -1,0 +1,6 @@
+- 🛠️ Uppdaterade beroenden
+- 🛠️ Uppgraderad Yodo1 SDK
+- 🛠️ Uppgraderad Google Play Games SDK
+- 🛠️ Uppgraderad Google Play Billing SDK
+- 🤖 Mål Android 16
+- 🌍 Uppdaterade översättningar
