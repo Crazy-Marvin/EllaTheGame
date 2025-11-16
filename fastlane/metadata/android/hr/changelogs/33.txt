@@ -1,0 +1,6 @@
+🛠️ Aktualizirane ovisnosti
+🛠️ Nadograđen Yodo1 SDK
+🛠️ Nadograđen Google Play Games SDK
+🛠️ Nadograđen Google Play Billing SDK
+🤖 Ciljana verzija Android 16
+🌍 Aktualizirani prijevodi
