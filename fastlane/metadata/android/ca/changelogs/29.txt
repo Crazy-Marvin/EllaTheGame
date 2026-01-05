@@ -1,0 +1,3 @@
+- Actualitza les dependències (Unity, Yodo1, Google Play Games, In-App-Purchases) ⚙️
+- Eliminar EasyMobile Pro i utilitzar codi natiu per a jocs de Google Play 🥀
+- Correccions d'errors 🐛
