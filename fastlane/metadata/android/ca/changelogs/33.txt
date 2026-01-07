@@ -1,0 +1,6 @@
+- 🛠️ Dependències actualitzades
+- 🛠️ Actualització Yodo1 SDK
+- 🛠️ Actualització de Google Play Games SDK
+- 🛠️ Actualització de Google Play Facturació SDK
+- 🤖 Objectiu Android 16
+- 🌍 Traduccions actualitzades
