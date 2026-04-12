@@ -50,7 +50,7 @@ namespace Yodo1.MAS
         private static Yodo1SkAdNetworkData GetSkAdNetworkData()
         {
             var uriBuilder = new UriBuilder("https://dash.applovin.com/docs/v1/unity_integration_manager/sk_ad_networks_info");
-            uriBuilder.Query += "adnetworks=AdColony,Amazon,BidMachine,BigoAds,ByteDance,CSJ,Facebook,Fyber,Google,GoogleAdManager,InMobi,IronSource,Mintegral,Moloco,MyTarget,Tapjoy,TencentGDT,UnityAds,Vungle,Yandex,YSONetwork";
+            uriBuilder.Query += "adnetworks=AdColony,Amazon,BidMachine,BigoAds,ByteDance,Chartboost,CSJ,Facebook,Fyber,Google,GoogleAdManager,InMobi,IronSource,Mintegral,Moloco,PubMatic,MyTarget,Tapjoy,TencentGDT,UnityAds,Vungle,Yandex,YSONetwork";
             var unityWebRequest = UnityWebRequest.Get(uriBuilder.ToString());
 
 #if UNITY_2017_2_OR_NEWER
@@ -89,10 +89,9 @@ namespace Yodo1.MAS
             string[] applovinSkIDs = GetSkAdNetworksIDs("sk_ad_networks_info.plist");
             string[] bigoSkIDs = GetSkAdNetworksIDs("sk_ad_networks_info_bigo.plist");
             string[] tobidSkIDs = GetSkAdNetworksIDs("sk_ad_networks_info_tobid.plist");
+            string[] taurusxSkIDs = GetSkAdNetworksIDs("sk_ad_networks_info_taurusx.plist");
 
-            string[] skIDs = applovinSkIDs.Union(bigoSkIDs).ToArray<string>(); //Merge arrays and remove duplicates
-            string[] allSkIDs = skIDs.Union(tobidSkIDs).ToArray<string>();
-
+            string[] allSkIDs = applovinSkIDs.Union(bigoSkIDs).Union(tobidSkIDs).Union(taurusxSkIDs).ToArray<string>(); //Merge arrays and remove duplicates
             return allSkIDs;
         }
 
@@ -154,7 +153,7 @@ namespace Yodo1.MAS
             }
 
             //Set AppLovinSdkKey
-            rootDict.SetString("AppLovinSdkKey", Yodo1AdEditorConstants.DEFAULT_APPLOVIN_SDK_KEY);
+            //rootDict.SetString("AppLovinSdkKey", Yodo1AdEditorConstants.DEFAULT_APPLOVIN_SDK_KEY);
 
             if (settings.iOSSettings.GlobalRegion)
             {
@@ -465,48 +464,33 @@ namespace Yodo1.MAS
             {
                 var dynamicLibraryPathsToEmbed = new List<string>();
 
-                if (Yodo1AdUtils.IsAppLovinValid(Yodo1PlatfromTarget.iOS))
+                // Candidate xcframework relative paths inside the generated Xcode project (do NOT check existence here).
+                // Existence will be checked in EmbedDynamicLibrariesIfNeeded using the buildPath.
+                var possibleXcframeworkPaths = new[]
                 {
-                    dynamicLibraryPathsToEmbed.Add(Path.Combine("Pods/", "AppLovinSDK/applovin-ios-sdk-12.6.1/AppLovinSDK.xcframework"));
-                    // Amazon
-                    dynamicLibraryPathsToEmbed.Add(Path.Combine("Pods/", "AmazonPublisherServicesSDK/APS_iOS_SDK-4.10.0/DTBiOSSDK.xcframework"));
-                }
+                    // AppLovin
+                    Path.Combine("Pods/", "AppLovinSDK/applovin-ios-sdk-13.3.1/AppLovinSDK.xcframework"),
+                    // BidMachine
+                    Path.Combine("Pods/", "OMSDK_Appodeal/OMSDK_Appodeal.xcframework"),
+                    // InMobi
+                    Path.Combine("Pods/", "InMobiSDK/InMobiSDK.xcframework"),
+                    // Moloco
+                    Path.Combine("Pods/", "MolocoSDKiOS/MolocoSDK.xcframework"),
+                    // Pubmatic
+                    Path.Combine("Pods/", "OpenWrapSDK/OpenWrapSDK/OMSDK_Pubmatic.xcframework"),
+                    Path.Combine("Pods/", "OpenWrapSDK/OpenWrapSDK/OpenWrapSDK.xcframework"),
+                    // ToBid - KuaiShou
+                    Path.Combine("Pods/", "KSAdSDK/KSAdSDK.xcframework"),
+                    // TaurusX
+                    Path.Combine("Pods/", "TaurusxAdsSDK/TaurusxAdsSDK.xcframework"),
+                    // Tencent
+                    Path.Combine("Pods/", "GDTMobSDK/GDTFramework/GDTMobSDK.xcframework"),
+                    Path.Combine("Pods/", "GDTMobSDK/GDTFramework/Tquic.xcframework"),
+                    // YSONetwork
+                    Path.Combine("Pods/", "YsoNetworkSDK/YsoNetwork.xcframework")
+                };
 
-                // BidMachine
-                if (Yodo1AdUtils.IsValidWithNetwork(Yodo1PlatfromTarget.iOS, "BidMachine"))
-                {
-                    dynamicLibraryPathsToEmbed.Add(Path.Combine("Pods/", "OMSDK_Appodeal/OMSDK_Appodeal.xcframework"));
-                }
-
-                // Fyber have changed it from dynamic to static, need not handle these lines
-                //if (Yodo1AdUtils.IsValidWithNetwork(Yodo1PlatfromTarget.iOS, "Fyber")) 
-                //{
-                //    dynamicLibraryPathsToEmbed.Add(Path.Combine("Pods/", "Fyber_Marketplace_SDK/IASDKCore/IASDKCore.xcframework"));
-                //}
-
-                // InMobi
-                if (Yodo1AdUtils.IsValidWithNetwork(Yodo1PlatfromTarget.iOS, "InMobi"))
-                {
-                    dynamicLibraryPathsToEmbed.Add(Path.Combine("Pods/", "InMobiSDK/InMobiSDK.xcframework"));
-                }
-
-                // Moloco
-                if (Yodo1AdUtils.IsValidWithNetwork(Yodo1PlatfromTarget.iOS, "Moloco"))
-                {
-                    dynamicLibraryPathsToEmbed.Add(Path.Combine("Pods/", "MolocoSDKiOS/MolocoSDK.xcframework"));
-                }
-
-                // ToBid - KuaiShou
-                if (Yodo1AdUtils.IsValidWithNetwork(Yodo1PlatfromTarget.iOS, "ToBid"))
-                {
-                    dynamicLibraryPathsToEmbed.Add(Path.Combine("Pods/", "ToBid-iOS/tobid-sdk-ios-cn/AdNetworks/kuaishou/KSAdSDK.xcframework"));
-                }
-
-                // YSONetwork
-                if (Yodo1AdUtils.IsValidWithNetwork(Yodo1PlatfromTarget.iOS, "YSONetwork") || Yodo1AdUtils.IsValidWithNetwork(Yodo1PlatfromTarget.iOS, "YSO"))
-                {
-                    dynamicLibraryPathsToEmbed.Add(Path.Combine("Pods/", "YsoNetworkSDK/YsoNetwork.framework"));
-                }
+                dynamicLibraryPathsToEmbed.AddRange(possibleXcframeworkPaths);
 
                 return dynamicLibraryPathsToEmbed;
             }

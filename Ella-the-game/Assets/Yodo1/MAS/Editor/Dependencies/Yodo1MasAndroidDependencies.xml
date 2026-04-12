@@ -1,14 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <dependencies>
   <androidPackages>
-    <repositories>
-      <repository>https://artifact.bytedance.com/repository/pangle/</repository>
-      <repository>https://android-sdk.is.com/</repository>
-      <repository>https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea</repository>
-      <repository>https://artifactory.bidmachine.io/bidmachine</repository>
-      <repository>https://ysonetwork.s3.eu-west-3.amazonaws.com/sdk/android</repository>
-      <repository>https://artifacts.applovin.com/android/beta/</repository>
-    </repositories>
-    <androidPackage spec="com.yodo1.mas:full:4.14.2" />
+    <repositories />
+    <androidPackage spec="com.yodo1.mas:core:4.17.1" />
+    <androidPackage spec="com.yodo1.mas:gplibrary:4.17.1" />
+    <androidPackage spec="com.yodo1.mas.mediation:applovin:4.17.1" />
+    <androidPackage spec="com.yodo1.mas.mediation.applovin.adapters:admob:4.17.1" />
+    <androidPackage spec="com.yodo1.mas.mediation:admob:4.17.1" />
+    <androidPackage spec="com.yodo1.mas.mediation.admob.adapters:applovin-admob:4.17.1" />
+    <androidPackage spec="com.yodo1.mas.mediation.admob.adapters:applovin-ad-manager:4.17.1" />
+    <androidPackage spec="com.yodo1.mas.mediation:moloco:4.17.1" />
+    <androidPackage spec="com.yodo1.mas.mediation.moloco.adapters:admob:4.17.1" />
+    <androidPackage spec="com.yodo1.mas.mediation.moloco.adapters:applovin:4.17.1" />
+    <androidPackage spec="com.yodo1.mas.mediation:yodo1:4.17.1" />
   </androidPackages>
 </dependencies>

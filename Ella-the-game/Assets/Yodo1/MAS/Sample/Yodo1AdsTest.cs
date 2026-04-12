@@ -7,7 +7,6 @@ public class Yodo1AdsTest : MonoBehaviour
     [Header("Ad Placements")]
     public InputField interstitialAdPlacement;
     public InputField rewardAdPlacement;
-    public InputField rewardInterstitialAdPlacement;
     public InputField appOpenAdPlacement;
 
     void Start()
@@ -55,7 +54,6 @@ public class Yodo1AdsTest : MonoBehaviour
                 InitializeInterstitialAds();
                 InitializeRewardedAds();
                 InitializeNativeAds();
-                InitializeRewardedInterstitialAds();
                 InitializeAppOpenAds();
             }
             else
@@ -578,71 +576,75 @@ public class Yodo1AdsTest : MonoBehaviour
 
     #endregion
 
-    #region Yodo1U3dNativeAdView
-    Yodo1U3dNativeAdView nativeAdView = null;
-    Yodo1U3dNativeAdView nativeAdView2 = null;
+    #region Native Ad Methods
+    Yodo1U3dNativeAdView nativeAdViewTop = null;
+    Yodo1U3dNativeAdView nativeAdViewBottom = null;
 
     /// <summary>
     /// The banner is displayed automatically after loaded
     /// </summary>
-    private void InitializeNativeAds()
+    public void InitializeNativeAds()
     {
-        // Clean up native before reusing
-        if (nativeAdView != null)
-        {
-            nativeAdView.Destroy();
-            nativeAdView = null;
-        }
-
-        nativeAdView = new Yodo1U3dNativeAdView(Yodo1U3dNativeAdPosition.NativeTop | Yodo1U3dNativeAdPosition.NativeLeft, 0, 0, 360, 300);
-
-        nativeAdView.SetBackgroundColor(Color.grey);
-        // Add Events
-        nativeAdView.OnAdLoadedEvent += OnNativeAdLoadedEvent;
-        nativeAdView.OnAdFailedToLoadEvent += OnNativeAdFailedToLoadEvent;
-        nativeAdView.OnAdPayRevenueEvent += OnNativeAdPayRevenueEvent;
-
+        // the sample is using the medium size(6:5)
+        int width = (int)(Screen.width * 0.7);
+        int height = (int)(width / 6 * 5);
 
         // Clean up native before reusing
-        if (nativeAdView2 != null)
+        if (nativeAdViewTop != null)
         {
-            nativeAdView2.Destroy();
-            nativeAdView2 = null;
+            nativeAdViewTop.Destroy();
+            nativeAdViewTop = null;
         }
 
-        nativeAdView2 = new Yodo1U3dNativeAdView(Yodo1U3dNativeAdPosition.NativeTop | Yodo1U3dNativeAdPosition.NativeRight, 0, 0, 360, 300);
+        nativeAdViewTop = new Yodo1U3dNativeAdView(Yodo1U3dNativeAdPosition.NativeTop | Yodo1U3dNativeAdPosition.NativeHorizontalCenter, 0, 0, width, height);
 
-        nativeAdView2.SetBackgroundColor(Color.grey);
+        nativeAdViewTop.SetBackgroundColor(Color.grey);
         // Add Events
-        nativeAdView2.OnAdLoadedEvent += OnNativeAdLoadedEvent;
-        nativeAdView2.OnAdFailedToLoadEvent += OnNativeAdFailedToLoadEvent;
-        nativeAdView2.OnAdPayRevenueEvent += OnNativeAdPayRevenueEvent;
+        nativeAdViewTop.OnAdLoadedEvent += OnNativeAdLoadedEvent;
+        nativeAdViewTop.OnAdFailedToLoadEvent += OnNativeAdFailedToLoadEvent;
+        nativeAdViewTop.OnAdPayRevenueEvent += OnNativeAdPayRevenueEvent;
+
+
+        // Clean up native before reusing
+        if (nativeAdViewBottom != null)
+        {
+            nativeAdViewBottom.Destroy();
+            nativeAdViewBottom = null;
+        }
+
+        nativeAdViewBottom = new Yodo1U3dNativeAdView(Yodo1U3dNativeAdPosition.NativeBottom | Yodo1U3dNativeAdPosition.NativeHorizontalCenter, 0, 0, width, height);
+
+        nativeAdViewBottom.SetBackgroundColor(Color.grey);
+        // Add Events
+        nativeAdViewBottom.OnAdLoadedEvent += OnNativeAdLoadedEvent;
+        nativeAdViewBottom.OnAdFailedToLoadEvent += OnNativeAdFailedToLoadEvent;
+        nativeAdViewBottom.OnAdPayRevenueEvent += OnNativeAdPayRevenueEvent;
     }
 
     public void ShowNativeAd(string adPlacement)
     {
         // Load native ads, the native ad will be displayed automatically after loaded
-        if (nativeAdView != null && adPlacement.Equals("test_native_placement_left"))
+        if (nativeAdViewTop != null && adPlacement.Equals("test_native_placement_top"))
         {
-            nativeAdView.SetAdPlacement(adPlacement);
-            nativeAdView.LoadAd();
+            nativeAdViewTop.SetAdPlacement(adPlacement);
+            nativeAdViewTop.LoadAd();
         }
-        if (nativeAdView2 != null && adPlacement.Equals("test_native_placement_right"))
+        if (nativeAdViewBottom != null && adPlacement.Equals("test_native_placement_bottom"))
         {
-            nativeAdView2.SetAdPlacement(adPlacement);
-            nativeAdView2.LoadAd();
+            nativeAdViewBottom.SetAdPlacement(adPlacement);
+            nativeAdViewBottom.LoadAd();
         }
     }
 
     public void HideAllNativeAds()
     {
-        if (nativeAdView != null)
+        if (nativeAdViewTop != null)
         {
-            nativeAdView.Hide();
+            nativeAdViewTop.Hide();
         }
-        if (nativeAdView2 != null)
+        if (nativeAdViewBottom != null)
         {
-            nativeAdView2.Hide();
+            nativeAdViewBottom.Hide();
         }
     }
 
@@ -668,103 +670,6 @@ public class Yodo1AdsTest : MonoBehaviour
             Debug.Log(Yodo1U3dMas.TAG + "OnNativeAdPayRevenueEvent event received, adValue revenue " + adValue.Revenue);
         }
     }
-    #endregion
-
-    #region RewardedInterstitial Ad Methods
-
-    private void InitializeRewardedInterstitialAds()
-    {
-        // Instantiate
-        Yodo1U3dRewardedInterstitialAd.GetInstance();
-
-        // Ad Events
-        Yodo1U3dRewardedInterstitialAd.GetInstance().OnAdLoadedEvent += OnRewardedInterstitialAdLoadedEvent;
-        Yodo1U3dRewardedInterstitialAd.GetInstance().OnAdLoadFailedEvent += OnRewardedInterstitialAdLoadFailedEvent;
-        Yodo1U3dRewardedInterstitialAd.GetInstance().OnAdOpeningEvent += OnRewardedInterstitialAdOpeningEvent;
-        Yodo1U3dRewardedInterstitialAd.GetInstance().OnAdOpenedEvent += OnRewardedInterstitialAdOpenedEvent;
-        Yodo1U3dRewardedInterstitialAd.GetInstance().OnAdOpenFailedEvent += OnRewardedInterstitialAdOpenFailedEvent;
-        Yodo1U3dRewardedInterstitialAd.GetInstance().OnAdClosedEvent += OnRewardedInterstitialAdClosedEvent;
-        Yodo1U3dRewardedInterstitialAd.GetInstance().OnAdEarnedEvent += OnRewardedInterstitialAdEarnedEvent;
-
-        Yodo1U3dRewardedInterstitialAd.GetInstance().OnAdPayRevenueEvent += OnRewardedInterstitialAdPayRevenueEvent;
-    }
-
-    public void LoadRewardedInterstitialAds()
-    {
-        Yodo1U3dRewardedInterstitialAd.GetInstance().LoadAd();
-    }
-
-    public void ShowRewardedInterstitialAds()
-    {
-        string adPlacement = string.Empty;
-        if (rewardInterstitialAdPlacement != null && !string.IsNullOrEmpty(rewardInterstitialAdPlacement.text))
-        {
-            adPlacement = rewardInterstitialAdPlacement.text;
-        }
-
-        ShowRewardedInterstitialAds(adPlacement);
-    }
-
-    private void ShowRewardedInterstitialAds(string adPlacement)
-    {
-        bool isLoaded = Yodo1U3dRewardedInterstitialAd.GetInstance().IsLoaded();
-
-        if (isLoaded) Yodo1U3dRewardedInterstitialAd.GetInstance().ShowAd(adPlacement);
-    }
-
-    private void OnRewardedInterstitialAdLoadedEvent(Yodo1U3dRewardedInterstitialAd ad)
-    {
-        Debug.Log(Yodo1U3dMas.TAG + "OnRewardedInterstitialAdLoadedEvent event received");
-    }
-
-    private void OnRewardedInterstitialAdLoadFailedEvent(Yodo1U3dRewardedInterstitialAd ad, Yodo1U3dAdError adError)
-    {
-        Debug.Log(Yodo1U3dMas.TAG + "OnRewardedInterstitialAdLoadFailedEvent event received with error: " + adError.ToString());
-    }
-
-    private void OnRewardedInterstitialAdOpeningEvent(Yodo1U3dRewardedInterstitialAd ad)
-    {
-        Debug.Log(Yodo1U3dMas.TAG + "OnRewardedInterstitialAdOpeningEvent event received");
-    }
-
-    private void OnRewardedInterstitialAdOpenedEvent(Yodo1U3dRewardedInterstitialAd ad)
-    {
-        Debug.Log(Yodo1U3dMas.TAG + "OnRewardedInterstitialAdOpenedEvent event received");
-    }
-
-    private void OnRewardedInterstitialAdOpenFailedEvent(Yodo1U3dRewardedInterstitialAd ad, Yodo1U3dAdError adError)
-    {
-        Debug.Log(Yodo1U3dMas.TAG + "OnRewardedInterstitialAdOpenFailedEvent event received with error: " + adError.ToString());
-        // Load the next ad
-        this.LoadRewardedInterstitialAds();
-    }
-
-    private void OnRewardedInterstitialAdClosedEvent(Yodo1U3dRewardedInterstitialAd ad)
-    {
-        Debug.Log(Yodo1U3dMas.TAG + "OnRewardedInterstitialAdClosedEvent event received");
-        // Load the next ad
-        this.LoadRewardedInterstitialAds();
-    }
-
-    private void OnRewardedInterstitialAdEarnedEvent(Yodo1U3dRewardedInterstitialAd ad)
-    {
-        Debug.Log(Yodo1U3dMas.TAG + "OnRewardedInterstitialAdEarnedEvent event received");
-        // Add your reward code here
-    }
-
-    private void OnRewardedInterstitialAdPayRevenueEvent(Yodo1U3dRewardedInterstitialAd ad, Yodo1U3dAdValue adValue)
-    {
-        if (adValue == null)
-        {
-            Debug.Log(Yodo1U3dMas.TAG + "OnRewardedInterstitialAdPayRevenueEvent event received, adValue is null");
-        }
-        else
-        {
-            Debug.Log(Yodo1U3dMas.TAG + "OnRewardedInterstitialAdPayRevenueEvent event received, adValue " + adValue.ToString());
-            Debug.Log(Yodo1U3dMas.TAG + "OnRewardedInterstitialAdPayRevenueEvent event received, adValue revenue " + adValue.Revenue);
-        }
-    }
-
     #endregion
 
 

@@ -27,12 +27,17 @@ MonoBehaviour:
     GlobalRegion: 1
     AppLovinSdkKey: xcGD2fy-GdmiZQapx_kUSy5SMKyLoXBk8RyB5u9MVv34KetGdbl4XrXvAUFy0Qg9scKyVTI0NM4i_yzdXih4XE
   androidDynamicNetworkSettings:
-    sdkType: -1
-    sdkVersion: 
-    latestSdkVersion: 
-    networks: []
+    sdkType: 0
+    sdkVersion: 4.17.1
+    latestSdkVersion: 4.17.1
+    networks:
+    - APPLOVIN
+    - ADMOB
+    - moloco
   iosDynamicNetworkSettings:
-    sdkType: -1
-    sdkVersion: 
-    latestSdkVersion: 
-    networks: []
+    sdkType: 2
+    sdkVersion: 4.17.1
+    latestSdkVersion: 4.17.1
+    networks:
+    - APPLOVIN
+    - ADMOB

@@ -392,7 +392,7 @@ public class Yodo1U3dAdsIOS
             }
             if (methodName.Equals("isRewardedInterstitialAdLoaded"))
             {
-                return UnityIsRewardedInterstitialAdLoaded(param);
+
             }
             if (methodName.Equals("isAppOpenAdLoaded"))
             {
@@ -434,33 +434,6 @@ public class Yodo1U3dAdsIOS
     }
     #endregion
 
-    #region  RewardedInterstitial
-    [DllImport(LIB_NAME)]
-    private static extern void UnityLoadRewardedInterstitialAd(string param);
-    [DllImport(LIB_NAME)]
-    private static extern void UnityShowRewardedInterstitialAd(string param);
-    [DllImport(LIB_NAME)]
-    private static extern void UnityDestroyRewardedInterstitialAd(string param);
-    [DllImport(LIB_NAME)]
-    private static extern bool UnityIsRewardedInterstitialAdLoaded(string param);
-    public static void RewardedInterstitial(string methodName, string param)
-    {
-        if (Application.platform == RuntimePlatform.IPhonePlayer)
-        {
-            if (methodName.Equals("loadRewardedInterstitialAd"))
-            {
-                UnityLoadRewardedInterstitialAd(param);
-            }
-            if (methodName.Equals("showRewardedInterstitialAd"))
-            {
-                UnityShowRewardedInterstitialAd(param);
-            }
-            if (methodName.Equals("destroyRewardedInterstitialAd"))
-            {
-                UnityDestroyRewardedInterstitialAd(param);
-            }
-        }
-    }
-    #endregion
+
 #endif
 }

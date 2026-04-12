@@ -8,6 +8,7 @@ public class YodoAdsManager : MonoBehaviour
     public static YodoAdsManager instance;
     private Yodo1U3dBannerAdView bannerAdView;
 
+    public bool desableYodoAtStart = true;
     private void Awake()
     {
         instance = this;
@@ -17,7 +18,11 @@ public class YodoAdsManager : MonoBehaviour
 
     private void Start()
     {
-        Initialize();
+        if (!desableYodoAtStart)
+        {
+            Initialize();
+        }
+
     }
 
     void Initialize()
@@ -122,7 +127,7 @@ public class YodoAdsManager : MonoBehaviour
         Yodo1U3dInterstitialAd.GetInstance().LoadAd();
     }
 
-   
+
 
     private void OnInterstitialAdLoadedEvent(Yodo1U3dInterstitialAd ad)
     {
@@ -186,7 +191,7 @@ public class YodoAdsManager : MonoBehaviour
         Yodo1U3dRewardAd.GetInstance().LoadAd();
     }
 
-   
+
 
     private void OnRewardAdLoadedEvent(Yodo1U3dRewardAd ad)
     {
@@ -239,10 +244,14 @@ public class YodoAdsManager : MonoBehaviour
                 bannerAdView.Show();
         }
     }
+    public void Request_Banner()
+    {
+        this.RequestBanner();   
+    }
 
     public void HideBanner()
     {
-        if(bannerAdView!=null)
-        bannerAdView.Hide();
+        if (bannerAdView != null)
+            bannerAdView.Hide();
     }
 }

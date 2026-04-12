@@ -36,7 +36,7 @@ public class snowmanObstacle : MonoBehaviour {
     }
 	
 	void FixedUpdate () {
-        RB.velocity = new Vector2(movemmentSpeed, RB.velocity.y);
+        RB.linearVelocity = new Vector2(movemmentSpeed, RB.linearVelocity.y);
         if (rotating)
         {
             RB.MoveRotation(RB.rotation + rotationSpeed);

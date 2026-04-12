@@ -111,7 +111,10 @@ namespace Yodo1.MAS
         public string ToString()
         {
             Dictionary<string, object> dict = new Dictionary<string, object>();
-            dict.Add("userAge", UserAge);
+            if(UserAge > 0)
+            {
+                dict.Add("userAge", UserAge);
+            }
             dict.Add("attrackingStatus", AttTrackingStatus);
             dict.Add("consentFlowUserGeography", ConsentFlowUserGeography);
             return Yodo1JSON.Serialize(dict);

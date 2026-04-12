@@ -65,7 +65,7 @@ Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/SignInStat
 Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/CommonTypes.cs
 Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/PlayerStats.cs
 Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/GameInfo.cs
-Assets/GooglePlayGames/com.google.play.games/current-build/GooglePlayGamesPlugin-2.0.0.unitypackage
+Assets/GooglePlayGames/com.google.play.games/current-build/GooglePlayGamesPlugin-0.11.01.unitypackage
 Assets/GooglePlayGames/com.google.play.games/package.json
 Assets/GooglePlayGames/com.google.play.games/Proguard/games.txt
 Assets/GooglePlayGames/com.google.play.games/Editor/template-AndroidManifest.txt

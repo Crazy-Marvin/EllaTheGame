@@ -73,14 +73,13 @@
             GUILayout.Space(10);
 
             GUILayout.Label("Unity", headerLabelStyle);
-            GUILayout.Label("1. Unity LTS 2019 or above", contentLabelStyle);
+            GUILayout.Label("1. Unity 2021.3.41f1 or above", contentLabelStyle);
             GUILayout.Space(20);
 
             GUILayout.Label("Android", headerLabelStyle);
-            GUILayout.Label("1. Minimum API Level 23 or above", contentLabelStyle);
+            GUILayout.Label("1. Minimum API Level 24 or above", contentLabelStyle);
             GUILayout.Label("2. Target API Level 34 or above", contentLabelStyle);
-            GUILayout.Label("3. Unity Editor version 2021.3.41f1 or above", contentLabelStyle);
-            GUILayout.Label("4. If you use Proguard, please refer to the documentation.", contentLabelStyle);
+            GUILayout.Label("3. If you use Proguard, please refer to the documentation.", contentLabelStyle);
 
 
             GUIStyle hyperlinkStyle = new GUIStyle(GUI.skin.label);
@@ -96,7 +95,7 @@
             GUILayout.Space(20);
             GUILayout.Label("iOS", headerLabelStyle);
             GUILayout.Label("1. iOS 13.0 or above.", contentLabelStyle);
-            GUILayout.Label("2. Xcode 15.2 or above", contentLabelStyle);
+            GUILayout.Label("2. Xcode 16.3 or above", contentLabelStyle);
             GUILayout.Label("3. Cocoapods 1.10.0 or above", contentLabelStyle);
 
             GUILayout.EndVertical();

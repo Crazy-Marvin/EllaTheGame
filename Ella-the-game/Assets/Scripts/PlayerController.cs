@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour {
             if (playerState != PlayerState.Dead)
             {
                 grounded = Physics2D.IsTouchingLayers(playerCollider, groundLayer);
-                playerRB.velocity = new Vector2(movementSpeed, playerRB.velocity.y);
+                playerRB.linearVelocity = new Vector2(movementSpeed, playerRB.linearVelocity.y);
                 if (jumping())
                 {
                     if (grounded && playerState == PlayerState.Running)
@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour {
                         playerState = PlayerState.Jumping;
                         audioSource.clip = audioClips[1]; // 1 for Jumping Sound
                         audioSource.Play();
-                        playerRB.velocity = new Vector2(playerRB.velocity.y, jumpForce);
+                        playerRB.linearVelocity = new Vector2(playerRB.linearVelocity.y, jumpForce);
                         playeranimator.SetBool("Jumping", true);
                     }
                 }
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour {
                 playerState = PlayerState.Dead;
                 GameManager.Instance.ExecuteGameOverEvent();
                 playeranimator.SetBool("isDeath", true);
-                playerRB.velocity = new Vector2(30, playerRB.velocity.y);
+                playerRB.linearVelocity = new Vector2(30, playerRB.linearVelocity.y);
             }
             playeranimator.SetBool("Damaged", true);
             movementSpeed = 0.1f;

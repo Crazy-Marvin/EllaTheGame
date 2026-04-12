@@ -519,7 +519,6 @@
                         break;
                     case AdType.RewardedInterstitial:
                         {
-                            Yodo1U3dRewardedInterstitialAd.CallbcksEvent(adEvent, adError, adValue);
                         }
                         break;
                     case AdType.AppOpen:
@@ -561,6 +560,9 @@
                 error.Message = "No error in initialization";
                 _initialized = true;
                 InvokeEvent(_onSdkInitializedEvent, true, error);
+
+                Yodo1MasSdkConfiguration configuration = new Yodo1MasSdkConfiguration();
+                InvokeEvent(_onSdkInitializationEvent, configuration, error);
             }
             else if (string.Equals(val, "onRewardedAdLoadedEvent"))
             {
@@ -622,39 +624,6 @@
                 Yodo1U3dMasCallback.Instance.UnPause();
                 InvokeEvent(_onInterstitialAdClosedEvent);
                 Yodo1U3dInterstitialAd.CallbcksEvent(Yodo1U3dAdEvent.AdClosed, null);
-            }
-            else if (string.Equals(val, "onRewardedInterstitialAdLoadedEvent"))
-            {
-                Yodo1U3dRewardedInterstitialAd.CallbcksEvent(Yodo1U3dAdEvent.AdLoaded, null);
-            }
-            else if (string.Equals(val, "onRewardedInterstitialAdLoadFailedEvent"))
-            {
-                Yodo1U3dAdError error = new Yodo1U3dAdError();
-                error.Message = "No ads found.";
-                Yodo1U3dRewardedInterstitialAd.CallbcksEvent(Yodo1U3dAdEvent.AdLoadFail, error);
-            }
-            else if (string.Equals(val, "onRewardedInterstitialAdOpenedEvent"))
-            {
-                Yodo1U3dMasCallback.Instance.Pause();
-                InvokeEvent(_onRewardedAdOpenedEvent);
-                Yodo1U3dRewardedInterstitialAd.CallbcksEvent(Yodo1U3dAdEvent.AdOpened, null);
-            }
-            else if (string.Equals(val, "onRewardedInterstitialAdOpenFailedEvent"))
-            {
-                Yodo1U3dAdError error = new Yodo1U3dAdError();
-                error.Message = "Ad failed to play.";
-                Yodo1U3dRewardedInterstitialAd.CallbcksEvent(Yodo1U3dAdEvent.AdOpenFail, error);
-            }
-            else if (string.Equals(val, "onRewardedInterstitialAdClosedEvent"))
-            {
-                Yodo1U3dMasCallback.Instance.UnPause();
-                InvokeEvent(_onRewardedAdClosedEvent);
-                Yodo1U3dRewardedInterstitialAd.CallbcksEvent(Yodo1U3dAdEvent.AdClosed, null);
-            }
-            else if (string.Equals(val, "onRewardedInterstitialAdEarnedEvent"))
-            {
-                InvokeEvent(_onRewardedAdReceivedRewardEvent);
-                Yodo1U3dRewardedInterstitialAd.CallbcksEvent(Yodo1U3dAdEvent.AdReward, null);
             }
             else if (string.Equals(val, "onAppOpenAdLoadedEvent"))
             {

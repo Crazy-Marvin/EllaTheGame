@@ -7,7 +7,7 @@ namespace Yodo1.MAS
     public class Yodo1U3dBannerAdView
     {
         private static List<Yodo1U3dBannerAdView> BannerAdViews = new List<Yodo1U3dBannerAdView>();
-        private readonly string indexId = (((DateTime.Now.ToUniversalTime().Ticks - 621355968000000000) / 10000) + BannerAdViews.Count) + "";
+        private readonly string indexId = Yodo1U3dAdUtils.GetUniqueTicks().ToString();
 
         private Yodo1U3dBannerAdSize adSize;
         private Yodo1U3dBannerAdPosition adPosition;

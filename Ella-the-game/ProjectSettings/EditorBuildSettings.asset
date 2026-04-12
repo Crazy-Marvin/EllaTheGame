@@ -48,3 +48,4 @@ EditorBuildSettings:
     path: Assets/Scenes/new ice_level.unity
     guid: 003231d1a8db1fe46ab44fe50c7d3239
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0
