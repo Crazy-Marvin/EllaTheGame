@@ -1,7 +1,9 @@
 ﻿namespace Yodo1.MAS
 {
+    using System;
     using System.Collections.Generic;
     using System.Globalization;
+    using System.Threading;
 
     public class Yodo1U3dAdUtils
     {
@@ -184,6 +186,14 @@
         public static string InvariantCultureToString(object obj)
         {
             return string.Format(CultureInfo.InvariantCulture, "{0}", obj);
+        }
+
+
+        private static long counter = 0;
+
+        public static long GetUniqueTicks()
+        {
+            return DateTime.UtcNow.Ticks + (Interlocked.Increment(ref counter) % 10000);
         }
     }
 }

@@ -38,8 +38,6 @@ Yodo1MasBannerAdViewDelegate,
 Yodo1MasBannerAdRevenueDelegate,
 Yodo1MasNativeAdViewDelegate,
 Yodo1MasNativeAdRevenueDelegate,
-Yodo1MasRewardedInterstitialAdDelegate,
-Yodo1MasRewardedInterstitialAdRevenueDelegate,
 Yodo1MasAppOpenAdDelegate,
 Yodo1MasAppOpenAdRevenueDelegate,
 Yodo1MasAppStatusDelegate>
@@ -361,86 +359,6 @@ Yodo1MasAppStatusDelegate>
 
 - (void)onAppOpenAdPayRevenue:(Yodo1MasAppOpenAd *)ad withAdValue:(Yodo1MasAdValue*)adValue {
     Yodo1MasAdEvent *event = [[Yodo1MasAdEvent alloc] initWithCode:Yodo1MasAdEventCodePayRevenue type:Yodo1MasAdTypeAppOpen adValue:adValue];
-    [Yodo1MasBridge sendMessageWithEvent: event];
-}
-
-#pragma mark - RewardedInterstitial
-- (Yodo1MasRewardedInterstitialAd *)getRewardedInterstitialAdFromJson:(NSString *)json {
-    NSError *error = nil;
-    id dict = [Yodo1MasBridge JSONObjectWithString:json error:&error];
-    if (!dict || error) {
-        return nil;
-    }
-    
-    Yodo1MasBridgeRewardedInterstitialAdConfig *config = [Yodo1MasBridgeRewardedInterstitialAdConfig parse:dict];
-    
-    Yodo1MasRewardedInterstitialAd *ad = [Yodo1MasRewardedInterstitialAd sharedInstance];
-    ad.yodo1_config = config;
-    ad.adDelegate = self;
-    if (ad.yodo1_config.payRevenueEventCount > 0) {
-        ad.adRevenueDelegate = self;
-    } else {
-        ad.adRevenueDelegate = nil;
-    }
-    ad.autoDelayIfLoadFail = config.autoDelayIfLoadFail;
-    return ad;
-}
-
-- (void)loadRewardedInterstitialAd:(NSString *)param {
-    Yodo1MasRewardedInterstitialAd *ad = [self getRewardedInterstitialAdFromJson:param];
-    [ad loadAd];
-}
-
-- (BOOL)isRewardedInterstitialAdLoaded:(NSString *)param {
-    Yodo1MasRewardedInterstitialAd *ad = [self getRewardedInterstitialAdFromJson:param];
-    return ad.isLoaded;
-}
-
-- (void)showRewardedInterstitialAd:(NSString *)param {
-    Yodo1MasRewardedInterstitialAd* ad = [self getRewardedInterstitialAdFromJson:param];
-    [ad showAdWithPlacement:ad.yodo1_config.adPlacement customData:ad.yodo1_config.customData];
-}
-
-- (void)destroyRewardedInterstitialAd:(NSString *)param {
-    Yodo1MasRewardedInterstitialAd *ad = [self getRewardedInterstitialAdFromJson:param];
-    [ad destroy];
-}
-
-#pragma mark - Yodo1MasRewardedInterstitialAdDelegate
-- (void)onRewardedInterstitialAdLoaded:(Yodo1MasRewardedInterstitialAd *)ad {
-    Yodo1MasAdEvent *event = [[Yodo1MasAdEvent alloc] initWithCode:Yodo1MasAdEventCodeLoaded type:Yodo1MasAdTypeRewardedInterstitial];
-    [Yodo1MasBridge sendMessageWithEvent: event];
-}
-
-- (void)onRewardedInterstitialAdFailedToLoad:(Yodo1MasRewardedInterstitialAd *)ad withError:(Yodo1MasError *)error {
-    Yodo1MasAdEvent *event = [[Yodo1MasAdEvent alloc] initWithCode:Yodo1MasAdEventCodeLoadFail type:Yodo1MasAdTypeRewardedInterstitial error:error];
-    [Yodo1MasBridge sendMessageWithEvent: event];
-}
-
-- (void)onRewardedInterstitialAdOpened:(Yodo1MasRewardedInterstitialAd *)ad {
-    Yodo1MasAdEvent *event = [[Yodo1MasAdEvent alloc] initWithCode:Yodo1MasAdEventCodeOpened type:Yodo1MasAdTypeRewardedInterstitial];
-    [Yodo1MasBridge sendMessageWithEvent: event];
-}
-
-- (void)onRewardedInterstitialAdFailedToOpen:(Yodo1MasRewardedInterstitialAd *)ad withError:(Yodo1MasError *)error {
-    Yodo1MasAdEvent *event = [[Yodo1MasAdEvent alloc] initWithCode:Yodo1MasAdEventCodeOpenFail type:Yodo1MasAdTypeRewardedInterstitial error:error];
-    [Yodo1MasBridge sendMessageWithEvent: event];
-}
-
-- (void)onRewardedInterstitialAdClosed:(Yodo1MasRewardedInterstitialAd *)ad {
-    Yodo1MasAdEvent *event = [[Yodo1MasAdEvent alloc] initWithCode:Yodo1MasAdEventCodeClosed type:Yodo1MasAdTypeRewardedInterstitial];
-    [Yodo1MasBridge sendMessageWithEvent: event];
-}
-
-- (void)onRewardedInterstitialAdEarned:(Yodo1MasRewardedInterstitialAd *)ad {
-    Yodo1MasAdEvent *event = [[Yodo1MasAdEvent alloc] initWithCode:Yodo1MasAdEventCodeRewardEarned type:Yodo1MasAdTypeRewardedInterstitial];
-    [Yodo1MasBridge sendMessageWithEvent: event];
-}
-
-#pragma mark - Yodo1MasRewardedInterstitialAdRevenueDelegate
-
-- (void)onRewardedInterstitialAdPayRevenue:(Yodo1MasRewardedInterstitialAd *)ad withAdValue:(Yodo1MasAdValue*)adValue {
-    Yodo1MasAdEvent *event = [[Yodo1MasAdEvent alloc] initWithCode:Yodo1MasAdEventCodePayRevenue type:Yodo1MasAdTypeRewardedInterstitial adValue:adValue];
     [Yodo1MasBridge sendMessageWithEvent: event];
 }
 

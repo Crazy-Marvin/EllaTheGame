@@ -14,7 +14,7 @@ namespace Yodo1.MAS
             {
                 try
                 {
-                    javaClass = new AndroidJavaClass("com.yodo1.mas.UntiyYodo1Mas");
+                    javaClass = new AndroidJavaClass("com.yodo1.mas.UnityYodo1Mas");
 
                     using (AndroidJavaClass unityPlayerClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
                     {
@@ -217,14 +217,6 @@ namespace Yodo1.MAS
         }
 
         public static void Native(string methodName, string param)
-        {
-            if (Application.platform == RuntimePlatform.Android && javaClass != null)
-            {
-                javaClass.CallStatic(methodName, currentActivity, param);
-            }
-        }
-
-        public static void RewardedInterstitial(string methodName, string param)
         {
             if (Application.platform == RuntimePlatform.Android && javaClass != null)
             {

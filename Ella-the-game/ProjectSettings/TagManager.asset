@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags:
   - Fire
   - MainCanvas
@@ -22,6 +22,9 @@ TagManager:
   - Item
   - SpriteBG
   - LeaderBoardBtn
+  - AchievementsBtn
+  - FxTemporaire
+  - LoginBtn
   layers:
   - Default
   - TransparentFX
@@ -74,3 +77,5 @@ TagManager:
   - name: ForeGround
     uniqueID: 1698111241
     locked: 0
+  m_RenderingLayers:
+  - Default

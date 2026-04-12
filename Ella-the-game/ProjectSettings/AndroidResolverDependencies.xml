@@ -1,7 +1,18 @@
 <dependencies>
   <packages>
+    <package>com.google.android.play:core-common:2.0.4</package>
     <package>com.google.games:gpgs-plugin-support:2.0.0</package>
-    <package>com.yodo1.mas:full:4.14.2</package>
+    <package>com.yodo1.mas.mediation.admob.adapters:applovin-ad-manager:4.17.1</package>
+    <package>com.yodo1.mas.mediation.admob.adapters:applovin-admob:4.17.1</package>
+    <package>com.yodo1.mas.mediation.applovin.adapters:admob:4.17.1</package>
+    <package>com.yodo1.mas.mediation.moloco.adapters:admob:4.17.1</package>
+    <package>com.yodo1.mas.mediation.moloco.adapters:applovin:4.17.1</package>
+    <package>com.yodo1.mas.mediation:admob:4.17.1</package>
+    <package>com.yodo1.mas.mediation:applovin:4.17.1</package>
+    <package>com.yodo1.mas.mediation:moloco:4.17.1</package>
+    <package>com.yodo1.mas.mediation:yodo1:4.17.1</package>
+    <package>com.yodo1.mas:core:4.17.1</package>
+    <package>com.yodo1.mas:gplibrary:4.17.1</package>
   </packages>
   <files>
     <file>Assets/GeneratedLocalRepo/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/2.0.0/gpgs-plugin-support-2.0.0.aar</file>

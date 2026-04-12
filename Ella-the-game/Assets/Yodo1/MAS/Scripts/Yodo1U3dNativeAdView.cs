@@ -17,7 +17,7 @@ namespace Yodo1.MAS
     public class Yodo1U3dNativeAdView
     {
         private static List<Yodo1U3dNativeAdView> NativeAdViews = new List<Yodo1U3dNativeAdView>();
-        private readonly string indexId = ((DateTime.Now.ToUniversalTime().Ticks - 621355968000000000) / 10000) + NativeAdViews.Count + "";
+        private readonly string indexId = Yodo1U3dAdUtils.GetUniqueTicks().ToString();
         private string adPlacement = string.Empty;
         private string customData = string.Empty;
         private Yodo1U3dNativeAdPosition adPosition = Yodo1U3dNativeAdPosition.NativeNone;

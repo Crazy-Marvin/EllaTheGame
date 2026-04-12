@@ -1,0 +1,10 @@
+{
+  "name": "com.google.play.common",
+  "displayName": "Google Play Common",
+  "description": "The Google Play Common package provides common files required by some Google Play packages, such as Play Integrity API.\n\nThis package doesn't provide any features when installed separately.",
+  "version": "1.9.2",
+  "unity": "2018.4",
+  "author": {
+    "name": "Google LLC"
+  }
+}

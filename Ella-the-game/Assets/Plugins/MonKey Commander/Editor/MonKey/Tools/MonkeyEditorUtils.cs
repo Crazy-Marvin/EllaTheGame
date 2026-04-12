@@ -854,15 +854,15 @@ namespace MonKey.Editor
             string assetTypeHDRP = "HDRenderPipelineAsset";
             string assetTypeURP = "UniversalRenderPipelineAsset";
 
-            if (!GraphicsSettings.renderPipelineAsset)
+            if (!GraphicsSettings.defaultRenderPipeline)
                 return PipelineType.LEGACY;
 
-            if (GraphicsSettings.renderPipelineAsset.GetType().Name.Contains(assetTypeHDRP))
+            if (GraphicsSettings.defaultRenderPipeline.GetType().Name.Contains(assetTypeHDRP))
             {
                 return PipelineType.HDRP;
             }
 
-            if (GraphicsSettings.renderPipelineAsset.GetType().Name.Contains(assetTypeURP))
+            if (GraphicsSettings.defaultRenderPipeline.GetType().Name.Contains(assetTypeURP))
             {
                 return PipelineType.URP;
             }

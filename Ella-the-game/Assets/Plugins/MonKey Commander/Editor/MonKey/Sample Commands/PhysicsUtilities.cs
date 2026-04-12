@@ -206,7 +206,7 @@ namespace MonKey.Editor.Commands
                 {
                     if (!body)
                         continue;
-                    body.velocity = Vector3.zero;
+                    body.linearVelocity = Vector3.zero;
                     body.angularVelocity = Vector3.zero;
                     body.Sleep();
                 }
@@ -216,7 +216,7 @@ namespace MonKey.Editor.Commands
                 {
                     if (!body)
                         continue;
-                    body.velocity = Vector3.zero;
+                    body.linearVelocity = Vector3.zero;
                     body.angularVelocity = Vector3.zero;
                     body.Sleep();
                 }
@@ -366,7 +366,8 @@ namespace MonKey.Editor.Commands
             private readonly List<GameObject> objectsWithAddedBody = new List<GameObject>();
             private readonly List<Rigidbody2D> cachedBodies = new List<Rigidbody2D>();
             private readonly List<Rigidbody2D> excludedBodies = new List<Rigidbody2D>();
-            private readonly bool previousAutoSimulation;
+
+            private readonly SimulationMode2D previousSimulationMode;
 
             private readonly List<PositionRotation> previousPositionRotations = new List<PositionRotation>();
 
@@ -393,11 +394,13 @@ namespace MonKey.Editor.Commands
                     if (o.transform.GetAllParentTransforms()
                         .Any(_ => objectsWithoutBodies.Any(ob => ob.transform == _)))
                         continue;
+
                     if (o.GetComponent<Rigidbody2D>())
                     {
                         cachedBodies.Add(o.GetComponent<Rigidbody2D>());
                         continue;
                     }
+
                     o.AddComponent<Rigidbody2D>();
                     objectsWithAddedBody.Add(o);
                 }
@@ -410,10 +413,10 @@ namespace MonKey.Editor.Commands
                 {
                     if (!body)
                         continue;
+
                     if (cachedBodies.Contains(body))
                     {
-                        previousPositionRotations.Add(
-                            new PositionRotation(body.position, body.rotation));
+                        previousPositionRotations.Add(new PositionRotation(body.position, body.rotation));
                         body.WakeUp();
                     }
                     else
@@ -422,24 +425,21 @@ namespace MonKey.Editor.Commands
                     }
                 }
 
-                previousAutoSimulation = Physics2D.autoSimulation;
-                Physics2D.autoSimulation = false;
+                previousSimulationMode = Physics2D.simulationMode;
+                Physics2D.simulationMode = SimulationMode2D.Script;
                 timer = 0;
-            }
-
-            public override string ConfirmationMessage()
-            {
-                return "Press ENTER to stop the physics simulation";
             }
 
             public override void Stop()
             {
                 base.Stop();
+
                 foreach (Rigidbody2D body in cachedBodies)
                 {
                     if (!body)
                         continue;
-                    body.velocity = Vector3.zero;
+
+                    body.linearVelocity = Vector3.zero;
                     body.angularVelocity = 0;
                     body.Sleep();
                 }
@@ -448,7 +448,8 @@ namespace MonKey.Editor.Commands
                 {
                     if (!body)
                         continue;
-                    body.velocity = Vector3.zero;
+
+                    body.linearVelocity = Vector3.zero;
                     body.angularVelocity = 0;
                     body.Sleep();
                 }
@@ -457,26 +458,25 @@ namespace MonKey.Editor.Commands
                 {
                     if (!body)
                         continue;
+
                     Object.DestroyImmediate(body.GetComponent<Rigidbody2D>());
                 }
 
                 int i = 0;
-
                 foreach (var body in cachedBodies)
                 {
                     if (!body)
                     {
                         i++;
                         continue;
-
                     }
+
                     PositionRotation newPr = new PositionRotation(body.position, body.rotation);
                     body.gameObject.transform.position = previousPositionRotations[i].Position;
                     body.rotation = previousPositionRotations[i].Rotation;
                     previousPositionRotations[i] = newPr;
                     i++;
                 }
-
 
                 int id = MonkeyEditorUtils.CreateUndoGroup("Physics Simulation");
                 i = 0;
@@ -487,16 +487,19 @@ namespace MonKey.Editor.Commands
                         i++;
                         continue;
                     }
+
                     Undo.RecordObject(body.transform, "position rotation");
                     body.gameObject.transform.position = previousPositionRotations[i].Position;
                     body.rotation = previousPositionRotations[i].Rotation;
+                    i++;
                 }
                 Undo.CollapseUndoOperations(id);
 
-                Physics2D.autoSimulation = previousAutoSimulation;
+                Physics2D.simulationMode = previousSimulationMode;
                 currentEditorPhysics2D = null;
             }
 
+          
             public override void OnSceneGUI()
             {
                 base.OnSceneGUI();

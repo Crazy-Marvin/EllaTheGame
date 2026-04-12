@@ -8,7 +8,6 @@ public class Yodo1UIHolders : MonoBehaviour
     public GameObject interstitialHolder;
     public GameObject rewardHolder;
     public GameObject nativeAdsHolder;
-    public GameObject rewardedInterstitialHolder;
     public GameObject appOpenHolder;
 
     public void OpenHolder(string holderName)
@@ -32,10 +31,6 @@ public class Yodo1UIHolders : MonoBehaviour
         if (nativeAdsHolder != null)
         {
             nativeAdsHolder.SetActive(holderName.Equals("native"));
-        }
-        if (rewardedInterstitialHolder != null)
-        {
-            rewardedInterstitialHolder.SetActive(holderName.Equals("rewardedInterstitial"));
         }
         if (appOpenHolder != null)
         {

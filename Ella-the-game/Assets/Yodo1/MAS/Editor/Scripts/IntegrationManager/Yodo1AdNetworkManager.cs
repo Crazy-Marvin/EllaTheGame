@@ -78,7 +78,7 @@ public class Yodo1AdNetworkManager
         {
             sdkVersion = iosData.sdkVersion;
         }
-        if (!string.IsNullOrEmpty(sdkVersion))
+        if (!string.IsNullOrEmpty(sdkVersion))  // have cached data in local
         {
             Yodo1AdNetworkConfig oldAdNetworkConfig = GetAdNetworkConfigFromServer(sdkVersion);
             if (oldAdNetworkConfig == null || yodo1AdNetworkConfig == null)
@@ -89,16 +89,42 @@ public class Yodo1AdNetworkManager
             {
                 List<string> oldAndroidList = GetNetworkList(oldAdNetworkConfig.android);
                 List<string> androidList = GetNetworkList(yodo1AdNetworkConfig.android);
-                List<string> finalAndroidList = androidList.Except(oldAndroidList).ToList();
-                androidData.networks.AddRange(finalAndroidList);
+                List<string> newAndroidList = androidList.Except(oldAndroidList).ToList();
+                List<String> newDeduplicationList = newAndroidList.Except(androidData.networks).ToList(); //this mehtod CheckDependenciesFileByCachedAdNetworks may be call more than once in one session,so need deduplication the data before adding it
+                if (newDeduplicationList != null && newDeduplicationList.Any())
+                {
+                    foreach (Yodo1AdNetwork network in yodo1AdNetworkConfig.android)
+                    {
+                        foreach (string displayName in newDeduplicationList)
+                        {
+                            if (!string.IsNullOrEmpty(network.name) && network.name.Equals(displayName) && network.status != 1) //new added network status != 1 wil be add
+                            {
+                                androidData.networks.Add(displayName);
+                            }
+                        }
+                    }
+                }
                 UpdateAdNetworksInfo(androidData);
             }
             if (!string.IsNullOrEmpty(iosData.sdkVersion) && oldAdNetworkConfig.ios != null && oldAdNetworkConfig.ios.Length > 0 && yodo1AdNetworkConfig.ios != null && yodo1AdNetworkConfig.ios.Length > 0)
             {
                 List<string> oldIosList = GetNetworkList(oldAdNetworkConfig.ios);
                 List<string> iosList = GetNetworkList(yodo1AdNetworkConfig.ios);
-                List<string> finalIosList = iosList.Except(oldIosList).ToList();
-                iosData.networks.AddRange(finalIosList);
+                List<string> newIosList = iosList.Except(oldIosList).ToList();
+                List<String> newDeduplicationList = newIosList.Except(iosData.networks).ToList(); //this mehtod CheckDependenciesFileByCachedAdNetworks may be call more than once in one session,so need deduplication the data before adding it
+                if (newDeduplicationList != null && newDeduplicationList.Any())
+                {
+                    foreach (Yodo1AdNetwork network in yodo1AdNetworkConfig.ios)
+                    {
+                        foreach (string displayName in newDeduplicationList)
+                        {
+                            if (!string.IsNullOrEmpty(network.name) && network.name.Equals(displayName) && network.status != 1) //new added network status != 1 wil be add
+                            {
+                                iosData.networks.Add(displayName);
+                            }
+                        }
+                    }
+                }
                 UpdateAdNetworksInfo(iosData);
             }
         }
@@ -245,7 +271,7 @@ public class Yodo1AdNetworkManager
             }
 
             #region filter data
-            bool maxMediation = false, admobMediation = false, ironsourcemediation = false, tobidMediation = false;
+            bool maxMediation = false, admobMediation = false, ironsourcemediation = false, tobidMediation = false, toponMediation = false;
             foreach (string networkName in list)
             {
                 if (string.Equals("APPLOVIN", networkName))
@@ -263,6 +289,10 @@ public class Yodo1AdNetworkManager
                 if (string.Equals("TOBID", networkName))
                 {
                     tobidMediation = true;
+                }
+                if (string.Equals("TOPON_HYPERBID", networkName) || string.Equals("TOPON", networkName))
+                {
+                    toponMediation = true;
                 }
             }
 
@@ -288,6 +318,10 @@ public class Yodo1AdNetworkManager
                 if (tobidMediation && !string.IsNullOrEmpty(adNetwork.tobidAdapterDependency))
                 {
                     dependencyList.Add(adNetwork.tobidAdapterDependency);
+                }
+                if (toponMediation && !string.IsNullOrEmpty(adNetwork.toponAdapterDependency))
+                {
+                    dependencyList.Add(adNetwork.toponAdapterDependency);
                 }
             }
             #endregion
@@ -422,7 +456,7 @@ public class Yodo1AdNetworkManager
             }
 
             #region filter data
-            bool maxMediation = false, admobMediation = false, ironsourcemediation = false;
+            bool maxMediation = false, admobMediation = false, ironsourcemediation = false, toponMediation = false;
             foreach (string networkName in list)
             {
                 if (string.Equals("APPLOVIN", networkName))
@@ -436,6 +470,10 @@ public class Yodo1AdNetworkManager
                 if (string.Equals("IRONSOURCE", networkName))
                 {
                     ironsourcemediation = true;
+                }
+                if (string.Equals("TOPON_HYPERBID", networkName) || string.Equals("TOPON", networkName))
+                {
+                    toponMediation = true;
                 }
             }
 
@@ -469,6 +507,10 @@ public class Yodo1AdNetworkManager
                         {
                             dependencyList.Add(adNetwork.ironsourceAdapterDependency);
                         }
+                        if (toponMediation && !string.IsNullOrEmpty(adNetwork.toponAdapterDependency))
+                        {
+                            dependencyList.Add(adNetwork.toponAdapterDependency);
+                        }
                     }
                 }
             }
@@ -493,6 +535,9 @@ public class Yodo1AdNetworkManager
                 XmlNode maven = xmlWriteDoc.CreateElement("repository");
                 maven.InnerText = "https://oss.sonatype.org/content/repositories/snapshots/";
                 repositories.AppendChild(maven);
+                XmlNode maven2 = xmlWriteDoc.CreateElement("repository");
+                maven2.InnerText = "https://central.sonatype.com/repository/maven-snapshots/";
+                repositories.AppendChild(maven2);
             }
             #endregion
 
