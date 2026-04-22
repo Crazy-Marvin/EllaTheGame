@@ -1,0 +1,9 @@
+- 🛒 Обновлён Unity
+- 🛒 Обновлены зависимости
+- 🛒 Обновлён SDK Yodo1
+- 🛒 Обновлён SDK Google Play Games
+- 🛒 Обновлён SDK Google Play Billing
+- 🤖 Цель — Android 16
+- 🌍 Обновлены переводы
+
+❤️Вечная память❤️
