@@ -1,0 +1,6 @@
+- 🛠️ 업데이트된 종속성
+- 🛠️ 업그레이드된 Yodo1 SDK
+- 🛠️ 업그레이드된 Google Play Games SDK
+- 🛠️ 업그레이드된 Google Play Billing SDK
+- 🤖 대상 Android 16
+- 🌍 업데이트된 번역
