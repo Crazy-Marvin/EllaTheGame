@@ -1,0 +1,9 @@
+- 🛠️ Unity Atualizado
+- 🛠️ Dependências Atualizadas
+- 🛠️ Yodo1 SDK Atualizado
+- 🛠️ Google Play Games SDK Atualizado
+- 🛠️ Google Play Billing SDK Atualizado
+- 🤖 Suporte para Android 16
+- 🌍 Traduções Atualizadas
+
+❤️RIP❤️
