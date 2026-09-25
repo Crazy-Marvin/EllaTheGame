@@ -1,0 +1,9 @@
+- 🛠️ Aktualiziran Unity
+- 🛠️ Aktualizirane ovisnosti
+- 🛠️ Nadograđeni Yodo1 SDK
+- 🛠️ Nadograđeni SDK za Google Play igre
+- 🛠️ Nadograđeni SDK za naplatu na Google Playu
+- 🤖 Ciljaj Android 16
+- 🌍 Aktualizirani prijevodi
+
+❤️Počivaj u miru❤️
