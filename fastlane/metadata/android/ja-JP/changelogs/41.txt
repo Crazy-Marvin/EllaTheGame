@@ -1,0 +1,8 @@
+- 🛠️ Dependenciesのアップデート
+- 🛠️ Yodo1 SDKのアップデート
+- 🛠️ Google Play Games SDKのアップデート
+- 🛠️ Google Play Billing SDKのアップデート
+- 🤖 Android 16向け
+- 🌍 翻訳済み単語の追加
+
+♥️RIP♥️
